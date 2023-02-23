@@ -1,0 +1,913 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><title>&lt;!DOCTYPE html&gt;</title></head><body><p dir="ltr">&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&lt;meta charset="UTF-8" /&gt;<br>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;<br>
+&lt;title&gt;Login Form&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;style&gt;<br>
+.container {<br>
+background-color: white;<br>
+background-size: cover;<br>
+width: 100%;<br>
+height: 100%;<br>
+}<br>
+.login {<br>
+justify-content: left;<br>
+align-items: center;<br>
+display: flex;<br>
+margin-top: 16px;<br>
+}<br>
+#Lg {<br>
+padding-top: 8px;<br>
+padding-bottom: 8px;<br>
+width: 90px;<br>
+text-align: center;<br>
+background-color: rgb(30, 30, 187);<br>
+color: white;<br>
+}<br>
+#myCanvas {<br>
+background-color: none;<br>
+margin-top: 50px;<br>
+}<br>
+p {<br>
+color: grey;<br>
+font-family: arial;<br>
+font-size: 1%;<br>
+font-weight: lite;<br>
+text-align: left;<br>
+}<br>
+p1 {<br>
+color: black;<br>
+font-family: arial;<br>
+font-size: 20%;<br>
+font-weight: bolder;<br>
+text-align: center;<br>
+} <br>
+&lt;/style&gt;<br>
+&lt;body&gt;<br>
+&lt;div class="container"&gt;<br>
+&lt;br&gt;&lt;/br&gt;<br>
+&lt;script&gt;<br>
+window.onload = function () {<br>
+var canvas = document.getElementById ("myCanvas") ;<br>
+var context = canvas.getContext ("2d") ;</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (30, 110);<br>
+context.lineTo (30, 315);<br>
+context.moveTo (54, 130);<br>
+context.lineTo (54, 315);<br>
+context.moveTo (30, 110);<br>
+context.lineTo (200, 110);<br>
+context.moveTo (30, 130);<br>
+context.lineTo (200, 130);<br>
+context.moveTo (200, 110);<br>
+context.lineTo (200, 315);<br>
+context.moveTo (30, 315);<br>
+context.lineTo (200, 315);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (30, 438);<br>
+context.lineTo (30, 500);<br>
+context.moveTo (30, 438);<br>
+context.lineTo (210, 438);<br>
+context.moveTo (210, 438);<br>
+context.lineTo (210, 500);<br>
+context.moveTo (30, 500);<br>
+context.lineTo (210, 500);<br>
+context.moveTo (30, 458);<br>
+context.lineTo (210, 458);<br>
+context.moveTo (90, 458);<br>
+context.lineTo (90, 500);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (115, 315);<br>
+context.lineTo (115, 438);<br>
+context.moveTo (100, 438);<br>
+context.lineTo (115, 423);<br>
+context.lineTo (130, 438);<br>
+context.moveTo (100, 330);<br>
+context.lineTo (130, 330);<br>
+context.moveTo (100, 335);<br>
+context.lineTo (130, 335);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (115, 413, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (358, 488);<br>
+context.lineTo (358, 670);<br>
+context.moveTo (358, 488);<br>
+context.lineTo (520, 488);<br>
+context.moveTo (358, 508);<br>
+context.lineTo (520, 508);<br>
+context.moveTo (382, 508);<br>
+context.lineTo (382, 670);<br>
+context.moveTo (520, 488);<br>
+context.lineTo (520, 670);<br>
+context.moveTo (358, 670);<br>
+context.lineTo (520, 670);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (358, 530);<br>
+context.lineTo (300, 530);<br>
+context.lineTo (300, 469);<br>
+context.lineTo (210, 469);<br>
+context.moveTo (210, 454);<br>
+context.lineTo (225, 469);<br>
+context.lineTo (210, 484);<br>
+context.moveTo (343, 545);<br>
+context.lineTo (343, 515);<br>
+context.moveTo (338, 545);<br>
+context.lineTo (338, 515);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (235, 469, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (400, 488);<br>
+context.lineTo (400, 455);<br>
+context.lineTo (329, 455);<br>
+context.lineTo (329, 172);<br>
+context.moveTo (314, 172);<br>
+context.lineTo (329, 187);<br>
+context.lineTo (344, 172);<br>
+context.moveTo (385, 473);<br>
+context.lineTo (415, 473);<br>
+context.moveTo (385, 468);<br>
+context.lineTo (415, 468);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (329, 197, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.stroke ();<br>
+context.beginPath () ;<br>
+context.moveTo (230, 172);<br>
+context.lineTo (428, 172);<br>
+context.moveTo (230, 172);<br>
+context.lineTo (230, 110);<br>
+context.moveTo (428, 172);<br>
+context.lineTo (428, 110);<br>
+context.moveTo (230, 110);<br>
+context.lineTo (428, 110);<br>
+context.moveTo (230, 130);<br>
+context.lineTo (428, 130);<br>
+context.moveTo (290, 130);<br>
+context.lineTo (290, 172);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "Black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (621, 315);<br>
+context.lineTo (621, 110);<br>
+context.moveTo (791, 315);<br>
+context.lineTo (791, 110);<br>
+context.moveTo (621, 110);<br>
+context.lineTo (791, 110);<br>
+context.moveTo (621, 315);<br>
+context.lineTo (791, 315);<br>
+context.moveTo (645, 130);<br>
+context.lineTo (645, 315);<br>
+context.moveTo (621, 130);<br>
+context.lineTo (791, 130);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "Black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (428, 141);<br>
+context.lineTo (550, 141);<br>
+context.lineTo (550, 190);<br>
+context.lineTo (621, 190);<br>
+context.moveTo (428, 156);<br>
+context.lineTo (443, 141);<br>
+context.lineTo (428, 126);<br>
+context.moveTo (606, 175);<br>
+context.lineTo (606, 205);<br>
+context.moveTo (611, 175);<br>
+context.lineTo (611, 205);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (453, 141, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (681, 405);<br>
+context.lineTo (681, 473);<br>
+context.moveTo (681, 405);<br>
+context.lineTo (835, 405);<br>
+context.moveTo (681, 425);<br>
+context.lineTo (835, 425);<br>
+context.moveTo (705, 425);<br>
+context.lineTo (705, 473);<br>
+context.moveTo (681, 473);<br>
+context.lineTo (835, 473);<br>
+context.moveTo (835, 405);<br>
+context.lineTo (835, 473);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (520, 530);<br>
+context.lineTo (758, 530);<br>
+context.lineTo (758, 473);<br>
+context.moveTo (520, 515);<br>
+context.lineTo (535, 530);<br>
+context.lineTo (520, 545);<br>
+context.moveTo (773, 488);<br>
+context.lineTo (743, 488);<br>
+context.moveTo (773, 493);<br>
+context.lineTo (743, 493);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (545, 530, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (982, 405);<br>
+context.lineTo (982, 475);<br>
+context.moveTo (982, 405);<br>
+context.lineTo (1138, 405);<br>
+context.moveTo (1138, 425);<br>
+context.lineTo (982, 425);<br>
+context.moveTo (1042, 425);<br>
+context.lineTo (1042, 475);<br>
+context.moveTo (1138, 475);<br>
+context.lineTo (1138, 405);<br>
+context.moveTo (982, 475);<br>
+context.lineTo (1138, 475);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (835, 440);<br>
+context.lineTo (982, 440);<br>
+context.moveTo (982, 455);<br>
+context.lineTo (967, 440);<br>
+context.lineTo (982, 425);<br>
+context.moveTo (850, 455);<br>
+context.lineTo (850, 425);<br>
+context.moveTo (855, 455);<br>
+context.lineTo (855, 425);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (957, 440, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1285, 395);<br>
+context.lineTo (1285, 482);<br>
+context.moveTo (1285, 395);<br>
+context.lineTo (1450, 395);<br>
+context.moveTo (1285, 415);<br>
+context.lineTo (1450, 415);<br>
+context.moveTo (1309, 415);<br>
+context.lineTo (1309, 482);<br>
+context.moveTo (1285, 482);<br>
+context.lineTo (1450, 482);<br>
+context.moveTo (1450, 482);<br>
+context.lineTo (1450, 395);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1285, 439);<br>
+context.lineTo (1138, 439);<br>
+context.moveTo (1138, 424);<br>
+context.lineTo (1153, 439);<br>
+context.lineTo (1138, 454);<br>
+context.moveTo (1270, 454);<br>
+context.lineTo (1270, 424);<br>
+context.moveTo (1265, 454);<br>
+context.lineTo (1265, 424);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1163, 439, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (951, 110);<br>
+context.lineTo (951, 168);<br>
+context.moveTo (951, 110);<br>
+context.lineTo (1115, 110);<br>
+context.moveTo (951, 130);<br>
+context.lineTo (1115, 130);<br>
+context.moveTo (951, 168);<br>
+context.lineTo (1115, 168);<br>
+context.moveTo (1011, 130);<br>
+context.lineTo (1011, 168);<br>
+context.moveTo (1115, 168);<br>
+context.lineTo (1115, 110);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (951, 139);<br>
+context.lineTo (791, 139);<br>
+context.moveTo (951, 124);<br>
+context.lineTo (936, 139);<br>
+context.lineTo (951, 154);<br>
+context.moveTo (806, 154);<br>
+context.lineTo (806, 124);<br>
+context.moveTo (811, 154);<br>
+context.lineTo (811, 124);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (926, 139, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1280, 110);<br>
+context.lineTo (1280, 237);<br>
+context.moveTo (1280, 110);<br>
+context.lineTo (1450, 110);<br>
+context.moveTo (1280, 130);<br>
+context.lineTo (1450, 130);<br>
+context.moveTo (1304, 130);<br>
+context.lineTo (1304, 237);<br>
+context.moveTo (1450, 110);<br>
+context.lineTo (1450, 237);<br>
+context.moveTo (1450, 237);<br>
+context.lineTo (1280, 237);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1115, 139);<br>
+context.lineTo (1280, 139);<br>
+context.moveTo (1115, 124);<br>
+context.lineTo (1130, 139);<br>
+context.lineTo (1115, 154);<br>
+context.moveTo (1265, 154);<br>
+context.lineTo (1265, 124);<br>
+context.moveTo (1260, 154);<br>
+context.lineTo (1260, 124);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1140, 139, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (951, 210);<br>
+context.lineTo (951, 268);<br>
+context.moveTo (951, 210);<br>
+context.lineTo (1115, 210);<br>
+context.moveTo (951, 230);<br>
+context.lineTo (1115, 230);<br>
+context.moveTo (951, 268);<br>
+context.lineTo (1115, 268);<br>
+context.moveTo (1011, 230);<br>
+context.lineTo (1011, 268);<br>
+context.moveTo (1115, 268);<br>
+context.lineTo (1115, 210);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1280, 202);<br>
+context.lineTo (1198, 202);<br>
+context.lineTo (1198, 242);<br>
+context.lineTo (1115, 242);<br>
+context.moveTo (1115, 227);<br>
+context.lineTo (1130, 242);<br>
+context.lineTo (1115, 257);<br>
+context.moveTo (1265, 217);<br>
+context.lineTo (1265, 187);<br>
+context.moveTo (1260, 217);<br>
+context.lineTo (1260, 187);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1140, 242, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1033, 268);<br>
+context.lineTo (1033, 330);<br>
+context.lineTo (1368, 330);<br>
+context.lineTo (1368, 395);<br>
+context.moveTo (1018, 268);<br>
+context.lineTo (1033, 283);<br>
+context.lineTo (1048, 268);<br>
+context.moveTo (1383, 380);<br>
+context.lineTo (1353, 380);<br>
+context.moveTo (1383, 375);<br>
+context.lineTo (1353, 375);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1033, 293, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (951, 210);<br>
+context.lineTo (951, 268);<br>
+context.moveTo (951, 210);<br>
+context.lineTo (1115, 210);<br>
+context.moveTo (951, 230);<br>
+context.lineTo (1115, 230);<br>
+context.moveTo (951, 268);<br>
+context.lineTo (1115, 268);<br>
+context.moveTo (1011, 230);<br>
+context.lineTo (1011, 268);<br>
+context.moveTo (1115, 268);<br>
+context.lineTo (1115, 210);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (681, 550);<br>
+context.lineTo (681, 612);<br>
+context.moveTo (681, 612);<br>
+context.lineTo (845, 612);<br>
+context.moveTo (741, 570);<br>
+context.lineTo (741, 612);<br>
+context.moveTo (681, 570);<br>
+context.lineTo (845, 570);<br>
+context.moveTo (681, 550);<br>
+context.lineTo (845, 550);<br>
+context.moveTo (845, 550);<br>
+context.lineTo (845, 612);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (520, 581);<br>
+context.lineTo (681, 581);<br>
+context.moveTo (681, 566);<br>
+context.lineTo (666, 581);<br>
+context.lineTo (681, 596);<br>
+context.moveTo (535, 566);<br>
+context.lineTo (535, 596);<br>
+context.moveTo (540, 566);<br>
+context.lineTo (540, 596);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (656, 581, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1000, 550);<br>
+context.lineTo (1000, 697);<br>
+context.moveTo (1000, 550);<br>
+context.lineTo (1155, 550);<br>
+context.moveTo (1000, 570);<br>
+context.lineTo (1155, 570);<br>
+context.moveTo (1024, 570);<br>
+context.lineTo (1024, 697);<br>
+context.moveTo (1000, 697);<br>
+context.lineTo (1155, 697);<br>
+context.moveTo (1155, 697);<br>
+context.lineTo (1155, 550);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (845, 581);<br>
+context.lineTo (1000, 581);<br>
+context.moveTo (845, 566);<br>
+context.lineTo (860, 581);<br>
+context.lineTo (845, 596);<br>
+context.moveTo (985, 566);<br>
+context.lineTo (985, 596);<br>
+context.moveTo (980, 566);<br>
+context.lineTo (980, 596);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (870, 581, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1155, 642);<br>
+context.lineTo (1325, 642);<br>
+context.lineTo (1325, 482);<br>
+context.moveTo (1155, 627);<br>
+context.lineTo (1170, 642);<br>
+context.lineTo (1155, 657);<br>
+context.moveTo (1175, 627);<br>
+context.lineTo (1175, 657);<br>
+context.moveTo (1310, 497);<br>
+context.lineTo (1340, 497);<br>
+context.moveTo (1310, 502);<br>
+context.lineTo (1340, 502);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (600, 800);<br>
+context.lineTo (600, 927);<br>
+context.moveTo (600, 800);<br>
+context.lineTo (770, 800);<br>
+context.moveTo (600, 820);<br>
+context.lineTo (770, 820);<br>
+context.moveTo (770, 800);<br>
+context.lineTo (770, 927);<br>
+context.moveTo (624, 820);<br>
+context.lineTo (624, 927);<br>
+context.moveTo (600, 927);<br>
+context.lineTo (770, 927);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (439, 670);<br>
+context.lineTo (439, 864);<br>
+context.lineTo (600, 864);<br>
+context.moveTo (424, 670);<br>
+context.lineTo (439, 685);<br>
+context.lineTo (454, 670);<br>
+context.moveTo (585, 849);<br>
+context.lineTo (585, 879);<br>
+context.moveTo (580, 849);<br>
+context.lineTo (580, 879);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (439, 695, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (770, 892);<br>
+context.lineTo (1428, 892);<br>
+context.lineTo (1428, 482);<br>
+context.moveTo (770, 877);<br>
+context.lineTo (795, 892);<br>
+context.lineTo (770, 907);<br>
+context.moveTo (805, 877);<br>
+context.lineTo (805, 907);<br>
+context.moveTo (1443, 497);<br>
+context.lineTo (1413, 497);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1428, 512, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (681, 750);<br>
+context.lineTo (681, 688);<br>
+context.moveTo (681, 688);<br>
+context.lineTo (845, 688);<br>
+context.moveTo (741, 708);<br>
+context.lineTo (741, 750);<br>
+context.moveTo (681, 708);<br>
+context.lineTo (845, 708);<br>
+context.moveTo (681, 750);<br>
+context.lineTo (845, 750);<br>
+context.moveTo (845, 750);<br>
+context.lineTo (845, 688);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (500, 670);<br>
+context.lineTo (500, 719);<br>
+context.lineTo (681, 719);<br>
+context.moveTo (681, 704);<br>
+context.lineTo (666, 719);<br>
+context.lineTo (681, 734);<br>
+context.moveTo (515, 685);<br>
+context.lineTo (485, 685);<br>
+context.moveTo (515, 690);<br>
+context.lineTo (485, 690);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (656, 719, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1000, 750);<br>
+context.lineTo (1000, 830);<br>
+context.moveTo (1000, 750);<br>
+context.lineTo (1155, 750);<br>
+context.moveTo (1000, 770);<br>
+context.lineTo (1155, 770);<br>
+context.moveTo (1024, 770);<br>
+context.lineTo (1024, 830);<br>
+context.moveTo (1000, 830);<br>
+context.lineTo (1155, 830);<br>
+context.moveTo (1155, 830);<br>
+context.lineTo (1155, 750);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1000, 790);<br>
+context.lineTo (763, 790);<br>
+context.lineTo (763, 750);<br>
+context.moveTo (748, 750);<br>
+context.lineTo (763, 765);<br>
+context.lineTo (778, 750);<br>
+context.moveTo (985, 805);<br>
+context.lineTo (985, 775);<br>
+context.moveTo (980, 805);<br>
+context.lineTo (980, 775);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (763, 775, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (1155, 790);<br>
+context.lineTo (1368, 790);<br>
+context.lineTo (1368, 482);<br>
+context.moveTo (1155, 775);<br>
+context.lineTo (1170, 790);<br>
+context.lineTo (1155, 805);<br>
+context.moveTo (1383, 497);<br>
+context.lineTo (1353, 497);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1180, 790, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (1368, 512, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (30, 580);<br>
+context.lineTo (30, 785);<br>
+context.moveTo (54, 600);<br>
+context.lineTo (54, 785);<br>
+context.moveTo (30, 580);<br>
+context.lineTo (210, 580);<br>
+context.moveTo (30, 600);<br>
+context.lineTo (210, 600);<br>
+context.moveTo (210, 580);<br>
+context.lineTo (210, 785);<br>
+context.moveTo (30, 785);<br>
+context.lineTo (210, 785);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (358, 620);<br>
+context.lineTo (210, 620);<br>
+context.moveTo (358, 605);<br>
+context.lineTo (343, 620);<br>
+context.lineTo (358, 635);<br>
+context.moveTo (338, 605);<br>
+context.lineTo (338, 635);<br>
+context.moveTo (225, 605);<br>
+context.lineTo (225, 635);<br>
+context.moveTo (230, 605);<br>
+context.lineTo (230, 635);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.stroke ();<br>
+context.beginPath () ;<br>
+context.moveTo (400, 220);<br>
+context.lineTo (400, 360);<br>
+context.moveTo (400, 240);<br>
+context.lineTo (555, 240);<br>
+context.moveTo (400, 220);<br>
+context.lineTo (555, 220);<br>
+context.moveTo (424, 240);<br>
+context.lineTo (424, 360);<br>
+context.moveTo (555, 220);<br>
+context.lineTo (555, 360);<br>
+context.moveTo (400, 360);<br>
+context.lineTo (555, 360);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "Black" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (555, 332);<br>
+context.lineTo (759, 332);<br>
+context.lineTo (759, 405);<br>
+context.moveTo (555, 317);<br>
+context.lineTo (570, 332);<br>
+context.lineTo (555, 347);<br>
+context.moveTo (575, 317);<br>
+context.lineTo (575, 347);<br>
+context.moveTo (774, 390);<br>
+context.lineTo (744, 390);<br>
+context.moveTo (774, 385);<br>
+context.lineTo (744, 385);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.moveTo (478, 360);<br>
+context.lineTo (478, 488);<br>
+context.moveTo (493, 488);<br>
+context.lineTo (478, 473);<br>
+context.lineTo (463, 488);<br>
+context.moveTo (463, 375);<br>
+context.lineTo (493, 375);<br>
+context.moveTo (463, 380);<br>
+context.lineTo (493, 380);<br>
+context.lineWidth = 1 ;<br>
+context.strokeStyle = "blue" ;<br>
+context.stroke ();</p>
+<p dir="ltr">context.beginPath () ;<br>
+context.arc (478, 463, 5, 0, 2*Math.PI);<br>
+context.fillStyle = "white" ;<br>
+context.fill ();<br>
+context.stroke ();</p>
+<p dir="ltr">var can = document.getElementById ("myCanvas") ;<br>
+var cn = can.getContext ("2d") ;<br>
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);<br>
+grd.addColorStop(0, "black");</p>
+<p dir="ltr">cn.fillStyle=grd;<br>
+cn.font="30px Arial";<br>
+cn.fillText("Western Cape Crime Statistics Entity Relationships Diagrams",300 , 50)</p>
+<p dir="ltr">cn.fillStyle=grd;<br>
+cn.font="12px Arial";<br>
+cn.fillText("witness", 90, 122);<br>
+cn.fillText("PK", 35, 142);<br>
+cn.fillText("wit_id char(14)", 57, 142);<br>
+cn.fillText("wit_fname varchar(20)", 57, 182);<br>
+cn.fillText("wit_sname varchar(20)", 57, 202);<br>
+cn.fillText("wit_gender char(1)", 57, 222);<br>
+cn.fillText("wit_age integer", 57, 242);<br>
+cn.fillText("wit_address varchar(100)", 57, 262);<br>
+cn.fillText("wit_nationality varchar(30)", 57, 282);<br>
+cn.fillText("wit_title varchar(3)",57 , 162);<br>
+cn.fillText("wit_cell tel",57 , 302);</p>
+<p dir="ltr">cn.fillText("ccase_witness", 50, 450)<br>
+cn.fillText("PK1, FK1",35 , 470);<br>
+cn.fillText("PK2, FK2",35 , 490);<br>
+cn.fillText("ccase_id char(14)",95 , 470);<br>
+cn.fillText("wit_id char(14)",95 , 490);</p>
+<p dir="ltr">cn.fillText("ccase", 430, 500)<br>
+cn.fillText("PK",363 , 520);<br>
+cn.fillText("FK",363 , 600);<br>
+cn.fillText("FK",363 , 620);<br>
+cn.fillText("FK",363 , 640);<br>
+cn.fillText("FK",363 , 660);<br>
+cn.fillText("ccase_id char(14)",385 , 520);<br>
+cn.fillText("crime_ctgry varchar(50) ",385 , 540);<br>
+cn.fillText("crime_typ varchar(50)",385 , 560);<br>
+cn.fillText("dor date",385 , 580);<br>
+cn.fillText("ps_id integer",385 , 600);<br>
+cn.fillText("com_id char(14)",385 , 620);<br>
+cn.fillText("pros_id integer",385 , 640);<br>
+cn.fillText("det_id integer",385 , 660);</p>
+<p dir="ltr">cn.fillText("ccase_suspect", 280, 122)<br>
+cn.fillText("PK1, FK1",235 , 144);<br>
+cn.fillText("PK2, FK2",235 ,164);<br>
+cn.fillText("ccase_id char(14)",295 , 144);<br>
+cn.fillText("wit_id char(14)",295 , 164);</p>
+<p dir="ltr">cn.fillText("suspect", 680, 122);<br>
+cn.fillText("PK", 626, 142);<br>
+cn.fillText("sus_id char(14)", 650, 142);<br>
+cn.fillText("sus_fname varchar(20)", 650, 182);<br>
+cn.fillText("sus_sname varchar(20)", 650, 202);<br>
+cn.fillText("sus_gender char(1)", 650, 222);<br>
+cn.fillText("sus_age integer", 650, 242);<br>
+cn.fillText("sus_address varchar(100)", 650, 262);<br>
+cn.fillText("sus_nationality varchar(30)", 650, 282);<br>
+cn.fillText("sus_title varchar(3)",650 , 162);<br>
+cn.fillText("sus_cell tel",650 , 302);</p>
+<p dir="ltr">cn.fillText("police station", 720, 418);<br>
+cn.fillText("PK", 686, 438);<br>
+cn.fillText("ps_id integer", 710, 438);<br>
+cn.fillText("ps_name varchar(50)", 710, 458);</p>
+<p dir="ltr">cn.fillText("police station_court", 1005, 418);<br>
+cn.fillText("PK1, FK1", 987, 438);<br>
+cn.fillText("PK1, FK1", 987, 458);<br>
+cn.fillText("ps_id integer", 1047, 438);<br>
+cn.fillText("court_id integer", 1047, 458);</p>
+<p dir="ltr">cn.fillText("court", 1360, 408);<br>
+cn.fillText("PK", 1290, 427);<br>
+cn.fillText("court_id integer", 1314, 427);<br>
+cn.fillText("court_name varchar(20)", 1314, 447);<br>
+cn.fillText("court_class varchar(20)", 1314, 467);</p>
+<p dir="ltr">cn.fillText("lawyer_suspect", 990, 122);<br>
+cn.fillText("PK1, FK1",956 , 142);<br>
+cn.fillText("PK2, FK2",956 , 162);<br>
+cn.fillText("lwyr_id integer",1016 , 142);<br>
+cn.fillText("sus_id char(14)",1016 , 162);</p>
+<p dir="ltr">cn.fillText("lawyer", 1320, 122);<br>
+cn.fillText("lwyr_id integer",1309 , 142);<br>
+cn.fillText("PK",1286 , 142);<br>
+cn.fillText("lwyr_title varchar(3)",1309 , 162);<br>
+cn.fillText("lwyr_fname varchar(20)",1309 , 182);<br>
+cn.fillText("lwyr_sname varchar(20)",1309 , 202);<br>
+cn.fillText("lwyr_tel tel",1309 , 222);</p>
+<p dir="ltr">cn.fillText("lawyer_court", 990, 222);<br>
+cn.fillText("PK1, FK1",956 , 242);<br>
+cn.fillText("PK2, FK2",956 , 262);<br>
+cn.fillText("lwyr_id integer",1016 , 242);<br>
+cn.fillText("court_id integer",1016 , 262);</p>
+<p dir="ltr">cn.fillText("judge_ccase", 700, 562);<br>
+cn.fillText("PK1, FK1",686 , 582);<br>
+cn.fillText("PK2, FK2",686 , 602);<br>
+cn.fillText("ccase_id char(14)",746 , 602);<br>
+cn.fillText("jud_id integer",746 , 582);</p>
+<p dir="ltr">cn.fillText("judge", 1050, 562);<br>
+cn.fillText("jud_id integer",1029 , 582);<br>
+cn.fillText("PK",1005 , 582);<br>
+cn.fillText("jud_title varchar(3)",1029 , 602);<br>
+cn.fillText("jud_fname varchar(20)",1029 , 622);<br>
+cn.fillText("jud_sname varchar(20)",1029 , 642);<br>
+cn.fillText("c_division char(4)",1029 , 662);<br>
+cn.fillText("court_id integer",1029 , 682);<br>
+cn.fillText("FK",1005 , 682);</p>
+<p dir="ltr">cn.fillText("prosecutor", 612, 812);<br>
+cn.fillText("pros_id integer",629 , 832);<br>
+cn.fillText("PK",605 , 832);<br>
+cn.fillText("pros_title varchar(3)",629 , 852);<br>
+cn.fillText("pros_fname varchar(20)",629 , 872);<br>
+cn.fillText("pros_sname varchar(20)",629 , 892);<br>
+cn.fillText("court_id integer",629 , 912);<br>
+cn.fillText("FK",605 , 912);</p>
+<p dir="ltr">cn.fillText("ccase_judgement", 690, 700);<br>
+cn.fillText("PK1, FK1",686 , 720);<br>
+cn.fillText("PK2, FK2",686 , 740);<br>
+cn.fillText("ccase_id char(14)",746 , 720);<br>
+cn.fillText("jdmnt_id char(14)",746 , 740);</p>
+<p dir="ltr">cn.fillText("judgement", 1050, 762);<br>
+cn.fillText("jdmnt_id char(14)",1029 , 782);<br>
+cn.fillText("PK",1005 , 782);<br>
+cn.fillText("jdmnt_date date",1029 , 802);<br>
+cn.fillText("court_id integer",1029 , 822);<br>
+cn.fillText("FK",1005 , 822);</p>
+<p dir="ltr">cn.fillText("complainant", 90, 592);<br>
+cn.fillText("PK", 35, 612);<br>
+cn.fillText("com_id char(14)", 57, 612);<br>
+cn.fillText("com_fname varchar(20)", 57, 652);<br>
+cn.fillText("com_sname varchar(20)", 57, 672);<br>
+cn.fillText("com_gender char(1)", 57, 692);<br>
+cn.fillText("com_age integer", 57, 712);<br>
+cn.fillText("com_address varchar(100)", 57, 732);<br>
+cn.fillText("com_nationality varchar(30)", 57, 752);<br>
+cn.fillText("com_title varchar(3)",57 , 632);<br>
+cn.fillText("com_cell tel",57 , 772);</p>
+<p dir="ltr">cn.fillText("detective", 450, 232);<br>
+cn.fillText("det_id integer",429 , 252);<br>
+cn.fillText("PK",405 , 252);<br>
+cn.fillText("det_title varchar(3)", 429, 272);<br>
+cn.fillText("det_fname varchar(20)",429 , 292);<br>
+cn.fillText("det_sname varchar(20)", 429, 312);<br>
+cn.fillText("det_tel tel", 429, 332)<br>
+cn.fillText("ps_id integer",429 , 352);<br>
+cn.fillText("FK",405 , 352);<br>
+} ;<br>
+&lt;/script&gt;<br>
+&lt;center&gt;&lt;canvas id="myCanvas" width="1500" height="1000" " style="border: 3px solid black ;"&gt;&lt;/center&gt;&lt;/canvas&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</p>
+</body></html>

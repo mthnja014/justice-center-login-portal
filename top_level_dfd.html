@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Top Level Diagram</title>
+</head>
+<style>
+.container {
+background-color: white;
+background-size: cover;
+width: 100%;
+height: 100%;
+}
+.login {
+justify-content: left;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#Lg {
+padding-top: 8px;
+padding-bottom: 8px;
+width: 90px;
+text-align: center;
+background-color: rgb(30, 30, 187);
+color: white;
+}
+#myCanvas {
+background-color: none;
+margin-top: 50px;
+}
+p {
+color: grey;
+font-family: arial;
+font-size: 1%;
+font-weight: lite;
+text-align: left;
+}
+p1 {
+color: black;
+font-family: arial;
+font-size: 20%;
+font-weight: bolder;
+text-align: center;
+} 
+</style>
+<body>
+<div class="container">
+<br></br>
+<script>
+window.onload = function () {
+var canvas = document.getElementById ("myCanvas") ;
+var context = canvas.getContext ("2d") ;
+
+context.beginPath () ;
+context.moveTo (30, 110);
+context.lineTo (30, 150);
+context.moveTo (30, 110);
+context.lineTo (180, 110);
+context.moveTo (180, 110);
+context.lineTo (180, 150);
+context.moveTo (30, 150);
+context.lineTo (180, 150);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 300);
+context.lineTo (500, 250);
+context.moveTo (460, 280);
+context.lineTo (450, 300);
+context.lineTo (470, 290);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 340);
+context.lineTo (500, 380);
+context.moveTo (470, 350);
+context.lineTo (450, 340);
+context.lineTo (460, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 315);
+context.lineTo (450, 315);
+context.moveTo (465, 320);
+context.lineTo (450, 315);
+context.lineTo (465, 310);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (400, 300);
+context.lineTo (400, 200);
+context.lineTo (450, 130);
+context.moveTo (395, 285);
+context.lineTo (400, 300);
+context.lineTo (405, 285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (430, 300);
+context.lineTo (430, 220);
+context.lineTo (470, 180);
+context.moveTo (425, 285);
+context.lineTo (430, 300);
+context.lineTo (435, 285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (180, 120);
+context.lineTo (380, 120);
+context.lineTo (380, 300);
+context.moveTo (195, 115);
+context.lineTo (180, 120);
+context.lineTo (195, 125);
+context.moveTo (180, 140);
+context.lineTo (350, 140);
+context.lineTo (350, 300);
+context.moveTo (345, 285);
+context.lineTo (350, 300);
+context.lineTo (355, 285)
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (280, 300);
+context.lineTo (450, 300);
+context.moveTo (280, 340);
+context.lineTo (280, 300);
+context.moveTo (450, 340);
+context.lineTo (280, 340);
+context.moveTo (450, 300);
+context.lineTo (450, 340);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (50, 210);
+context.lineTo (130, 210);
+context.moveTo (50, 250);
+context.lineTo (50, 210);
+context.moveTo (60, 210);
+context.lineTo (60, 250);
+context.moveTo (50, 250);
+context.lineTo (130, 250);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (90, 210);
+context.lineTo (90, 180);
+context.lineTo (310, 180);
+context.lineTo (310, 300);
+context.moveTo (315, 285);
+context.lineTo (310, 300);
+context.lineTo (305, 285);
+context.moveTo (85, 195);
+context.lineTo (90, 210);
+context.lineTo (95, 195);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (90, 290);
+context.lineTo (170, 290);
+context.moveTo (90, 330);
+context.lineTo (90, 290);
+context.moveTo (100, 290);
+context.lineTo (100, 330);
+context.moveTo (90, 330);
+context.lineTo (170, 330);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (153, 290);
+context.lineTo (153, 250);
+context.lineTo (290, 250);
+context.lineTo (290, 300);
+context.moveTo (285, 285);
+context.lineTo (290, 300);
+context.lineTo (295, 285);
+context.moveTo (148, 275);
+context.lineTo (153, 290);
+context.lineTo (158, 275);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (130, 370);
+context.lineTo (210, 370);
+context.moveTo (130, 370);
+context.lineTo (130, 410);
+context.moveTo (140, 410);
+context.lineTo (140, 370);
+context.moveTo (130, 410);
+context.lineTo (210, 410);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (193, 370);
+context.lineTo (193, 320);
+context.lineTo (280, 320);
+context.moveTo (188, 355);
+context.lineTo (193, 370);
+context.lineTo (198, 355);
+context.moveTo (265, 315);
+context.lineTo (280, 320);
+context.lineTo (265, 325);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (170, 450);
+context.lineTo (250, 450);
+context.moveTo (170, 450);
+context.lineTo (170, 490);
+context.moveTo (180, 490);
+context.lineTo (180, 450);
+context.moveTo (170, 490);
+context.lineTo (250, 490);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (233, 450);
+context.lineTo (233, 400);
+context.lineTo (310, 400);
+context.lineTo (310, 340);
+context.moveTo (228, 435);
+context.lineTo (233, 450);
+context.lineTo (238, 435);
+context.moveTo (315, 355);
+context.lineTo (310, 340);
+context.lineTo (305, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (290, 450);
+context.lineTo (370, 450);
+context.moveTo (290, 450);
+context.lineTo (290, 490);
+context.moveTo (300, 490);
+context.lineTo (300, 450);
+context.moveTo (290, 490);
+context.lineTo (370, 490);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 450);
+context.lineTo (330, 340);
+context.moveTo (325, 435);
+context.lineTo (330, 450);
+context.lineTo (335, 435);
+context.moveTo (325, 355);
+context.lineTo (330, 340);
+context.lineTo (335, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (30, 600);
+context.lineTo (200, 600);
+context.moveTo (200, 660);
+context.lineTo (200, 600);
+context.moveTo (30, 600);
+context.lineTo (30, 660);
+context.moveTo (30, 660);
+context.lineTo (200, 660);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (70, 600);
+context.lineTo (70, 250);
+context.moveTo (65, 585);
+context.lineTo (70, 600);
+context.lineTo (75, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (110, 600);
+context.lineTo (110, 330);
+context.moveTo (105, 585);
+context.lineTo (110, 600);
+context.lineTo (115, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (150, 600);
+context.lineTo (150, 410);
+context.moveTo (155, 585);
+context.lineTo (150, 600);
+context.lineTo (145, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (190, 600);
+context.lineTo (190, 490);
+context.moveTo (185, 585);
+context.lineTo (190, 600);
+context.lineTo (195, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 490);
+context.lineTo (330, 610);
+context.lineTo (200, 610);
+context.moveTo (215, 605);
+context.lineTo (200, 610);
+context.lineTo (215, 615);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (370, 600);
+context.lineTo (600, 600);
+context.moveTo (370, 600);
+context.lineTo (370, 660);
+context.moveTo (370, 660);
+context.lineTo (600, 660);
+context.moveTo (600, 660);
+context.lineTo (600, 600);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (150, 660);
+context.lineTo (150, 870);
+context.lineTo (900, 870);
+context.lineTo (900, 660);
+context.moveTo (895, 675);
+context.lineTo (900, 660);
+context.lineTo (905, 675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (950, 600);
+context.lineTo (800, 600);
+context.moveTo (950, 600);
+context.lineTo (950, 660);
+context.moveTo (950, 660);
+context.lineTo (800, 660);
+context.moveTo (800, 660);
+context.lineTo (800, 600);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (550, 660);
+context.lineTo (550, 720);
+context.lineTo (660, 720);
+context.moveTo (545, 685);
+context.lineTo (550, 660);
+context.lineTo (555, 685);
+context.moveTo (645, 715);
+context.lineTo (660, 720);
+context.lineTo (645, 725);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (845, 660);
+context.lineTo (845, 720);
+context.lineTo (740, 720);
+context.moveTo (840, 675);
+context.lineTo (845, 660);
+context.lineTo (850, 675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (660, 900);
+context.lineTo (660, 940);
+context.moveTo (740, 900);
+context.lineTo (660, 900);
+context.moveTo (670, 940);
+context.lineTo (670, 900);
+context.moveTo (660, 940);
+context.lineTo (740, 940);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 530);
+context.lineTo (660, 570);
+context.moveTo (740, 530);
+context.lineTo (660, 530);
+context.moveTo (670, 570);
+context.lineTo (670, 530);
+context.moveTo (660, 570);
+context.lineTo (740, 570);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (700, 570);
+context.lineTo (700, 630);
+context.lineTo (800, 630);
+context.moveTo (785, 625);
+context.lineTo (800, 630);
+context.lineTo (785, 635);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (760, 440);
+context.lineTo (760, 480);
+context.moveTo (840, 440);
+context.lineTo (760, 440);
+context.moveTo (770, 480);
+context.lineTo (770, 440);
+context.moveTo (760, 480);
+context.lineTo (840, 480);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (740, 300);
+context.lineTo (870, 300);
+context.moveTo (740, 340);
+context.lineTo (740, 300);
+context.moveTo (870, 340);
+context.lineTo (740, 340);
+context.moveTo (870, 300);
+context.lineTo (870, 340);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (760, 340);
+context.lineTo (760, 400);
+context.lineTo (700, 400);
+context.lineTo (700, 530);
+context.moveTo (695, 515);
+context.lineTo (700, 530);
+context.lineTo (705, 515);
+context.moveTo (755, 355);
+context.lineTo (760, 340);
+context.lineTo (765, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (820, 480);
+context.lineTo (820, 600);
+context.moveTo (815, 585);
+context.lineTo (820, 600);
+context.lineTo (825, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (920, 480);
+context.lineTo (920, 600);
+context.moveTo (915, 585);
+context.lineTo (920, 600);
+context.lineTo (925, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (870, 335);
+context.lineTo (990, 335);
+context.moveTo (885, 330);
+context.lineTo (870, 335);
+context.lineTo (885, 340);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (850, 340);
+context.lineTo (850, 400);
+context.lineTo (990, 400);
+context.moveTo (845, 355);
+context.lineTo (850, 340);
+context.lineTo (855, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (820, 340);
+context.lineTo (820, 440);
+context.moveTo (815, 355);
+context.lineTo (820, 340);
+context.lineTo (825, 355);
+context.moveTo (815, 425);
+context.lineTo (820, 440);
+context.lineTo (825, 425);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 110);
+context.lineTo (1000, 150);
+context.moveTo (1000, 110);
+context.lineTo (1120, 110);
+context.moveTo (1120, 110);
+context.lineTo (1120, 150);
+context.moveTo (1000, 150);
+context.lineTo (1120, 150);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 120);
+context.lineTo (770, 120);
+context.lineTo (770, 300);
+context.moveTo (985, 115);
+context.lineTo (1000, 120);
+context.lineTo (985, 125);
+
+context.moveTo (1020, 150);
+context.lineTo (1020, 310);
+context.lineTo (870, 310);
+context.moveTo (885, 305);
+context.lineTo (870, 310);
+context.lineTo (885, 315);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 800);
+context.lineTo (660, 850);
+context.moveTo (740, 800);
+context.lineTo (660, 800);
+context.moveTo (670, 850);
+context.lineTo (670, 800);
+context.moveTo (660, 850);
+context.lineTo (740, 850);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (525, 660);
+context.lineTo (525, 825);
+context.lineTo (660, 825);
+context.moveTo (520, 675);
+context.lineTo (525, 660);
+context.lineTo (530, 675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (740, 825);
+context.lineTo (875, 825);
+context.lineTo (875, 660);
+context.moveTo (755, 820);
+context.lineTo (740, 825);
+context.lineTo (755, 830);
+context.moveTo (870, 675);
+context.lineTo (875, 660);
+context.lineTo (880, 675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (400, 340);
+context.lineTo (400, 600);
+context.moveTo (395, 355);
+context.lineTo (400, 340);
+context.lineTo (405, 355);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 500);
+context.lineTo (450, 600);
+context.moveTo (445, 585);
+context.lineTo (450, 600);
+context.lineTo (455, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (550, 500);
+context.lineTo (550, 600);
+context.moveTo (545, 585);
+context.lineTo (550, 600);
+context.lineTo (555, 585);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (180, 830);
+context.lineTo (180, 770);
+context.moveTo (180, 770);
+context.lineTo (330, 770);
+context.moveTo (330, 770);
+context.lineTo (330, 830);
+context.moveTo (180, 830);
+context.lineTo (330, 830);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (220, 770);
+context.lineTo (220, 640);
+context.lineTo (370, 640);
+context.moveTo (355, 635);
+context.lineTo (370, 640);
+context.lineTo (355, 645);
+context.moveTo (330, 780);
+context.lineTo (440, 780);
+context.lineTo (440, 660);
+context.moveTo (345, 775);
+context.lineTo (330, 780);
+context.lineTo (345, 785);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (140, 900);
+context.lineTo (220, 900);
+context.moveTo (140, 900);
+context.lineTo (140, 950);
+context.moveTo (150, 900);
+context.lineTo (150, 950);
+context.moveTo (140, 950);
+context.lineTo (220, 950);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (50, 660);
+context.lineTo (50, 925);
+context.lineTo (140, 925);
+context.moveTo (45, 675);
+context.lineTo (50, 660);
+context.lineTo (55, 675);
+context.moveTo (125, 920);
+context.lineTo (140, 925);
+context.lineTo (125, 930);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (220, 920);
+context.lineTo (330, 920);
+context.moveTo (315, 915);
+context.lineTo (330, 920);
+context.lineTo (315, 925);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 950);
+context.lineTo (290, 975);
+context.lineTo (230, 975);
+context.moveTo (310, 955);
+context.lineTo (330, 950);
+context.lineTo (315, 965);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 660);
+context.lineTo (450, 900);
+context.moveTo (445, 675);
+context.lineTo (450, 660);
+context.lineTo (455, 675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (480, 925);
+context.lineTo (660, 925);
+context.moveTo (645, 920);
+context.lineTo (660, 925);
+context.lineTo (645, 930);
+context.moveTo (495, 920);
+context.lineTo (480, 925);
+context.lineTo (495, 930);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 910);
+context.lineTo (505, 910);
+context.lineTo (505, 660);
+context.moveTo (500, 675);
+context.lineTo (505, 660);
+context.lineTo (510, 675);
+context.moveTo (645, 905);
+context.lineTo (660, 910);
+context.lineTo (645, 915);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 900);
+context.lineTo (330, 950);
+context.moveTo (330, 950);
+context.lineTo (480, 950);
+context.moveTo (480, 950);
+context.lineTo (480, 900);
+context.moveTo (330, 900);
+context.lineTo (480, 900);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 700);
+context.lineTo (660, 750);
+context.moveTo (740, 700);
+context.lineTo (660, 700);
+context.moveTo (670, 750);
+context.lineTo (670, 700);
+context.moveTo (660, 750);
+context.lineTo (740, 750);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 950);
+context.lineTo (800, 950);
+context.moveTo (815, 945);
+context.lineTo (800, 950);
+context.lineTo (815, 955);
+context.moveTo (885, 945);
+context.lineTo (900, 950);
+context.lineTo (885, 955);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+var can = document.getElementById ("myCanvas") ;
+var cn = can.getContext ("2d") ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0, "black");
+
+cn.fillStyle=grd;
+cn.font="35px Arial";
+cn.fillText("Western Cape Crime Statistics Top Level Diagram ", 120, 50);
+
+cn.fillStyle=grd;
+cn.font="12px Arial";
+cn.fillText("1. police station admin", 40, 135);
+cn.fillText("2.police station management", 290, 320);
+cn.fillText("detective", 65, 230);
+cn.fillText("suspect", 105, 310);
+cn.fillText("complainant", 145, 390);
+cn.fillText("witness", 185, 470);
+cn.fillText("crime details", 305, 470);
+cn.fillText("3. Reported crime records", 35, 635);
+cn.fillText("5. Western Cape Justice Center", 375, 620);
+cn.fillText("Data Management", 375, 640);
+cn.fillText("7. Court Records", 805, 630);
+cn.fillText("Updated case details", 675, 720);
+cn.fillText("to correct court", 675, 740);
+cn.fillText("judge details", 675, 550);
+cn.fillText("lawyer", 775, 460);
+cn.fillText("8. court management", 745, 320);
+cn.fillText("9. court admin", 1005, 130);
+cn.fillText("judgement", 675, 820);
+cn.fillText("details", 675, 840);
+cn.fillText("6. Western Cape Justice", 185, 800);
+cn.fillText("Center Admin", 185, 820);
+cn.fillText("organized", 155, 920);
+cn.fillText("case details", 155, 940);
+cn.fillText("4. Western Cape", 335, 920);
+cn.fillText("Prosecuting Authority", 335, 940);
+cn.fillText("prosecutor", 675, 920);
+cn.fillText("username and password", 200, 115);
+cn.fillText("Login error or Success", 200, 135);
+cn.fillText("username and password", 215, 660);
+cn.fillText("Login error or Success", 300, 770);
+cn.fillText("username and password", 800, 115);
+cn.fillText("Login error or Success", 890, 300);
+cn.fillText("Details for people", 915, 715);
+cn.fillText("to appear in court", 915, 730);
+cn.fillText("for case hearing", 915, 745);
+cn.fillText("Publishing of", 410, 415);
+cn.fillText("Crime Statistics", 410, 435);
+cn.fillText("Conditions for", 390, 820);
+cn.fillText("Case Prosecution", 390, 835);
+cn.fillText("Witness", 480, 250);
+cn.fillText("Suspect", 500, 380);
+cn.fillText("Complainant", 500, 315);
+cn.fillText("Detective", 430, 130);
+cn.fillText("Crime Details", 440, 180);
+cn.fillText("Prosecutor", 170, 980);
+cn.fillText("Courts", 435, 500);
+cn.fillText("Police", 535, 485);
+cn.fillText("Stations", 535, 500);
+cn.fillText("Court", 900, 465);
+cn.fillText("Judgement", 900, 480);
+cn.fillText("Judges", 990, 340);
+cn.fillText("Lawyers", 990, 405);
+cn.fillText("Retrives and Updates", 900, 955);
+} ;
+</script>
+<center><canvas id="myCanvas" width="1150" height="1000" " style="border: 3px solid black ;"></center></canvas>
+</body>
+</html>

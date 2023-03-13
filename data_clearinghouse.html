@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> data clearinghouse </title>
+<style>
+
+  /* This code defines border style for cells */  
+  td {
+   border : 2px solid DimGray;
+background-color: rgb(255, 255, 200);
+  }    
+td1 {
+   border : "none";
+background-color: red;
+  }  
+tr {
+   border : "2px solid DimGray";
+background-color;
+  }  
+th {
+width: 50px;
+}
+table {
+width: 1000px;
+p1 {
+font-size: 30px;
+}
+p {position: absolute; left:20%; top: 50px;
+}
+tr {background-color:"rgb(255, 255, 100)";
+}
+
+</style>
+</head>
+<body>
+   <p id="demo"></p>
+
+   <form>
+      <input type="password" name="inputa" id="inputa" placeholder="Type Police Station ID">
+      <button type="button" onclick="getValue()"> Search Data </button>
+   </form>
+
+   <script>
+
+
+var data = {
+     
+"metadata":
+`{"description": "<b><<lob>lob></br>____<<MYPHP>MYPHP></br>________<<PostgreSQL>PostgreSQL> </br> ____________<<schema>schema></b> </br> ________________<<Western Cape Crime Statistics>Western Cape Crime Statistics> </br> ____________________<b><<Tables>Tables></b></br> ________________________<<complainant>complainant> </br>____________________________<<attributes>attributes></br> ________________________________<<com_id>com_id> </br>____________________________________type: char</br>____________________________________length: 14 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: complainant identifier</br> ________________________________<<com_id>/com_id> </br> ________________________________<<com_fname>com_fname> </br>____________________________________type: varchar</br>____________________________________maxLength: 20 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: First name of the complainant. </br> ________________________________<<com_fname>/com_fname> </br>________________________________<<com_sname>com_sname> </br>____________________________________type: varchar</br>____________________________________maxLength: 20 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Surname of the complainant. </br> ________________________________<<com_sname>/com_sname> </br>________________________________<<com_title>com_title> </br>____________________________________type: varchar</br>____________________________________maxLength: 3 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Title of the complainant. </br> ________________________________<<com_title>/com_title></br>________________________________<<com_age>com_age></br>____________________________________type: integer</br>____________________________________maxLength: 3 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Birth age of the complainant. </br> ________________________________<<com_age>/com_age></br>________________________________<<com_gender>com_gender> </br>____________________________________type: boolean</br>____________________________________length: 1 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: gender of the complainant (M or F). </br> ________________________________<<com_gender>/com_gender></br>________________________________<<com_address>com_address> </br>____________________________________type: varchar</br>____________________________________maxLength: 100 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Residential address. </br> ________________________________<<com_address>/com_address</br>________________________________<<com_nationality>com_nationality> </br>____________________________________type: varchar</br>____________________________________maxLength: 30 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Nationality of the complainant. </br> ________________________________<<com_nationality>/com_nationality></br>________________________________<<com_cell>com_cell> </br>____________________________________type: integer</br>____________________________________maxLength: 10 </br>____________________________________null: yes </br>____________________________________constraints: none </br>____________________________________description: contact cellphone number of the complainant. </br> ________________________________<<com_cell>/com_cell> </br> ____________________________<<attributes>/attributes> </br> ________________________<<complainant>/complainant></br>________________________<<suspect>suspect> </br>____________________________<<attributes>attributes></br> ________________________________<<sus_id>sus_id> </br>____________________________________type: char</br>____________________________________length: 14 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: suspect identifier. </br> ________________________________<<sus_id>/sus_id> </br>________________________________<<sus_fname>sus_fname> </br>____________________________________type: varchar</br>____________________________________maxLength: 20 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Firstname of the suspect. </br> ________________________________<<sus_fname>/sus_fname></br> ________________________________<<sus_sname>sus_sname></br> ____________________________________type: varchar</br>____________________________________maxLength: 20 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Surname of the suspect. </br> ________________________________<<sus_sname>/sus_sname> </br>________________________________<<sus_title>sus_title> </br>____________________________________type: varchar</br>____________________________________length: 3 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: Title of the suspect. </br> ________________________________<<sus_age>/sus_age> </br> ________________________________<<sus_title>/sus_title></br> ________________________________<<sus_age>sus_age> </br>____________________________________type: integer</br>____________________________________maxLength: 3 </br>____________________________________null: no </br>____________________________________constraints: none </br>____________________________________description: birth age of the suspect </br>________________<<sus_gender>sus_gender></br>________________<<sus_address>sus_address></br>________________<<sus_nationality>sus_nationality></br>________________<<sus_cell>sus_cell></br></br><b>____________<<witness>witness></b></br> ________________<<wit_id>wit_id> </br> ________________<<wit_fname>wit_fname></br>________________<<wit_sname>wit_sname></br>________________<<wit_title>wit_title></br>________________<<wit_age>wit_age></br>________________<<wit_gender>wit_gender></br>________________<<wit_address>wit_address></br>________________<<wit_nationality>wit_nationality></br>________________<<wit_cell>wit_cell></br></br><b>____________<<police station>police station></b></br> ________________<<ps_id>ps_id> </br> ________________<<ps_name>ps_name></br></br><b>____________<<court>court></b></br> ________________<<court_id>court_id> </br> ________________<<court_name>court_name></br> ________________<<court_class>court_class></br></br><b>____________<<detective>detective></b></br> ________________<<det_id>det_id> </br> ________________<<det_title>det_title></br> ________________<<det_fname>det_fname></br> ________________<<det_sname>det_id> </br> ________________<<ps_id>ps_id></br></br><b>____________<<prosecutor>prosecutor></b></br> ________________<<pros_id>pros_id> </br> ________________<<pros_title>pros_title></br> ________________<<pros_fname>pros_fname></br> ________________<<pros_sname>pros_id> </br> ________________<<court_id>court_id></br></br><b>____________<<lawyer>lawyer></b></br> ________________<<lwyr_id>lwyr_id> </br> ________________<<lwyr_title>lwyr_title></br> ________________<<lwyr_fname>lwyr_fname></br> ________________<<lwyr_sname>lwyr_sname> </br> ________________<<lwyr_tel>lwyr_tel></br></br><b>____________<<ccase>ccase></b></br> ________________<<ccase_id>ccase_id> </br> ________________<<crime_ctgry>crime_ctgry></br> ________________<<crime_type>crime_type></br> ________________<<dor>dor> </br> ________________<<ps_id>ps_id></br> ________________<<com_id>com_id></br> ________________<<pros_id>pros_id> </br> ________________<<det_id>det_id></br></br><b>____________<<judge>judge></b></br> ________________<<jud_id>jud_id> </br> ________________<<jud_title>jud_title></br> ________________<<jud_fname>jud_fname></br> ________________<<jud_sname>jud_sname> </br> ________________<<c_division>c_division></br> ________________<<court_id>court_id></br></br><b>____________<<judgement>judgement></b></br> ________________<<jdmnt_id>jdmnt_id> </br> ________________<<jdmnt_date>jdmnt_date></br> ________________<<court_id>court_id></br></br><b>____________<<judge_ccase>judge_ccase></b></br> ________________<<jud_id>jud_id> </br> ________________<<ccase_id>ccase_id></br></br><b>____________<<ccase_judgement>ccase_judgement></b></br> ________________<<ccase_id>ccase_id> </br> ________________<<jdmnt_id>jdmnt_jdmnt></br></br><b>____________<<ccase_suspect>ccase_suspect></b></br> ________________<<ccase_id>ccase_id> </br> ________________<<sus_id>sus_id></br></br><b>____________<<lawyer_suspect>lawyer_suspect></b></br> ________________<<lwyr_id>lwyr_id> </br> ________________<<sus_id>sus_id>"}`,
+
+
+"dictionary":
+`{"description": "<table><tr><td1><p1><b>Data Dictionary</b></p1></td1></tr></table><table><tr><td></br><b>fieldName</b>: ccase_id</br><b>Table</b>: ccase</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: case identifier.</td></tr></table></br></br><table><tr><td> <b>fieldName</b>: ccase_id</br><b>Table</b>: ccase_judgement</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key, foreign key (reference table: ccase) </br><b>null</b>: no<b></br> description</b>: case identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: ccase_id</br><b>Table</b>: ccase_suspect</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key, foreign key (reference table: ccase) </br><b>null</b>: no<b></br> description</b>: case identifier.</table></tr></td> </br></br><table><tr><td><b>fieldName</b>: ccase_id</br><b>Table</b>: judge_ccase</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key, foreign key (reference table: ccase) </br><b>null</b>: no<b></br> description</b>: case identifier.</table></tr></td> </br></br><table><tr><td><b>fieldName</b>: com_address</br><b>Table</b>: complainant</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 100 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: residential address of the complainant.</table></tr></td></br></br><table><tr><td><b>fieldName</b>: com_age</br><b>Table</b>: complainant</br><b>dataType</b>: integer</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: birth age of complainant in years.</table></tr></td><br></br><table><tr><td><b>fieldName</b>: com_cell</br><b>Table</b>: complainant</br><b>dataType</b>: integer</br><b>fieldLength</b>: 10 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: cellphone number for discussing case details with the complainant.</table></tr></td></br></br><table><tr><td><b>fieldName</b>: com_gender</br><b>Table</b>: witness</br><b>dataType</b>: boolean</br><b>fieldLength</b>: 1 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: gender of the complainant (M or F).</table></tr></td></br></br><table><tr><td><b>fieldName</b>: com_fname</br><b>Table</b>: complainant</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: complainant first name.</table></tr></td></br></br><table><tr><td><b>fieldName</b>: com_id</br><b>Table</b>: ccase</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: foreign key (reference table: complainant)</br><b>null</b>: no<b></br> description</b>: complainant id.</table></tr></td></br></br><table><tr><td><b>fieldName</b>: com_id</br><b>Table</b>: complainant</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: complainant id.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: com_nationality</br><b>Table</b>: complainant</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 30 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: citizenship of a complainant of not a permanent South Africa residence of if a permanent South African residence.</table><tr/><td/></br></br><table><tr><td><b>fieldName</b>: com_sname</br><b>Table</b>: complainant</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: complainant surname.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: com_title</br><b>Table</b>: complainant</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: title of the complainant, eg. Adv, Mr, Ms, Cst, etc.</td></tr></table></br></br><table><tr><td><b>fieldName</b>:court_class</br><b>Table</b>: court</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 20</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: court class, eg. magistrate court, high court, etc.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: court_id</br><b>Table</b>: court</br><b>dataType</b>: integer<br><b>fieldLength</b>: 3</br><b>constraints</b>: primary key</br><b>null</b>: no</br><b>description</b>: court identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>:court_id</br><b>Table</b>: judge</br><b>dataType</b>: integer<br><b>fieldLength</b>: 3</br><b>constraints</b>: foreign key (reference table: court)</br><b>null</b>: yes</br><b>description</b>: court identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: court_id</br><b>Table</b>: judgement</br><b>dataType</b>: integer<br><b>fieldLength</b>: 3</br><b>constraints</b>: foreign key (reference table: court)</br><b>null</b>: yes</br><b>description</b>: court identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>:court_id</br><b>Table</b>: prosecutor</br><b>dataType</b>: integer<br><b>fieldLength</b>: 3</br><b>constraints</b>: foreign key (reference table: court)</br><b>null</b>: yes</br><b>description</b>: court identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: court_id</br><b>Table</b>: prosecutor</br><b>dataType</b>: integer<br><b>fieldLength</b>: 3</br><b>constraints</b>: foreign key (reference table: court)</br><b>null</b>: yes</br><b>description</b>: court identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: court_name</br><b>Table</b>: court</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 30</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: name of the court.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: crime_ctgry</br><b>Table</b>: ccase</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 50</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: category of reported crime, eg. shoplifting.</td></tr></table></br></br><table><tr><td><b>fieldName</b>:crime_type</br><b>Table</b>: ccase</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 50</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: type of crime reported, e.g. contact-crime against person.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: c_division</br><b>Table</b>: judge</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 30</br><b>constraints</b>: none</br><b>null</b>: yes</br><b>description</b>: court division, e.g. Magistrates Court/ non-contact crime against person division</td></tr></table></br></br><table><tr><td><b>fieldName</b>: det_fname</br><b>Table</b>: det_fname</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 20</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: first name of the detective.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: det_id</br><b>Table</b>: ccase</br><b>dataType</b>: integer<br><b>fieldLength</b>: 8</br><b>constraints</b>: foreign key (reference table: detective)</br><b>null</b>: no</br><b>description</b>: detective identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: det_id</br><b>Table</b>: detective</br><b>dataType</b>: integer<br><b>fieldLength</b>: 8</br><b>constraints</b>: primary key</br><b>null</b>: no</br><b>description</b>: detective identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: det_sname</br><b>Table</b>: detective</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 20</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: surname of the detective.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: det_title</br><b>Table</b>: detective</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 3</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: title of the detective.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: dor</br><b>Table</b>: ccase</br><b>dataType</b>: date<br><b>fieldLength</b>: 10</br><b>constraints</b>: none</br><b>null</b>: no</br><b>description</b>: date of crime report, e.g. 2023-04-20.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jdmnt_date</br><b>Table</b>: judgement</br><b>dataType</b>: date</br><b>fieldLength</b>: 10 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: date at which the judgement was carried out.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jdmnt_id</br><b>Table</b>: ccase_judgement</br><b>dataType</b>: char<br><b>fieldLength</b>: 14</br><b>constraints</b>: primary key, foreign key (reference table: judgement)</br><b>null</b>: no</br><b>description</b>: judgement identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jdmnt_id</br><b>Table</b>: judgement</br><b>dataType</b>: varchar<br><b>fieldLength</b>: 14</br><b>constraints</b>: primary key</br><b>null</b>: no</br><b>description</b>: judgement identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jud_fname</br><b>Table</b>: judge</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: first name of the judge.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jud_id</br><b>Table</b>: judge</br><b>dataType</b>: integer<br><b>fieldLength</b>: 8</br><b>constraints</b>: primary key</br><b>null</b>: no</br><b>description</b>: judge identifier.</td></tr></table></br></br><table><tr><td><b>fieldName.</b>: jud_id</br><b>Table</b>: judge_ccase</br><b>dataType</b>: integer<br><b>fieldLength</b>: 8</br><b>constraints</b>: primary key, foreign key(reference table: judge)</br><b>null</b>: no</br><b>description</b>: judge identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jud_sname</br><b>Table</b>: judge</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: surname of the judge.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: jud_title</br><b>Table</b>: judge</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: title of the judge.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_fname</br><b>Table</b>: lawyer</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: first name of the lawyer.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_id</br><b>Table</b>: lawyer</br><b>dataType</b>: integer</br><b>fieldLength</b>: 8 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: lawyer identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_id</br><b>Table</b>: lawyer</br><b>dataType</b>: integer</br><b>fieldLength</b>: 8 </br><b>constraints</b>: primary key, foreign key (reference table: lawyer) </br><b>null</b>: no<b></br> description</b>: lawyer identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_sname</br><b>Table</b>: lawyer</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: surname of the lawyer.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_tel</br><b>Table</b>: lawyer</br><b>dataType</b>: integer</br><b>fieldLength</b>: 10 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: lawyer contact office telephone number e.g. 031 234 5478.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: lwyr_title</br><b>Table</b>: lawyer</br><b>dataType</b>: char</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: title of the lawyer, e.g. Adv. or Att.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: pros_fname</br><b>Table</b>: prosecutor</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: first name of the prosecutor.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: pros_id</br><b>Table</b>: ccase</br><b>dataType</b>: integer</br><b>fieldLength</b>: 8 </br><b>constraints</b>: foreign key (reference table: prosecutor) </br><b>null</b>: yes<b></br> description</b>: prosecutor identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: pros_id</br><b>Table</b>: prosecutor</br><b>dataType</b>: integer</br><b>fieldLength</b>: 8 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: prosecutor identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: pros_sname</br><b>Table</b>: prosecutor</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: surname of the prosecutor.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: ps_id</br><b>Table</b>: ccase</br><b>dataType</b>: integer</br><b>fieldLength</b>: 3 </br><b>constraints</b>: foreign key (reference table: police station) </br><b>null</b>: no<b></br> description</b>: police station identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: ps_id</br><b>Table</b>: detective</br><b>dataType</b>: integer</br><b>fieldLength</b>: 3 </br><b>constraints</b>: foreign key (reference table: detective</br><b>null</b>: no<b></br> description</b>: police station identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: ps_id</br><b>Table</b>: police station</br><b>dataType</b>: integer</br><b>fieldLength</b>: 3 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: police station identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: ps_name</br><b>Table</b>: police station </br><b>dataType</b>: varchar</br><b>fieldLength</b>: 30 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: name of a police station.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_address</br><b>Table</b>: suspect</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 100 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: residential address of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_age</br><b>Table</b>: suspect</br><b>dataType</b>: integer</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: birth age of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_cell</br><b>Table</b>: suspect</br><b>dataType</b>: integer</br><b>fieldLength</b>: 10 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: contact cellphone number of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_fname</br><b>Table</b>: suspect</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: first name of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_gender</br><b>Table</b>: suspect</br><b>dataType</b>: boolean</br><b>fieldLength</b>: 1 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: gender of the suspect (M or F)</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_id</br><b>Table</b>: ccase_suspect</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key, foreign key (reference table: suspect)</br><b>null</b>: no<b></br> description</b>: suspect identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_id</br><b>Table</b>: lawyer_suspect</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key, foreign key (reference table: suspect)</br><b>null</b>: no<b></br> description</b>: suspect identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_id</br><b>Table</b>: suspect</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key</br><b>null</b>: no<b></br> description</b>: suspect identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_nationality</br><b>Table</b>: suspect</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 100 </br><b>constraints</b>: none</br><b>null</b>: yes<b></br> description</b>: citizenship of a complainant of not a permanent South Africa residence of if a permanent South African residence.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_sname</br><b>Table</b>: suspect</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: surname of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: sus_title</br><b>Table</b>: suspect</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: title of the suspect.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_address</br><b>Table</b>: witness</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 100 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: residential address of the witness.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_age</br><b>Table</b>: witness</br><b>dataType</b>: intager</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: birth age of the witness.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_cell</br><b>Table</b>: witness</br><b>dataType</b>: integer</br><b>fieldLength</b>: 10 </br><b>constraints</b>: none </br><b>null</b>: yes<b></br> description</b>: contact cellphone number of the witness.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_gender</br><b>Table</b>: witness</br><b>dataType</b>: boolean</br><b>fieldLength</b>: 1 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: gender of the witness (M or F).</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_fname</br><b>Table</b>: witness</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: first name of the witness.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_id</br><b>Table</b>: witness</br><b>dataType</b>: char</br><b>fieldLength</b>: 14 </br><b>constraints</b>: primary key </br><b>null</b>: no<b></br> description</b>: witness identifier.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_nationality</br><b>Table</b>: witness</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 100 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: citizenship of a witness of not a permanent South Africa residence of if a permanent South African residence.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_sname</br><b>Table</b>: witness</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 20 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: surname of the witness.</td></tr></table></br></br><table><tr><td><b>fieldName</b>: wit_title</br><b>Table</b>: witness</br><b>dataType</b>: varchar</br><b>fieldLength</b>: 3 </br><b>constraints</b>: none </br><b>null</b>: no<b></br> description</b>: title of the suspect.</td></tr></table>"}`,
+
+"table":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 001</b></td><td>GRAAFWATER</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 002</b></td><td>VILLIERSDORP</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b>003 </b></td><td>BREDASDORP</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 004</b></td><td>CALEDON</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 005</b></td><td>GARDENS</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 006</b></td><td>RONDEBOSCH</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 007</b></td><td>MUIZENBERG</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 008</b></td><td>ROBERTSON</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 009</b></td><td>LWANDLE</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 010</b></td><td>PAARL EAST</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 011</b></td><td>PHILIPPI</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 012</b></td><td>LANGEBAAN</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 013</b></td><td>MOORREESBURG</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b>014</b></td><td>PIKETBERG</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b>015</b></td><td>REDELINGHUYS</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 016</b></td><td> ST HELENA BAY</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 017</b></td><td>VREDENBURG</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 018</b></td><td>CITRUSDAL</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 019</b></td><td>CLANWILLIAM</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 020</b></td><td>DORING BAY</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 021</b></td><td>SWELLENDAM</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 022</b></td><td>MFULENI</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 023</b></td><td>RIEBEEK WEST</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 024</b></td><td>WELLINGTON</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 025</b></td><td>TULBAGH</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 026</b></td><td>HARARE</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 027</b></td><td>KLEINVLEI</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 028</b></td><td>GRABOUW</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 029</b></td><td>HERMANUS</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 030</b></td><td>KLEINMOND</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 031</b></td><td>NAPIER</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 032</b></td><td>STRAND</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 033</b></td><td>LINGELETHU-WEST</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 034</b></td><td>GROOT-DRAKENSTEIN</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 035</b></td><td>MOWBRAY</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 036</b></td><td>HOUT BAY</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 037</b></td><td>MONTAGU</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 038</b></td><td>DIEPRIVIER</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 039</b></td><td>CLAREMONT</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 040</b></td><td>SARON</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 041</b></td><td>MALMESBURY</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 042</b></td><td>PORTERVILLE</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 043</b></td><td>SALDANHA</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 044</b></td><td>KHAYELITSHA</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 045</b></td><td>WOODSTOCK</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 046</b></td><td>RIVIERSONDEREND</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 047</b></td><td>SOMERSET WEST</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 048</b></td><td> STRUISBAAI</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 017</b></td><td>VREDENBURG</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 018</b></td><td>CITRUSDAL</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 049</b></td><td>CLOETESVILLE</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 050</b></td><td>OUDTSHOORN</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 051</b></td><td>UNIONDALE</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 052</b></td><td>LADISMITH</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 053</b></td><td>STILL BAY</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 054</b></td><td>LAINGSBURG</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr><tr><td><b> 055</b></td><td>MURRAYSBURG</td><td>130</td><td>89</td><td>140</td><td>250</td><td>1500</td><td>141</td><td>850</td><td>1341</td><td>82</td><td><b>4563</b></tr><tr><td><b> 056</b></td><td>CAPE TOWN CENTRAL</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>201</td><td>305</td><td><b>11 402</b></td></tr><tr><td><b> 027</b></td><td>KLEINVLEI</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>90</td><td>21</td><td><b>2270</b></td></tr><tr><td><b> 028</b></td><td>GRABOUW</td><td>185</td><td>222</td><td>178</td><td>214</td><td>214</td><td>216</td><td>249</td><td>217</td><td>166</td><td><b>2270</b></td></tr><tr><td><b> 029</b></td><td>HERMANUS</td><td>352</td><td>453</td><td>401</td><td>368</td><td>456</td><td>494</td><td>590</td><td>533</td><td>494</td><td><b>2270</b></td></tr><tr><td><b> 030</b></td><td>KLEINMOND</td><td>274</td><td>262</td><td>227</td><td>303</td><td>255</td><td>271</td><td>296</td><td>231</td><td>215</td><td><b>2270</b></td></tr><tr><td><b> 031</b></td><td>NAPIER</td><td>237</td><td>215</td><td>211</td><td>262</td><td>418</td><td>370</td><td>411</td><td>359</td><td>377</td><td><b>2270</b></td></tr><td><b> 032</b></td><td>STRAND</td><td>1 160</td><td>1 309</td><td>1 154</td><td>1 238</td><td>1 500</td><td>1 515</td><td>1 715</td><td>1 458</td><td>1 395</td><td><b>2270</b></td></tr></table>"}`,
+
+"ps1":
+`{"description": "<b>id</b>:    001 </br> <b>name</b>: GRAAFWATER</br> <b>lat</b>: -32.15174 </br> <b>lng</b>: 18.60647"}`,
+
+"ps2":
+`{"description": "<b>id</b>: 002 </br> <b>name</b>: VILLIERSDORP</br> <b>lat</b>: -32.15174 </br> <b>lng</b>: 18.60647"}`,
+
+"ps3":
+`{"description": "<b>id</b>: 003 </br> <b>name</b>: BREDASDORP </br> <b>lat</b>: -34.53644 </br> <b>lng</b>: 20.04727"}`,
+ 
+"ps4":
+`{"description": "<b>id</b>: 004 </br> <b>name</b>: CALEDON</br> <b>lat</b>: -34.23493 </br> <b>lng</b>: 19.42919"}`,
+   
+"ps5":
+`{"description": "<b>id</b>: 005 </br> <b>name</b>: GARDENS</br> <b>lat</b>: -34.57818 </br> <b>lng</b>: 19.35139"}`,
+  
+"ps6":
+`{"description": "<b>id</b>: 006 </br> <b>name</b>: RONDEBOSCH</br> <b>lat</b>: -33.96262 </br> <b>lng</b>: 18.46833"}`,
+
+"ps7":
+`{"description": "<b>id</b>: 007 </br> <b>name</b>: MUIZENBERG</br> <b>lat</b>: -32.15174 </br> <b>lng</b>: 18.46663"}`,
+   
+"ps8":
+`{"description": "<b>id</b>: 008 </br> <b>name</b>: ROBERTSON </br> <b>lat</b>: -33.80517 </br> <b>lng</b>: 19.87543"}`,
+   
+"ps9":
+`{"description": "<b>id</b>: 009 </br> <b>name</b>: LWANDLE </br> <b>lat</b>: -34.11567 </br> <b>lng</b>: 18.86718"}`,
+   
+"ps10":
+`{"description": "<b>id</b>: 010 </br> <b>name</b>: PAARL EAST </br> <b>lat</b>: -33.71148 </br> <b>lng</b>: 18.99406"}`,
+   
+"ps11":
+`{"description": "<b>id</b>: 011 </br> <b>name</b>: PHILIPPI </br> <b>lat</b>: -34.00107 </br> <b>lng</b>: 18.54054"}`,
+
+"ps12":
+`{"description": "<b>id</b>: 012 </br> <b>name</b>: LANGEBAAN </br> <b>lat</b>: -33.09287 </br> <b>lng</b>: 18.03349"}`,
+
+"ps13":
+`{"description": "<b>id</b>: 013 </br> <b>name</b>: MOORREESBURG </br> <b>lat</b>: -33.15359 </br> <b>lng</b>: 18.66466"}`,
+
+"ps14":
+`{"description": "<b>id</b>: 014 </br> <b>name</b>: PIKETBERG </br> <b>lat</b>: -32.90627 </br> <b>lng</b>: 18.75449"}`,
+
+"ps15":
+`{"description": "<b>id</b>: 015 </br> <b>name</b>: REDELINGHUYS </br> <b>lat</b>: -32.47741 </br> <b>lng</b>: 18.53737"}`,
+      
+"ps16":
+`{"description": "<b>id</b>: 016 </br> <b>name</b>: ST HELENA BAY </br> <b>lat</b>: -32.75816 </br> <b>lng</b>: 18.02407"}`,
+      
+"ps17":
+`{"description": "<b>id</b>: 017 </br> <b>name</b>: VREDENBURG </br> <b>lat</b>: -32.90673 </br> <b>lng</b>: 18.00228"}`,
+
+"ps18":
+`{"description": "<b>id</b>: 018 </br> <b>name</b>: CITRUSDAL </br> <b>lat</b>: -32.58829 </br> <b>lng</b>: 19.01101"}`,
+      
+"ps19":
+`{"description": "<b>id</b>: 019 </br> <b>name</b>: CLANWILLIAM </br> <b>lat</b>: -32.17615 </br> <b>lng</b>: 18.89226"}`,
+
+"ps20":
+`{"description": "<b>id</b>: 020 </br> <b>name</b>: DORING BAY </br> <b>lat</b>: -31.81174 </br> <b>lng</b>: 18.23678"}`,
+      
+"ps21":
+`{"description": "<b>id</b>: 021 </br> <b>name</b>: SWELLENDAM </br> <b>lat</b>: -34.02047 </br> <b>lng</b>: 20.44455"}`,
+      
+"ps22":
+`{"description": "<b>id</b>: 022 </br> <b>name</b>: MFULENI </br> <b>lat</b>: -33.98106 </br> <b>lng</b>: 18.68742"}`,
+      
+"ps23":
+`{"description": "<b>id</b>: 023 </br> <b>name</b>: RIEBEEK WEST </br> <b>lat</b>: -33.35093 </br> <b>lng</b>: 18.8727"}`,
+      
+"ps24":
+`{"description": "<b>id</b>: 024 </br> <b>name</b>: WELLINGTON </br> <b>lat</b>: -33.64022 </br> <b>lng</b>: 19.00515"}`,
+      
+"ps25":
+`{"description": "<b>id</b>: 025 </br> <b>name</b>: TULBAGH </br> <b>lat</b>: -33.28503 </br> <b>lng</b>: 19.14052"}`,
+      
+"ps26":
+`{"description": "<b>id</b>: 026 </br> <b>name</b>: HARARE </br> <b>lat</b>: -34.05193 </br> <b>lng</b>: 18.6693"}`,
+      
+"ps27":
+`{"description": "<b>id</b>: 027 </br> <b>name</b>: KLEINVLEI </br> <b>lat</b>: -33.9882 </br> <b>lng</b>: 18.71879"}`,
+      
+"ps28":
+`{"description": "<b>id</b>: 028 </br> <b>name</b>: GRABOUW </br> <b>lat</b>: -34.15381 </br> <b>lng</b>: 19.01901"}`,
+      
+"ps29":
+`{"description": "<b>id</b>: 029 </br> <b>name</b>: HERMANUS </br> <b>lat</b>: -34.41859 </br> <b>lng</b>: 19.23623"}`,
+      
+"ps30":
+`{"description": "<b>id</b>: 030 </br> <b>name</b>: KLEINMOND </br> <b>lat</b>: -34.33963 </br> <b>lng</b>: 19.03232"}`,
+      
+"ps31":
+`{"description": "<b>id</b>: 031 </br> <b>name</b>: NAPIER </br> <b>lat</b>: -34.4756 </br> <b>lng</b>: 19.89561"}`,
+      
+"ps32":
+`{"description": "<b>id</b>: 032 </br> <b>name</b>: STRAND </br> <b>lat</b>: -34.11592 </br> <b>lng</b>: 18.83286"}`,
+      
+"ps33":
+`{"description": "<b>id</b>: 033 </br> <b>name</b>: LINGELETHU-WEST </br> <b>lat</b>: -34.04298 </br> <b>lng</b>: 18.66004"}`,
+      
+"ps34":
+`{"description": "<b>id</b>: 034 </br> <b>name</b>: GROOT-DRAKENSTEIN </br> <b>lat</b>: -33.86616 </br> <b>lng</b>: 18.97776"}`,
+      
+"ps35":
+`{"description": "<b>id</b>: 035 </br> <b>name</b>: MOWBRAY </br> <b>lat</b>: -33.95012 </br> <b>lng</b>: 18.47228"}`,
+      
+"ps36":
+`{"description": "<b>id</b>: 036 </br> <b>name</b>: HOUT BAY </br> <b>lat</b>: -34.03052 </br> lng: <b>lng</b>"}`,
+      
+"ps37":
+`{"description": "<b>id</b>: 037 </br> <b>name</b>: MONTAGU </br> <b>lat</b>: -33.7846 </br> <b>lng</b>: 20.12967"}`,
+      
+"ps38":
+`{"description": "<b>id</b>: 038 </br> <b>name</b>: DIEPRIVIER </br> <b>lat</b>: -34.03161 </br> <b>lng</b>: 18.46485"}`,
+      
+"ps39":
+`{"description": "<b>name</b>: 039 </br> <b>name</b>: CLAREMONT </br> <b>lat</b>: -33.98442 </br> <b>lng</b>: 18.47286"}`,
+      
+"ps40":
+`{"description": "<b>id</b>: 040 </br> <b>name</b>: SARON </br> <b>lat</b>: -33.18409 </br> <b>lng</b>: 18.99944"}`,
+      
+"ps41":
+`{"description": "<b>id</b>: 041 </br> <b>name</b>: MALMESBURY </br> <b>lat</b>: -33.45354 </br> <b>lng</b>: 18.72971"}`,
+ 
+"ps42":
+`{"description": "<b>id</b>: 042 </br> <b>name</b>: PORTERVILLE </br> <b>lat</b>: -33.01164 </br> <b>lng</b>: 18.99274"}`,
+      
+"ps43":
+`{"description": "<b>id</b>: 043 </br> <b>name</b>: SALDANHA </br> <b>lat</b>: -33.00962 </br> <b>lng</b>: 17.93958"}`,
+      
+"ps44":
+`{"description": "<b>id</b>: 044 </br> <b>name</b>: KHAYELITSHA </br> <b>lat</b>: -34.02464 </br> <b>lng</b>: 18.66599"}`,
+      
+"ps45":
+`{"description": "<b>id</b>: 045 </br> <b>name</b>: WOODSTOCK </br> <b>lat</b>: -33.92897 </br> <b>lng</b>: 18.44814"}`,
+
+"ps46":
+`{"description": "<b>id</b>: 046 </br> <b>name</b>: RIVIERSONDEREND </br> <b>lat</b>: -34.15086 </br> <b>lng</b>: 19.92037"}`,
+      
+"ps47":
+`{"description": "<b>id</b>: 047 </br> <b>name</b>: SOMERSET WEST </br> <b>lat</b>: -34.07682 </br> <b>lng</b>: 18.84466"}`,
+
+"ps48":
+`{"description": "<b>id</b>: 048 </br> <b>name</b>: STRUISBAAI </br> <b>lat</b>: -34.80059 </br> <b>lng</b>: 20.05088"}`,
+      
+"ps49":
+`{"description": "<b>id</b>: 049 </br> <b>name</b>: CLOETESVILLE </br> <b>lat</b>: -33.92257 </br> <b>lng</b>: 18.85526"}`,
+      
+"ps50":
+`{"description": "<b>id</b>: 050 </br> <b>name</b>: OUDTSHOORN </br> <b>lat</b>: -33.58986 </br> <b>lng</b>: 22.20401"}`,
+      
+"ps51":
+`{"description": "<b>id</b>: 051 </br> <b>name</b>: UNIONDALE </br> <b>lat</b>: -33.6573 </br> <b>lng</b>: 23.12582"}`,
+      
+"ps52":
+`{"description": "<b>id</b>: 052 </br> <b>name</b>: LADISMITH </br> <b>lat</b>: -33.49487 </br> <b>lng</b>: 21.2683"}`,
+      
+"ps53":
+`{"description": "<b>id</b>: 053 </br> <b>name</b>: STILL BAY </br> <b>lat</b>: -34.37743 </br> <b>lng</b>: 21.41184"}`,
+      
+"ps54":
+`{"description": "<b>id</b>: 054 </br> <b>name</b>: LAINGSBURG </br> <b>lat</b>: -33.19758 </br> <b>lng</b>: 20.85937"}`,
+      
+"ps55":
+`{"description": "<b>id</b>: 055 </br> <b>name</b>: MURRAYSBURG </br> <b>lat</b>: -31.96489 </br> <b>lng</b>: 23.76155"}`,
+      
+"ps56":
+`{"description": "<b>id</b>: 056 </br> <b>name</b>: CAPE TOWN CENTRAL </br> <b>lat</b>: -33.92774 </br> <b>lng</b>: 18.4231"}`,
+
+}
+      var table = JSON.parse(data.table);
+      var dict = JSON.parse(data.dictionary);
+      var metad = JSON.parse(data.metadata);
+      var obj1 = JSON.parse(data.ps1);
+      var obj2 = JSON.parse(data.ps2);
+      var obj3 = JSON.parse(data.ps3);
+      var obj4 = JSON.parse(data.ps4);
+      var obj5 = JSON.parse(data.ps5);
+      var obj6 = JSON.parse(data.ps6);
+      var obj7 = JSON.parse(data.ps7);
+      var obj8 = JSON.parse(data.ps8);
+      var obj9 = JSON.parse(data.ps9);
+      var obj10 = JSON.parse(data.ps10);
+      var obj11 = JSON.parse(data.ps11);
+      var obj12 = JSON.parse(data.ps12);
+      var obj13 = JSON.parse(data.ps13);
+      var obj14 = JSON.parse(data.ps14);
+      var obj15 = JSON.parse(data.ps15);
+      var obj16 = JSON.parse(data.ps16);
+      var obj17 = JSON.parse(data.ps17);
+      var obj18 = JSON.parse(data.ps18);
+      var obj19 = JSON.parse(data.ps19);
+      var obj20 = JSON.parse(data.ps20);
+      var obj21 = JSON.parse(data.ps21);
+      var obj23 = JSON.parse(data.ps22);
+      var obj23 = JSON.parse(data.ps23);
+      var obj24 = JSON.parse(data.ps24);
+      var obj25 = JSON.parse(data.ps25);
+      var obj26 = JSON.parse(data.ps26);
+      var obj27 = JSON.parse(data.ps27);
+      var obj28 = JSON.parse(data.ps28);
+      var obj29 = JSON.parse(data.ps29);
+      var obj30 = JSON.parse(data.ps30);
+      var obj31 = JSON.parse(data.ps31);
+      var obj32 = JSON.parse(data.ps32);
+      var obj33 = JSON.parse(data.ps33);
+      var obj34 = JSON.parse(data.ps34);
+      var obj35 = JSON.parse(data.ps35);
+      var obj36 = JSON.parse(data.ps36);
+      var obj37 = JSON.parse(data.ps37);
+      var obj38 = JSON.parse(data.ps38);
+      var obj39 = JSON.parse(data.ps39);
+      var obj40 = JSON.parse(data.ps40);
+      var obj41 = JSON.parse(data.ps41);
+      var obj42 = JSON.parse(data.ps42);
+      var obj43 = JSON.parse(data.ps43);
+      var obj44 = JSON.parse(data.ps44);
+      var obj45 = JSON.parse(data.ps45);
+      var obj46 = JSON.parse(data.ps46);
+      var obj47 = JSON.parse(data.ps47);
+      var obj48 = JSON.parse(data.ps48);
+      var obj49 = JSON.parse(data.ps49);
+      var obj50 = JSON.parse(data.ps50);
+      var obj51 = JSON.parse(data.ps51);
+      var obj52 = JSON.parse(data.ps52);
+      var obj53 = JSON.parse(data.ps53);
+      var obj54 = JSON.parse(data.ps54);
+      var obj55 = JSON.parse(data.ps55);
+      var obj56 = JSON.parse(data.ps56);
+
+      
+function getValue() {
+
+var val = document.getElementById("inputa").value;
+if (val == "table") {
+document.getElementById("demo").innerHTML = table.description;}
+if (val == "dictionary") {
+document.getElementById("demo").innerHTML = dict.description;}
+if (val == "metadata") {
+document.getElementById("demo").innerHTML = metad.description;}
+if (val == 1)  {
+document.getElementById("demo").innerHTML = obj1.description;}
+if (val == 2)  {
+document.getElementById("demo").innerHTML = obj2.description;}
+if (val == 3)  {
+document.getElementById("demo").innerHTML = obj3.description;}
+if (val == 4)  {
+document.getElementById("demo").innerHTML = obj4.description;}
+if (val == 5)  {
+document.getElementById("demo").innerHTML = obj5.description;}
+if (val == 6)  {
+document.getElementById("demo").innerHTML = obj6.description;}
+if (val == 7)  {
+document.getElementById("demo").innerHTML = obj7.description;}
+if (val == 8)  {
+document.getElementById("demo").innerHTML = obj8.description;}
+if (val == 9)  {
+document.getElementById("demo").innerHTML = obj9.description;}
+if (val == 10)  {
+document.getElementById("demo").innerHTML = obj10.description;}
+if (val == 11)  {
+document.getElementById("demo").innerHTML = obj11.description;}
+if (val == 12)  {
+document.getElementById("demo").innerHTML = obj12.description;}
+if (val == 13)  {
+document.getElementById("demo").innerHTML = obj13.description;}
+if (val == 14)  {
+document.getElementById("demo").innerHTML = obj14.description;}
+if (val == 15)  {
+document.getElementById("demo").innerHTML = obj15.description;}
+if (val == 16)  {
+document.getElementById("demo").innerHTML = obj16.description;}
+if (val == 17)  {
+document.getElementById("demo").innerHTML = obj17.description;}
+if (val == 18)  {
+document.getElementById("demo").innerHTML = obj18.description;}
+if (val == 19)  {
+document.getElementById("demo").innerHTML = obj19.description;}
+if (val == 20)  {
+document.getElementById("demo").innerHTML = obj20.description;}
+if (val == 21)  {
+document.getElementById("demo").innerHTML = obj21.description;}
+if (val == 22)  {
+document.getElementById("demo").innerHTML = obj22.description;}
+if (val == 23)  {
+document.getElementById("demo").innerHTML = obj23.description;}
+if (val == 24)  {
+document.getElementById("demo").innerHTML = obj24.description;}
+if (val == 25)  {
+document.getElementById("demo").innerHTML = obj25.description;}
+if (val == 26)  {
+document.getElementById("demo").innerHTML = obj26.description;}
+if (val == 27)  {
+document.getElementById("demo").innerHTML = obj27.description;}
+if (val == 28)  {
+document.getElementById("demo").innerHTML = obj28.description;}
+if (val == 29)  {
+document.getElementById("demo").innerHTML = obj29.description;}
+if (val == 30)  {
+document.getElementById("demo").innerHTML = obj30.description;}
+if (val == 31)  {
+document.getElementById("demo").innerHTML = obj31.description;}
+if (val == 32)  {
+document.getElementById("demo").innerHTML = obj32.description;}
+if (val == 33)  {
+document.getElementById("demo").innerHTML = obj33.description;}
+if (val == 34)  {
+document.getElementById("demo").innerHTML = obj34.description;}
+if (val == 35)  {
+document.getElementById("demo").innerHTML = obj35.description;}
+if (val == 36)  {
+document.getElementById("demo").innerHTML = obj36.description;}
+if (val == 37)  {
+document.getElementById("demo").innerHTML = obj37.description;}
+if (val == 38)  {
+document.getElementById("demo").innerHTML = obj38.description;}
+if (val == 39)  {
+document.getElementById("demo").innerHTML = obj39.description;}
+if (val == 40)  {
+document.getElementById("demo").innerHTML = obj40.description;}
+if (val == 41)  {
+document.getElementById("demo").innerHTML = obj41.description;}
+if (val == 42)  {
+document.getElementById("demo").innerHTML = obj42.description;}
+if (val == 43)  {
+document.getElementById("demo").innerHTML = obj43.description;}
+if (val == 44)  {
+document.getElementById("demo").innerHTML = obj44.description;}
+if (val == 45)  {
+document.getElementById("demo").innerHTML = obj45.description;}
+if (val == 46)  {
+document.getElementById("demo").innerHTML = obj46.description;}
+if (val == 47)  {
+document.getElementById("demo").innerHTML = obj47.description;}
+if (val == 48)  {
+document.getElementById("demo").innerHTML = obj48.description;}
+if (val == 49)  {
+document.getElementById("demo").innerHTML = obj49.description;}
+if (val == 50)  {
+document.getElementById("demo").innerHTML = obj50.description;}
+if (val == 51)  {
+document.getElementById("demo").innerHTML = obj51.description;}
+if (val == 52)  {
+document.getElementById("demo").innerHTML = obj52.description;}
+if (val == 53)  {
+document.getElementById("demo").innerHTML = obj53.description;}
+if (val == 54)  {
+document.getElementById("demo").innerHTML = obj54.description;}
+if (val == 55)  {
+document.getElementById("demo").innerHTML = obj55.description;}
+if (val == 56)  {
+document.getElementById("demo").innerHTML = obj56.description;}
+}
+
+   </script>
+</body>
+</html>

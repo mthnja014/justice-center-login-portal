@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Police Stations WCPS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.css" />
+    <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel='stylesheet' />
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.17/leaflet-maplibre-gl.js"></script>
+    
+</head>
+    <style type="text/css">
+#map {
+position: absolute; 
+top:117px;
+right: 5px; 
+bottom: 230px;
+left: 10px;
+}
+#cont {
+padding-top: 100%;
+}
+.container {
+background-color: white;
+background-size: cover;
+width: 100%;
+height: 100%;
+}
+.home {
+justify-content: center;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#home {
+position: absolute; left: 20px; top: 80px;
+width: 50px;
+text-align: center;
+background-color: rgb(255, 255, 20);
+color: black;
+border-radius: 0%;
+}
+.diagrams {
+justify-content: center;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#diagrams {
+position: absolute; left: 100px; top: 80px;
+width: 65px;
+text-align: center;
+background-color: rgb(255, 255, 20);
+color: black;
+border-radius: 2%;
+}
+.metadata {
+justify-content: center;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#metadata {
+position: absolute; left: 195px; top: 80px;
+width: 80px;
+text-align: left;
+background-color: rgb(255, 255, 20);
+color: rgb(0,0,0);
+border-radius: 2%;
+}
+.dictionary {
+justify-content: center;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#dictionary {
+position: absolute; left: 305px; top: 80px;
+width: 70px;
+text-align: left;
+background-color: rgb(255, 255, 20);
+color: rgb(0,0,0);
+border-radius: 2%;
+}
+p {
+color: rgb(255, 255, 255);
+font-family: arial;
+font-size: 150%;
+font-weight: bolder;
+text-align: center;
+} 
+p1 {
+color: rgb(0,0,0);
+font-family: arial;
+font-size: 50%;
+font-weight: bolder;
+text-align: center;
+} 
+p2 {
+position: absolute; top: 60px;
+color: rgb(255, 255, 255);
+font-family: arial;
+font-size: 10.8px;
+font-weight: bolder;
+} 
+#banner {
+        position: absolute; bottom: 10px;
+	font-family: Arial;
+	background-color: rgb(255, 255, 255);
+	padding: 2px 2px 2px 8px;
+}
+#banner2 {
+	font-family: Arial;
+	background-color: rgb(255, 255, 255);
+	padding: 2px 2px 2px 8px;
+	}
+#banner1 {
+			font-family: Arial;
+			background-color: blue;
+			padding: 5px 2px 25px 25px;
+			}
+#lo {
+position: absolute; right: 5%; top: 5px;
+width: 40px;
+text-align: center;
+background-color: rgb(30, 130, 237);
+color: white;
+border-radius: 50%;
+}
+#myCanvas {
+background-color: none;
+margin-top: 50px;
+position: absolute;
+bottom: 20px;
+right: 10px;
+}
+        *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+    </style>
+<body>
+<div id="banner1">
+<p>Western Cape 2020 Crime Statistics</p></div><br><div>
+
+
+<script>
+      function validateForm()     
+</script>  
+
+<form action="#" onsubmit="return validateForm()">
+<div class="home"><button id="home">🏡 home</button></div>
+</form>
+<script>
+      function validateForm()     
+</script>
+
+<form action="#" onsubmit="return validateForm()">
+<div class="diagrams"><button id="diagrams">🗒️ Diagrams</button></div>
+</form>
+<script>
+      function validateForm()     
+</script>
+
+<form action="#" onsubmit="return validateForm()">
+<div class="metadata"><button id="metadata">Data 🗒️ Clearinghouse</button></div>
+</form>
+<script>
+      function validateForm()     
+</script>
+
+   </div>
+
+<div id="map">
+      <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"></a>
+    </div>
+    
+ 
+    <script>
+      const key = 'i39Qg6QqR6C1s4K7BGko';
+      var map = L.map('map').setView([-33, 19.5], 9);
+map.setMaxBounds([[-35, 17], [-28, 25]]);
+map.distance([-31.14, 18.72987], [-33.07946, 19.434]);
+
+map.setMinZoom(9);
+
+const gl = L.maplibreGL({
+        attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+        style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
+            }).addTo(map);
+
+L.control.scale({maxWidth: 100, metric: true, imperial: true}).setPosition('bottomright').addTo(map);
+
+var marker1=L.circle([-32.15174, 18.60647], 50);
+marker1.bindPopup("id: 001 </br> name: GRAAFWATER</br> lat: -32.15174 </br> lng: 18.60647"); 
+
+var marker2=L.circle([-33.99243, 19.28734], 50);
+marker2.bindPopup("id: 002 </br> name: VILLIERSDORP </br> lat: -33.99243 </br> lng: 19.28734"); 
+
+var marker3=L.circle([-34.53644, 20.04727], 50);
+marker3.bindPopup("id: 003 </br> name: BREDASDORP </br> lat: -34.53644 </br> lng: 20.04727");
+
+var marker4=L.circle([-34.23493, 19.42919], 50);
+marker4.bindPopup("id: 004 </br> name: CALEDON </br> lat: -34.23493 </br> lng: 19.42919");
+ 
+var marker5=L.circle([-34.57818, 19.35139], 50);
+marker5.bindPopup("id: 005 </br> name: GARDENS </br> lat: -34.57818 </br> lng: 19.35139");
+
+var marker6=L.circle([-33.96262, 18.46833], 50);
+marker6.bindPopup("id: 006 </br> name: RONDEBOSCH </br> lat: -33.96262 </br> lng: 18.46833");
+
+var marker7=L.circle([-32.15174, 18.46663], 50);
+marker7.bindPopup("id: 007 </br> name: MUIZENBERG </br> lat: -34.1087 </br> lng: 18.46663");
+
+var marker8=L.circle([-33.80517, 19.87543], 50);
+marker8.bindPopup("id: 008 </br> name: ROBERTSON </br> lat: -33.80517 </br> lng: 19.87543");
+
+var marker9=L.circle([-34.11561, 18.86718], 50);
+marker9.bindPopup("id: 009 </br> name: LWANDLE </br> lat: -34.11567 </br> lng: 18.86718");
+
+var marker10=L.circle([-33.71148, 18.99406], 50);
+marker10.bindPopup("id: 010 </br> name: PAARL EAST </br> lat: -33.71148 </br> lng: 18.99406");
+
+var marker11=L.circle([-34.00107, 18.54054], 50);
+marker11.bindPopup("id: 011 </br> name: PHILIPPI </br> lat: -34.00107 </br> lng: 18.54054");
+
+var marker12=L.circle([-33.09287, 18.03349], 50);
+marker12.bindPopup("id: 012 </br> name: LANGEBAAN </br> lat: -33.09287 </br> lng: 18.03349");
+
+var marker13=L.circle([-33.15359, 18.66466], 50);
+marker13.bindPopup("id: 013 </br> name: MOORREESBURG </br> lat: -33.15359 </br> lng: 18.66466");
+
+var marker14=L.circle([-32.90627, 18.75449], 50);
+marker14.bindPopup("id: 014 </br> name: PIKETBERG </br> lat: -32.90627 </br> lng: 18.75449");
+
+var marker15=L.circle([-32.47741, 18.53737], 50);
+marker15.bindPopup("id: 015 </br> name: REDELINGHUYS </br> lat: -32.47741 </br> lng: 18.53737");
+
+var marker16=L.circle([-32.75816, 18.02407], 50);
+marker16.bindPopup("id: 016 </br> name: ST HELENA BAY </br> lat: -32.75816 </br> lng: 18.02407");
+
+var marker17=L.circle([-32.90673, 18.00228], 50);
+marker17.bindPopup("id: 017 </br> name: VREDENBURG </br> lat: -32.90673 </br> lng: 18.00228");
+
+var marker18=L.circle([-32.58829, 19.01101], 50);
+marker18.bindPopup("id: 018 </br> name: CITRUSDAL </br> lat: -32.58829 </br> lng: 19.01101");
+
+var marker19=L.circle([-32.17615, 18.89226], 50);
+marker19.bindPopup("id: 019 </br> name: CLANWILLIAM </br> lat: -32.17615 </br> lng: 18.89226");
+
+var marker20=L.circle([-31.81174, 18.23678], 50);
+marker20.bindPopup("id: 020 </br> name: DORING BAY </br> lat: -31.81174 </br> lng: 18.23678");
+
+var marker21=L.circle([-34.02047, 20.44455], 50);
+marker21.bindPopup("id: 021 </br> name: SWELLENDAM </br> lat: -34.02047 </br> lng: 20.44455");
+
+var marker22=L.circle([-33.98106, 18.68742], 50);
+marker22.bindPopup("id: 022 </br> name: MFULENI </br> lat: -33.98106 </br> lng: 18.68742");
+
+var marker23=L.circle([-33.35093, 18.8727], 50);
+marker23.bindPopup("id: 023 </br> name: RIEBEEK WEST </br> lat: -33.35093 </br> lng: 18.8727");
+
+var marker24=L.circle([-33.64022, 19.00515], 50);
+marker24.bindPopup("id: 024 </br> name: WELLINGTON </br> lat: -33.64022 </br> lng: 19.00515");
+
+var marker25=L.circle([-33.28503, 19.14052], 50);
+marker25.bindPopup("id: 025 </br> name: TULBAGH </br> lat: -33.28503 </br> lng: 19.14052");
+
+var marker26=L.circle([-34.05193, 18.6693], 50);
+marker26.bindPopup("id: 026 </br> name: HARARE </br> lat: -34.05193 </br> lng: 18.6693");
+
+var marker27=L.circle([-33.9882, 18.71879], 50);
+marker27.bindPopup("id: 027 </br> name: KLEINVLEI </br> lat: -33.9882 </br> lng: 18.71879");
+
+var marker28=L.circle([-34.15381, 19.01901], 50);
+marker28.bindPopup("id: 028 </br> name: GRABOUW </br> lat: -34.15381 </br> lng: 19.01901");
+
+var marker29=L.circle([-34.41859, 19.23623], 50);
+marker29.bindPopup("id: 029 </br> name: HERMANUS </br> lat: -34.41859 </br> lng: 19.23623");
+
+var marker30=L.circle([-34.33963, 19.03232], 50);
+marker30.bindPopup("id: 030 </br> name: KLEINMOND </br> lat: -34.33963 </br> lng: 19.03232");
+
+var marker31=L.circle([-34.4756, 19.89561], 50);
+marker31.bindPopup("id: 031 </br> name: NAPIER </br> lat: -34.4756 </br> lng: 19.89561");
+
+var marker32=L.circle([-34.11592, 18.83286], 50);
+marker32.bindPopup("id: 032 </br> name: STRAND </br> lat: -34.11592 </br> lng: 18.83286");
+
+var marker33=L.circle([-34.04298, 18.66004], 50);
+marker33.bindPopup("id: 033 </br> name: LINGELETHU-WEST </br> lat: -34.04298 </br> lng: 18.66004");
+
+var marker34=L.circle([-33.86616, 18.97776], 50);
+marker34.bindPopup("id: 034 </br> name: GROOT-DRAKENSTEIN </br> lat: -33.86616 </br> lng: 18.97776");
+
+var marker35=L.circle([-33.95012, 18.47228], 50);
+marker35.bindPopup("id: 035 </br> name: MOWBRAY </br> lat: -33.95012 </br> lng: 18.47228");
+   
+var marker36=L.circle([-34.03052, 18.35674], 50);
+marker36.bindPopup("id: 036 </br> name: HOUT BAY </br> lat: -34.03052 </br> lng: 18.35674");
+
+var marker37=L.circle([-33.7846, 20.12967], 50);
+marker37.bindPopup("id: 037 </br> name: MONTAGU </br> lat: -33.7846 </br> lng: 20.12967");
+
+var marker38=L.circle([-34.03161, 18.46485], 50);
+marker38.bindPopup("id: 038 </br> name: DIEPRIVIER </br> lat: -34.03161 </br> lng: 18.46485");
+
+var marker39=L.circle([-33.98442, 18.47286], 50);
+marker39.bindPopup("id: 039 </br> name: CLAREMONT </br> lat: -33.98442 </br> lng: 18.47286");
+
+var marker40=L.circle([-33.18409, 18.99944], 50);
+marker40.bindPopup("id: 040 </br> name: SARON </br> lat: -33.18409 </br> lng: 18.99944");
+
+var marker41=L.circle([-33.45354, 18.72971], 50);
+marker41.bindPopup("id: 041 </br> name: MALMESBURY </br> lat: -33.45354 </br> lng: 18.72971");
+
+var marker42=L.circle([-33.01164, 18.99274], 50);
+marker42.bindPopup("id: 042 </br> name: PORTERVILLE </br> lat: -33.01164 </br> lng: 18.99274");
+
+var marker43=L.circle([-33.00962, 17.93958], 50);
+marker43.bindPopup("id: 043 </br> name: SALDANHA </br> lat: -33.00962 </br> lng: 17.93958");
+
+var marker44=L.circle([-34.02464, 18.66599], 50);
+marker44.bindPopup("id: 044 </br> name: KHAYELITSHA </br> lat: -34.02464 </br> lng: 18.66599");
+
+var marker45=L.circle([-33.92897, 18.44814], 50);
+marker45.bindPopup("id: 045 </br> name: WOODSTOCK </br> lat: -33.92897 </br> lng: 18.44814");
+
+var marker46=L.circle([-34.15086, 19.92037], 50);
+marker46.bindPopup("id: 046 </br> name: RIVIERSONDEREND </br> lat: -34.15086 </br> lng: 19.92037");
+
+var marker47=L.circle([-34.07682, 18.84466], 50);
+marker47.bindPopup("id: 047 </br> name: SOMERSET WEST </br> lat: -34.07682 </br> lng: 18.84466");
+
+var marker48=L.circle([-34.80059, 20.05088], 50);
+marker48.bindPopup("id: 048 </br> name: STRUISBAAI </br> lat: -34.80059 </br> lng: 20.05088");
+
+var marker49=L.circle([-33.92257, 18.85526], 50);
+marker49.bindPopup("id: 049 </br> name: CLOETESVILLE </br> lat: -33.92257 </br> lng: 18.85526");
+
+var marker50=L.circle([-33.58986, 22.20401], 50);
+marker50.bindPopup("id: 050 </br> name: OUDTSHOORN </br> lat: -33.58986 </br> lng: 22.20401");
+
+var marker51=L.circle([-33.6573, 23.12582], 50);
+marker51.bindPopup("id: 051 </br> name: UNIONDALE </br> lat: -33.6573 </br> lng: 23.12582");
+
+var marker52=L.circle([-33.49487, 21.2683], 50);
+marker52.bindPopup("id: 052 </br> name: LADISMITH </br> lat: -33.49487 </br> lng: 21.2683");
+
+var marker53=L.circle([-34.37743, 21.41184], 50);
+marker53.bindPopup("id: 053 </br> name: STILL BAY </br> lat: -34.37743 </br> lng: 21.41184");
+
+var marker54=L.circle([-33.19758, 20.85937], 50);
+marker54.bindPopup("id: 054 </br> name: LAINGSBURG </br> lat: -33.19758 </br> lng: 20.85937");
+
+var marker55=L.circle([-31.96489, 23.76155], 50);
+marker55.bindPopup("id: 055 </br> name: MURRAYSBURG </br> lat: -31.96489 </br> lng: 23.76155");
+
+var marker56=L.circle([-33.92774, 18.4231], 50);
+marker56.bindPopup("id: 056 </br> name: CAPE TOWN CENTRAL </br> lat: -33.92774 </br> lng: 18.4231");
+
+var marker57=L.circle([-33.95604, 18.37672], 50);
+marker57.bindPopup("id: 057 </br> name: CAMPS BAY </br> lat: -33.95604 </br> lng: 18.37672");
+
+var marker58=L.circle([-33.92367, 18.48325], 50);
+marker58.bindPopup("id: 058 </br> name: MAITLAND </br> lat: -33.92367 </br> lng: 18.48325");
+
+var marker59=L.circle([-33.87562, 18.50175], 50);
+marker59.bindPopup("id: 059 </br> name: MILNERTON </br> lat: -33.87562 </br> lng: 18.50175");
+
+var marker60=L.circle([-33.92691, 18.50137], 50);
+marker60.bindPopup("id: 060 </br> name: PINELANDS </br> lat: -33.92691 </br> lng: 18.50137");
+
+var marker61=L.circle([-33.90953, 18.51064], 50);
+marker61.bindPopup("id: 061 </br> name: KENSINGTON </br> lat: -33.90953 </br> lng: 18.51064");
+
+var marker62=L.circle([-33.97502, 18.64209], 50);
+marker62.bindPopup("id: 062 </br> name: DELFT </br> lat: -33.97502 </br> lng: 18.64209");
+
+var marker63=L.circle([-34.19313, 18.43659], 50);
+marker63.bindPopup("id: 063 </br> name: SIMON\'\S TOWN </br> lat: -34.19313 </br> lng: 18.43659");
+
+var marker64=L.circle([-33.93231, 18.6825], 50);
+marker64.bindPopup("id: 064 </br> name: KUILSRIVIER </br> lat: -33.93231 </br> lng: 18.6825");
+
+var marker65=L.circle([-33.33927, 20.03179], 50);
+marker65.bindPopup("id: 065 </br> name: TOUWS RIVER </br> lat: -33.33927 </br> lng:20.03179 ");
+
+var marker66=L.circle([-34.0046, 20.654], 50);
+marker66.bindPopup("id: 066 </br> name: SUURBRAAK </br> lat: -34.0046 </br> lng: ");
+
+var marker67=L.circle([-33.68464, 19.30908], 50);
+marker67.bindPopup("id: 067 </br> name: RAWSONVILLE </br> lat: -33.68464 </br> lng: 19.30908");
+
+var marker68=L.circle([-34.17631, 22.11733], 50);
+marker68.bindPopup("id: 068 </br> name: DA GAMASKOP </br> lat: -34.17631 </br> lng: 22.11733");
+
+var marker69=L.circle([-32.77896, 21.97303], 50);
+marker69.bindPopup("id: 069 </br> name: LEEU GAMKA </br> lat: -32.77896 </br> lng: 21.97303");
+
+var marker70=L.circle([-34.00341, 22.48547], 50);
+marker70.bindPopup("id: 070 </br> name: THEMBALETHU </br> lat: -34.00341 </br> lng: 22.48547");
+
+var marker71=L.circle([-34.17612, 22.09112], 50);
+marker71.bindPopup("id: 071 </br> name: KWANONQABA </br> lat: -34.17612 </br> lng: 22.09112");
+
+var marker72=L.circle([-34.05359, 23.32062], 50);
+marker72.bindPopup("id: 072 </br> name: KWANOKUTHULA </br> lat: -34.05359 </br> lng: 23.32062");
+
+var marker73=L.circle([-33.98272, 22.47327], 50);
+marker73.bindPopup("id: 073 </br> name: CONVILLE </br> lat: -33.98272 </br> lng: 22.47327");
+
+var marker74=L.circle([-31.77222, 18.62512], 50);
+marker74.bindPopup("id: 074 </br> name: KLAWER </br> lat: -31.77222 </br> lng: 18.62512");
+
+var marker75=L.circle([-32.09251, 18.30541], 50);
+marker75.bindPopup("id: 075 </br> name: LAMBERTSBAAI </br> lat: -32.09251 </br> lng: 18.30541");
+
+var marker76=L.circle([-33.90553, 18.39946], 50);
+marker76.bindPopup("id: 076 </br> name: SEA POINT </br> lat: -33.90553 </br> lng: 18.39946");
+
+var marker77=L.circle([-31.14968, 18.35712], 50);
+marker77.bindPopup("id: 077 </br> name: NUWERUS </br> lat: -31.14968 </br> lng: 18.35712");
+
+var marker78=L.circle([-31.6083, 18.74001], 50);
+marker78.bindPopup("id: 078 </br> name: VANRHYNSDORP </br> lat: -31.6083 </br> lng: 18.74001");
+
+var marker79=L.circle([-33.94692, 18.64877], 50);
+marker79.bindPopup("id: 079 </br> name: BELHAR </br> lat: -33.94692 </br> lng: 18.64877");
+
+var marker80=L.circle([-33.29353, 19.32863], 50);
+marker80.bindPopup("id: 080 </br> name: PRINCE ALFRED HAMLET </br> lat: -33.29353 </br> lng: 19.32863");
+
+var marker81=L.circle([-33.47424, 19.66581], 50);
+marker81.bindPopup("id: 081 </br> name: DE DOORNS </br> lat: -33.47424 </br> lng: 19.66581");
+
+var marker82=L.circle([-33.80679, 18.86272], 50);
+marker82.bindPopup("id: 082 </br> name: KLAPMUTS </br> lat: -33.80679 </br> lng: 18.86272");
+
+var marker83=L.circle([-33.90469, 18.59561], 50);
+marker83.bindPopup("id: 083 </br> name: PAROW </br> lat: -33.90469 </br> lng: 18.59561");
+
+var marker84=L.circle([-33.90276, 20.72117], 50);
+marker84.bindPopup("id: 084 </br> name: BARRYDALE </br> lat: -33.90276 </br> lng: 20.72117");
+
+var marker85=L.circle([-33.83361, 20.06699], 50);
+marker85.bindPopup("id: 085 </br> name: ASHTON </br> lat: -33.83361 </br> lng: 20.06699");
+      
+var marker86=L.circle([-34.06542, 18.47621], 50);
+marker86.bindPopup("id: 086 </br> name: STEENBERG </br> lat: -34.06542 </br> lng: 18.47621");
+
+var marker87=L.circle([-34.01031, 18.60685], 50);
+marker87.bindPopup("id: 087 </br> name: PHILIPPI EAST </br> lat: -34.01031 </br> lng: 18.60685");
+
+var marker88=L.circle([-34.13289, 18.43492], 50);
+marker88.bindPopup("id: 088 </br> name: FISH HOEK </br> lat: -34.13289 </br> lng: 18.43492");
+
+var marker89=L.circle([-31.66088, 18.51031], 50);
+marker89.bindPopup("id: 089 </br> name: VREDENDAL </br> lat: -31.66088 </br> lng: 18.51031");
+
+var marker90=L.circle([-33.92441, 18.56443], 50);
+marker90.bindPopup("id: 090 </br> name: ELSIES RIVER </br> lat: -33.92441 </br> lng: 18.56443");
+
+var marker91=L.circle([-31.55902, 18.34501], 50);
+marker91.bindPopup("id: 091 </br> name: LUTZVILLE </br> lat: -31.55902 </br> lng: 18.34501");
+
+var marker92=L.circle([-33.36941, 19.31159], 50);
+marker92.bindPopup("id: 092 </br> name: CERES </br> lat: -33.36941 </br> lng: 19.31159");
+
+var marker93=L.circle([33.93905, 20.09825], 50);
+marker93.bindPopup("id: 093 </br> name: BONNIEVALE </br> lat: -33.93905 </br> lng: 20.09825");
+
+var marker94=L.circle([-33.90888, 18.56195], 50);
+marker94.bindPopup("id: 094 </br> name: GOODWOOD </br> lat: -33.90888 </br> lng: 18.56195");
+
+var marker95=L.circle([-33.857, 18.7273], 50);
+marker95.bindPopup("id: 095 </br> name: KRAAIFONTEIN </br> lat: -33.857 </br> lng: 18.7273");
+
+var marker96=L.circle([-33.97497, 18.56331], 50);
+marker96.bindPopup("id: 096 </br> name: GUGULETHU </br> lat: -33.97497 </br> lng: 18.56331");
+
+var marker97=L.circle([-33.97186, 18.55608], 50);
+marker97.bindPopup("id: 097 </br> name: MANENBERG </br> lat: -33.97186 </br> lng: 18.55608");
+
+var marker98=L.circle([-34.04761, 18.62321], 50);
+marker98.bindPopup("id: 098 </br> name: MITCHELLS PLAIN </br> lat: -34.04761 </br> lng: 18.62321");
+
+var marker99=L.circle([-33.53339, 21.68666], 50);
+marker99.bindPopup("id: 99 </br> name: CALITZDORP </br> lat: -33.53339 </br> lng: 21.68666");
+
+var marker100=L.circle([-33.96157, 18.50724], 50);
+marker100.bindPopup("id: 100 </br> name: ATHLONE </br> lat: -33.96157 </br> lng: 18.50724");
+
+var marker101=L.circle([-33.94634, 18.57224], 50);
+marker101.bindPopup("id: 101 </br> name: BISHOP LAVIS </br> lat: -33.94634 </br> lng: 18.57224");
+
+var marker102=L.circle([-33.48874, 22.53451], 50);
+marker102.bindPopup("id: 102 </br> name: DE RUST </br> lat: -33.48874 </br> lng: 22.53451");
+
+var marker103=L.circle([-33.95658, 22.46031], 50);
+marker103.bindPopup("id: 103 </br> name: GEORGE </br> lat: -33.95658 </br> lng: 22.46031");
+
+var marker104=L.circle([-34.03629, 23.05145], 50);
+marker104.bindPopup("id: 104 </br> name: KNYSNA </br> lat: -34.03629 </br> lng: 23.05145");
+
+var marker105=L.circle([-34.18145, 22.14066], 50);
+marker105.bindPopup("id: 105 </br> name: MOSSEL BAY </br> lat: -34.18145 </br> lng: 22.14066");
+
+var marker106=L.circle([-34.2086, 21.58325], 50);
+marker106.bindPopup("id: 106 </br> name: ALBERTINIA </br> lat: -34.2086 </br> lng: 21.58325");
+
+var marker107=L.circle([-34.05469, 22.21906], 50);
+marker107.bindPopup("id: 107 </br> name: GROOT BRAKRIVIER </br> lat: -34.05469 </br> lng: 22.21906");
+
+var marker108=L.circle([-34.09338, 21.26123], 50);
+marker108.bindPopup("id: 108 </br> name: RIVERSDALE </br> lat: -34.09338 </br> lng: 21.26123");
+
+var marker109=L.circle([-32.34946, 22.58486], 50);
+marker109.bindPopup("id: 109 </br> name: BEAUFORT WEST </br> lat: -32.34946 </br> lng: 22.58486");
+
+var marker110=L.circle([-32.77115, 18.15646], 50);
+marker110.bindPopup("id: 110 </br> name: LAAIPLEK </br> lat: -32.77115 </br> lng: 18.15646");
+
+var marker111=L.circle([-33.85506, 18.54346], 50);
+marker111.bindPopup("id: 111 </br> name: BOTHASIG </br> lat: -33.85506 </br> lng: 18.54346");
+
+var marker112=L.circle([-33.21944, 22.02828], 50);
+marker112.bindPopup("id: 112 </br> name: PRINCE ALBERT </br> lat: -33.21944 </br> lng: 22.02828");
+
+var marker113=L.circle([-33.4144, 19.20104], 50);
+marker113.bindPopup("id: 113 </br> name: WOLSELEY </br> lat: -33.4144 </br> lng: 19.20104");
+
+var marker114=L.circle([-33.92226, 18.5973], 50);
+marker114.bindPopup("id: 114 </br> name: RAVENSMEAD </br> lat: -33.92226 </br> lng: 18.5973");
+
+var marker115=L.circle([-34.03613, 18.6107], 50);
+marker115.bindPopup("id: 115 </br> name: LENTEGEUR </br> lat: -34.03613 </br> lng: 18.6107");
+
+var marker116=L.circle([-33.9122, 19.12143], 50);
+marker116.bindPopup("id: 116 </br> name: FRANSCHHOEK </br> lat: -33.9122 </br> lng: 19.12143");
+
+var marker117=L.circle([-33.06525, 18.34998], 50);
+marker117.bindPopup("id: 117 </br> name: HOPEFIELD </br> lat: -33.06525 </br> lng: 18.34998");
+
+var marker118=L.circle([-33.87196, 18.68164], 50);
+marker118.bindPopup("id: 118 </br> name: BRACKENFELL </br> lat: -33.87196 </br> lng: 18.68164");
+
+var marker119=L.circle([-33.93575, 18.85592], 50);
+marker119.bindPopup("id: 119 </br> name: STELLENBOSCH </br> lat: -33.93575 </br> lng: 18.85592");
+
+var marker120=L.circle([-33.9463, 19.82949], 50);
+marker120.bindPopup("id: 120 </br> name: MCGREGOR </br> lat: -33.9463 </br> lng: 19.82949");
+
+var marker121=L.circle([-34.43881, 19.45789], 50);
+marker121.bindPopup("id: 121 </br> name: STANFORD </br> lat: -34.43881 </br> lng: 19.45789");
+      
+var marker122=L.circle([-33.82635, 18.4893], 50);
+marker122.bindPopup("id: 122 </br> name: TABLE VIEW </br> lat: -33.82635 </br> lng: 18.4893");
+
+var marker123=L.circle([-33.67287, 18.99789], 50);
+marker123.bindPopup("id: 123 </br> name: MBEKWENI </br> lat: -33.67287 </br> lng: 18.99789");
+
+var marker124=L.circle([-34.08899, 20.95543], 50);
+marker124.bindPopup("id: 124 </br> name: HEIDELBERG(C) </br> lat: -34.08899 </br> lng: 20.95543");
+
+var marker125=L.circle([-34.05783, 23.37196], 50);
+marker125.bindPopup("id: 125 </br> name: PLETTENBERG BAY </br> lat: -34.05783 </br> lng: 23.37196");
+
+var fg2 = L.featureGroup([
+marker3, marker7, marker11, marker15, marker20, marker22, marker37, marker38, marker47,
+marker48, marker49, marker50, marker51, marker52, marker56, marker65, marker77, marker78,
+marker79, marker80, marker81, marker82, marker83, marker84, marker85, marker111, marker112,
+marker113, marker114, marker115, marker116, marker117, marker118
+]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var fg3 = L.featureGroup([
+marker1, marker5, marker9, marker13, marker17, marker18, marker31, marker32, marker57, 
+marker58, marker59, marker63, marker64, marker66, marker95, marker96, marker97, marker98,
+marker98, marker99, marker100, marker101, marker100
+]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var fg4 = L.featureGroup([
+marker4, marker8, marker12, marker16, marker23, marker27, marker35, marker39, marker41,
+marker42, marker43, marker44, marker45, marker46, marker69, marker70, marker71, marker72, 
+marker73, marker74, marker75, marker76, marker103, marker104, marker105, marker106, 
+marker107, marker108, marker109, marker110
+]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var fg5 = L.featureGroup([
+marker2, marker6, marker10, marker14, marker19, marker21, marker24, marker25, marker26,
+marker28, marker29, marker30, marker33, marker34, marker36, marker53, marker54, marker55,
+marker60, marker61, marker62, marker67, marker68, marker86, marker87, marker88, marker89,
+marker90, marker91, marker92, marker93, marker94, marker119, marker120, marker121, marker122,
+marker123, marker124, marker125
+]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var crime = L.layerGroup([fg2, fg3, fg4, fg5]).addTo(map);
+
+var less3000 = L.layerGroup([fg2]);
+
+var c3000_6000 = L.layerGroup([fg3]);
+
+var c6000_9000 = L.layerGroup([fg4]);
+
+var gr9000 = L.layerGroup([fg5]);
+
+var overlays= {
+"All cases": crime, 
+"cases <= 3000": less3000, 
+"3000 < cases <= 6000": c3000_6000,
+"6000 < cases <= 9000": c6000_9000,
+"cases > 9000": gr9000
+};
+
+</script>
+<script>
+
+var layerControl = L.control.layers(overlays).addTo(map);
+
+const data1 = {
+"type": "featureCollection",
+"features": [
+{
+    "type": "feature",
+    "properties": {
+"id": "001",
+"name": GRAAFWATER, 
+"description": "id: 001 </br> name: GRAAFWATER</br> lat: -32.15174 </br> lng: 18.60647"},
+    "geometry": {
+        "type": "point",
+        "coordinates": [-32.15174, 18.60647]
+    }
+}, 
+{
+    "type": "feature",
+    "properties": {
+"id": "002",
+"name": "VILLIERSDORP",
+"description": "id: 002 </br> name: VILLIERSDORP</br> lat: -32.15174 </br> lng: 18.60647"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-32.15174, 18.60647]
+   }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "003",
+"name": "BREDASDORP",
+"description": "id: 003 </br> name: BREDASDORP </br> lat: -34.53644 </br> lng: 20.04727"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-34.53644, 20.04727]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "004",
+"name": "CALEDON",
+"description": "id: 004 </br> name: CALEDON</br> lat: -34.23493 </br> lng: 19.42919"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-34.23493, 19.42919]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "005",
+"name": "GARDENS",
+"description": "id: 005 </br> name: GARDENS</br> lat: -34.57818 </br> lng: 19.35139"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-34.57818, 19.35139]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "006",
+"name": "RONDEBOSCH",
+"description": "id: 006 </br> name: RONDEBOSCH</br> lat: -33.96262 </br> lng: 18.46833"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-33.96262, 18.46833]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "007",
+"name": "MUIZENBERG",
+"description": "id: 007 </br> name: MUIZENBERG</br> lat: -32.15174 </br> lng: 18.46663"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-32.15174, 18.46663]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "008",
+"name": "ROBERTSON",
+"description": "id: 008 </br> name: ROBERTSON </br> lat: -33.80517 </br> lng: 19.87543"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-33.80517, 19.87543]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "009",
+"name": "LWANDLE",
+"description": "id: 009 </br> name: LWANDLE </br> lat: -34.11567 </br> lng: 18.86718"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-34.11567, 18.86718]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "010",
+"name": "PAARL EAST",
+"description": "id: 010 </br> name: PAARL EAST </br> lat: -33.71148 </br> lng: 18.99406"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-33.71148, 18.99406]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "011",
+"name": "PHILIPPI",
+"description": "id: 011 </br> name: PHILIPPI </br> lat: -34.00107 </br> lng: 18.54054"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-34.00107, 18.54054]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "012",
+"name": "LANGEBAAN",
+"description": "id: 012 </br> name: LANGEBAAN </br> lat: -33.09287 </br> lng: 18.03349"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-33.09287, 18.03349]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "013",
+"name": "MOORREESBURG",
+"description": "id: 013 </br> name: MOORREESBURG </br> lat: -33.15359 </br> lng: 18.66466"},
+   "geometry": {
+        "type": "point",
+        "coordinates": [-33.15359, 18.66466]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "014",
+"name": "PIKETBERG",
+"description": "id: 014 </br> name: PIKETBERG </br> lat: -32.90627 </br> lng: 18.75449"},
+    "geometry": {
+        "type": "point",
+        "coordinates": [-32.90627, 18.75449]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "015",
+"name": "REDELINGHUYS",
+"description": "id: 015 </br> name: REDELINGHUYS </br> lat: -32.47741 </br> lng: 18.53737"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-32.47741, 18.53737]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "016",
+"name": "ST HELENA BAY",
+"description": "id: 016 </br> name: ST HELENA BAY </br> lat: -32.75816 </br> lng: 18.02407"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-32.75816, 18.02407]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "017",
+"name": "VREDENBURG",
+"description": "id: 017 </br> name: VREDENBURG </br> lat: -32.90673 </br> lng: 18.00228"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-32.90673, 18.00228]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "018",
+"name": "CITRUSDAL",
+"description": "id: 018 </br> name: CITRUSDAL </br> lat: -32.58829 </br> lng: 19.01101"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-32.58829, 19.01101]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "019",
+"name": "CLANWILLIAM",
+"description": "id: 019 </br> name: CLANWILLIAM </br> lat: -32.17615 </br> lng: 18.89226"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-32.17615, 18.89226]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "020",
+"name": "DORING BAY",
+"description": "id: 020 </br> name: DORING BAY </br> lat: -31.81174 </br> lng: 18.23678"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-31.81174, 18.23678]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "021",
+"name": "SWELLENDAM",
+"description": "id: 021 </br> name: SWELLENDAM </br> lat: -34.02047 </br> lng: 20.44455"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.02047, 20.44455]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "022",
+"name": "MFULENI",
+"description": "id: 022 </br> name: MFULENI </br> lat: -33.98106 </br> lng: 18.68742"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.98106, 18.68742]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "023",
+"name": "RIEBEEK WEST",
+"description": "id: 023 </br> name: RIEBEEK WEST </br> lat: -33.35093 </br> lng: 18.8727"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.35093, 18.8727]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "024",
+"name": "WELLINGTON",
+"description": "id: 024 </br> name: WELLINGTON </br> lat: -33.64022 </br> lng: 19.00515"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.64022, 19.00515]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "025",
+"name": "TULBAGH",
+"description": "id: 025 </br> name: TULBAGH </br> lat: -33.28503 </br> lng: 19.14052"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.28503, 19.14052]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "026",
+"name": "HARARE",
+"description": "id: 026 </br> name: HARARE </br> lat: -34.05193 </br> lng: 18.6693"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.05193, 18.6693]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "027",
+"name": "KLEINVLEI",
+"description": "id: 027 </br> name: KLEINVLEI </br> lat: -33.9882 </br> lng: 18.71879"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.9882, 18.71879]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "028",
+"name": "GRABOUW",
+"description": "id: 028 </br> name: GRABOUW </br> lat: -34.15381 </br> lng: 19.01901"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.15381, 19.01901]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "029",
+"name": "HERMANUS",
+"description": "id: 029 </br> name: HERMANUS </br> lat: -34.41859 </br> lng: 19.23623"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.41859, 19.23623]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "030",
+"name": "KLEINMOND",
+"description": "id: 030 </br> name: KLEINMOND </br> lat: -34.33963 </br> lng: 19.03232"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.33963, 19.03232]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "031",
+"name": "NAPIER",
+"description": "id: 031 </br> name: NAPIER </br> lat: -34.4756 </br> lng: 19.89561"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.4756, 19.89561]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "032",
+"name": "STRAND",
+"description": "id: 032 </br> name: STRAND </br> lat: -34.11592 </br> lng: 18.83286"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.11592, 18.83286]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "033",
+"name": "LINGELETHU-WEST",
+"description": "id: 033 </br> name: LINGELETHU-WEST </br> lat: -34.04298 </br> lng: 18.66004"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.04298, 18.66004]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "034",
+"name": "GROOT-DRAKENSTEIN",
+"description": "id: 034 </br> name: GROOT-DRAKENSTEIN </br> lat: -33.86616 </br> lng: 18.97776"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.86616, 18.97776]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "035",
+"name": "MOWBRAY",
+"description": "id: 035 </br> name: MOWBRAY </br> lat: -33.95012 </br> lng: 18.47228"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.95012, 18.47228]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "036",
+"name": "HOUT BAY",
+"description": "id: 036 </br> name: HOUT BAY </br> lat: -34.03052 </br> lng: 18.35674"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.03052, 18.35674]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "037",
+"name": "MONTAGU",
+"description": "id: 037 </br> name: MONTAGU </br> lat: -33.7846 </br> lng: 20.12967"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.7846, 20.12967]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "038",
+"name": "DIEPRIVIER",
+"description": "id: 038 </br> name: DIEPRIVIER </br> lat: -34.03161 </br> lng: 18.46485"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.03161, 18.46485]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "039",
+"name": "CLAREMONT",
+"description": "id: 039 </br> name: CLAREMONT </br> lat: -33.98442 </br> lng: 18.47286"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.98442, 18.47286]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "040",
+"name": "SARON",
+"description": "id: 040 </br> name: SARON </br> lat: -33.18409 </br> lng: 18.99944"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.18409, 18.99944]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "041",
+"name": "MALMESBURY",
+"description": "id: 041 </br> name: MALMESBURY </br> lat: -33.45354 </br> lng: 18.72971"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.45354, 18.72971]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "042",
+"name": "PORTERVILLE",
+"description": "id: 042 </br> name: PORTERVILLE </br> lat: -33.01164 </br> lng: 18.99274"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.01164, 18.99274]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "043",
+"name": "SALDANHA",
+"description": "id: 043 </br> name: SALDANHA </br> lat: -33.00962 </br> lng: 17.93958"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.00962, 17.93958]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "044",
+"name": "KHAYELITSHA",
+"description": "id: 044 </br> name: KHAYELITSHA </br> lat: -34.02464 </br> lng: 18.66599"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.02464, 18.66599]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "045",
+"name": "WOODSTOCK",
+"description": "id: 045 </br> name: WOODSTOCK </br> lat: -33.92897 </br> lng: 18.44814"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.92897, 18.44814]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "046",
+"name": "RIVIERSONDEREND",
+"description": "id: 046 </br> name: RIVIERSONDEREND </br> lat: -34.15086 </br> lng: 19.92037"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.15086, 19.92037]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "047",
+"name": "SOMERSET WEST",
+"description": "id: 047 </br> name: SOMERSET WEST </br> lat: -34.07682 </br> lng: 18.84466"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.07682, 18.84466]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "048",
+"name": "STRUISBAAI",
+"description": "id: 048 </br> name: STRUISBAAI </br> lat: -34.80059 </br> lng: 20.05088"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.80059, 20.05088]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "049",
+"name": "CLOETESVILLE",
+"description": "id: 049 </br> name: CLOETESVILLE </br> lat: -33.92257 </br> lng: 18.85526"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.92257, 18.85526]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "050",
+"name": "OUDTSHOORN",
+"description": "id: 050 </br> name: OUDTSHOORN </br> lat: -33.58986 </br> lng: 22.20401"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.58986, 22.20401]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "051",
+"name": "UNIONDALE",
+"description": "id: 051 </br> name: UNIONDALE </br> lat: -33.6573 </br> lng: 23.12582"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.6573, 23.12582]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "052",
+"name": "LADISMITH",
+"description": "id: 052 </br> name: LADISMITH </br> lat: -33.49487 </br> lng: 21.2683"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.49487, 21.2683]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "053",
+"name": "STILL BAY",
+"description": "id: 053 </br> name: STILL BAY </br> lat: -34.37743 </br> lng: 21.41184"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-34.37743, 21.41184]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "054",
+"name": "LAINGSBURG",
+"description": "id: 054 </br> name: LAINGSBURG </br> lat: -33.19758 </br> lng: 20.85937"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.19758, 20.85937]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "055",
+"name": "MURRAYSBURG",
+"description": "id: 055 </br> name: MURRAYSBURG </br> lat: -31.96489 </br> lng: 23.76155"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-31.96489, 23.76155]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "056",
+"name": "CAPE TOWN CENTRAL",
+"description": "id: 056 </br> name: CAPE TOWN CENTRAL </br> lat: -33.92774 </br> lng: 18.4231"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.92774, 18.4231]
+    }
+},
+{
+    "type": "feature",
+    "properties": {
+"id": "057",
+"name": "CAMPS BAY",
+"description": "id: 057 </br> name: CAMPS BAY </br> lat: -33.95604 </br> lng: 18.37672"},
+      "geometry": {
+        "type": "point",
+        "coordinates": [-33.95604, 18.37672]
+    }
+}
+]}; 
+
+
+const searchlayer = L.geoJSON(data1, {
+    onEachFeature: function(feature, layer) {
+layer.bindPopup(feature.properties.description);
+}
+}).addTo(map);
+
+const searchcontrol = new L.control.search({
+layer: "searchlayer",
+zoom: "9",
+propertyName: "name"}).addTo(map);
+
+map.addControl(searchcontrol);
+
+</script>
+<script>
+
+
+
+window.onload = function () {
+var canvas = document.getElementById ("myCanvas") ;
+var context = canvas.getContext ("2d") ;
+context.beginPath () ;
+context.moveTo (15, 60) ;
+context.lineTo (15, 40) ;
+context.moveTo (15, 10) ;
+context.lineTo (25, 40) ;
+context.lineTo (5, 40) ;
+context.lineTo (15, 10) ;
+context.fillStyle = "blue" ;
+context.fill () ;
+context.lineWidth = 2 ;
+context.strokeStyle = "black" ;
+context.stroke () ;
+
+context.beginPath () ;
+context.moveTo (10, 155) ;
+context.lineTo (30, 155) ;
+context.lineTo (30, 175) ;
+context.lineTo (10, 175) ;
+context.lineTo (10, 155) ;
+context.fillStyle = "transparent" ;
+context.fill () ;
+context.lineWidth = 1 ;
+context.strokeStyle = "brown";
+context.stroke() ;
+
+context.beginPath () ;
+context.arc (30, 98, 2, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.strokeStyle = "green";
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (30, 113, 2, 0, 2*Math.PI);
+context.fillStyle = "yellow" ;
+context.strokeStyle = "yellow";
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (30, 128, 2, 0, 2*Math.PI);
+context.fillStyle = "orange" ;
+context.strokeStyle = "orange";
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (30, 142, 2, 0, 2*Math.PI);
+context.fillStyle = "red" ;
+context.strokeStyle = "red";
+context.fill ();
+context.stroke ();
+
+var can = document.getElementById ("myCanvas") ;
+var cn = can.getContext ("2d") ;
+var grd = cn.createRadialGradient(0,400,350,300,0, 350);
+grd.addColorStop(0, "black");
+
+cn.fillStyle=grd;
+cn.font="9px Arial";
+cn.fillText("N",12, 8);
+cn.fillText("Police Station Crime Statistics", 10, 85);
+cn.fillText("cases < 3000", 40, 100);
+cn.fillText("3000 < cases < 6000", 40, 115);
+cn.fillText("6000 < cases < 9000", 40, 130);
+cn.fillText("cases > 9000", 40, 145);
+cn.fillText("Western Cape Boundary", 45, 165);
+}
+
+</script>
+
+<div>
+<center><canvas id="myCanvas" width="150" height="200" style="border: 0.5px dotted black ;">
+</div>
+</div>
+<body>
+
+  </body>
+</html>

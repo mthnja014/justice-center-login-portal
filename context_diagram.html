@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>Contex Diagram</title>
+</head>
+<style>
+.container {
+background-color: white;
+background-size: cover;
+width: 100%;
+height: 100%;
+}
+#myCanvas {
+background-color: none;
+margin-top: 50px;
+}
+p {
+color: grey;
+font-family: arial;
+font-size: 1%;
+font-weight: lite;
+text-align: left;
+}
+p1 {
+color: black;
+font-family: arial;
+font-size: 20%;
+font-weight: bolder;
+text-align: center;
+} 
+</style>
+<body>
+<div class='container'>
+<br></br>
+<script>
+window.onload = function () {
+var canvas = document.getElementById ('myCanvas') ;
+var context = canvas.getContext ('2d') ;
+
+//ps admin border 
+context.beginPath () ;
+context.moveTo (500, 450);
+context.lineTo (500, 550);
+context.moveTo (700, 550);
+context.lineTo (700, 450);
+context.moveTo (500, 450);
+context.lineTo (700, 450);
+context.moveTo (500, 550);
+context.lineTo (700, 550);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 450);
+context.lineTo (300, 250);
+context.moveTo (487, 430);
+context.lineTo (500, 450);
+context.lineTo (480, 437);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (270, 250);
+context.lineTo (300, 380);
+context.lineTo (500, 460);
+context.moveTo (480, 447);
+context.lineTo (500, 460);
+context.lineTo (475, 454);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 250);
+context.lineTo (300, 150);
+context.moveTo (100, 250);
+context.lineTo (100, 150);
+context.moveTo (100, 150);
+context.lineTo (300, 150);
+context.moveTo (300, 250);
+context.lineTo (100, 250);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 220);
+context.lineTo (440, 260);
+context.lineTo (510, 450);
+context.moveTo (500, 434);
+context.lineTo (510, 450);
+context.lineTo (507, 430);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke (); 
+
+context.beginPath () ;
+context.moveTo (300, 180);
+context.lineTo (490, 220);
+context.lineTo (520, 450);
+context.moveTo (512, 430);
+context.lineTo (520, 450);
+context.lineTo (523, 430);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (240, 250);
+context.lineTo (250, 400);
+context.lineTo (500, 470);
+context.moveTo (480, 460);
+context.lineTo (500, 470);
+context.lineTo (475, 467);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// courts
+context.beginPath () ;
+context.moveTo (900, 250);
+context.lineTo (700, 450);
+context.moveTo (885, 275);
+context.lineTo (900, 250);
+context.lineTo (875, 265);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (930, 250);
+context.lineTo (900, 380);
+context.lineTo (700, 460);
+context.moveTo (933, 275);
+context.lineTo (930, 250);
+context.lineTo (915, 274);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 250);
+context.lineTo (900, 150);
+context.moveTo (1100, 250);
+context.lineTo (1100, 150);
+context.moveTo (1100, 150);
+context.lineTo (900, 150);
+context.moveTo (1100, 250);
+context.lineTo (900, 250);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (690, 450);
+context.lineTo (800, 260);
+context.lineTo (900, 220);
+context.moveTo (870, 220);
+context.lineTo (900, 220);
+context.lineTo (880, 240);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 180);
+context.lineTo (760, 220);
+context.lineTo (680, 450);
+context.moveTo (700, 420);
+context.lineTo (680, 450);
+context.lineTo (685, 415);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 150);
+context.lineTo (730, 180);
+context.lineTo (670, 450);
+context.moveTo (670, 420);
+context.lineTo (670, 450);
+context.lineTo (682, 420);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 850);
+context.lineTo (730, 820);
+context.lineTo (670, 550);
+context.moveTo (670, 580);
+context.lineTo (670, 550);
+context.lineTo (685, 580);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (960, 250);
+context.lineTo (950, 400);
+context.lineTo (700, 470);
+context.moveTo (965, 270);
+context.lineTo (960, 250);
+context.lineTo (950, 270);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (990, 250);
+context.lineTo (980, 450);
+context.lineTo (700, 480);
+context.moveTo (980, 280);
+context.lineTo (990, 250);
+context.lineTo (995, 280);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// Western Cape Prosecuting Authority
+context.beginPath () ;
+context.moveTo (300, 750);
+context.lineTo (300, 850);
+context.moveTo (100, 750);
+context.lineTo (100, 850);
+context.moveTo (100, 850);
+context.lineTo (300, 850);
+context.moveTo (300, 750);
+context.lineTo (100, 750);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 550);
+context.lineTo (300, 750);
+context.moveTo (320, 740);
+context.lineTo (300, 750);
+context.lineTo (310, 730);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 820);
+context.lineTo (480, 780);
+context.lineTo (510, 550);
+context.moveTo (500, 580);
+context.lineTo (510, 550);
+context.lineTo (515, 580);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// Center for crime statistics
+context.beginPath () ;
+context.moveTo (900, 750);
+context.lineTo (900, 850);
+context.moveTo (1100, 750);
+context.lineTo (1100, 850);
+context.moveTo (1100, 850);
+context.lineTo (900, 850);
+context.moveTo (1100, 750);
+context.lineTo (900, 750);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 750);
+context.lineTo (700, 550);
+context.moveTo (880, 740);
+context.lineTo (900, 750);
+context.lineTo (890, 730);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (930, 750);
+context.lineTo (900, 620);
+context.lineTo (700, 540);
+context.moveTo (920, 730);
+context.lineTo (930, 750);
+context.lineTo (930, 725);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (690, 550);
+context.lineTo (800, 760);
+context.lineTo (900, 780);
+context.moveTo (880, 770);
+context.lineTo (900, 780);
+context.lineTo (880, 783);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 820);
+context.lineTo (760, 780);
+context.lineTo (680, 550);
+context.moveTo (870, 805);
+context.lineTo (900, 820);
+context.lineTo (870, 820);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (960, 750);
+context.lineTo (950, 600);
+context.lineTo (700, 520);
+context.moveTo (715, 535);
+context.lineTo (700, 520);
+context.lineTo (720, 515);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+var can = document.getElementById ('myCanvas') ;
+var cn = can.getContext ('2d') ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0, 'black');
+
+cn.fillStyle=grd;
+cn.font='35px Arial';
+cn.fillText('Western Cape Crime Statistics Context Diagram', 120, 90);
+
+cn.fillStyle=grd;
+cn.font='18px Arial';
+cn.fillText('Police Stations', 120, 200);
+cn.fillText('Western Cape', 120, 790);
+cn.fillText('Prosecuting Authority', 120, 820);
+cn.fillText('Courts', 970, 200);
+cn.fillText('Western Cape Crime', 920, 790);
+cn.fillText('Statistics Department', 920, 830);
+cn.fillText('Western Cape Center', 510, 490);
+cn.fillText('for Justice', 510, 520);
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('Complainant', 375, 350);
+cn.fillText('Details', 375, 365);
+cn.fillText('Case Info', 265, 380);
+cn.fillText('Witness', 420, 270);
+cn.fillText('Details', 420, 285);
+cn.fillText('Suspect', 472, 230);
+cn.fillText('Details', 472, 245);
+cn.fillText('Detective', 280, 420);
+cn.fillText('Details', 280, 435);
+cn.fillText('Case Info', 375, 650);
+cn.fillText('prosecution Info', 375, 800);
+cn.fillText('prosecution', 850, 420);
+cn.fillText('Info', 850, 435);
+cn.fillText('witness', 880, 350);
+cn.fillText('details', 880, 365);
+cn.fillText('suspect', 780, 350);
+cn.fillText('details', 780, 365);
+cn.fillText('complainant', 780, 265);
+cn.fillText('details', 780, 280);
+cn.fillText('court', 710, 300);
+cn.fillText('judgement', 710, 315);
+cn.fillText('lawyer', 910, 450);
+cn.fillText('details', 910, 465);
+cn.fillText('judge', 750, 170);
+cn.fillText('details', 750, 185);
+cn.fillText('court', 710, 700);
+cn.fillText('judgement', 710, 715);
+cn.fillText('police', 780, 730);
+cn.fillText('station', 780, 745);
+cn.fillText('Suspect', 890, 670);
+cn.fillText('Details', 890, 685);
+cn.fillText('case info', 800, 670);
+cn.fillText('Western Cape', 890, 600);
+cn.fillText('Crime Statistics', 890, 615);
+cn.fillText('Police Station', 700, 805);
+cn.fillText('Crime Statistics', 700, 820);
+} ;
+</script>
+<center><canvas id='myCanvas' width='1150' height='1000' ' style='border: 3px solid  ;'></center></canvas>
+</body>
+</html>

@@ -1288,7 +1288,7 @@ const data1 = {
 ]}; 
 
 
-const searchlayer = L.geoJSON(data1, {
+const searchlayer = L.geoJSON(data.js, {
     onEachFeature: function(feature, layer) {
 layer.bindPopup(feature.properties.description);
 }

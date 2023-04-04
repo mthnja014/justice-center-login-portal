@@ -649,8 +649,8 @@ var overlays= {
 "6000 < cases <= 9000": c6000_9000,
 "cases > 9000": gr9000
 };
-L.Control.geocoder().addTo(map);
 var layerControl = L.control.layers(overlays).addTo(map);
+L.Control.geocoder().addTo(map);
 
 const searchcontrol = new L.control.search({
 layer: "crime",

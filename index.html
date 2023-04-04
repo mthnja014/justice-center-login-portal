@@ -78,6 +78,7 @@ text-align: center;
 	font-family: Arial;
 	background-color: rgb(200, 155, 178);
 	padding: 2px 2px 2px 8px;
+ position: absolute; bottom: 100px;
 	}
 #myCanvas {
 background-color: none;
@@ -343,35 +344,22 @@ cn.fillText("e Justice Service Western",90 , 280);
 <p> Press the button of your organization to login</p>
 <br></br>
 <div id="banner">
-<form action="https://mthnja014.github.io/court-login/" onsubmit="return validateForm()">
-<div class="login"><button id="cl">Court Login</button></div>
-</form>
-<script>
-      function validateForm()     
-</script>
 
-<form action="geoportal.html" onsubmit="return validateForm()">
-<div class="login"><button id="gs">Guest Login</button></div>
+<form action="geoportal_login.html" onsubmit="return validateForm()">
+<div class="login"><button id="gs">Login To Geoportal</button></div>
 </form>
 <script>
       function validateForm()     
 </script>
 
 
-<form action="https://mthnja014.github.io/Login/" onsubmit="return validateForm()">
-<div class="login"><button id="psl">Police Station Login</button></div>
+<form action="database_login.html" onsubmit="return validateForm()">
+<div class="login"><button id="psl">Database Login</button></div>
 </form>
 <script>
       function validateForm()     
 </script>
 
-<form action="https://mthnja014.github.io/Justice-login/" onsubmit="return validateForm()">
-<div class="login"><button id="jc">Justice Center Login</button></div>
-</form>
-<script>
-      function validateForm()     
-</script>
-</div>
 <div id="bannerr"><br></br>
 <p1>© Western Cape Justice Service</p1>
 <div/>

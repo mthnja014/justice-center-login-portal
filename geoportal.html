@@ -653,7 +653,7 @@ var layerControl = L.control.layers(overlays).addTo(map);
 </script>
 <script>
 
-L.Control.geocoder().addTo(map);
+
 
 var data = {
 "type": "featureCollection",
@@ -1288,13 +1288,13 @@ var data = {
 ]}; 
 
 
-const searchlayer = L.geoJSON(data, {
+var searchlayer = L.geoJSON(data, {
     onEachFeature: function(feature, layer) {
 layer.bindPopup(feature.properties.description);
 }
 }).addTo(map);
 
-const searchcontrol = new L.control.search({
+var searchcontrol = new L.Control.search({
 layer: searchlayer,
 zoom: "80",
 propertyName: "name"}).addTo(map);

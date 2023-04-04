@@ -9,7 +9,8 @@
     <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel='stylesheet' />
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.17/leaflet-maplibre-gl.js"></script>
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
     <style type="text/css">
 #map {
@@ -651,6 +652,7 @@ var overlays= {
 <script>
 
 var layerControl = L.control.layers(overlays).addTo(map);
+L.Control.geocoder().addTo(map);
 
 const data1 = {
 "type": "featureCollection",

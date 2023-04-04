@@ -1,0 +1,4575 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>dataflows diagrams</title>
+</head>
+<style>
+.container {
+background-color: white;
+background-size: cover;
+width: 100%;
+height: 100%;
+}
+#myCanvas {
+background-color: none;
+margin-top: 50px;
+}
+#myCanvas1 {
+background-color: none;
+margin-top: 50px;
+}
+p {
+color: grey;
+font-family: arial;
+font-size: 1%;
+font-weight: lite;
+text-align: left;
+}
+p1 {
+color: black;
+font-family: arial;
+font-size: 20%;
+font-weight: bolder;
+text-align: center;
+} 
+</style>
+<body>
+<div class='container'>
+<br></br>
+
+<script>
+window.onload = function () {
+var canvas = document.getElementById ('myCanvas') ;
+var context = canvas.getContext ('2d') ;
+
+context.beginPath () ;
+context.moveTo (545, 250);
+context.lineTo (545, 200);
+context.lineTo (695, 200);
+context.lineTo (695, 250);
+context.lineTo (545, 250);
+
+context.moveTo (545, 400);
+context.lineTo (545, 350);
+context.lineTo (695, 350);
+context.lineTo (695, 400);
+context.lineTo (545, 400);
+
+context.moveTo (545, 500);
+context.lineTo (545, 550);
+context.lineTo (695, 550);
+context.lineTo (695, 500);
+context.lineTo (545, 500);
+
+context.moveTo (45, 500);
+context.lineTo (45, 550);
+context.lineTo (195, 550);
+context.lineTo (195, 500);
+context.lineTo (45, 500);
+
+context.moveTo (45, 650);
+context.lineTo (45, 700);
+context.lineTo (195, 700);
+context.lineTo (195, 650);
+context.lineTo (45, 650);
+
+context.moveTo (545, 650);
+context.lineTo (545, 700);
+context.lineTo (695, 700);
+context.lineTo (695, 650);
+context.lineTo (545, 650);
+
+context.moveTo (545, 850);
+context.lineTo (545, 800);
+context.lineTo (695, 800);
+context.lineTo (695, 850);
+context.lineTo (545, 850);
+
+context.moveTo (520, 850);
+context.lineTo (520, 800);
+context.lineTo (370, 800);
+context.lineTo (370, 850);
+context.lineTo (520, 850);
+
+context.moveTo (1020, 650);
+context.lineTo (1020, 600);
+context.lineTo (870, 600);
+context.lineTo (870, 650);
+context.lineTo (1020, 650);
+
+context.moveTo (720, 850);
+context.lineTo (720, 800);
+context.lineTo (870, 800);
+context.lineTo (870, 850);
+context.lineTo (720, 850);
+
+context.moveTo (370, 650);
+context.lineTo (370, 700);
+context.lineTo (220, 700);
+context.lineTo (220, 650);
+context.lineTo (370, 650);
+
+context.moveTo (1045, 650);
+context.lineTo (1045, 700);
+context.lineTo (1195, 700);
+context.lineTo (1195, 650);
+context.lineTo (1045, 650);
+
+context.moveTo (1220, 650);
+context.lineTo (1220, 700);
+context.lineTo (1370, 700);
+context.lineTo (1370, 650);
+context.lineTo (1220, 650);
+
+context.moveTo (1395, 650);
+context.lineTo (1395, 700);
+context.lineTo (1545, 700);
+context.lineTo (1545, 650);
+context.lineTo (1395, 650);
+
+context.moveTo (1570, 650);
+context.lineTo (1570, 700);
+context.lineTo (1695, 700);
+context.lineTo (1695, 650);
+context.lineTo (1570, 650);
+
+context.moveTo (1457.5, 550);
+context.lineTo (1457.5, 500);
+context.lineTo (1307.5, 500);
+context.lineTo (1307.5, 550);
+context.lineTo (1457.5, 550);
+
+context.moveTo (545, 675);
+context.lineTo (445, 675);
+context.lineTo (445, 800);
+
+context.moveTo (545, 375);
+context.lineTo (120, 375);
+context.lineTo (120, 500);
+
+context.moveTo (545, 525);
+context.lineTo (250, 525);
+context.lineTo (250, 650);
+
+context.moveTo (695, 675);
+context.lineTo (795, 675);
+context.lineTo (795, 800);
+
+context.moveTo (695, 525);
+context.lineTo (950, 525);
+context.lineTo (950, 600);
+
+context.moveTo (695, 375);
+context.lineTo (1382.5, 375);
+context.lineTo (1382.5, 500);
+
+context.moveTo (1307.5, 525);
+context.lineTo (1120, 525);
+context.lineTo (1120, 650);
+
+context.moveTo (1357.5, 550);
+context.lineTo (1357.5, 600);
+context.lineTo (1295, 600);
+context.lineTo (1295, 650);
+
+context.moveTo (1407.5, 550);
+context.lineTo (1407.5, 600);
+context.lineTo (1470, 600);
+context.lineTo (1470, 650);
+
+context.moveTo (1457.5, 525);
+context.lineTo (1632.5, 525);
+context.lineTo (1632.5, 650);
+
+context.moveTo (120, 550);
+context.lineTo (120, 650);
+
+context.moveTo (620, 400);
+context.lineTo (620, 500);
+
+context.moveTo (620, 700);
+context.lineTo (620, 800);
+
+context.moveTo (620, 250);
+context.lineTo (620, 350);
+
+context.moveTo (620, 550);
+context.lineTo (620, 650);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+
+var can = document.getElementById ('myCanvas') ;
+var cn = can.getContext ('2d') ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0, 'black');
+
+
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('police station', 570, 525);
+cn.fillText('WCJS Director', 570, 375);
+cn.fillText('Crime Registra', 570, 225);
+cn.fillText('captain', 590, 675);
+cn.fillText('crime data management', 60, 525);
+cn.fillText('constable', 420, 825);
+cn.fillText('detective', 590, 825);
+cn.fillText('administrator', 755, 825);
+cn.fillText('crime data analyst', 60, 675);
+cn.fillText('complainant', 230, 675);
+cn.fillText('suspect', 920, 625);
+cn.fillText('court', 1352, 525);
+cn.fillText('witness', 1100, 675);
+cn.fillText('lawyer', 1252, 675);
+cn.fillText('prosecuting authority', 1420, 675);
+cn.fillText('judge', 1600, 675);
+
+
+// dfds
+
+ 
+context.beginPath () ;
+context.moveTo (30, 1350);
+context.lineTo (30, 1700);
+context.moveTo (170, 1350);
+context.lineTo (170, 1700);
+context.moveTo (30, 1350);
+context.lineTo (495, 1350);
+context.moveTo (30, 1375);
+context.lineTo (495, 1375);
+context.moveTo (30, 1400);
+context.lineTo (495, 1400);
+context.moveTo (30, 1425);
+context.lineTo (495, 1425);
+context.moveTo (30, 1450);
+context.lineTo (495, 1450);
+context.moveTo (30, 1475);
+context.lineTo (495, 1475);
+context.moveTo (30, 1500);
+context.lineTo (495, 1500);
+context.moveTo (30, 1525);
+context.lineTo (495, 1525);
+context.moveTo (30, 1550);
+context.lineTo (495, 1550);
+context.moveTo (30, 1575);
+context.lineTo (495, 1575);
+context.moveTo (30, 1600);
+context.lineTo (495, 1600);
+context.moveTo (30, 1625);
+context.lineTo (495, 1625);
+context.moveTo (30, 1650);
+context.lineTo (495, 1650);
+context.moveTo (30, 1675);
+context.lineTo (495, 1675);
+context.moveTo (30, 1700);
+context.lineTo (495, 1700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (45, 1350);
+context.lineTo (45, 1325);
+context.lineTo (195, 1325);
+context.lineTo (195, 1700);
+
+context.moveTo (60, 1325);
+context.lineTo (60, 1300);
+context.lineTo (220, 1300);
+context.lineTo (220, 1700);
+
+context.moveTo (85, 1300);
+context.lineTo (85, 1275);
+context.lineTo (245, 1275);
+context.lineTo (245, 1700);
+
+context.moveTo (110, 1275);
+context.lineTo (110, 1250);
+context.lineTo (270, 1250);
+context.lineTo (270, 1700);
+
+context.moveTo (125, 1250);
+context.lineTo (125, 1225);
+context.lineTo (295, 1225);
+context.lineTo (295, 1700);
+
+context.moveTo (140, 1225);
+context.lineTo (140, 1200);
+context.lineTo (320, 1200);
+context.lineTo (320, 1700);
+
+context.moveTo (165, 1200);
+context.lineTo (165, 1175);
+context.lineTo (345, 1175);
+context.lineTo (345, 1700);
+
+context.moveTo (190, 1175);
+context.lineTo (190, 1150);
+context.lineTo (370, 1150);
+context.lineTo (370, 1700);
+
+context.moveTo (215, 1150);
+context.lineTo (215, 1125);
+context.lineTo (395, 1125);
+context.lineTo (395, 1700);
+
+context.moveTo (240, 1125);
+context.lineTo (240, 1100);
+context.lineTo (420, 1100);
+context.lineTo (420, 1700);
+
+context.moveTo (265, 1100);
+context.lineTo (265, 1075);
+context.lineTo (445, 1075);
+context.lineTo (445, 1700);
+
+context.moveTo (280, 1075);
+context.lineTo (280, 1050);
+context.lineTo (470, 1050);
+context.lineTo (470, 1700);
+
+context.moveTo (305, 1050);
+context.lineTo (305, 1025);
+context.lineTo (495, 1025);
+context.lineTo (495, 1700);
+
+
+// functions
+
+context.moveTo (170, 1350);
+context.lineTo (195, 1375);
+context.moveTo (170, 1375);
+context.lineTo (195, 1350);
+
+context.moveTo (195, 1350);
+context.lineTo (220, 1375);
+context.moveTo (195, 1375);
+context.lineTo (220, 1350);
+
+context.moveTo (170, 1375);
+context.lineTo (195, 1400);
+context.moveTo (170, 1400);
+context.lineTo (195, 1375);
+
+context.moveTo (495, 1375);
+context.lineTo (470, 1350);
+context.moveTo (495, 1350);
+context.lineTo (470, 1375);
+
+context.moveTo (220, 1400);
+context.lineTo (195, 1425);
+context.moveTo (220, 1425);
+context.lineTo (195, 1400);
+
+context.moveTo (220, 1400);
+context.lineTo (245, 1425);
+context.moveTo (220, 1425);
+context.lineTo (245, 1400);
+
+context.moveTo (270, 1400);
+context.lineTo (295, 1425);
+context.moveTo (270, 1425);
+context.lineTo (295, 1400);
+
+context.moveTo (320, 1400);
+context.lineTo (345, 1425);
+context.moveTo (320, 1425);
+context.lineTo (345, 1400);
+
+context.moveTo (295, 1425);
+context.lineTo (320, 1450);
+context.moveTo (295, 1450);
+context.lineTo (320, 1425);
+
+context.moveTo (245, 1425);
+context.lineTo (270, 1450);
+context.moveTo (245, 1450);
+context.lineTo (270, 1425);
+
+context.moveTo (320, 1425);
+context.lineTo (345, 1450);
+context.moveTo (320, 1450);
+context.lineTo (345, 1425);
+
+context.moveTo (270, 1450);
+context.lineTo (295, 1475);
+context.moveTo (270, 1475);
+context.lineTo (295, 1450);
+
+context.moveTo (220, 1475);
+context.lineTo (245, 1500);
+context.moveTo (220, 1500);
+context.lineTo (245, 1475);
+
+context.moveTo (270, 1475);
+context.lineTo (295, 1500);
+context.moveTo (270, 1500);
+context.lineTo (295, 1475);
+
+context.moveTo (320, 1475);
+context.lineTo (345, 1500);
+context.moveTo (320, 1500);
+context.lineTo (345, 1475);
+
+context.moveTo (345, 1500);
+context.lineTo (320, 1525);
+context.moveTo (345, 1525);
+context.lineTo (320, 1500);
+
+context.moveTo (245, 1500);
+context.lineTo (220, 1525);
+context.moveTo (245, 1525);
+context.lineTo (220, 1500);
+
+context.moveTo (270, 1500);
+context.lineTo (245, 1525);
+context.moveTo (270, 1525);
+context.lineTo (245, 1500);
+
+context.moveTo (370, 1500);
+context.lineTo (345, 1525);
+context.moveTo (370, 1525);
+context.lineTo (345, 1500);
+
+context.moveTo (370, 1525);
+context.lineTo (345, 1550);
+context.moveTo (370, 1550);
+context.lineTo (345, 1525);
+
+context.moveTo (370, 1550);
+context.lineTo (345, 1575);
+context.moveTo (370, 1575);
+context.lineTo (345, 1550);
+
+context.moveTo (395, 1550);
+context.lineTo (370, 1575);
+context.moveTo (395, 1575);
+context.lineTo (370, 1550);
+
+context.moveTo (420, 1550);
+context.lineTo (395, 1575);
+context.moveTo (420, 1575);
+context.lineTo (395, 1550);
+
+context.moveTo (445, 1550);
+context.lineTo (420, 1575);
+context.moveTo (445, 1575);
+context.lineTo (420, 1550);
+
+context.moveTo (320, 1550);
+context.lineTo (295, 1575);
+context.moveTo (320, 1575);
+context.lineTo (295, 1550);
+
+context.moveTo (420, 1575);
+context.lineTo (395, 1600);
+context.moveTo (420, 1600);
+context.lineTo (395, 1575);
+
+context.moveTo (420, 1600);
+context.lineTo (395, 1625);
+context.moveTo (420, 1625);
+context.lineTo (395, 1600);
+
+context.moveTo (395, 1600);
+context.lineTo (370, 1625);
+context.moveTo (395, 1625);
+context.lineTo (370, 1600);
+
+context.moveTo (370, 1600);
+context.lineTo (345, 1625);
+context.moveTo (370, 1625);
+context.lineTo (345, 1600);
+
+context.moveTo (495, 1625);
+context.lineTo (470, 1650);
+context.moveTo (495, 1650);
+context.lineTo (470, 1625);
+
+context.moveTo (495, 1650);
+context.lineTo (470, 1675);
+context.moveTo (495, 1675);
+context.lineTo (470, 1650);
+
+context.moveTo (495, 1650);
+context.lineTo (470, 1675);
+context.moveTo (495, 1675);
+context.lineTo (470, 1650);
+
+context.moveTo (495, 1675);
+context.lineTo (470, 1700);
+context.moveTo (495, 1700);
+context.lineTo (470, 1675);
+
+context.moveTo (170, 1675);
+context.lineTo (195, 1700);
+context.moveTo (170, 1700);
+context.lineTo (195, 1675);
+
+context.moveTo (170, 1650);
+context.lineTo (195, 1675);
+context.moveTo (170, 1675);
+context.lineTo (195, 1650);
+
+context.moveTo (170, 1625);
+context.lineTo (195, 1650);
+context.moveTo (170, 1650);
+context.lineTo (195, 1625);
+
+context.moveTo (195, 1625);
+context.lineTo (220, 1650);
+context.moveTo (195, 1650);
+context.lineTo (220, 1625);
+
+context.moveTo (195, 1650);
+context.lineTo (220, 1675);
+context.moveTo (195, 1675);
+context.lineTo (220, 1650);
+
+context.moveTo (195, 1675);
+context.lineTo (220, 1700);
+context.moveTo (195, 1700);
+context.lineTo (220, 1675);
+
+context.moveTo (220, 1675);
+context.lineTo (245, 1700);
+context.moveTo (220, 1700);
+context.lineTo (245, 1675);
+
+context.moveTo (220, 1650);
+context.lineTo (245, 1675);
+context.moveTo (220, 1675);
+context.lineTo (245, 1650);
+
+context.moveTo (220, 1675);
+context.lineTo (245, 1700);
+context.moveTo (220, 1700);
+context.lineTo (245, 1675);
+
+context.moveTo (30, 1761);
+context.lineTo (55, 1786);
+context.moveTo (30, 1786);
+context.lineTo (55, 1761);
+
+context.moveTo (30, 1801);
+context.lineTo (55, 1826);
+context.moveTo (30, 1826);
+context.lineTo (55, 1801);
+
+context.moveTo (270, 1400);
+context.lineTo (245, 1375);
+
+context.moveTo (245, 1400);
+context.lineTo (270, 1375);
+
+context.moveTo (245, 1375);
+context.lineTo (220, 1400);
+
+context.moveTo (370, 1350);
+context.lineTo (345, 1375);
+
+context.moveTo (245, 1425);
+context.lineTo (270, 1400);
+
+context.moveTo (270, 1450);
+context.lineTo (295, 1425);
+
+context.moveTo (220, 1450);
+context.lineTo (245, 1425);
+
+context.moveTo (220, 1475);
+context.lineTo (245, 1450);
+
+context.moveTo (320, 1475);
+context.lineTo (345, 1450);
+
+context.moveTo (295, 1500);
+context.lineTo (270, 1525);
+
+context.moveTo (470, 1550);
+context.lineTo (445, 1575);
+
+context.moveTo (345, 1550);
+context.lineTo (320, 1575);
+
+context.moveTo (295, 1550);
+context.lineTo (270, 1575);
+
+context.moveTo (270, 1625);
+context.lineTo (245, 1650);
+
+context.moveTo (295, 1625);
+context.lineTo (270, 1650);
+
+context.moveTo (345, 1625);
+context.lineTo (320, 1650);
+
+context.moveTo (345, 1650);
+context.lineTo (320, 1675);
+
+context.moveTo (295, 1650);
+context.lineTo (270, 1675);
+
+context.moveTo (270, 1650);
+context.lineTo (245, 1675);
+
+context.moveTo (270, 1675);
+context.lineTo (245, 1700);
+
+context.moveTo (295, 1675);
+context.lineTo (270, 1700);
+
+context.moveTo (345, 1675);
+context.lineTo (320, 1650);
+
+context.moveTo (55, 1848);
+context.lineTo (30, 1866);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.arc (182.5, 1362.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (207.5, 1362.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (207.5, 1387.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (232.5, 1412.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (307.5, 1437.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (282.5, 1487.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (282.5, 1462.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (332.5, 1487.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (232.5, 1487.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (232.5, 1512.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (332.5, 1512.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (357.5, 1512.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (357.5, 1537.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (407.5, 1562.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (407.5, 1587, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (407.5, 1612.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (482.5, 1637.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (482.5, 1662.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (482.5, 1687.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (182.5, 1687.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (182.5, 1662.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (182.5, 1637.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (207.5, 1637.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (207.5, 1662.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (207.5, 1687.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (232.5, 1687.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (232.5, 1662.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+context.beginPath () ;
+context.arc (42.5, 1773.5, 4, 0, 2*Math.PI);
+context.fillStyle = "green" ;
+context.fill ();
+context.stroke ();
+
+var can = document.getElementById ('myCanvas') ;
+var cn = can.getContext ('2d') ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0.9, 'black');
+
+cn.fillStyle=grd;
+cn.font='20px Arial';
+cn.fillText('Organisation\'s Functions/Processes Matrix', 40, 950);
+cn.fillText('Data and process groupings', 800, 950);
+cn.fillText('Delineation into subsystems', 1250, 950)
+cn.fillText('Data Flows', 40, 1950)
+cn.fillText('Information Architecture', 800, 1950)
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('organization planning', 35, 1365);
+cn.fillText('Personnel management', 35, 1390);
+cn.fillText('crime management', 35, 1415);
+cn.fillText('crime report', 35, 1440);
+cn.fillText('community patrols', 35, 1465);
+cn.fillText('arrests', 35, 1490);
+cn.fillText('case management', 35, 1515);
+cn.fillText('case prosecution', 35, 1540);
+cn.fillText('case hearing', 35, 1565);
+cn.fillText('case judgement', 35, 1590);
+cn.fillText('lodging appeals', 35, 1615);
+cn.fillText('suspect found guilty', 35, 1640);
+cn.fillText('crime patterns', 35, 1665);
+cn.fillText('research', 35, 1690);
+cn.fillText('crime Registra', 50, 1340);
+cn.fillText('WCJS Director', 65, 1315);
+cn.fillText('police Station Captain', 90, 1290);
+cn.fillText('police station admin', 115, 1265);
+cn.fillText('constable', 130, 1240);
+cn.fillText('complainant', 155, 1215);
+cn.fillText('detective', 180, 1190);
+cn.fillText('WC prosecuting authority', 205, 1165);
+cn.fillText('lawyer', 230, 1140);
+cn.fillText('judge', 255, 1115);
+cn.fillText('suspect', 280, 1090);
+cn.fillText('witness', 305, 1065);
+cn.fillText('crime analyst', 330, 1040);
+cn.fillText('Organization\s functions', 330, 1015);
+cn.fillText('Organization\s functions', 330, 1015);
+cn.fillText('Organization\s functions', 330, 1015);
+
+cn.fillText('Major responsibility and Decision-Maker', 80, 1773.5);
+cn.fillText('Major involvement in the process', 80, 1813.5);
+cn.fillText('Some involvement in the process', 80, 1853.5);
+cn.fillText('c: creates and uses', 730, 1737.5);
+cn.fillText('processes', 30, 1719.5);
+cn.fillText('processes', 30, 1719.5);
+cn.fillText('processes', 30, 1719.5);
+cn.fillText('u: uses', 730, 1755.5);
+cn.fillText('processes', 630, 1737.5);
+cn.fillText('processes', 630, 1737.5);
+cn.fillText('processes', 630, 1737.5);
+cn.fillText('c: creates and uses', 1300, 1737.5);
+cn.fillText('u: uses', 1300, 1755.5);
+cn.fillText('processes', 1200, 1737.5);
+cn.fillText('processes', 1200, 1737.5);
+cn.fillText('processes', 1200, 1737.5);
+cn.fillText('c: creates and uses', 130, 2737.5);
+cn.fillText('u: uses', 130, 2755.5);
+cn.fillText('processes', 30, 2737.5);
+cn.fillText('processes', 30, 2737.5);
+cn.fillText('processes', 30, 2737.5);
+
+context.beginPath () ;
+context.moveTo (630, 1350);
+context.lineTo (630, 1700);
+context.moveTo (770, 1350);
+context.lineTo (770, 1700);
+context.moveTo (630, 1350);
+context.lineTo (1120, 1350);
+context.moveTo (630, 1375);
+context.lineTo (1120, 1375);
+context.moveTo (630, 1400);
+context.lineTo (1120, 1400);
+context.moveTo (630, 1425);
+context.lineTo (1120, 1425);
+context.moveTo (630, 1450);
+context.lineTo (1120, 1450);
+context.moveTo (630, 1475);
+context.lineTo (1120, 1475);
+context.moveTo (630, 1500);
+context.lineTo (1120, 1500);
+context.moveTo (630, 1525);
+context.lineTo (1120, 1525);
+context.moveTo (630, 1550);
+context.lineTo (1120, 1550);
+context.moveTo (630, 1575);
+context.lineTo (1120, 1575);
+context.moveTo (630, 1600);
+context.lineTo (1120, 1600);
+context.moveTo (630, 1625);
+context.lineTo (1120, 1625);
+context.moveTo (630, 1650);
+context.lineTo (1120, 1650);
+context.moveTo (630, 1675);
+context.lineTo (1120, 1675);
+context.moveTo (630, 1700);
+context.lineTo (1120, 1700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (645, 1350);
+context.lineTo (645, 1325);
+context.lineTo (795, 1325);
+context.lineTo (795, 1700);
+
+context.moveTo (660, 1325);
+context.lineTo (660, 1300);
+context.lineTo (820, 1300);
+context.lineTo (820, 1700);
+
+context.moveTo (685, 1300);
+context.lineTo (685, 1275);
+context.lineTo (845, 1275);
+context.lineTo (845, 1700);
+
+context.moveTo (710, 1275);
+context.lineTo (710, 1250);
+context.lineTo (870, 1250);
+context.lineTo (870, 1700);
+
+context.moveTo (725, 1250);
+context.lineTo (725, 1225);
+context.lineTo (895, 1225);
+context.lineTo (895, 1700);
+
+context.moveTo (740, 1225);
+context.lineTo (740, 1200);
+context.lineTo (920, 1200);
+context.lineTo (920, 1700);
+
+context.moveTo (765, 1200);
+context.lineTo (765, 1175);
+context.lineTo (945, 1175);
+context.lineTo (945, 1700);
+
+context.moveTo (790, 1175);
+context.lineTo (790, 1150);
+context.lineTo (970, 1150);
+context.lineTo (970, 1700);
+
+context.moveTo (815, 1150);
+context.lineTo (815, 1125);
+context.lineTo (995, 1125);
+context.lineTo (995, 1700);
+
+context.moveTo (840, 1125);
+context.lineTo (840, 1100);
+context.lineTo (1020, 1100);
+context.lineTo (1020, 1700);
+
+context.moveTo (865, 1100);
+context.lineTo (865, 1075);
+context.lineTo (1045, 1075);
+context.lineTo (1045, 1700);
+
+context.moveTo (880, 1075);
+context.lineTo (880, 1050);
+context.lineTo (1070, 1050);
+context.lineTo (1070, 1700);
+
+context.moveTo (905, 1050);
+context.lineTo (905, 1025);
+context.lineTo (1095, 1025);
+context.lineTo (1095, 1700);
+
+context.moveTo (920, 1025);
+context.lineTo (920, 1000);
+context.lineTo (1120, 1000);
+context.lineTo (1120, 1700);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('organization planning', 635, 1365);
+cn.fillText('Personnel management', 635, 1390);
+cn.fillText('crime management', 635, 1415);
+cn.fillText('crime report', 635, 1440);
+cn.fillText('community patrols', 635, 1465);
+cn.fillText('arrests', 635, 1490);
+cn.fillText('case management', 635, 1515);
+cn.fillText('case prosecution', 635, 1540);
+cn.fillText('case hearing', 635, 1565);
+cn.fillText('case judgement', 635, 1590);
+cn.fillText('lodging appeals', 635, 1615);
+cn.fillText('suspects found guilty', 635, 1640);
+cn.fillText('statistic analysis', 635, 1665);
+cn.fillText('research', 635, 1690);
+
+cn.fillText('strategic plan', 650, 1340);
+cn.fillText('employment info', 675, 1315);
+cn.fillText('resources for fighting crime', 690, 1290);
+cn.fillText('docket', 715, 1265);
+cn.fillText('CDAROPA', 730, 1240);
+cn.fillText('case trial', 745, 1215);
+cn.fillText('court appearance data', 770, 1190);
+cn.fillText('prosecuting info', 795, 1165);
+cn.fillText('judgement', 820, 1140);
+cn.fillText('judgement review', 870, 1115);
+cn.fillText('sentencing', 845, 1090);
+cn.fillText('crime data', 885, 1065);
+cn.fillText('crime patterns', 910, 1040);
+cn.fillText('statistical reports', 925, 1015);
+cn.fillText('Data classes', 925, 990);
+cn.fillText('Data classes', 925, 990);
+cn.fillText('Data classes', 925, 990);
+
+cn.fillText('c', 775, 1365);
+cn.fillText('u', 800, 1365);
+cn.fillText('u', 825, 1365);
+cn.fillText('u', 975, 1365);
+cn.fillText('u', 1000, 1365);
+cn.fillText('u', 1025, 1365);
+cn.fillText('u', 1050, 1365);
+cn.fillText('u', 1075, 1365);
+cn.fillText('u', 1100, 1365);
+
+cn.fillText('c', 800, 1390);
+cn.fillText('u', 775, 1390);
+
+cn.fillText('c', 825, 1415);
+cn.fillText('u', 775, 1415);
+cn.fillText('u', 875, 1415);
+cn.fillText('u', 1050, 1415);
+cn.fillText('u', 1075, 1415);
+cn.fillText('u', 1100, 1415);
+
+cn.fillText('c', 850, 1440);
+cn.fillText('u', 775, 1440);
+cn.fillText('u', 825, 1440);
+cn.fillText('u', 875, 1440);
+
+cn.fillText('c', 875, 1465);
+cn.fillText('u', 825, 1465)
+cn.fillText('u', 775, 1465)
+
+cn.fillText('c', 900, 1490);
+cn.fillText('u', 775, 1490);
+cn.fillText('u', 825, 1490);
+cn.fillText('u', 850, 1490);
+cn.fillText('u', 875, 1490);
+cn.fillText('u', 925, 1490);
+cn.fillText('u', 950, 1490);
+cn.fillText('u', 975, 1490);
+cn.fillText('u', 1000, 1490);
+cn.fillText('u', 1025, 1490);
+
+cn.fillText('c', 925, 1515);
+cn.fillText('u', 800, 1515);
+cn.fillText('u', 775, 1515);
+
+cn.fillText('c', 950, 1540);
+cn.fillText('u', 975, 1540);
+cn.fillText('u', 1000, 1540);
+cn.fillText('u', 1025, 1540);
+cn.fillText('u', 925, 1540);
+cn.fillText('u', 900, 1540);
+
+cn.fillText('c', 975, 1565);
+cn.fillText('u', 775, 1565);
+cn.fillText('u', 925, 1565);
+cn.fillText('u', 950, 1565);
+cn.fillText('u', 1000, 1565);
+cn.fillText('u', 1025, 1565);
+
+cn.fillText('c', 1000, 1590);
+cn.fillText('u', 975, 1590);
+cn.fillText('u', 950, 1590);
+cn.fillText('u', 925, 1590);
+cn.fillText('u', 900, 1590);
+cn.fillText('u', 1025, 1590);
+cn.fillText('u', 1050, 1590);
+
+cn.fillText('c', 1025, 1615);
+cn.fillText('u', 1000, 1615);
+cn.fillText('u', 975, 1615);
+cn.fillText('u', 950, 1615);
+cn.fillText('u', 925, 1615);
+cn.fillText('u', 1050, 1615);
+
+cn.fillText('c', 1050, 1640);
+cn.fillText('u', 1075, 1640);
+cn.fillText('u', 1100, 1640);
+cn.fillText('u', 1025, 1640);
+cn.fillText('u', 1000, 1640);
+cn.fillText('u', 975, 1640);
+
+cn.fillText('c', 1075, 1665);
+cn.fillText('u', 1100, 1665);
+cn.fillText('u', 1050, 1665);
+
+cn.fillText('c', 1100, 1690);
+cn.fillText('u', 825, 1690);
+cn.fillText('u', 925, 1690);
+cn.fillText('u', 1075, 1690);
+cn.fillText('u', 1050, 1690);
+
+
+ // declination
+context.beginPath () ;
+context.moveTo (1185, 1350);
+context.lineTo (1185, 1700);
+context.moveTo (1325, 1350);
+context.lineTo (1325, 1700);
+context.moveTo (1185, 1350);
+context.lineTo (1675, 1350);
+context.moveTo (1185, 1375);
+context.lineTo (1675, 1375);
+context.moveTo (1185, 1400);
+context.lineTo (1675, 1400);
+context.moveTo (1185, 1425);
+context.lineTo (1675, 1425);
+context.moveTo (1185, 1450);
+context.lineTo (1675, 1450);
+context.moveTo (1185, 1475);
+context.lineTo (1675, 1475);
+context.moveTo (1185, 1500);
+context.lineTo (1675, 1500);
+context.moveTo (1185, 1525);
+context.lineTo (1675, 1525);
+context.moveTo (1185, 1550);
+context.lineTo (1675, 1550);
+context.moveTo (1185, 1575);
+context.lineTo (1675, 1575);
+context.moveTo (1185, 1600);
+context.lineTo (1675, 1600);
+context.moveTo (1185, 1625);
+context.lineTo (1675, 1625);
+context.moveTo (1185, 1650);
+context.lineTo (1675, 1650);
+context.moveTo (1185, 1675);
+context.lineTo (1675, 1675);
+context.moveTo (1185, 1700);
+context.lineTo (1675, 1700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1200, 1350);
+context.lineTo (1200, 1325);
+context.lineTo (1350, 1325);
+context.lineTo (1350, 1700);
+
+context.moveTo (1215, 1325);
+context.lineTo (1215, 1300);
+context.lineTo (1375, 1300);
+context.lineTo (1375, 1700);
+
+context.moveTo (1240, 1300);
+context.lineTo (1240, 1275);
+context.lineTo (1400, 1275);
+context.lineTo (1400, 1700);
+
+context.moveTo (1265, 1275);
+context.lineTo (1265, 1250);
+context.lineTo (1425, 1250);
+context.lineTo (1425, 1700);
+
+context.moveTo (1280, 1250);
+context.lineTo (1280, 1225);
+context.lineTo (1450, 1225);
+context.lineTo (1450, 1700);
+
+context.moveTo (1295, 1225);
+context.lineTo (1295, 1200);
+context.lineTo (1475, 1200);
+context.lineTo (1475, 1700);
+
+context.moveTo (1320, 1200);
+context.lineTo (1320, 1175);
+context.lineTo (1500, 1175);
+context.lineTo (1500, 1700);
+
+context.moveTo (1345, 1175);
+context.lineTo (1345, 1150);
+context.lineTo (1525, 1150);
+context.lineTo (1525, 1700);
+
+context.moveTo (1370, 1150);
+context.lineTo (1370, 1125);
+context.lineTo (1550, 1125);
+context.lineTo (1550, 1700);
+
+context.moveTo (1395, 1125);
+context.lineTo (1395, 1100);
+context.lineTo (1575, 1100);
+context.lineTo (1575, 1700);
+
+context.moveTo (1420, 1100);
+context.lineTo (1420, 1075);
+context.lineTo (1600, 1075);
+context.lineTo (1600, 1700);
+
+context.moveTo (1435, 1075);
+context.lineTo (1435, 1050);
+context.lineTo (1625, 1050);
+context.lineTo (1625, 1700);
+
+context.moveTo (1460, 1050);
+context.lineTo (1460, 1025);
+context.lineTo (1650, 1025);
+context.lineTo (1650, 1700);
+
+context.moveTo (1475, 1025);
+context.lineTo (1475, 1000);
+context.lineTo (1675, 1000);
+context.lineTo (1675, 1700);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1325, 1350);
+context.lineTo (1375, 1350);
+context.lineTo (1375, 1400);
+context.lineTo (1325, 1400);
+context.lineTo (1325, 1350);
+
+context.moveTo (1375, 1400);
+context.lineTo (1500, 1400);
+context.lineTo (1500, 1525);
+context.lineTo (1375, 1525);
+context.lineTo (1375, 1400);
+
+context.moveTo (1500, 1525);
+context.lineTo (1600, 1525);
+context.lineTo (1600, 1625);
+context.lineTo (1500, 1625);
+context.lineTo (1500, 1525);
+
+context.moveTo (1600, 1625);
+context.lineTo (1675, 1625);
+context.lineTo (1675, 1700);
+context.lineTo (1600, 1700);
+context.lineTo (1600, 1625);
+
+context.lineWidth = 4 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('organization planning', 1190, 1365);
+cn.fillText('Personnel management', 1190, 1390);
+cn.fillText('crime management', 1190, 1415);
+cn.fillText('crime report', 1190, 1440);
+cn.fillText('community patrols', 1190, 1465);
+cn.fillText('arrests', 1190, 1490);
+cn.fillText('case management', 1190, 1515);
+cn.fillText('case prosecution', 1190, 1540);
+cn.fillText('case hearing', 1190, 1565);
+cn.fillText('case judgement', 1190, 1590);
+cn.fillText('lodging appeals', 1190, 1615);
+cn.fillText('suspects found guilty', 1190, 1640);
+cn.fillText('statistic analysis', 1190, 1665);
+cn.fillText('research', 1190, 1690);
+
+cn.fillText('strategic plan', 1205, 1340);
+cn.fillText('employment info', 1230, 1315);
+cn.fillText('resources for fighting crime', 1245, 1290);
+cn.fillText('docket', 1270, 1265);
+cn.fillText('CDAROPA', 1285, 1240);
+cn.fillText('case trial', 1300, 1215);
+cn.fillText('court appearance data', 1325, 1190);
+cn.fillText('prosecuting info', 1350, 1165);
+cn.fillText('judgement', 1375, 1140);
+cn.fillText('judgement review', 1425, 1115);
+cn.fillText('sentencing', 1425, 1090);
+cn.fillText('crime data', 1440, 1065);
+cn.fillText('crime patterns', 1465, 1040);
+cn.fillText('statistical reports', 1480, 1015);
+cn.fillText('Data classes', 1480, 990);
+cn.fillText('Data classes', 1480, 990);
+cn.fillText('Data classes', 1480, 990);
+
+cn.fillText('c', 1330, 1365);
+cn.fillText('u', 1355, 1365);
+cn.fillText('u', 1380, 1365);
+cn.fillText('u', 1530, 1365);
+cn.fillText('u', 1555, 1365);
+cn.fillText('u', 1580, 1365);
+cn.fillText('u', 1605, 1365);
+cn.fillText('u', 1630, 1365);
+cn.fillText('u', 1655, 1365);
+
+cn.fillText('c', 1355, 1390);
+cn.fillText('u', 1330, 1390);
+
+cn.fillText('c', 1380, 1415);
+cn.fillText('u', 1330, 1415);
+cn.fillText('u', 1430, 1415);
+cn.fillText('u', 1605, 1415);
+cn.fillText('u', 1630, 1415);
+cn.fillText('u', 1655, 1415);
+
+cn.fillText('c', 1405, 1440);
+cn.fillText('u', 1330, 1440);
+cn.fillText('u', 1380, 1440);
+cn.fillText('u', 1430, 1440);
+
+cn.fillText('c', 1430, 1465);
+cn.fillText('u', 1380, 1465)
+cn.fillText('u', 1330, 1465)
+
+cn.fillText('c', 1455, 1490);
+cn.fillText('u', 1330, 1490);
+cn.fillText('u', 1380, 1490);
+cn.fillText('u', 1405, 1490);
+cn.fillText('u', 1430, 1490);
+cn.fillText('u', 1480, 1490);
+cn.fillText('u', 1505, 1490);
+cn.fillText('u', 1530, 1490);
+cn.fillText('u', 1555, 1490);
+cn.fillText('u', 1580, 1490);
+
+cn.fillText('c', 1480, 1515);
+cn.fillText('u', 1355, 1515);
+cn.fillText('u', 1330, 1515);
+
+cn.fillText('c', 1505, 1540);
+cn.fillText('u', 1530, 1540);
+cn.fillText('u', 1555, 1540);
+cn.fillText('u', 1580, 1540);
+cn.fillText('u', 1480, 1540);
+cn.fillText('u', 1455, 1540);
+
+cn.fillText('c', 1530, 1565);
+cn.fillText('u', 1330, 1565);
+cn.fillText('u', 1530, 1565);
+cn.fillText('u', 1505, 1565);
+cn.fillText('u', 1555, 1565);
+cn.fillText('u', 1580, 1565);
+
+cn.fillText('c', 1555, 1590);
+cn.fillText('u', 1530, 1590);
+cn.fillText('u', 1505, 1590);
+cn.fillText('u', 1480, 1590);
+cn.fillText('u', 1455, 1590);
+cn.fillText('u', 1580, 1590);
+cn.fillText('u', 1605, 1590);
+
+cn.fillText('c', 1580, 1615);
+cn.fillText('u', 1555, 1615);
+cn.fillText('u', 1530, 1615);
+cn.fillText('u', 1505, 1615);
+cn.fillText('u', 1480, 1615);
+cn.fillText('u', 1605, 1615);
+
+cn.fillText('c', 1605, 1640);
+cn.fillText('u', 1630, 1640);
+cn.fillText('u', 1655, 1640);
+cn.fillText('u', 1580, 1640);
+cn.fillText('u', 1555, 1640);
+cn.fillText('u', 1530, 1640);
+
+cn.fillText('c', 1630, 1665);
+cn.fillText('u', 1655, 1665);
+cn.fillText('u', 1605, 1665);
+
+cn.fillText('c', 1655, 1690);
+cn.fillText('u', 1380, 1690);
+cn.fillText('u', 1480, 1690);
+cn.fillText('u', 1630, 1690);
+cn.fillText('u', 1605, 1690);
+
+// dflow
+context.beginPath () ;
+context.moveTo (30, 2350);
+context.lineTo (30, 2700);
+context.moveTo (170, 2350);
+context.lineTo (520, 2350);
+context.moveTo (170, 2350);
+context.lineTo (170, 2700);
+context.moveTo (30, 2350);
+context.lineTo (520, 2350);
+context.moveTo (30, 2375);
+context.lineTo (520, 2375);
+context.moveTo (30, 2400);
+context.lineTo (520, 2400);
+context.moveTo (30, 2425);
+context.lineTo (520, 2425);
+context.moveTo (30, 2450);
+context.lineTo (520, 2450);
+context.moveTo (30, 2475);
+context.lineTo (520, 2475);
+context.moveTo (30, 2500);
+context.lineTo (520, 2500);
+context.moveTo (30, 2525);
+context.lineTo (520, 2525);
+context.moveTo (30, 2550);
+context.lineTo (520, 2550);
+context.moveTo (30, 2575);
+context.lineTo (520, 2575);
+context.moveTo (30, 2600);
+context.lineTo (520, 2600);
+context.moveTo (30, 2625);
+context.lineTo (520, 2625);
+context.moveTo (30, 2650);
+context.lineTo (520, 2650);
+context.moveTo (30, 2675);
+context.lineTo (520, 2675);
+context.moveTo (30, 2700);
+context.lineTo (520, 2700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (45, 2350);
+context.lineTo (45, 2325);
+context.lineTo (195, 2325);
+context.lineTo (195, 2700);
+
+context.moveTo (60, 2325);
+context.lineTo (60, 2300);
+context.lineTo (220, 2300);
+context.lineTo (220, 2700);
+
+context.moveTo (85, 2300);
+context.lineTo (85, 2275);
+context.lineTo (245, 2275);
+context.lineTo (245, 2700);
+
+context.moveTo (110, 2275);
+context.lineTo (110, 2250);
+context.lineTo (270, 2250);
+context.lineTo (270, 2700);
+
+context.moveTo (125, 2250);
+context.lineTo (125, 2225);
+context.lineTo (295, 2225);
+context.lineTo (295, 2700);
+
+context.moveTo (140, 2225);
+context.lineTo (140, 2200);
+context.lineTo (320, 2200);
+context.lineTo (320, 2700);
+
+context.moveTo (165, 2200);
+context.lineTo (165, 2175);
+context.lineTo (345, 2175);
+context.lineTo (345, 2700);
+
+context.moveTo (190, 2175);
+context.lineTo (190, 2150);
+context.lineTo (370, 2150);
+context.lineTo (370, 2700);
+
+context.moveTo (215, 2150);
+context.lineTo (215, 2125);
+context.lineTo (395, 2125);
+context.lineTo (395, 2700);
+
+context.moveTo (240, 2125);
+context.lineTo (240, 2100);
+context.lineTo (420, 2100);
+context.lineTo (420, 2700);
+
+context.moveTo (265, 2100);
+context.lineTo (265, 2075);
+context.lineTo (445, 2075);
+context.lineTo (445, 2700);
+
+context.moveTo (280, 2075);
+context.lineTo (280, 2050);
+context.lineTo (470, 2050);
+context.lineTo (470, 2700);
+
+context.moveTo (305, 2050);
+context.lineTo (305, 2025);
+context.lineTo (495, 2025);
+context.lineTo (495, 2700);
+
+context.moveTo (320, 2025);
+context.lineTo (320, 2000);
+context.lineTo (520, 2000);
+context.lineTo (520, 2700);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (170, 2350);
+context.lineTo (220, 2350);
+context.lineTo (220, 2400);
+context.lineTo (170, 2400);
+context.lineTo (170, 2350);
+
+context.moveTo (220, 2400);
+context.lineTo (220, 2525);
+context.lineTo (345, 2525);
+context.lineTo (345, 2400);
+context.lineTo (220, 2400);
+
+context.moveTo (345, 2525);
+context.lineTo (445, 2525);
+context.lineTo (445, 2625);
+context.lineTo (345, 2625);
+context.lineTo (345, 2525);
+
+context.moveTo (445, 2625);
+context.lineTo (520, 2625);
+context.lineTo (520, 2700);
+context.lineTo (445, 2700);
+context.lineTo (445, 2525);
+
+context.lineWidth = 4 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (180, 2400);
+context.lineTo (180, 2690);
+context.lineTo (445, 2690);
+
+context.moveTo (280, 2525);
+context.lineTo (280, 2670);
+context.lineTo (445, 2670);
+
+context.moveTo (380, 2625);
+context.lineTo (380, 2645);
+context.lineTo (445, 2645);
+
+context.moveTo (505, 2625);
+context.lineTo (505, 2360);
+context.lineTo (220, 2360);
+
+context.moveTo (400, 2525);
+context.lineTo (400, 2435);
+context.lineTo (345, 2435);
+
+context.moveTo (480, 2625);
+context.lineTo (480, 2485);
+context.lineTo (345, 2485);
+
+context.moveTo (180, 2465);
+context.lineTo (220, 2465);
+
+context.moveTo (180, 2560);
+context.lineTo (345, 2560);
+
+context.moveTo (260, 2525);
+context.lineTo (260, 2590);
+context.lineTo (345, 2590);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+
+context.moveTo (345, 2485);
+context.lineTo (355, 2480);
+context.lineTo (355, 2490);
+context.lineTo (345, 2485);
+
+context.moveTo (345, 2435);
+context.lineTo (355, 2430);
+context.lineTo (355, 2440);
+context.lineTo (345, 2435);
+
+context.moveTo (220, 2360);
+context.lineTo (230, 2355);
+context.lineTo (230, 2365);
+context.lineTo (220, 2360);
+
+context.moveTo (445, 2645);
+context.lineTo (435, 2650);
+context.lineTo (435, 2640);
+context.lineTo (445, 2645);
+
+context.moveTo (445, 2670);
+context.lineTo (435, 2665);
+context.lineTo (435, 2675);
+context.lineTo (445, 2670);
+
+context.moveTo (445, 2690);
+context.lineTo (435, 2695);
+context.lineTo (435, 2685);
+context.lineTo (445, 2690);
+
+context.moveTo (220, 2465);
+context.lineTo (210, 2460);
+context.lineTo (210, 2470);
+context.lineTo (220, 2465);
+
+context.moveTo (345, 2560);
+context.lineTo (335, 2555);
+context.lineTo (335, 2565);
+context.lineTo (345, 2560);
+
+context.moveTo (345, 2590);
+context.lineTo (335, 2585);
+context.lineTo (335, 2595);
+context.lineTo (345, 2590);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.fillStyle = 'blue'
+context.fill ();
+context.stroke ();
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('organization planning', 35, 2365);
+cn.fillText('Personnel management', 35, 2390);
+cn.fillText('crime management', 35, 2415);
+cn.fillText('crime report', 35, 2440);
+cn.fillText('community patrols', 35, 2465);
+cn.fillText('arrests', 35, 2490);
+cn.fillText('case management', 35, 2515);
+cn.fillText('case prosecution', 35, 2540);
+cn.fillText('case hearing', 35, 2565);
+cn.fillText('case judgement', 35, 2590);
+cn.fillText('lodging appeals', 35, 2615);
+cn.fillText('suspects found guilty', 35, 2640);
+cn.fillText('statistic analysis', 35, 2665);
+cn.fillText('research', 35, 2690);
+cn.fillText('processes', 635, 2740);
+cn.fillText('processes', 635, 2740);
+cn.fillText('processes', 635, 2740);
+
+cn.fillText('strategic plan', 50, 2340);
+cn.fillText('employment info', 75, 2315);
+cn.fillText('resources for fighting crime', 90, 2290);
+cn.fillText('docket', 115, 2265);
+cn.fillText('CDAROPA', 130, 2240);
+cn.fillText('case trial', 145, 2215);
+cn.fillText('court appearance data', 170, 2190);
+cn.fillText('prosecuting info', 195, 2165);
+cn.fillText('judgement', 220, 2140);
+cn.fillText('judgement review', 270, 2115);
+cn.fillText('sentencing', 245, 2090);
+cn.fillText('crime data', 285, 2065);
+cn.fillText('crime patterns', 310, 2040);
+cn.fillText('statistical reports', 325, 2015);
+cn.fillText('Data classes', 325, 1990);
+cn.fillText('Data classes', 325, 1990);
+cn.fillText('Data classes', 325, 1990);
+
+
+cn.fillText('c', 775, 1365);
+cn.fillText('u', 800, 1365);
+cn.fillText('u', 825, 1365);
+cn.fillText('u', 975, 1365);
+cn.fillText('u', 1000, 1365);
+cn.fillText('u', 1025, 1365);
+cn.fillText('u', 1050, 1365);
+cn.fillText('u', 1075, 1365);
+cn.fillText('u', 1100, 1365);
+
+cn.fillText('c', 800, 1390);
+cn.fillText('u', 775, 1390);
+
+cn.fillText('c', 825, 1415);
+cn.fillText('u', 775, 1415);
+cn.fillText('u', 875, 1415);
+cn.fillText('u', 1050, 1415);
+cn.fillText('u', 1075, 1415);
+cn.fillText('u', 1100, 1415);
+
+cn.fillText('c', 850, 1440);
+cn.fillText('u', 775, 1440);
+cn.fillText('u', 825, 1440);
+cn.fillText('u', 875, 1440);
+
+cn.fillText('c', 875, 1465);
+cn.fillText('u', 825, 1465)
+cn.fillText('u', 775, 1465)
+
+cn.fillText('c', 900, 1490);
+cn.fillText('u', 775, 1490);
+cn.fillText('u', 825, 1490);
+cn.fillText('u', 850, 1490);
+cn.fillText('u', 875, 1490);
+cn.fillText('u', 925, 1490);
+cn.fillText('u', 950, 1490);
+cn.fillText('u', 975, 1490);
+cn.fillText('u', 1000, 1490);
+cn.fillText('u', 1025, 1490);
+
+cn.fillText('c', 925, 1515);
+cn.fillText('u', 800, 1515);
+cn.fillText('u', 775, 1515);
+
+cn.fillText('c', 950, 1540);
+cn.fillText('u', 975, 1540);
+cn.fillText('u', 1000, 1540);
+cn.fillText('u', 1025, 1540);
+cn.fillText('u', 925, 1540);
+cn.fillText('u', 900, 1540);
+
+cn.fillText('c', 975, 1565);
+cn.fillText('u', 775, 1565);
+cn.fillText('u', 925, 1565);
+cn.fillText('u', 950, 1565);
+cn.fillText('u', 1000, 1565);
+cn.fillText('u', 1025, 1565);
+
+cn.fillText('c', 1000, 1590);
+cn.fillText('u', 975, 1590);
+cn.fillText('u', 950, 1590);
+cn.fillText('u', 925, 1590);
+cn.fillText('u', 900, 1590);
+cn.fillText('u', 1025, 1590);
+cn.fillText('u', 1050, 1590);
+
+cn.fillText('c', 1025, 1615);
+cn.fillText('u', 1000, 1615);
+cn.fillText('u', 975, 1615);
+cn.fillText('u', 950, 1615);
+cn.fillText('u', 925, 1615);
+cn.fillText('u', 1050, 1615);
+
+cn.fillText('c', 1050, 1640);
+cn.fillText('u', 1075, 1640);
+cn.fillText('u', 1100, 1640);
+cn.fillText('u', 1025, 1640);
+cn.fillText('u', 1000, 1640);
+cn.fillText('u', 975, 1640);
+
+cn.fillText('c', 1075, 1665);
+cn.fillText('u', 1100, 1665);
+cn.fillText('u', 1050, 1665);
+
+cn.fillText('c', 1100, 1690);
+cn.fillText('u', 825, 1690);
+cn.fillText('u', 925, 1690);
+cn.fillText('u', 1075, 1690);
+cn.fillText('u', 1050, 1690);
+
+
+ // declination
+context.beginPath () ;
+context.moveTo (1185, 1350);
+context.lineTo (1185, 1700);
+context.moveTo (1325, 1350);
+context.lineTo (1325, 1700);
+context.moveTo (1185, 1350);
+context.lineTo (1675, 1350);
+context.moveTo (1185, 1375);
+context.lineTo (1675, 1375);
+context.moveTo (1185, 1400);
+context.lineTo (1675, 1400);
+context.moveTo (1185, 1425);
+context.lineTo (1675, 1425);
+context.moveTo (1185, 1450);
+context.lineTo (1675, 1450);
+context.moveTo (1185, 1475);
+context.lineTo (1675, 1475);
+context.moveTo (1185, 1500);
+context.lineTo (1675, 1500);
+context.moveTo (1185, 1525);
+context.lineTo (1675, 1525);
+context.moveTo (1185, 1550);
+context.lineTo (1675, 1550);
+context.moveTo (1185, 1575);
+context.lineTo (1675, 1575);
+context.moveTo (1185, 1600);
+context.lineTo (1675, 1600);
+context.moveTo (1185, 1625);
+context.lineTo (1675, 1625);
+context.moveTo (1185, 1650);
+context.lineTo (1675, 1650);
+context.moveTo (1185, 1675);
+context.lineTo (1675, 1675);
+context.moveTo (1185, 1700);
+context.lineTo (1675, 1700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1200, 1350);
+context.lineTo (1200, 1325);
+context.lineTo (1350, 1325);
+context.lineTo (1350, 1700);
+
+context.moveTo (1215, 1325);
+context.lineTo (1215, 1300);
+context.lineTo (1375, 1300);
+context.lineTo (1375, 1700);
+
+context.moveTo (1240, 1300);
+context.lineTo (1240, 1275);
+context.lineTo (1400, 1275);
+context.lineTo (1400, 1700);
+
+context.moveTo (1265, 1275);
+context.lineTo (1265, 1250);
+context.lineTo (1425, 1250);
+context.lineTo (1425, 1700);
+
+context.moveTo (1280, 1250);
+context.lineTo (1280, 1225);
+context.lineTo (1450, 1225);
+context.lineTo (1450, 1700);
+
+context.moveTo (1295, 1225);
+context.lineTo (1295, 1200);
+context.lineTo (1475, 1200);
+context.lineTo (1475, 1700);
+
+context.moveTo (1320, 1200);
+context.lineTo (1320, 1175);
+context.lineTo (1500, 1175);
+context.lineTo (1500, 1700);
+
+context.moveTo (1345, 1175);
+context.lineTo (1345, 1150);
+context.lineTo (1525, 1150);
+context.lineTo (1525, 1700);
+
+context.moveTo (1370, 1150);
+context.lineTo (1370, 1125);
+context.lineTo (1550, 1125);
+context.lineTo (1550, 1700);
+
+context.moveTo (1395, 1125);
+context.lineTo (1395, 1100);
+context.lineTo (1575, 1100);
+context.lineTo (1575, 1700);
+
+context.moveTo (1420, 1100);
+context.lineTo (1420, 1075);
+context.lineTo (1600, 1075);
+context.lineTo (1600, 1700);
+
+context.moveTo (1435, 1075);
+context.lineTo (1435, 1050);
+context.lineTo (1625, 1050);
+context.lineTo (1625, 1700);
+
+context.moveTo (1460, 1050);
+context.lineTo (1460, 1025);
+context.lineTo (1650, 1025);
+context.lineTo (1650, 1700);
+
+context.moveTo (1475, 1025);
+context.lineTo (1475, 1000);
+context.lineTo (1675, 1000);
+context.lineTo (1675, 1700);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1325, 1350);
+context.lineTo (1375, 1350);
+context.lineTo (1375, 1400);
+context.lineTo (1325, 1400);
+context.lineTo (1325, 1350);
+
+context.moveTo (1375, 1400);
+context.lineTo (1500, 1400);
+context.lineTo (1500, 1525);
+context.lineTo (1375, 1525);
+context.lineTo (1375, 1400);
+
+context.moveTo (1500, 1525);
+context.lineTo (1600, 1525);
+context.lineTo (1600, 1625);
+context.lineTo (1500, 1625);
+context.lineTo (1500, 1525);
+
+context.moveTo (1600, 1625);
+context.lineTo (1675, 1625);
+context.lineTo (1675, 1700);
+context.lineTo (1600, 1700);
+context.lineTo (1600, 1625);
+
+context.lineWidth = 4 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+
+cn.fillText('c', 175, 2365);
+cn.fillText('u', 200, 2365);
+cn.fillText('u', 225, 2365);
+cn.fillText('u', 375, 2365);
+cn.fillText('u', 400, 2365);
+cn.fillText('u', 425, 2365);
+cn.fillText('u', 450, 2365);
+cn.fillText('u', 475, 2365);
+cn.fillText('u', 500, 2365);
+
+cn.fillText('c', 200, 2390);
+cn.fillText('u', 175, 2390);
+
+cn.fillText('c', 225, 2415);
+cn.fillText('u', 175, 2415);
+cn.fillText('u', 275, 2415);
+cn.fillText('u', 450, 2415);
+cn.fillText('u', 475, 2415);
+cn.fillText('u', 500, 2415);
+
+cn.fillText('c', 250, 2440);
+cn.fillText('u', 175, 2440);
+cn.fillText('u', 225, 2440);
+cn.fillText('u', 275, 2440);
+
+cn.fillText('c', 275, 2465);
+cn.fillText('u', 225, 2465)
+cn.fillText('u', 175, 2465)
+
+cn.fillText('c', 300, 2490);
+cn.fillText('u', 175, 2490);
+cn.fillText('u', 225, 2490);
+cn.fillText('u', 250, 2490);
+cn.fillText('u', 275, 2490);
+cn.fillText('u', 325, 2490);
+cn.fillText('u', 350, 2490);
+cn.fillText('u', 375, 2490);
+cn.fillText('u', 400, 2490);
+cn.fillText('u', 425, 2490);
+
+cn.fillText('c', 325, 2515);
+cn.fillText('u', 200, 2515);
+cn.fillText('u', 175, 2515);
+
+cn.fillText('c', 350, 2540);
+cn.fillText('u', 375, 2540);
+cn.fillText('u', 400, 2540);
+cn.fillText('u', 425, 2540);
+cn.fillText('u', 325, 2540);
+cn.fillText('u', 300, 2540);
+
+cn.fillText('c', 375, 2565);
+cn.fillText('u', 175, 2565);
+cn.fillText('u', 325, 2565);
+cn.fillText('u', 350, 2565);
+cn.fillText('u', 400, 2565);
+cn.fillText('u', 425, 2565);
+
+cn.fillText('c', 400, 2590);
+cn.fillText('u', 375, 2590);
+cn.fillText('u', 350, 2590);
+cn.fillText('u', 325, 2590);
+cn.fillText('u', 300, 2590);
+cn.fillText('u', 425, 2590);
+cn.fillText('u', 450, 2590);
+
+cn.fillText('c', 425, 2615);
+cn.fillText('u', 400, 2615);
+cn.fillText('u', 375, 2615);
+cn.fillText('u', 350, 2615);
+cn.fillText('u', 325, 2615);
+cn.fillText('u', 450, 2615);
+
+cn.fillText('c', 450, 2640);
+cn.fillText('u', 475, 2640);
+cn.fillText('u', 500, 2640);
+cn.fillText('u', 425, 2640);
+cn.fillText('u', 400, 2640);
+cn.fillText('u', 375, 2640);
+
+cn.fillText('c', 475, 2665);
+cn.fillText('u', 500, 2665);
+cn.fillText('u', 450, 2665);
+
+cn.fillText('c', 500, 2690);
+cn.fillText('u', 225, 2690);
+cn.fillText('u', 625, 2690);
+cn.fillText('u', 475, 2690);
+cn.fillText('u', 450, 2690);
+
+// info architecture
+
+context.beginPath () ;
+context.moveTo (630, 2350);
+context.lineTo (630, 2700);
+context.moveTo (770, 2350);
+context.lineTo (1120, 2350);
+context.moveTo (770, 2350);
+context.lineTo (770, 2700);
+context.moveTo (630, 2350);
+context.lineTo (770, 2350);
+context.moveTo (630, 2375);
+context.lineTo (770, 2375);
+context.moveTo (630, 2400);
+context.lineTo (770, 2400);
+context.moveTo (630, 2425);
+context.lineTo (770, 2425);
+context.moveTo (630, 2450);
+context.lineTo (770, 2450);
+context.moveTo (630, 2475);
+context.lineTo (770, 2475);
+context.moveTo (630, 2500);
+context.lineTo (770, 2500);
+context.moveTo (630, 2525);
+context.lineTo (770, 2525);
+context.moveTo (630, 2550);
+context.lineTo (770, 2550);
+context.moveTo (630, 2575);
+context.lineTo (770, 2575);
+context.moveTo (630, 2600);
+context.lineTo (770, 2600);
+context.moveTo (630, 2625);
+context.lineTo (770, 2625);
+context.moveTo (630, 2650);
+context.lineTo (770, 2650);
+context.moveTo (630, 2675);
+context.lineTo (770, 2675);
+context.moveTo (630, 2700);
+context.lineTo (1120, 2700);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+
+context.beginPath () ;
+context.moveTo (645, 2350);
+context.lineTo (645, 2325);
+context.lineTo (795, 2325);
+context.lineTo (795, 2350);
+
+context.moveTo (660, 2325);
+context.lineTo (660, 2300);
+context.lineTo (820, 2300);
+context.lineTo (820, 2350);
+
+context.moveTo (685, 2300);
+context.lineTo (685, 2275);
+context.lineTo (845, 2275);
+context.lineTo (845, 2350);
+
+context.moveTo (710, 2275);
+context.lineTo (710, 2250);
+context.lineTo (870, 2250);
+context.lineTo (870, 2350);
+
+context.moveTo (725, 2250);
+context.lineTo (725, 2225);
+context.lineTo (895, 2225);
+context.lineTo (895, 2350);
+
+context.moveTo (740, 2225);
+context.lineTo (740, 2200);
+context.lineTo (920, 2200);
+context.lineTo (920, 2350);
+
+context.moveTo (765, 2200);
+context.lineTo (765, 2175);
+context.lineTo (945, 2175);
+context.lineTo (945, 2350);
+
+context.moveTo (790, 2175);
+context.lineTo (790, 2150);
+context.lineTo (970, 2150);
+context.lineTo (970, 2350);
+
+context.moveTo (815, 2150);
+context.lineTo (815, 2125);
+context.lineTo (995, 2125);
+context.lineTo (995, 2350);
+
+context.moveTo (840, 2125);
+context.lineTo (840, 2100);
+context.lineTo (1020, 2100);
+context.lineTo (1020, 2350);
+
+context.moveTo (865, 2100);
+context.lineTo (865, 2075);
+context.lineTo (1045, 2075);
+context.lineTo (1045, 2350);
+
+context.moveTo (880, 2075);
+context.lineTo (880, 2050);
+context.lineTo (1070, 2050);
+context.lineTo (1070, 2350);
+
+context.moveTo (905, 2050);
+context.lineTo (905, 2025);
+context.lineTo (1095, 2025);
+context.lineTo (1095, 2350);
+
+context.moveTo (920, 2025);
+context.lineTo (920, 2000);
+context.lineTo (1120, 2000);
+context.lineTo (1120, 2700);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (770, 2350);
+context.lineTo (820, 2350);
+context.lineTo (820, 2400);
+context.lineTo (770, 2400);
+context.lineTo (770, 2350);
+
+context.moveTo (820, 2400);
+context.lineTo (820, 2525);
+context.lineTo (945, 2525);
+context.lineTo (945, 2400);
+context.lineTo (820, 2400);
+
+context.moveTo (945, 2525);
+context.lineTo (1045, 2525);
+context.lineTo (1045, 2625);
+context.lineTo (945, 2625);
+context.lineTo (945, 2525);
+
+context.moveTo (1045, 2625);
+context.lineTo (1120, 2625);
+context.lineTo (1120, 2700);
+context.lineTo (1045, 2700);
+context.lineTo (1045, 2625);
+
+context.lineWidth = 4 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (780, 2400);
+context.lineTo (780, 2690);
+context.lineTo (1045, 2690);
+
+context.moveTo (880, 2525);
+context.lineTo (880, 2670);
+context.lineTo (1045, 2670);
+
+context.moveTo (980, 2625);
+context.lineTo (980, 2645);
+context.lineTo (1045, 2645);
+
+context.moveTo (1105, 2625);
+context.lineTo (1105, 2360);
+context.lineTo (820, 2360);
+
+context.moveTo (1000, 2525);
+context.lineTo (1000, 2435);
+context.lineTo (945, 2435);
+
+context.moveTo (1080, 2625);
+context.lineTo (1080, 2485);
+context.lineTo (945, 2485);
+
+context.moveTo (780, 2465);
+context.lineTo (820, 2465);
+
+context.moveTo (780, 2560);
+context.lineTo (945, 2560);
+
+context.moveTo (860, 2525);
+context.lineTo (860, 2590);
+context.lineTo (945, 2590);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+
+context.moveTo (945, 2485);
+context.lineTo (955, 2480);
+context.lineTo (955, 2490);
+context.lineTo (945, 2485);
+
+context.moveTo (945, 2435);
+context.lineTo (955, 2440);
+context.lineTo (955, 2430);
+context.lineTo (945, 2435);
+
+context.moveTo (820, 2360);
+context.lineTo (830, 2365);
+context.lineTo (830, 2355);
+context.lineTo (820, 2360);
+
+context.moveTo (1045, 2645);
+context.lineTo (1035, 2640);
+context.lineTo (1035, 2650);
+context.lineTo (1045, 2645);
+
+context.moveTo (1045, 2670);
+context.lineTo (1035, 2665);
+context.lineTo (1035, 2675);
+context.lineTo (1045, 2670);
+
+context.moveTo (1045, 2690);
+context.lineTo (1035, 2685);
+context.lineTo (1035, 2695);
+context.lineTo (1045, 2690);
+
+context.moveTo (820, 2465);
+context.lineTo (810, 2470);
+context.lineTo (810, 2460);
+context.lineTo (820, 2465);
+
+context.moveTo (945, 2560);
+context.lineTo (935, 2565);
+context.lineTo (935, 2555);
+context.lineTo (945, 2560);
+
+context.moveTo (945, 2590);
+context.lineTo (935, 2595);
+context.lineTo (935, 2585);
+context.lineTo (945, 2590);
+
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.fillStyle = 'blue'
+context.fill ();
+context.stroke ();
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('organization planning', 635, 2365);
+cn.fillText('Personnel management', 635, 2390);
+cn.fillText('crime management', 635, 2415);
+cn.fillText('crime report', 635, 2440);
+cn.fillText('community patrols', 635, 2465);
+cn.fillText('arrests', 635, 2490);
+cn.fillText('case management', 635, 2515);
+cn.fillText('case prosecution', 635, 2540);
+cn.fillText('case hearing', 635, 2565);
+cn.fillText('case judgement', 635, 2590);
+cn.fillText('lodging appeals', 635, 2615);
+cn.fillText('suspects found guilty', 635, 2640);
+cn.fillText('statistic analysis', 635, 2665);
+cn.fillText('research', 635, 2690);
+
+cn.fillText('strategic plan', 650, 2340);
+cn.fillText('employment info', 675, 2315);
+cn.fillText('resources for fighting crime', 690, 2290);
+cn.fillText('docket', 715, 2265);
+cn.fillText('CDAROPA', 730, 2240);
+cn.fillText('case trial', 745, 2215);
+cn.fillText('court appearance data', 770, 2190);
+cn.fillText('prosecuting info', 795, 2165);
+cn.fillText('judgement', 820, 2140);
+cn.fillText('judgement review', 855, 2115);
+cn.fillText('sentencing', 870, 2090);
+cn.fillText('crime data', 885, 2065);
+cn.fillText('crime patterns', 910, 2040);
+cn.fillText('statistical reports', 925, 2015);
+cn.fillText('Data classes', 925, 1990);
+cn.fillText('Data classes', 925, 1990);
+cn.fillText('Data classes', 925, 1990);
+
+//ps admin border 
+context.beginPath () ;
+context.moveTo (500, 3210);
+context.lineTo (500, 3310);
+context.moveTo (700, 3310);
+context.lineTo (700, 3210);
+context.moveTo (500, 3210);
+context.lineTo (700, 3210);
+context.moveTo (500, 3310);
+context.lineTo (700, 3310);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 3210);
+context.lineTo (300, 3010);
+context.moveTo (487, 3190);
+context.lineTo (500, 3210);
+context.lineTo (480, 3197);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (270, 3010);
+context.lineTo (300, 3140);
+context.lineTo (500, 3220);
+context.moveTo (480, 3207);
+context.lineTo (500, 3220);
+context.lineTo (475, 3214);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 3010);
+context.lineTo (300, 2910);
+context.moveTo (100, 3010);
+context.lineTo (100, 2910);
+context.moveTo (100, 2910);
+context.lineTo (300, 2910);
+context.moveTo (300, 3010);
+context.lineTo (100, 3010);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 2980);
+context.lineTo (440, 3020);
+context.lineTo (510, 3210);
+context.moveTo (500, 3194);
+context.lineTo (510, 3210);
+context.lineTo (507, 3190);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke (); 
+
+context.beginPath () ;
+context.moveTo (300, 2940);
+context.lineTo (490, 2980);
+context.lineTo (520, 3210);
+context.moveTo (512, 3190);
+context.lineTo (520, 3210);
+context.lineTo (523, 3190);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (240, 3010);
+context.lineTo (250, 3160);
+context.lineTo (500, 3230);
+context.moveTo (480, 3220);
+context.lineTo (500, 3230);
+context.lineTo (475, 3227);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// courts
+context.beginPath () ;
+context.moveTo (900, 3010);
+context.lineTo (700, 3210);
+context.moveTo (885, 3035);
+context.lineTo (900, 3010);
+context.lineTo (875, 3025);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (930, 3010);
+context.lineTo (900, 3140);
+context.lineTo (700, 3220);
+context.moveTo (933, 3035);
+context.lineTo (930, 3010);
+context.lineTo (915, 3034);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 3010);
+context.lineTo (900, 2910);
+context.moveTo (1100, 3010);
+context.lineTo (1100, 2910);
+context.moveTo (1100, 2910);
+context.lineTo (900, 2910);
+context.moveTo (1100, 3010);
+context.lineTo (900, 3010);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (690, 3210);
+context.lineTo (800, 3010);
+context.lineTo (900, 2980);
+context.moveTo (870, 2980);
+context.lineTo (900, 2980);
+context.lineTo (880, 3000);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 2940);
+context.lineTo (760, 2980);
+context.lineTo (680, 3210);
+context.moveTo (700, 3180);
+context.lineTo (680, 3210);
+context.lineTo (685, 3175);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 2910);
+context.lineTo (730, 2940);
+context.lineTo (670, 3210);
+context.moveTo (670, 3180);
+context.lineTo (670, 3210);
+context.lineTo (682, 3180);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 3610);
+context.lineTo (730, 3580);
+context.lineTo (670, 3310);
+context.moveTo (670, 3340);
+context.lineTo (670, 3310);
+context.lineTo (685, 3340);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (960, 3010);
+context.lineTo (950, 3160);
+context.lineTo (700, 3230);
+context.moveTo (965, 3030);
+context.lineTo (960, 3010);
+context.lineTo (950, 3030);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (990, 3010);
+context.lineTo (980, 3210);
+context.lineTo (700, 3240);
+context.moveTo (980, 3040);
+context.lineTo (990, 3010);
+context.lineTo (995, 3040);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// Western Cape Prosecuting Authority
+context.beginPath () ;
+context.moveTo (300, 3510);
+context.lineTo (300, 3610);
+context.moveTo (100, 3510);
+context.lineTo (100, 3610);
+context.moveTo (100, 3610);
+context.lineTo (300, 3610);
+context.moveTo (300, 3510);
+context.lineTo (100, 3510);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 3310);
+context.lineTo (300, 3510);
+context.moveTo (320, 3500);
+context.lineTo (300, 3510);
+context.lineTo (310, 3490);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (300, 3580);
+context.lineTo (480, 3540);
+context.lineTo (510, 3310);
+context.moveTo (500, 3340);
+context.lineTo (510, 3310);
+context.lineTo (515, 3340);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+// Center for crime statistics
+context.beginPath () ;
+context.moveTo (900, 3510);
+context.lineTo (900, 3610);
+context.moveTo (1100, 3510);
+context.lineTo (1100, 3610);
+context.moveTo (1100, 3610);
+context.lineTo (900, 3610);
+context.moveTo (1100, 3510);
+context.lineTo (900, 3510);
+context.lineWidth = 1 ;
+context.strokeStyle = 'black' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 3510);
+context.lineTo (700, 3310);
+context.moveTo (880, 3500);
+context.lineTo (900, 3510);
+context.lineTo (890, 3490);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (930, 3510);
+context.lineTo (900, 3380);
+context.lineTo (700, 3300);
+context.moveTo (920, 3490);
+context.lineTo (930, 3510);
+context.lineTo (930, 3485);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (690, 3310);
+context.lineTo (800, 3520);
+context.lineTo (900, 3540);
+context.moveTo (880, 3530);
+context.lineTo (900, 3540);
+context.lineTo (880, 3543);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (900, 3580);
+context.lineTo (760, 3540);
+context.lineTo (680, 3310);
+context.moveTo (870, 3565);
+context.lineTo (900, 3580);
+context.lineTo (870, 3580);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (960, 3510);
+context.lineTo (950, 3360);
+context.lineTo (700, 3280);
+context.moveTo (715, 3295);
+context.lineTo (700, 3280);
+context.lineTo (720, 3275);
+context.lineWidth = 1 ;
+context.strokeStyle = 'blue' ;
+context.stroke ();
+
+var can = document.getElementById ('myCanvas') ;
+var cn = can.getContext ('2d') ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0, 'black');
+
+cn.fillStyle=grd;
+cn.font='35px Arial';
+cn.fillText('Western Cape Crime Statistics Context Diagram', 120, 2850);
+
+cn.fillStyle=grd;
+cn.font='18px Arial';
+cn.fillText('Police Stations', 120, 2960);
+cn.fillText('Western Cape', 120, 3550);
+cn.fillText('Prosecuting Authority', 120, 3580);
+cn.fillText('Courts', 970, 2960);
+cn.fillText('Western Cape Crime', 920, 3550);
+cn.fillText('Statistics Department', 920, 3590);
+cn.fillText('Western Cape Center', 510, 3250);
+cn.fillText('for Justice', 510, 3280);
+
+cn.fillStyle=grd;
+cn.font='12px Arial';
+cn.fillText('Complainant', 375, 3190);
+cn.fillText('Details', 375, 3125);
+cn.fillText('Case Info', 265, 3140);
+cn.fillText('Witness', 420, 3030);
+cn.fillText('Details', 420, 3045);
+cn.fillText('Suspect', 472, 2990);
+cn.fillText('Details', 472, 3005);
+cn.fillText('Detective', 280, 3180);
+cn.fillText('Details', 280, 3195);
+cn.fillText('Case Info', 375, 3410);
+cn.fillText('prosecution Info', 375, 3560);
+cn.fillText('prosecution', 850, 3180);
+cn.fillText('Info', 850, 3195);
+cn.fillText('witness', 880, 3110);
+cn.fillText('details', 880, 3125);
+cn.fillText('suspect', 780, 3110);
+cn.fillText('details', 780, 3125);
+cn.fillText('complainant', 780, 3025);
+cn.fillText('details', 780, 3040);
+cn.fillText('court', 710, 3060);
+cn.fillText('judgement', 710, 3075);
+cn.fillText('lawyer', 910, 3210);
+cn.fillText('details', 910, 3225);
+cn.fillText('judge', 750, 2930);
+cn.fillText('details', 750, 2945);
+cn.fillText('court', 710, 3460);
+cn.fillText('judgement', 710, 3475);
+cn.fillText('police', 780, 3490);
+cn.fillText('station', 780, 3505);
+cn.fillText('Suspect', 890, 3430);
+cn.fillText('Details', 890, 3445);
+cn.fillText('case info', 800, 3430);
+cn.fillText('Western Cape', 890, 3360);
+cn.fillText('Crime Statistics', 890, 3375);
+cn.fillText('Police Station', 700, 3565);
+cn.fillText('Crime Statistics', 700, 3580);
+
+
+// top dfd
+
+context.beginPath () ;
+context.moveTo (30, 3810);
+context.lineTo (30, 3850);
+context.moveTo (30, 3810);
+context.lineTo (180, 3810);
+context.moveTo (180, 3810);
+context.lineTo (180, 3850);
+context.moveTo (30, 3850);
+context.lineTo (180, 3850);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 4000);
+context.lineTo (500, 3950);
+context.moveTo (460, 3980);
+context.lineTo (450, 4000);
+context.lineTo (470, 3990);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 4040);
+context.lineTo (500, 4080);
+context.moveTo (470, 4050);
+context.lineTo (450, 4040);
+context.lineTo (460, 4055);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 4015);
+context.lineTo (450, 4015);
+context.moveTo (465, 4020);
+context.lineTo (450, 4015);
+context.lineTo (465, 4010);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (400, 4000);
+context.lineTo (400, 3900);
+context.lineTo (450, 3830);
+context.moveTo (395, 3985);
+context.lineTo (400, 4000);
+context.lineTo (405, 3985);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (430, 4000);
+context.lineTo (430, 3920);
+context.lineTo (470, 3880);
+context.moveTo (425, 3985);
+context.lineTo (430, 4000);
+context.lineTo (435, 3985);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (180, 3820);
+context.lineTo (380, 3820);
+context.lineTo (380, 4000);
+context.moveTo (195, 3815);
+context.lineTo (180, 3820);
+context.lineTo (195, 3825);
+context.moveTo (180, 3840);
+context.lineTo (350, 3840);
+context.lineTo (350, 4000);
+context.moveTo (345, 3985);
+context.lineTo (350, 4000);
+context.lineTo (355, 3985)
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (280, 4000);
+context.lineTo (450, 4000);
+context.moveTo (280, 4040);
+context.lineTo (280, 4000);
+context.moveTo (450, 4040);
+context.lineTo (280, 4040);
+context.moveTo (450, 4000);
+context.lineTo (450, 4040);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (50, 3910);
+context.lineTo (130, 3910);
+context.moveTo (50, 3950);
+context.lineTo (50, 3910);
+context.moveTo (60, 3910);
+context.lineTo (60, 3950);
+context.moveTo (50, 3950);
+context.lineTo (130, 3950);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (90, 3910);
+context.lineTo (90, 3880);
+context.lineTo (310, 3880);
+context.lineTo (310, 4000);
+context.moveTo (315, 3985);
+context.lineTo (310, 4000);
+context.lineTo (305, 3985);
+context.moveTo (85, 3895);
+context.lineTo (90, 3910);
+context.lineTo (95, 3895);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (90, 3990);
+context.lineTo (170, 3990);
+context.moveTo (90, 4030);
+context.lineTo (90, 3990);
+context.moveTo (100, 3990);
+context.lineTo (100, 4030);
+context.moveTo (90, 4030);
+context.lineTo (170, 4030);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (153, 3990);
+context.lineTo (153, 3950);
+context.lineTo (290, 3950);
+context.lineTo (290, 4000);
+context.moveTo (285, 3985);
+context.lineTo (290, 4000);
+context.lineTo (295, 3985);
+context.moveTo (148, 3975);
+context.lineTo (153, 3990);
+context.lineTo (158, 3975);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (130, 4070);
+context.lineTo (210, 4070);
+context.moveTo (130, 4070);
+context.lineTo (130, 4110);
+context.moveTo (140, 4110);
+context.lineTo (140, 4070);
+context.moveTo (130, 4110);
+context.lineTo (210, 4110);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (193, 4070);
+context.lineTo (193, 4020);
+context.lineTo (280, 4020);
+context.moveTo (188, 4055);
+context.lineTo (193, 4070);
+context.lineTo (198, 4055);
+context.moveTo (265, 4015);
+context.lineTo (280, 4020);
+context.lineTo (265, 4025);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (170, 4150);
+context.lineTo (250, 4150);
+context.moveTo (170, 4150);
+context.lineTo (170, 4190);
+context.moveTo (180, 4190);
+context.lineTo (180, 4150);
+context.moveTo (170, 4190);
+context.lineTo (250, 4190);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (233, 4150);
+context.lineTo (233, 4100);
+context.lineTo (310, 4100);
+context.lineTo (310, 4040);
+context.moveTo (228, 4135);
+context.lineTo (233, 4150);
+context.lineTo (238, 4135);
+context.moveTo (315, 4055);
+context.lineTo (310, 4040);
+context.lineTo (305, 4055);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (290, 4150);
+context.lineTo (370, 4150);
+context.moveTo (290, 4150);
+context.lineTo (290, 4190);
+context.moveTo (300, 4190);
+context.lineTo (300, 4150);
+context.moveTo (290, 4190);
+context.lineTo (370, 4190);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 4150);
+context.lineTo (330, 4040);
+context.moveTo (325, 4135);
+context.lineTo (330, 4150);
+context.lineTo (335, 4135);
+context.moveTo (325, 4055);
+context.lineTo (330, 4040);
+context.lineTo (335, 4055);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (30, 4300);
+context.lineTo (200, 4300);
+context.moveTo (200, 4360);
+context.lineTo (200, 4300);
+context.moveTo (30, 4300);
+context.lineTo (30, 4360);
+context.moveTo (30, 4360);
+context.lineTo (200, 4360);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (70, 4300);
+context.lineTo (70, 3950);
+context.moveTo (65, 4285);
+context.lineTo (70, 4300);
+context.lineTo (75, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (110, 4300);
+context.lineTo (110, 4030);
+context.moveTo (105, 4285);
+context.lineTo (110, 4300);
+context.lineTo (115, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (150, 4300);
+context.lineTo (150, 4110);
+context.moveTo (155, 4285);
+context.lineTo (150, 4300);
+context.lineTo (145, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (190, 4300);
+context.lineTo (190, 4190);
+context.moveTo (185, 4285);
+context.lineTo (190, 4300);
+context.lineTo (195, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 4190);
+context.lineTo (330, 4310);
+context.lineTo (200, 4310);
+context.moveTo (215, 4305);
+context.lineTo (200, 4310);
+context.lineTo (215, 4315);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (370, 4300);
+context.lineTo (600, 4300);
+context.moveTo (370, 4300);
+context.lineTo (370, 4360);
+context.moveTo (370, 4360);
+context.lineTo (600, 4360);
+context.moveTo (600, 4360);
+context.lineTo (600, 4300);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4570);
+context.lineTo (845, 4570);
+context.lineTo (845, 4360);
+context.moveTo (840, 4375);
+context.lineTo (845, 4360);
+context.lineTo (850, 4375);
+context.moveTo (760, 4565);
+context.lineTo (745, 4570);
+context.lineTo (760, 4575);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4570);
+context.lineTo (540, 4570);
+context.lineTo (540, 4360);
+context.moveTo (535, 4375);
+context.lineTo (540, 4360);
+context.lineTo (545, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (950, 4300);
+context.lineTo (800, 4300);
+context.moveTo (950, 4300);
+context.lineTo (950, 4360);
+context.moveTo (950, 4360);
+context.lineTo (800, 4360);
+context.moveTo (800, 4360);
+context.lineTo (800, 4300);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (570, 4360);
+context.lineTo (570, 4460);
+context.lineTo (660, 4460);
+context.moveTo (565, 4375);
+context.lineTo (570, 4360);
+context.lineTo (575, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (585, 4360);
+context.lineTo (585, 4420);
+context.lineTo (660, 4420);
+context.moveTo (580, 4375);
+context.lineTo (585, 4360);
+context.lineTo (590, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 4360);
+context.lineTo (600, 4390);
+context.lineTo (640, 4390);
+context.lineTo (640, 4360);
+context.lineTo (660, 4360);
+context.moveTo (595, 4375);
+context.lineTo (600, 4360);
+context.lineTo (605, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (800, 4320);
+context.lineTo (700, 4320);
+context.lineTo (700, 4350);
+context.moveTo (695, 4335);
+context.lineTo (700, 4350);
+context.lineTo (705, 4335);
+context.moveTo (785, 4315);
+context.lineTo (800, 4320);
+context.lineTo (785, 4325);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (815, 4360);
+context.lineTo (815, 4460);
+context.lineTo (740, 4460);
+context.moveTo (820, 4375);
+context.lineTo (815, 4360);
+context.lineTo (810, 4375);
+context.moveTo (755, 4455);
+context.lineTo (740, 4460);
+context.lineTo (755, 4465);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (800, 4360);
+context.lineTo (800, 4425);
+context.lineTo (740, 4425);
+context.moveTo (795, 4375);
+context.lineTo (800, 4360);
+context.lineTo (805, 4375);
+context.moveTo (755, 4420);
+context.lineTo (740, 4425);
+context.lineTo (755, 4430);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (660, 4230);
+context.lineTo (660, 4270);
+context.moveTo (740, 4230);
+context.lineTo (660, 4230);
+context.moveTo (670, 4270);
+context.lineTo (670, 4230);
+context.moveTo (660, 4270);
+context.lineTo (740, 4270);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (700, 4270);
+context.lineTo (700, 4300);
+context.lineTo (800, 4300);
+context.moveTo (785, 4295);
+context.lineTo (800, 4300);
+context.lineTo (785, 4305);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (760, 4140);
+context.lineTo (760, 4180);
+context.moveTo (840, 4140);
+context.lineTo (760, 4140);
+context.moveTo (770, 4180);
+context.lineTo (770, 4140);
+context.moveTo (760, 4180);
+context.lineTo (840, 4180);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (740, 4000);
+context.lineTo (870, 4000);
+context.moveTo (740, 4040);
+context.lineTo (740, 4000);
+context.moveTo (870, 4040);
+context.lineTo (740, 4040);
+context.moveTo (870, 4000);
+context.lineTo (870, 4040);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (760, 4040);
+context.lineTo (760, 4100);
+context.lineTo (720, 4100);
+context.lineTo (720, 4230);
+context.moveTo (715, 4215);
+context.lineTo (720, 4230);
+context.lineTo (725, 4215);
+context.moveTo (755, 4055);
+context.lineTo (760, 4040);
+context.lineTo (765, 4055);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (830, 4180);
+context.lineTo (830, 4300);
+context.moveTo (825, 4285);
+context.lineTo (830, 4300);
+context.lineTo (835, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (885, 4300);
+context.lineTo (885, 4180);
+context.moveTo (880, 4285);
+context.lineTo (885, 4300);
+context.lineTo (890, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 4220);
+context.lineTo (930, 4220);
+context.lineTo (930, 4300);
+context.moveTo (925, 4285);
+context.lineTo (930, 4300);
+context.lineTo (935, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 4135);
+context.lineTo (870, 4135);
+context.lineTo (870, 4300);
+context.moveTo (865, 4285);
+context.lineTo (870, 4300);
+context.lineTo (875, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (870, 4035);
+context.lineTo (990, 4035);
+context.moveTo (885, 4030);
+context.lineTo (870, 4035);
+context.lineTo (885, 4040);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (850, 4040);
+context.lineTo (850, 4100);
+context.lineTo (990, 4100);
+context.moveTo (845, 4055);
+context.lineTo (850, 4040);
+context.lineTo (855, 4055);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (820, 4040);
+context.lineTo (820, 4140);
+context.moveTo (815, 4055);
+context.lineTo (820, 4040);
+context.lineTo (825, 4055);
+context.moveTo (815, 4125);
+context.lineTo (820, 4140);
+context.lineTo (825, 4125);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 3810);
+context.lineTo (1000, 3850);
+context.moveTo (1000, 3810);
+context.lineTo (1120, 3810);
+context.moveTo (1120, 3810);
+context.lineTo (1120, 3850);
+context.moveTo (1000, 3850);
+context.lineTo (1120, 3850);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1000, 3820);
+context.lineTo (770, 3820);
+context.lineTo (770, 4000);
+context.moveTo (985, 3815);
+context.lineTo (1000, 3820);
+context.lineTo (985, 3825);
+context.moveTo (1020, 3850);
+context.lineTo (1020, 4010);
+context.lineTo (870, 4010);
+context.moveTo (885, 4005);
+context.lineTo (870, 4010);
+context.lineTo (885, 4015);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4500);
+context.lineTo (660, 4540);
+context.moveTo (740, 4500);
+context.lineTo (660, 4500);
+context.moveTo (670, 4540);
+context.lineTo (670, 4500);
+context.moveTo (660, 4540);
+context.lineTo (740, 4540);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (555, 4360);
+context.lineTo (555, 4525);
+context.lineTo (660, 4525);
+context.moveTo (550, 4375);
+context.lineTo (555, 4360);
+context.lineTo (560, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (740, 4525);
+context.lineTo (830, 4525);
+context.lineTo (830, 4360);
+context.moveTo (755, 4520);
+context.lineTo (740, 4525);
+context.lineTo (755, 4530);
+context.moveTo (825, 4375);
+context.lineTo (830, 4360);
+context.lineTo (835, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (400, 4250);
+context.lineTo (400, 4300);
+context.moveTo (395, 4285);
+context.lineTo (400, 4300);
+context.lineTo (405, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 4200);
+context.lineTo (450, 4300);
+context.moveTo (545, 4285);
+context.lineTo (550, 4300);
+context.lineTo (555, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (500, 4200);
+context.lineTo (500, 4300);
+context.moveTo (445, 4285);
+context.lineTo (450, 4300);
+context.lineTo (455, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (550, 4200);
+context.lineTo (550, 4300);
+context.moveTo (495, 4285);
+context.lineTo (500, 4300);
+context.lineTo (505, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 4200);
+context.lineTo (600, 4300);
+context.moveTo (595, 4285);
+context.lineTo (600, 4300);
+context.lineTo (605, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (575, 4300);
+context.lineTo (575, 4100);
+context.lineTo (600, 4100);
+context.lineTo (600, 4050);
+context.moveTo (595, 4065);
+context.lineTo (600, 4050);
+context.lineTo (605, 4065);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (620, 4050);
+context.lineTo (620, 4100);
+context.moveTo (615, 4065);
+context.lineTo (620, 4050);
+context.lineTo (625, 4065);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (650, 4050);
+context.lineTo (650, 4150);
+context.moveTo (645, 4065);
+context.lineTo (650, 4050);
+context.lineTo (655, 4065);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (680, 4050);
+context.lineTo (680, 4100);
+context.moveTo (675, 4065);
+context.lineTo (680, 4050);
+context.lineTo (685, 4065);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4000);
+context.lineTo (660, 3950);
+context.lineTo (700, 3950);
+context.lineTo (700, 3820);
+context.moveTo (695, 3835);
+context.lineTo (700, 3820);
+context.lineTo (705, 3835);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (675, 4000);
+context.lineTo (675, 3965);
+context.lineTo (715, 3965);
+context.lineTo (715, 3820);
+context.moveTo (710, 3835);
+context.lineTo (715, 3820);
+context.lineTo (720, 3835);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 4000);
+context.lineTo (570, 3865);
+context.lineTo (570, 3800);
+context.lineTo (600, 3800);
+context.moveTo (585, 3805);
+context.lineTo (600, 3800);
+context.lineTo (585, 3795);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 4000);
+context.lineTo (540, 4000);
+context.lineTo (540, 3780);
+context.lineTo (600, 3780);
+context.moveTo (585, 3995);
+context.lineTo (600, 4000);
+context.lineTo (585, 4005);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (610, 4000);
+context.lineTo (610, 3900);
+context.moveTo (605, 3985);
+context.lineTo (610, 4000);
+context.lineTo (615, 3985);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (640, 4000);
+context.lineTo (640, 3950);
+context.moveTo (635, 3985);
+context.lineTo (640, 4000);
+context.lineTo (645, 3985);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 4050);
+context.lineTo (600, 4000);
+context.lineTo (700, 4000);
+context.lineTo (700, 4050);
+context.lineTo (600, 4050);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (180, 4530);
+context.lineTo (180, 4470);
+context.moveTo (180, 4470);
+context.lineTo (330, 4470);
+context.moveTo (330, 4470);
+context.lineTo (330, 4530);
+context.moveTo (180, 4530);
+context.lineTo (330, 4530);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (220, 4470);
+context.lineTo (220, 4340);
+context.lineTo (370, 4340);
+context.moveTo (355, 4335);
+context.lineTo (370, 4340);
+context.lineTo (355, 4345);
+context.moveTo (330, 4480);
+context.lineTo (400, 4480);
+context.lineTo (400, 4360);
+context.moveTo (345, 4475);
+context.lineTo (330, 4480);
+context.lineTo (345, 4485);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (450, 4360);
+context.lineTo (450, 4500);
+context.moveTo (445, 4375);
+context.lineTo (450, 4360);
+context.lineTo (455, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (950, 4300);
+context.lineTo (970, 4255);
+context.lineTo (1050, 4255);
+context.moveTo (955, 4280);
+context.lineTo (950, 4300);
+context.lineTo (963, 4285);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (950, 4300);
+context.lineTo (1050, 4300);
+context.moveTo (965, 4295);
+context.lineTo (950, 4300);
+context.lineTo (965, 4305);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4490);
+context.lineTo (660, 4450);
+context.moveTo (740, 4490);
+context.lineTo (660, 4490);
+context.moveTo (670, 4450);
+context.lineTo (670, 4490);
+context.moveTo (660, 4450);
+context.lineTo (740, 4450);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4590);
+context.lineTo (660, 4550);
+context.moveTo (740, 4590);
+context.lineTo (660, 4590);
+context.moveTo (740, 4550);
+context.lineTo (660, 4550);
+context.moveTo (670, 4590);
+context.lineTo (670, 4550);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4600);
+context.lineTo (660, 4640);
+context.moveTo (740, 4600);
+context.lineTo (660, 4600);
+context.moveTo (740, 4640);
+context.lineTo (660, 4640);
+context.moveTo (670, 4600);
+context.lineTo (670, 4640);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4650);
+context.lineTo (660, 4690);
+context.moveTo (740, 4690);
+context.lineTo (660, 4690);
+context.moveTo (740, 4650);
+context.lineTo (660, 4650);
+context.moveTo (670, 4690);
+context.lineTo (670, 4650);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4700);
+context.lineTo (660, 4740);
+context.moveTo (740, 4740);
+context.lineTo (660, 4740);
+context.moveTo (740, 4700);
+context.lineTo (660, 4700);
+context.moveTo (670, 4740);
+context.lineTo (670, 4700);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4750);
+context.lineTo (660, 4790);
+context.moveTo (740, 4790);
+context.lineTo (660, 4790);
+context.moveTo (740, 4750);
+context.lineTo (660, 4750);
+context.moveTo (670, 4790);
+context.lineTo (670, 4750);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4800);
+context.lineTo (660, 4840);
+context.moveTo (740, 4840);
+context.lineTo (660, 4840);
+context.moveTo (740, 4800);
+context.lineTo (660, 4800);
+context.moveTo (670, 4840);
+context.lineTo (670, 4800);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4620);
+context.lineTo (860, 4620);
+context.lineTo (860, 4360);
+context.moveTo (855, 4375);
+context.lineTo (860, 4360);
+context.lineTo (865, 4375);
+context.moveTo (760, 4615);
+context.lineTo (745, 4620);
+context.lineTo (760, 4625);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4620);
+context.lineTo (525, 4620);
+context.lineTo (525, 4360);
+context.moveTo (520, 4375);
+context.lineTo (525, 4360);
+context.lineTo (530, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4670);
+context.lineTo (875, 4670);
+context.lineTo (875, 4360);
+context.moveTo (870, 4375);
+context.lineTo (875, 4360);
+context.lineTo (880, 4375);
+context.moveTo (760, 4665);
+context.lineTo (745, 4670);
+context.lineTo (760, 4675);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4660);
+context.lineTo (510, 4660);
+context.lineTo (510, 4360);
+context.moveTo (505, 4375);
+context.lineTo (510, 4360);
+context.lineTo (515, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4720);
+context.lineTo (890, 4720);
+context.lineTo (890, 4360);
+context.moveTo (885, 4375);
+context.lineTo (890, 4360);
+context.lineTo (895, 4375);
+context.moveTo (760, 4715);
+context.lineTo (745, 4720);
+context.lineTo (760, 4725);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4720);
+context.lineTo (495, 4720);
+context.lineTo (495, 4360);
+context.moveTo (490, 4375);
+context.lineTo (495, 4360);
+context.lineTo (500, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4770);
+context.lineTo (905, 4770);
+context.lineTo (905, 4360);
+context.moveTo (900, 4375);
+context.lineTo (905, 4360);
+context.lineTo (910, 4375);
+context.moveTo (760, 4765);
+context.lineTo (745, 4770);
+context.lineTo (760, 4775);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4770);
+context.lineTo (480, 4770);
+context.lineTo (480, 4360);
+context.moveTo (475, 4375);
+context.lineTo (480, 4360);
+context.lineTo (485, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (745, 4820);
+context.lineTo (920, 4820);
+context.lineTo (920, 4360);
+context.moveTo (915, 4375);
+context.lineTo (920, 4360);
+context.lineTo (925, 4375);
+context.moveTo (760, 4815);
+context.lineTo (745, 4820);
+context.lineTo (760, 4825);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4820);
+context.lineTo (465, 4820);
+context.lineTo (465, 4360);
+context.moveTo (460, 4375);
+context.lineTo (465, 4360);
+context.lineTo (470, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4400);
+context.lineTo (660, 4440);
+context.moveTo (740, 4440);
+context.lineTo (660, 4440);
+context.moveTo (670, 4400);
+context.lineTo (670, 4440);
+context.moveTo (660, 4400);
+context.lineTo (740, 4400);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 4390);
+context.lineTo (660, 4350);
+context.moveTo (740, 4350);
+context.lineTo (660, 4350);
+context.moveTo (670, 4390);
+context.lineTo (670, 4350);
+context.moveTo (660, 4390);
+context.lineTo (740, 4390);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (30, 5300);
+context.lineTo (130, 5300);
+context.moveTo (45, 5295);
+context.lineTo (30, 5300);
+context.lineTo (45, 5305);
+context.moveTo (115, 5295);
+context.lineTo (130, 5300);
+context.lineTo (115, 5305);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (335, 5200);
+context.lineTo (335, 5250);
+context.moveTo (335, 5250);
+context.lineTo (465, 5250);
+context.moveTo (465, 5250);
+context.lineTo (465, 5200);
+context.moveTo (465, 5200);
+context.lineTo (335, 5200);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (660, 5000);
+context.lineTo (660, 5040);
+context.moveTo (740, 5000);
+context.lineTo (660, 5000);
+context.moveTo (670, 5040);
+context.lineTo (670, 5000);
+context.moveTo (660, 5040);
+context.lineTo (740, 5040);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (350, 5200);
+context.lineTo (350, 5050);
+context.moveTo (450, 5200);
+context.lineTo (450, 5050);
+context.moveTo (345, 5185);
+context.lineTo (350, 5200);
+context.lineTo (355, 5185);
+context.moveTo (445, 5065);
+context.lineTo (450, 5050);
+context.lineTo (455, 5065)
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (140, 5000);
+context.lineTo (220, 5000);
+context.moveTo (140, 5000);
+context.lineTo (140, 5040);
+context.moveTo (150, 5000);
+context.lineTo (150, 5040);
+context.moveTo (140, 5040);
+context.lineTo (220, 5040);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (110, 4990);
+context.lineTo (190, 4990);
+context.moveTo (110, 4990);
+context.lineTo (110, 4950);
+context.moveTo (120, 4990);
+context.lineTo (120, 4950);
+context.moveTo (110, 4950);
+context.lineTo (190, 4950);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (110, 4940);
+context.lineTo (190, 4940);
+context.moveTo (110, 4900);
+context.lineTo (110, 4940);
+context.moveTo (120, 4940);
+context.lineTo (120, 4900);
+context.moveTo (110, 4900);
+context.lineTo (190, 4900);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (200, 4890);
+context.lineTo (280, 4890);
+context.moveTo (200, 4850);
+context.lineTo (200, 4890);
+context.moveTo (210, 4890);
+context.lineTo (210, 4850);
+context.moveTo (200, 4850);
+context.lineTo (280, 4850);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (290, 4840);
+context.lineTo (370, 4840);
+context.moveTo (290, 4800);
+context.lineTo (290, 4840);
+context.moveTo (300, 4840);
+context.lineTo (300, 4800);
+context.moveTo (290, 4800);
+context.lineTo (370, 4800);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (290, 4730);
+context.lineTo (370, 4730);
+context.moveTo (290, 4770);
+context.lineTo (290, 4730);
+context.moveTo (300, 4730);
+context.lineTo (300, 4770);
+context.moveTo (290, 4770);
+context.lineTo (370, 4770);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (30, 4360);
+context.lineTo (30, 5025);
+context.lineTo (140, 5025);
+context.moveTo (25, 4375);
+context.lineTo (30, 4360);
+context.lineTo (35, 4375);
+context.moveTo (125, 5020);
+context.lineTo (140, 5025);
+context.lineTo (125, 5030);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (45, 4360);
+context.lineTo (45, 4970);
+context.lineTo (110, 4970);
+context.moveTo (50, 4375);
+context.lineTo (45, 4360);
+context.lineTo (40, 4375);
+context.moveTo (95, 4965);
+context.lineTo (110, 4970);
+context.lineTo (95, 4975);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (190, 4980);
+context.lineTo (1000, 4980);
+context.lineTo (1030, 4980);
+context.lineTo (1030, 4330);
+context.lineTo (950, 4330);
+context.moveTo (965, 4325);
+context.lineTo (950, 4330);
+context.lineTo (965, 4335);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (190, 4930);
+context.lineTo (300, 4930);
+context.lineTo (300, 4960);
+context.lineTo (1015, 4960);
+context.lineTo (1015, 4345);
+context.lineTo (950, 4345);
+context.moveTo (965, 4340);
+context.lineTo (950, 4345);
+context.lineTo (965, 4350);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (220, 4890);
+context.lineTo (220, 4920);
+context.lineTo (1000, 4920);
+context.lineTo (1000, 4360);
+context.lineTo (950, 4360);
+context.moveTo (965, 4355);
+context.lineTo (950, 4360);
+context.lineTo (965, 4365);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (320, 4840);
+context.lineTo (320, 4900);
+context.lineTo (950, 4900);
+context.lineTo (950, 4360);
+context.moveTo (945, 4375);
+context.lineTo (950, 4360);
+context.lineTo (955, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (370, 4750);
+context.lineTo (420, 4750);
+context.lineTo (420, 4870);
+context.lineTo (935, 4870);
+context.lineTo (935, 4360);
+context.moveTo (930, 4375);
+context.lineTo (935, 4360);
+context.lineTo (940, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (60, 4360);
+context.lineTo (60, 4920);
+context.lineTo (110, 4920);
+context.moveTo (65, 4375);
+context.lineTo (60, 4360);
+context.lineTo (55, 4375);
+context.moveTo (95, 4915);
+context.lineTo (110, 4920);
+context.lineTo (95, 4925);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (75, 4360);
+context.lineTo (75, 4870);
+context.lineTo (200, 4870);
+context.moveTo (80, 4375);
+context.lineTo (75, 4360);
+context.lineTo (70, 4375);
+context.moveTo (185, 4865);
+context.lineTo (200, 4870);
+context.lineTo (185, 4875);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (90, 4360);
+context.lineTo (90, 4820);
+context.lineTo (290, 4820);
+context.moveTo (95, 4375);
+context.lineTo (90, 4360);
+context.lineTo (85, 4375);
+context.moveTo (275, 4815);
+context.lineTo (290, 4820);
+context.lineTo (275, 4825);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (105, 4360);
+context.lineTo (105, 4750);
+context.lineTo (290, 4750);
+context.moveTo (110, 4375);
+context.lineTo (105, 4360);
+context.lineTo (100, 4375);
+context.moveTo (275, 4745);
+context.lineTo (290, 4750);
+context.lineTo (275, 4755);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+ 
+context.beginPath () ;
+context.moveTo (220, 5020);
+context.lineTo (330, 5020);
+context.moveTo (315, 5015);
+context.lineTo (330, 5020);
+context.lineTo (315, 5025);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 5050);
+context.lineTo (290, 5075);
+context.lineTo (230, 5075);
+context.moveTo (310, 5055);
+context.lineTo (330, 5050);
+context.lineTo (315, 5065);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (330, 5000);
+context.lineTo (330, 5050);
+context.moveTo (330, 5050);
+context.lineTo (480, 5050);
+context.moveTo (480, 5050);
+context.lineTo (480, 5000);
+context.moveTo (330, 5000);
+context.lineTo (480, 5000);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (600, 3770);
+context.lineTo (720, 3770);
+context.moveTo (720, 3770);
+context.lineTo (720, 3820);
+context.moveTo (720, 3820);
+context.lineTo (600, 3820);
+context.moveTo (600, 3820);
+context.lineTo (600, 3770);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (480, 5015);
+context.lineTo (660, 5015);
+context.moveTo (645, 5010);
+context.lineTo (660, 5015);
+context.lineTo (645, 5020);
+context.moveTo (495, 5010);
+context.lineTo (480, 5015);
+context.lineTo (495, 5020);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (750, 5015);
+context.lineTo (1060, 5015);
+context.lineTo (1060, 4315);
+context.lineTo (950, 4315);
+context.moveTo (965, 4310);
+context.lineTo (950, 4315);
+context.lineTo (965, 4320);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (120, 4360);
+context.lineTo (120, 4700);
+context.lineTo (170, 4700);
+context.moveTo (115, 4375);
+context.lineTo (120, 4360);
+context.lineTo (125, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (135, 4360);
+context.lineTo (135, 4680);
+context.lineTo (195, 4680);
+context.moveTo (130, 4375);
+context.lineTo (135, 4360);
+context.lineTo (140, 4375);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+var can = document.getElementById ("myCanvas") ;
+var cn = can.getContext ("2d") ;
+var grd = cn.createRadialGradient(0,6000,6000,6000,0, 6000);
+grd.addColorStop(0, "black");
+
+cn.fillStyle=grd;
+cn.font="35px Arial";
+cn.fillText("Western Cape Crime Statistics Top Level Diagram ", 120, 3750);
+
+cn.fillStyle=grd;
+cn.font="12px Arial";
+cn.fillText("1. police station admin", 40, 3835);
+cn.fillText("2.police station management", 290, 4020);
+cn.fillText("detective", 65, 3930);
+cn.fillText("suspect", 105, 4010);
+cn.fillText("complainant", 145, 4090);
+cn.fillText("witness", 185, 4170);
+cn.fillText("crime details", 305, 4170);
+cn.fillText("3. Reported crime records", 35, 4335);
+cn.fillText("10. Western Cape Justice Center", 375, 4320);
+cn.fillText("Data Management", 375, 4340);
+cn.fillText("8. Court Records", 805, 4330);
+cn.fillText("ccase_judgement", 675, 4475);
+cn.fillText("judge details", 675, 4250);
+cn.fillText("lawyer", 775, 4160);
+cn.fillText("7. court management", 745, 4020);
+cn.fillText("6. court admin", 1005, 3830);
+cn.fillText("judgement", 675, 4520);
+cn.fillText("9. Western Cape Justice", 185, 4500);
+cn.fillText("Center Admin", 185, 4520);
+cn.fillText("ccase", 155, 5020);
+cn.fillText("5. Western Cape", 335, 5020);
+cn.fillText(" Prosecuting Authority", 335, 5035);
+cn.fillText("admin", 340, 5235);
+cn.fillText("4.Prosecuting Authority", 340, 5220);
+cn.fillText("updated case", 675, 5020);
+cn.fillText("details", 675, 5035);
+cn.fillText("username and password", 200, 3815);
+cn.fillText("Login error or Success", 200, 3835);
+cn.fillText("username and", 220, 4360);
+cn.fillText(" password", 220, 4375);
+cn.fillText("Login error", 320, 4450);
+cn.fillText("or Success", 320, 4465);
+cn.fillText("username and password", 800, 3815);
+cn.fillText("Login error or Success", 890, 4000);
+cn.fillText("Witness", 480, 3950);
+cn.fillText("Suspect", 500, 4080);
+cn.fillText("Complainant", 500, 4015);
+cn.fillText("Detective", 430, 3830);
+cn.fillText("Crime Details", 440, 3880);
+cn.fillText("Prosecutor", 170, 5080);
+cn.fillText("Courts", 435, 4200);
+cn.fillText("Police", 485, 4185);
+cn.fillText("Stations", 485, 4200);
+cn.fillText("Court", 880, 4165);
+cn.fillText("Judgement", 875, 4180);
+cn.fillText("Judge", 990, 4040);
+cn.fillText("Lawyer", 990, 4105);
+cn.fillText("Retrives and Updates", 135, 5300);
+cn.fillText("police station", 1052, 4255);
+cn.fillText("prosecutor", 1052, 4300);
+cn.fillText("judge", 535, 4195);
+cn.fillText("prosecutor", 585, 4195);
+cn.fillText("prosecutor", 410, 4505);
+cn.fillText("detective", 385, 4245);
+cn.fillText("ccase_judgement", 1000, 4140);
+cn.fillText("lawyer_suspect", 1000, 4225);
+cn.fillText("ccase_suspect", 675, 4370);
+cn.fillText("ccase_witness", 675, 4420);
+cn.fillText("ccase", 675, 4570);
+cn.fillText("jud_ccase", 675, 4620);
+cn.fillText("lawyer_suspect", 675, 4670);
+cn.fillText("suspect", 675, 4720);
+cn.fillText("complainant", 675, 4770);
+cn.fillText("witness", 675, 4820);
+cn.fillText("witness", 125, 4970);
+cn.fillText("suspect", 125, 4920);
+cn.fillText("complainant", 215, 4870);
+cn.fillText("ccase_suspect", 305, 4820);
+cn.fillText("ccase_witness", 305, 4750);
+cn.fillText("11. Geoportal", 610, 4025);
+cn.fillText("Map Tile", 590, 3895);
+cn.fillText("Openstreets", 625, 3920);
+cn.fillText("base layer", 625, 3935);
+cn.fillText("crime", 560, 4130);
+cn.fillText("statistics", 560, 4145);
+cn.fillText("Marker", 600, 4110);
+cn.fillText("Layers", 600, 4125);
+cn.fillText("JSON", 630, 4160);
+cn.fillText("Data", 630, 4175);
+cn.fillText("GeoJSON", 650, 4110);
+cn.fillText("Data", 670, 4125);
+cn.fillText("Statistics", 660, 3860);
+cn.fillText("Table", 660, 3875);
+cn.fillText("Metadata", 670, 3980);
+cn.fillText("Crime Statistics", 550, 3830);
+cn.fillText("Thermatic Map", 550, 3845);
+cn.fillText("http", 520, 3900);
+cn.fillText("request", 520, 3915);
+cn.fillText("12. User", 610, 3800);
+cn.fillText("ccase_suspect", 200, 4680);
+cn.fillText("ccase_witness", 180, 4700);
+
+
+//  Western Crime Statistics Data Management 
+context.beginPath () ;
+context.moveTo (1400, 3960);
+context.lineTo (1400, 4020);
+context.moveTo (1400, 3960);
+context.lineTo (1620, 3960);
+context.moveTo (1620, 3960);
+context.lineTo (1620, 4020);
+context.moveTo (1400, 4020);
+context.lineTo (1620, 4020);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1620, 3960);
+context.lineTo (1720, 3910);
+context.moveTo (1625, 3950);
+context.lineTo (1620, 3960);
+context.lineTo (1630, 3961);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1400, 3960);
+context.lineTo (1300, 3910);
+context.moveTo (1390, 3950);
+context.lineTo (1400, 3960);
+context.lineTo (1385, 3958);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1500, 3960);
+context.lineTo (1500, 3910);
+context.moveTo (1495, 3945);
+context.lineTo (1500, 3960);
+context.lineTo (1505, 3945);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1400, 4020);
+context.lineTo (1300, 4080);
+context.moveTo (1380, 4025);
+context.lineTo (1400, 4020);
+context.lineTo (1385, 4035);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1470, 4020);
+context.lineTo (1470, 4120);
+context.moveTo (1465, 4105);
+context.lineTo (1470, 4120);
+context.lineTo (1475, 4105);
+context.moveTo (1465, 4035);
+context.lineTo (1470, 4020);
+context.lineTo (1475, 4035);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1570, 4020);
+context.lineTo (1570, 4120);
+context.moveTo (1565, 4105);
+context.lineTo (1570, 4120);
+context.lineTo (1575, 4105);
+context.moveTo (1565, 4035);
+context.lineTo (1570, 4020);
+context.lineTo (1575, 4035);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+//detective border 
+context.beginPath () ;
+context.moveTo (1420, 4180);
+context.lineTo (1500, 4180);
+context.moveTo (1420, 4120);
+context.lineTo (1420, 4180);
+context.moveTo (1430, 4180);
+context.lineTo (1430, 4120);
+context.moveTo (1420, 4120);
+context.lineTo (1500, 4120);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1520, 4180);
+context.lineTo (1600, 4180);
+context.moveTo (1520, 4120);
+context.lineTo (1520, 4180);
+context.moveTo (1530, 4180);
+context.lineTo (1530, 4120);
+context.moveTo (1520, 4120);
+context.lineTo (1600, 4120);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1470, 4180);
+context.lineTo (1470, 4265);
+context.moveTo (1465, 4250);
+context.lineTo (1470, 4265);
+context.lineTo (1475, 4250);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1570, 4180);
+context.lineTo (1570, 4265);
+context.moveTo (1565, 4250);
+context.lineTo (1570, 4265);
+context.lineTo (1575, 4250);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1850, 4445);
+context.lineTo (1850, 4345);
+context.moveTo (1855, 4360);
+context.lineTo (1850, 4345);
+context.lineTo (1845, 4360);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1950, 4445);
+context.lineTo (1950, 4345);
+context.moveTo (1955, 4360);
+context.lineTo (1950, 4345);
+context.lineTo (1945, 4360);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1900, 4175);
+context.lineTo (1900, 4275);
+context.moveTo (1905, 4190);
+context.lineTo (1900, 4175);
+context.lineTo (1895, 4190);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1620, 4000);
+context.lineTo (1900, 4000);
+context.lineTo (1900, 4105);
+context.moveTo (1895, 4090);
+context.lineTo (1900, 4105);
+context.lineTo (1905, 4090);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1400, 4000);
+context.lineTo (1250, 4000);
+context.lineTo (1250, 4300);
+context.lineTo (1410, 4300);
+context.moveTo (1395, 4305);
+context.lineTo (1410, 4300);
+context.lineTo (1395, 4295);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1620, 4265);
+context.lineTo (1620, 4150);
+context.lineTo (1800, 4150);
+context.moveTo (1615, 4250);
+context.lineTo (1620, 4265);
+context.lineTo (1625, 4250);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1620, 4325);
+context.lineTo (1620, 4450);
+context.moveTo (1615, 4435);
+context.lineTo (1620, 4450);
+context.lineTo (1625, 4435);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1630, 4300);
+context.lineTo (1690, 4300);
+context.lineTo (1690, 4475);
+context.lineTo (1630, 4475);
+context.moveTo (1645, 4480);
+context.lineTo (1630, 4475);
+context.lineTo (1645, 4470);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1550, 4325);
+context.lineTo (1550, 4450);
+context.moveTo (1545, 4435);
+context.lineTo (1550, 4450);
+context.lineTo (1555, 4435);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1480, 4325);
+context.lineTo (1480, 4450);
+context.moveTo (1475, 4435);
+context.lineTo (1480, 4450);
+context.lineTo (1485, 4435);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1415, 4325);
+context.lineTo (1415, 4450);
+context.moveTo (1410, 4340);
+context.lineTo (1415, 4325);
+context.lineTo (1420, 4340);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1470, 4550);
+context.lineTo (1470, 4500);
+context.moveTo (1475, 4535);
+context.lineTo (1470, 4550);
+context.lineTo (1465, 4535);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1570, 4550);
+context.lineTo (1570, 4500);
+context.moveTo (1575, 4535);
+context.lineTo (1570, 4550);
+context.lineTo (1565, 4535);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1410, 4325);
+context.lineTo (1410, 4265);
+context.moveTo (1410, 4325);
+context.lineTo (1630, 4325);
+context.moveTo (1630, 4325);
+context.lineTo (1630, 4265);
+context.moveTo (1410, 4265);
+context.lineTo (1630, 4265);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1410, 4450);
+context.lineTo (1410, 4500);
+context.moveTo (1410, 4450);
+context.lineTo (1630, 4450);
+context.moveTo (1630, 4450);
+context.lineTo (1630, 4500);
+context.moveTo (1410, 4500);
+context.lineTo (1630, 4500);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1800, 4105);
+context.lineTo (1800, 4175);
+context.moveTo (1800, 4175);
+context.lineTo (2020, 4175);
+context.moveTo (2020, 4175);
+context.lineTo (2020, 4105);
+context.moveTo (2020, 4105);
+context.lineTo (1800, 4105);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1800, 4345);
+context.lineTo (1800, 4275);
+context.moveTo (1800, 4275);
+context.lineTo (2020, 4275);
+context.moveTo (2020, 4275);
+context.lineTo (2020, 4345);
+context.moveTo (2020, 4345);
+context.lineTo (1800, 4345);
+context.lineWidth = 1 ;
+context.strokeStyle = "black" ;
+context.stroke ();
+
+context.beginPath () ;
+context.moveTo (1220, 4650);
+context.lineTo (1300, 4650);
+context.moveTo (1235, 4645);
+context.lineTo (1220, 4650);
+context.lineTo (1235, 4655);
+context.moveTo (1285, 4645);
+context.lineTo (1300, 4650);
+context.lineTo (1285, 4655);
+context.lineWidth = 1 ;
+context.strokeStyle = "blue" ;
+context.stroke ();
+
+
+var can = document.getElementById ("myCanvas") ;
+var cn = can.getContext ("2d") ;
+var grd = cn.createRadialGradient(0,5000,5000,5000,0, 5000);
+grd.addColorStop(0, "black");
+
+cn.fillStyle=grd;
+cn.font="35px Arial";
+cn.fillText("Western Cape Crime Statistics 1st Level Diagram ", 1220, 3850);
+cn.fillText("Decomposition Diagram ", 420, 80);
+
+cn.fillStyle=grd;
+cn.font="12px Arial";
+cn.fillText("11.1 JSON or Array data store", 1405, 3985);
+cn.fillText("11.4 GitHub Data Clearinghouse", 1430, 4290);
+cn.fillText("11.2 geoJSON data store", 1850, 4310);
+cn.fillText("11.3 Geoportal", 1840, 4145);
+cn.fillText("crime statistics", 1250, 4270);
+cn.fillText("username", 1370, 4400);
+cn.fillText("spatial data", 1800, 4400);
+cn.fillText("attributes data", 1920, 4400);
+cn.fillText("attributes data", 1485, 3905);
+cn.fillText("and", 1370, 4415);
+cn.fillText("Map Popups", 1700, 3995);
+cn.fillText("digital map", 1700, 4145);
+cn.fillText("Marker layers", 1905, 4240);
+cn.fillText("research", 1550, 4565);
+cn.fillText("decision and", 1450, 4565);
+cn.fillText("support", 1450, 4580);
+cn.fillText("password", 1370, 4430);
+cn.fillText("login error", 1465, 4400);
+cn.fillText("or", 1465, 4515);
+cn.fillText("metadata", 1530, 4415);
+cn.fillText("crime", 1600, 4400);
+cn.fillText("statistics", 1600, 4415);
+cn.fillText("table", 1600, 4430);
+cn.fillText("success", 1465, 4430);
+cn.fillText("geoportal", 1670, 4430);
+cn.fillText("table", 1250, 4285);
+cn.fillText("crime statistics", 1250, 3910);
+cn.fillText("table", 1250, 3925);
+cn.fillText("data", 1275, 4080);
+cn.fillText("dictionary", 1275, 4095);
+cn.fillText("metadata", 1435, 4150);
+cn.fillText("data", 1535, 4140);
+cn.fillText("dictionary", 1535, 4155);
+cn.fillText("metadata", 1720, 3905);
+cn.fillText("11.5 people", 1460, 4475);
+cn.fillText("catalogue", 1720, 3920);
+cn.fillText(" Updates and retrieves", 1305, 4650);
+} ;
+</script>
+<center><canvas id='myCanvas' width='2050' height='5320' ' style='border: 3px solid  ;'></center></canvas>
+</body>
+</html>

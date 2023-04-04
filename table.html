@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Crime Statistics</title>
+<style>
+
+  /* This code defines border style for cells */  
+  td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+#topic {
+justify-content: center;
+}
+p1 {
+font-size: 30px;
+border: 2px solid black;
+justify-content: center;
+}
+tr {
+background-color:"rgb(255, 255, 100)";
+}
+
+</style>
+</head>
+<body>
+   <p id="demo"></p>
+
+   <form>
+      <input type="text" name="inputa" id="inputa" placeholder="type to search data">
+      <button type="button" onclick="getValue()"> Search Data </button>
+   </form>
+
+   <script>
+
+
+var data = {
+     
+"table":
+`{"description": "<p1><b>All Western Cape Crime Statistics</b></p1><table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 001</b></td><td>GRAAFWATER</td><td>530</td><td>689</td><td>582</td><td>762</td><td>571</td><td>141</td><td>850</td><td>0</td><td>382</td><td><b>4467</b></tr><tr><td><b> 002</b></td><td>VILLIERSDORP</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>1</td><td>305</td><td><b>11202</b></td></tr><tr><td><b>003 </b></td><td>BREDASDORP</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>0</td><td>21</td><td><b>2180</b></td></tr><tr><td><b>004 </b></td><td>CALEDON</td><td>674</td><td>702</td><td>545</td><td>798</td><td>806</td><td>864</td><td>921</td><td>0</td><td>1565</td><td><b>6245</b></td></tr><tr><td><b> 005</b></td><td>GARDENS</td><td>451</td><td>532</td><td>681</td><td>833</td><td>442</td><td>343</td><td>720</td><td>23</td><td>556</td><td><b>4238</b></tr><tr><td><b> 006</b></td><td>RONDEBOSCH</td><td>551</td><td>432</td><td>904</td><td>2783</td><td>1697</td><td>2003</td><td>3152</td><td>0</td><td>1324</td><td><b>12846</b></td></tr><tr><td><b>007 </b></td><td>MUIZENBURG</td><td>72</td><td>92</td><td>351</td><td>441</td><td>901</td><td>761</td><td>212</td><td>55</td><td>62</td><td><b>2947</b></td></tr><tr><td><b>008 </b></td><td>ROBERTSON</td><td>779</td><td>893</td><td>784</td><td>990</td><td>1324</td><td>1118</td><td>913</td><td>1</td><td>1789</td><td><b>8591</b></td></tr><tr><td><b> 009</b></td><td>LWANDLE</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b> 010</b></td><td>PAARL EAST</td><td>752</td><td>499</td><td>904</td><td>4092</td><td>1286</td><td>1391</td><td>1761</td><td>0</td><td>1056</td><td><b>11741</b></td></tr><tr><td><b>011 </b></td><td>PHILIPPI</td><td>152</td><td>169</td><td>270</td><td>612</td><td>586</td><td>931</td><td>241</td><td>30</td><td>52</td><td><b>2993</b></td></tr><tr><td><b>012 </b></td><td>LANGEBAAN</td><td>687</td><td>590</td><td>479</td><td>972</td><td>1201</td><td>974</td><td>723</td><td>0</td><td>1879</td><td><b>7505</b></td></tr><tr><td><b> 013</b></td><td>MOORREESBIRG</td><td>262</td><td>397</td><td>802</td><td>549</td><td>726</td><td>533</td><td>724</td><td>2</td><td>662</td><td><b>4657</b></tr><tr><td><b> 014</b></td><td>PITEKBERG</td><td>762</td><td>329</td><td>1576</td><td>1978</td><td>2041</td><td>2096</td><td>3298</td><td>0</td><td>987</td><td><b>13067</b></td></tr><tr><td><b>015 </b></td><td>REDELINGHUS</td><td>51</td><td>187</td><td>199</td><td>145</td><td>431</td><td>512</td><td>98</td><td>243</td><td>85</td><td><b>1951</b></td></tr><tr><td><b>016 </b></td><td>ST HELANA BAY</td><td>754</td><td>898</td><td>1097</td><td>875</td><td>923</td><td>913</td><td>1083</td><td>0</td><td>1476</td><td><b>8019</b></td></tr><tr><td><b> 017</b></td><td>VREDENBERG</td><td>247</td><td>312</td><td>534</td><td>681</td><td>739</td><td>481</td><td>724</td><td>0</td><td>346</td><td><b>4064</b></tr><tr><td><b> 018</b></td><td>CITRUSDAL</td><td>190</td><td>274</td><td>451</td><td>433</td><td>946</td><td>532</td><td>246</td><td>0</td><td>407</td><td><b>3257</b></tr><tr><td><b> 019</b></td><td>CLANWILLIAM</td><td>325</td><td>243</td><td>987</td><td>1478</td><td>2901</td><td>2043</td><td>1568</td><td>1</td><td>702</td><td><b>10275</b></td></tr><tr><td><b>020 </b></td><td>DORING BAY</td><td>143</td><td>184</td><td>248</td><td>491</td><td>512</td><td>340</td><td>537</td><td>123</td><td>216</td><td><b>2794</b></td></tr><tr><td><b> 021</b></td><td>SWELLENDAM</td><td>487</td><td>307</td><td>796</td><td>2897</td><td>1457</td><td>1791</td><td>2157</td><td>0</td><td>876</td><td><b>10768</b></td></tr><tr><td><b>022 </b></td><td>MFULENI</td><td>18</td><td>42</td><td>191</td><td>272</td><td>107</td><td>321</td><td>71</td><td>127</td><td>35</td><td><b>1184</b></td></tr><tr><td><b>023 </b></td><td>RIEBEEK WEST</td><td>788</td><td>927</td><td>631</td><td>1098</td><td>984</td><td>1362</td><td>1167</td><td>0</td><td>1772</td><td><b>7941</b></td></tr><tr><td><b> 024</b></td><td>WELLINGTON</td><td>567</td><td>387</td><td>621</td><td>1117</td><td>2019</td><td>1641</td><td>3092</td><td>0</td><td>724</td><td><b>10168</b></td></tr><tr><td><b> 025</b></td><td>TULBAGH</td><td>329</td><td>451</td><td>771</td><td>2072</td><td>2567</td><td>2093</td><td>990</td><td>0</td><td>1672</td><td><b>10945</b></td></tr><tr><td><b> 026</b></td><td>HARARE</td><td>478</td><td>502</td><td>1134</td><td>2776</td><td>1509</td><td>2431</td><td>998</td><td>0</td><td>767</td><td><b>10595</b></td></tr><tr><td><b>027 </b></td><td>KLEIVLEI</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr><tr><td><b> 028</b></td><td>GRABOUW</td><td>376</td><td>472</td><td>889</td><td>2097</td><td>1983</td><td>2064</td><td>3016</td><td>0</td><td>677</td><td><b>11574</b></td></tr><tr><td><b> 029</b></td><td>HERMANUS</td><td>612</td><td>403</td><td>871</td><td>2891</td><td>1567</td><td>2044</td><td>3095</td><td>1</td><td>985</td><td><b>12469</b></td></tr><tr><td><b> 030</b></td><td>KLEINMOND</td><td>432</td><td>379</td><td>1267</td><td>2095</td><td>2901</td><td>2678</td><td>1263</td><td>0</td><td>982</td><td><b>11997</b></td></tr><tr><td><b> 031</b></td><td>NAPIER</td><td>311</td><td>305</td><td>597</td><td>367</td><td>720</td><td>491</td><td>760</td><td>0</td><td>345</td><td><b>3896</b></tr><tr><td><b> 032</b></td><td>STRAND</td><td>468</td><td>789</td><td>843</td><td>527</td><td>941</td><td>805</td><td>1006</td><td>0</td><td>236</td><td><b>5615</b></tr><tr><td><b> 033</b></td><td>LINGELETHU-WEST</td><td>498</td><td>327</td><td>1907</td><td>2093</td><td>1769</td><td>1763</td><td>1003</td><td>0</td><td>926</td><td><b>9996</b></td></tr><tr><td><b> 034</b></td><td>GROOT-DRANKENSTEIN</td><td>442</td><td>103</td><td>2097</td><td>1555</td><td>987</td><td>874</td><td>1993</td><td>0</td><td>1794</td><td><b>9845</b></td></tr><tr><td><b>035 </b></td><td>MOWBRAY</td><td>594</td><td>439</td><td>1764</td><td>924</td><td>785</td><td>957</td><td>1754</td><td>1</td><td>1376</td><td><b>8994</b></td></tr><tr><td><b> 036</b></td><td>HOUT BAY</td><td>294</td><td>187</td><td>1356</td><td>1209</td><td>3009</td><td>2076</td><td>2127</td><td>0</td><td>557</td><td><b>10815</b></td></tr><<tr><td><b>037 </b></td><td>MONTAGU</td><td>10</td><td>27</td><td>82</td><td>89</td><td>31</td><td>90</td><td>34</td><td>18</td><td>47</td><td><b>428</b></td></tr><tr><td><b>038 </b></td><td>DIEPRIVIER</td><td>30</td><td>51</td><td>93</td><td>42</td><td>75</td><td>167</td><td>171</td><td>111</td><td>70</td><td><b>810</b></td></tr><tr><td><b>039 </b></td><td>CLAREMONT</td><td>504</td><td>343</td><td>624</td><td>619</td><td>804</td><td>467</td><td>1002</td><td>0</td><td>1689</td><td><b>6052</b></td></tr><tr><td><b>040 </b></td><td>SARON</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr><tr><td><b>041 </b></td><td>MALMESBURY</td><td>391</td><td>416</td><td>723</td><td>974</td><td>872</td><td>799</td><td>1031</td><td>0</td><td>1367</td><td><b>6573</b></td></tr><tr><td><b>042 </b></td><td>PORTEVILLE</td><td>712</td><td>789</td><td>781</td><td>911</td><td>1120</td><td>873</td><td>781</td><td>0</td><td>1731</td><td><b>7698</b></td></tr><tr><td><b>043 </b></td><td>SALDANHA</td><td>742</td><td>612</td><td>749</td><td>881</td><td>1080</td><td>1254</td><td>717</td><td>0</td><td>1678</td><td><b>7713</b></td></tr><tr><td><b>044 </b></td><td>KHAYELITSHA</td><td>955</td><td>673</td><td>667</td><td>1397</td><td>1222</td><td>798</td><td>882</td><td>0</td><td>1373</td><td><b>7931</b></td></tr><tr><td><b>045 </b></td><td>WOODSTOCK</td><td>1322</td><td>618</td><td>691</td><td>999</td><td>910</td><td>1001</td><td>1131</td><td>0</td><td>1771</td><td><b>8443</b></td></tr><tr><td><b>046 </b></td><td>RIVIERSONDEREND</td><td>1234</td><td>678</td><td>731</td><td>1132</td><td>1568</td><td>992</td><td>1142</td><td>0</td><td>990</td><td><b>8467</b></td></tr><tr><td><b>047 </b></td><td>SOMERSET WEST</td><td>175</td><td>109</td><td>232</td><td>151</td><td>164</td><td>222</td><td>185</td><td>132</td><td>39</td><td><b>1409</b></td></tr><tr><td><b>048 </b></td><td>SRUISBAAI</td><td>119</td><td>452</td><td>391</td><td>171</td><td>146</td><td>320</td><td>97</td><td>136</td><td>135</td><td><b>1967</b></td></tr><tr><td><b>049 </b></td><td>CLOETSVILLE</td><td>342</td><td>321</td><td>323</td><td>160</td><td>177</td><td>182</td><td>321</td><td>68</td><td>135</td><td><b>2029</b></td><tr><td><b>050 </b></td><td>OUDSHOORN</td><td>345</td><td>156</td><td>123</td><td>187</td><td>57</td><td>88</td><td>94</td><td>155</td><td>288</td><td><b>1493</b></td></tr></tr><tr><td><b>051 </b></td><td>UNIONDALE</td><td>287</td><td>454</td><td>501</td><td>471</td><td>179</td><td>522</td><td>212</td><td>190</td><td>101</td><td><b>2917</b></td></tr><tr><td><b>052 </b></td><td>LADISMITH</td><td>456</td><td>178</td><td>491</td><td>289</td><td>177</td><td>424</td><td>118</td><td>227</td><td>305</td><td><b>2360</b></td></tr><tr><td><b> 053</b></td><td>STILL BAY</td><td>498</td><td>509</td><td>653</td><td>2988</td><td>1762</td><td>1567</td><td>1975</td><td>0</td><td>867</td><td><b>10321</b></td></tr><td><b> 054</b></td><td>LAINGSBURG</td><td>678</td><td>598</td><td>1142</td><td>2156</td><td>1801</td><td>2167</td><td>2071</td><td>1</td><td>673</td><td><b>11287</b></td></tr><tr><td><b> 055</b></td><td>MURRAYSBERG</td><td>672</td><td>479</td><td>863</td><td>1892</td><td>1983</td><td>1674</td><td>1753</td><td>1</td><td>677</td><td><b>9994</b></td></tr><tr><td><b>056 </b></td><td>CAPE TOWN CENTRAL</td><td>534</td><td>423</td><td>360</td><td>314</td><td>186</td><td>320</td><td>378</td><td>321</td><td>254</td><td><b>2990</b></td></tr><tr><td><b> 057</b></td><td>CAMPS BAY</td><td>653</td><td>787</td><td>862</td><td>780</td><td>1032</td><td>459</td><td>1047</td><td>1</td><td>455</td><td><b>5986</b></tr><tr><td><b> 058</b></td><td>MAITLAND</td><td>483</td><td>398</td><td>895</td><td>679</td><td>904</td><td>739</td><td>745</td><td>0</td><td>621</td><td><b>5464</b></tr><tr><td><b> 059</b></td><td>MILNERTON</td><td>497</td><td>350</td><td>673</td><td>748</td><td>934</td><td>893</td><td>1023</td><td>0</td><td>1260</td><td><b>5449</b></tr><tr><td><b> 060</b></td><td>PINELANDS</td><td>742</td><td>567</td><td>1243</td><td>2098</td><td>1984</td><td>1790</td><td>967</td><td>0</td><td>734</td><td><b>10125</b></td><tr><td><b> 061</b></td><td>KENSINGTON</td><td>367</td><td>437</td><td>811</td><td>2852</td><td>1875</td><td>2001</td><td>1903</td><td>0</td><td>772</td><td><b>11018</b></td></tr><tr><td><b> 062</b></td><td>DELFT</td><td>893</td><td>622</td><td>987</td><td>2045</td><td>1097</td><td>1300</td><td>3009</td><td>0</td><td>652</td><td><b>10605</b></td></tr><tr><td><b> 063</b></td><td>SIMON\'S BAY</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b> 064</b></td><td>KUILSRIVIER</td><td>237</td><td>304</td><td>902</td><td>781</td><td>539</td><td>191</td><td>1234</td><td>0</td><td>826</td><td><b>5014</b></tr><tr><td><b>065 </b></td><td>TOUWS RIVER</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td><tr><td><b> 066</b></td><td>SUURBRAAK</td><td>346</td><td>401</td><td>509</td><td>633</td><td>547</td><td>621</td><td>815</td><td>0</td><td>674</td><td><b>4546</b></tr><tr><td><b> 067</b></td><td>RAWSONVILLE</td><td>657</td><td>480</td><td>1874</td><td>2008</td><td>1973</td><td>2221</td><td>1653</td><td>0</td><td>867</td><td><b>9733</b></td></tr><tr><td><b> 068</b></td><td>DA GAMASKOP</td><td>650</td><td>678</td><td>1951</td><td>2997</td><td>894</td><td>3178</td><td>3364</td><td>0</td><td>1287</td><td><b>14999</b></td></tr><tr><td><b>069 </b></td><td>LEEU GAMKA</td><td>591</td><td>432</td><td>643</td><td>756</td><td>931</td><td>1797</td><td>833</td><td>0</td><td>1297</td><td><b>7280</b></td></tr><tr><td><b>070 </b></td><td>THEMBALETHU</td><td>654</td><td>578</td><td>791</td><td>875</td><td>1736</td><td>1902</td><td>1003</td><td>0</td><td>1397</td><td><b>8936</b></td></tr><tr><td><b>071 </b></td><td>KWANONQABA</td><td>728</td><td>491</td><td>822</td><td>901</td><td>1462</td><td>1523</td><td>975</td><td>1</td><td>1442</td><td><b>8345</b></td></tr><tr><td><b>072 </b></td><td>KWANOKUTHULA</td><td>335</td><td>291</td><td>732</td><td>752</td><td>669</td><td>767</td><td>625</td><td>0</td><td>880</td><td><b>6051</b></td></tr><tr><td><b>073 </b></td><td>CONVILLE</td><td>487</td><td>345</td><td>768</td><td>891</td><td>1046</td><td>1119</td><td>749</td><td>0</td><td>973</td><td><b>6378</b></td></tr><tr><td><b>074 </b></td><td>KLAWER</td><td>648</td><td>579</td><td>909</td><td>974</td><td>932</td><td>899</td><td>821</td><td>0</td><td>988</td><td><b>6029</b></td></tr><tr><td><b>075 </b></td><td>LAMBERBAAI</td><td>874</td><td>683</td><td>914</td><td>819</td><td>1092</td><td>2007</td><td>923</td><td>0</td><td>1594</td><td><b>8906</b></td></tr><tr><td><b>076 </b></td><td>SEA POINT</td><td>792</td><td>555</td><td>794</td><td>860</td><td>773</td><td>1286</td><td>457</td><td>0</td><td>1111</td><td><b>6628</b></td></tr><tr><td><b>077 </b></td><td>NUWERUS</td><td>237</td><td>328</td><td>241</td><td>288</td><td>457</td><td>131</td><td>478</td><td>231</td><td>162</td><td><b>2554</b></td></tr><tr><td><b>078 </b></td><td>VANRHYNSDORP</td><td>134</td><td>263</td><td>168</td><td>479</td><td>277</td><td>230</td><td>112</td><td>302</td><td>143</td><td><b>2108</b></td></tr><tr><td><b>079 </b></td><td>BELHAR</td><td>54</td><td>77</td><td>192</td><td>491</td><td>150</td><td>399</td><td>124</td><td>411</td><td>386</td><td><b>2266</b></td></tr><tr><td><b>080 </b></td><td>PRINCE ALFRED HELMET</td><td>67</td><td>29</td><td>129</td><td>154</td><td>174</td><td>211</td><td>18</td><td>44</td><td>102</td><td><b>928</b></td></tr><tr><td><b>081 </b></td><td>DE DOORNS</td><td>112</td><td>204</td><td>191</td><td>542</td><td>99</td><td>107</td><td>266</td><td>186</td><td>369</td><td><b>2076</b></td></tr><tr><td><b>082 </b></td><td>KLAPMUTS</td><td>251</td><td>123</td><td>358</td><td>187</td><td>79</td><td>247</td><td>193</td><td>178</td><td>152</td><td><b>1517</b></td></tr><tr><td><b>083 </b></td><td>PAROW</td><td>311</td><td>294</td><td>115</td><td>239</td><td>94</td><td>27</td><td>81</td><td>246</td><td>118</td><td><b>1525</b></td></tr><tr><td><b>084 </b></td><td>BARRYDALE</td><td>64</td><td>93</td><td>126</td><td>412</td><td>236</td><td>274</td><td>193</td><td>97</td><td>384</td><td><b>1533</b></td></tr><tr><td><b>085 </b></td><td>ASHTON</td><td>471</td><td>387</td><td>452</td><td>279</td><td>372</td><td>331</td><td>165</td><td>254</td><td>173</td><td><b>2884</b></td></tr><tr><td><b>086</b></td><td>STEENBERG</td><td>432</td><td>355</td><td>798</td><td>1888</td><td>671</td><td>2985</td><td>3002</td><td>1</td><td>1009</td><td><b>11141</b></td></tr><tr><td><b> 087</b></td><td>PHILLIPI-EAST</td><td>771</td><td>482</td><td>987</td><td>2094</td><td>888</td><td>790</td><td>2341</td><td>0</td><td>652</td><td><b>9005</b></td></tr><tr><td><b> 088</b></td><td>FISH HOEK</td><td>623</td><td>417</td><td>985</td><td>2719</td><td>999</td><td>1327</td><td>1953</td><td>0</td><td>834</td><td><b>9857</b></td></tr>><td><b> 089</b></td><td>VREDENDAL</td><td>602</td><td>875</td><td>766</td><td>1098</td><td>2371</td><td>2672</td><td>1093</td><td>0</td><td>995</td><td><b>9932</b></td></tr><tr><td><b> 090</b></td><td>ELSIES RIVER</td><td>891</td><td>411</td><td>890</td><td>972</td><td>782</td><td>3209</td><td>3005</td><td>1</td><td>983</td><td><b>11144</b></td></tr><tr><td><b> 091</b></td><td>LUITZVILLE</td><td>802</td><td>662</td><td>939</td><td>2197</td><td>1852</td><td>1193</td><td>2892</td><td>0</td><td>783</td><td><b>11320</b></td></tr><tr><td><b> 092</b></td><td>CERES</td><td>893</td><td>461</td><td>1492</td><td>2721</td><td>900</td><td>1456</td><td>1732</td><td>0</td><td>769</td><td><b>10424</b></td></tr><tr><td><b> 093</b></td><td>BONNIEVALLE</td><td>731</td><td>511</td><td>903</td><td>3001</td><td>4243</td><td>2753</td><td>3142</td><td>0</td><td>2174</td><td><b>17458</b></td></tr><tr><td><b> 094</b></td><td>GOODWOOD</td><td>623</td><td>467</td><td>809</td><td>1439</td><td>1930</td><td>2094</td><td>1732</td><td>0</td><td>936</td><td><b>10030</b></td></tr><tr><td><b> 095</b></td><td>KRAAIFONTEIN</td><td>459</td><td>392</td><td>471</td><td>598</td><td>999</td><td>647</td><td>892</td><td>2</td><td>680</td><td><b>5140</b></tr><td><b> 096</b></td><td>GUGULETHU</td><td>581</td><td>622</td><td>689</td><td>502</td><td>813</td><td>1201</td><td>995</td><td>0</td><td>684</td><td><b>5997</b></tr><tr><td><b> 097</b></td><td>MANENBERG</td><td>357</td><td>312</td><td>347</td><td>320</td><td>653</td><td>522</td><td>694</td><td>0</td><td>281</td><td><b>3486</b></tr><tr><td><b> 098</b></td><td>MITCHELLS PLAIN</td><td>367</td><td>289</td><td>343</td><td>433</td><td>791</td><td>649</td><td>1002</td><td>0</td><td>465</td><td><b>4339</b></tr><tr><td><b> 099</b></td><td>CALITZDORP</td><td>218</td><td>321</td><td>534</td><td>369</td><td>513</td><td>624</td><td>783</td><td>0</td><td>487</td><td><b>3849</b></tr><tr><td><b> 100</b></td><td>ATHLONE</td><td>187</td><td>277</td><td>432</td><td>341</td><td>657</td><td>588</td><td>702</td><td>0</td><td>491</td><td><b>3087</b></tr><tr><td><b> 101</b></td><td>BISHOP LAVIS</td><td>273</td><td>180</td><td>432</td><td>591</td><td>753</td><td>414</td><td>754</td><td>1</td><td>499</td><td><b>3897</b></tr><tr><td><b>102 </b></td><td>DE RUST</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td></tr><tr><td><b>103 </b></td><td>GEORGE</td><td>677</td><td>576</td><td>740</td><td>844</td><td>975</td><td>1753</td><td>925</td><td>0</td><td>812</td><td><b>7302</b></td></tr><tr><td><b>104 </b></td><td>KNYSNA</td><td>873</td><td>636</td><td>974</td><td>1073</td><td>1107</td><td>1894</td><td>1007</td><td>0</td><td>1379</td><td><b>8943</b></td></tr><tr><td><b>105 </b></td><td>MOSSEL BAY</td><td>431</td><td>328</td><td>519</td><td>672</td><td>801</td><td>1205</td><td>799</td><td>2</td><td>1356</td><td><b>6113</b></td></tr><tr><td><b>106 </b></td><td>ALBERTINA</td><td>410</td><td>367</td><td>971</td><td>824</td><td>729</td><td>942</td><td>890</td><td>0</td><td>967</td><td><b>6100</b></td></tr><tr><td><b>107 </b></td><td>GROOT BRAKRIVIER</td><td>369</td><td>453</td><td>748</td><td>927</td><td>832</td><td>953</td><td>895</td><td>1</td><td>873</td><td><b>6051</b></td></tr><tr><td><b>108 </b></td><td>RIVERSDALE</td><td>261</td><td>394</td><td>723</td><td>1321</td><td>766</td><td>985</td><td>796</td><td>0</td><td>784</td><td><b>6030</b></td></tr><tr><td><b>109 </b></td><td>BEAUFORT WEST</td><td>478</td><td>352</td><td>807</td><td>966</td><td>1578</td><td>2092</td><td>1347</td><td>0</td><td>1182</td><td><b>8982</b></td></tr><tr><td><b>110 </b></td><td>LAAIPLEK</td><td>643</td><td>443</td><td>741</td><td>862</td><td>721</td><td>1698</td><td>669</td><td>0</td><td>1541</td><td><b>7318</b></td></tr><tr><td><b>111 </b></td><td>BOTHASIG</td><td>257</td><td>329</td><td>355</td><td>179</td><td>237</td><td>194</td><td>252</td><td>173</td><td>141</td><td><b>2117</b></td></tr><tr><td><b>112 </b></td><td>PRINCE ALBERT</td><td>136</td><td>214</td><td>168</td><td>257</td><td>325</td><td>109</td><td>159</td><td>264</td><td>147</td><td><b>1779</b></td></tr><tr><td><b>113 </b></td><td>WOLSELEY</td><td>72</td><td>104</td><td>231</td><td>157</td><td>246</td><td>91</td><td>167</td><td>209</td><td>113</td><td><b>1390</b></td></tr><tr><td><b>114 </b></td><td>RAVENSMEAD</td><td>368</td><td>237</td><td>256</td><td>197</td><td>204</td><td>264</td><td>173</td><td>194</td><td>234</td><td><b>2127</b></td></tr><tr><td><b>115 </b></td><td>LENTENGEUR</td><td>88</td><td>103</td><td>217</td><td>129</td><td>172</td><td>184</td><td>219</td><td>231</td><td>111</td><td><b>1454</b></td></tr><tr><td><b>116 </b></td><td>FRANCHHOEK</td><td>244</td><td>125</td><td>218</td><td>322</td><td>231</td><td>147</td><td>298</td><td>213</td><td>222</td><td><b>2020</b></td></tr><tr><td><b>117 </b></td><td>HOPEFIELD</td><td>134</td><td>362</td><td>245</td><td>178</td><td>248</td><td>329</td><td>249</td><td>199</td><td>227</td><td><b>2171</b></td></tr><tr><td><b>118 </b></td><td>BRACKENFELL</td><td>418</td><td>319</td><td>333</td><td>372</td><td>146</td><td>322</td><td>273</td><td>183</td><td>257</td><td><b>2587</b></td></tr><tr><td><b> 119</b></td><td>STELLENBOSCH</td><td>674</td><td>543</td><td>1903</td><td>2892</td><td>973</td><td>1479</td><td>2194</td><td>0</td><td>619</td><td><b>11276</b></td></tr><tr><td><b> 120</b></td><td>MCGREGOR</td><td>318</td><td>207</td><td>2180</td><td>1974</td><td>682</td><td>2981</td><td>1777</td><td>2</td><td>856</td><td><b>10977</b></td></tr></table>"}`,
+
+"green":
+`{"description": "<div class='topic'><p1><b>Crimes Less Than 3000</b></p1><div><table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>003 </b></td><td>BREDASDORP</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>0</td><td>21</td><td><b>2180</b></td></tr><tr><td><b>007 </b></td><td>MUIZENBURG</td><td>72</td><td>92</td><td>351</td><td>441</td><td>901</td><td>761</td><td>212</td><td>55</td><td>62</td><td><b>2947</b></td></tr><tr><td><b>011 </b></td><td>PHILIPPI</td><td>152</td><td>169</td><td>270</td><td>612</td><td>586</td><td>931</td><td>241</td><td>30</td><td>52</td><td><b>2993</b></td></tr><tr><td><b>015 </b></td><td>REDELINGHUS</td><td>51</td><td>187</td><td>199</td><td>145</td><td>431</td><td>512</td><td>98</td><td>243</td><td>85</td><td><b>1951</b></td></tr><tr><td><b>020 </b></td><td>DORING BAY</td><td>143</td><td>184</td><td>248</td><td>491</td><td>512</td><td>340</td><td>537</td><td>123</td><td>216</td><td><b>2794</b></td></tr><tr><td><b>022 </b></td><td>MFULENI</td><td>18</td><td>42</td><td>191</td><td>272</td><td>107</td><td>321</td><td>71</td><td>127</td><td>35</td><td><b>1184</b></td></tr><tr><td><b>037 </b></td><td>MONTAGU</td><td>10</td><td>27</td><td>82</td><td>89</td><td>31</td><td>90</td><td>34</td><td>18</td><td>47</td><td><b>428</b></td></tr><tr><td><b>038 </b></td><td>DIEPRIVIER</td><td>30</td><td>51</td><td>93</td><td>42</td><td>75</td><td>167</td><td>171</td><td>111</td><td>70</td><td><b>810</b></td></tr><tr><td><b>047 </b></td><td>SOMERSET WEST</td><td>175</td><td>109</td><td>232</td><td>151</td><td>164</td><td>222</td><td>185</td><td>132</td><td>39</td><td><b>1409</b></td></tr><tr><td><b>048 </b></td><td>SRUISBAAI</td><td>119</td><td>452</td><td>391</td><td>171</td><td>146</td><td>320</td><td>97</td><td>136</td><td>135</td><td><b>1967</b></td></tr><tr><td><b>049 </b></td><td>CLOETSVILLE</td><td>342</td><td>321</td><td>323</td><td>160</td><td>177</td><td>182</td><td>321</td><td>68</td><td>135</td><td><b>2029</b></td></tr><tr><td><b>050 </b></td><td>OUDSHOORN</td><td>345</td><td>156</td><td>123</td><td>187</td><td>57</td><td>88</td><td>94</td><td>155</td><td>288</td><td><b>1493</b></td></tr><tr><td><b>051 </b></td><td>UNIONDALE</td><td>287</td><td>454</td><td>501</td><td>471</td><td>179</td><td>522</td><td>212</td><td>190</td><td>101</td><td><b>2917</b></td></tr><tr><td><b>052 </b></td><td>LADISMITH</td><td>456</td><td>178</td><td>491</td><td>289</td><td>177</td><td>424</td><td>118</td><td>227</td><td>305</td><td><b>2360</b></td></tr><tr><td><b>056 </b></td><td>CAPE TOWN CENTRAL</td><td>534</td><td>423</td><td>360</td><td>314</td><td>186</td><td>320</td><td>378</td><td>321</td><td>254</td><td><b>2990</b></td></tr><tr><td><b>065 </b></td><td>TOUWS RIVER</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td></tr><tr><td><b>078 </b></td><td>VANRHYNSDORP</td><td>134</td><td>263</td><td>168</td><td>479</td><td>277</td><td>230</td><td>112</td><td>302</td><td>143</td><td><b>2108</b></td></tr><tr><td><b>079 </b></td><td>BELHAR</td><td>54</td><td>77</td><td>192</td><td>491</td><td>150</td><td>399</td><td>124</td><td>411</td><td>386</td><td><b>2266</b></td></tr><tr><td><b>080 </b></td><td>PRINCE ALFRED HELMET</td><td>67</td><td>29</td><td>129</td><td>154</td><td>174</td><td>211</td><td>18</td><td>44</td><td>102</td><td><b>928</b></td></tr><tr><td><b>081 </b></td><td>DE DOORNS</td><td>112</td><td>204</td><td>191</td><td>542</td><td>99</td><td>107</td><td>266</td><td>186</td><td>369</td><td><b>2076</b></td></tr><tr><td><b>082 </b></td><td>KLAPMUTS</td><td>251</td><td>123</td><td>358</td><td>187</td><td>79</td><td>247</td><td>193</td><td>178</td><td>152</td><td><b>1517</b></td></tr><tr><td><b>084 </b></td><td>BARRYDALE</td><td>64</td><td>93</td><td>126</td><td>412</td><td>236</td><td>274</td><td>193</td><td>97</td><td>384</td><td><b>1533</b></td></tr><tr><td><b>085 </b></td><td>ASHTON</td><td>471</td><td>387</td><td>452</td><td>279</td><td>372</td><td>331</td><td>165</td><td>254</td><td>173</td><td><b>2884</b></td></tr><tr><td><b>111 </b></td><td>BOTHASIG</td><td>257</td><td>329</td><td>355</td><td>179</td><td>237</td><td>194</td><td>252</td><td>173</td><td>141</td><td><b>2117</b></td></tr><tr><td><b>112 </b></td><td>PRINCE ALBERT</td><td>136</td><td>214</td><td>168</td><td>257</td><td>325</td><td>109</td><td>159</td><td>264</td><td>147</td><td><b>1779</b></td></tr><tr><td><b>113 </b></td><td>WOLSELEY</td><td>72</td><td>104</td><td>231</td><td>157</td><td>246</td><td>91</td><td>167</td><td>209</td><td>113</td><td><b>1390</b></td></tr>tr><td><b>114 </b></td><td>RAVENSMEAD</td><td>368</td><td>237</td><td>256</td><td>197</td><td>204</td><td>264</td><td>173</td><td>194</td><td>234</td><td><b>2127</b></td></tr><tr><td><b>115 </b></td><td>LENTENGEUR</td><td>88</td><td>103</td><td>217</td><td>129</td><td>172</td><td>184</td><td>219</td><td>231</td><td>111</td><td><b>1454</b></td></tr><tr><td><b>116 </b></td><td>FRANCHHOEK</td><td>244</td><td>125</td><td>218</td><td>322</td><td>231</td><td>147</td><td>298</td><td>213</td><td>222</td><td><b>2020</b></td></tr><tr><td><b>117 </b></td><td>HOPEFIELD</td><td>134</td><td>362</td><td>245</td><td>178</td><td>248</td><td>329</td><td>249</td><td>199</td><td>227</td><td><b>2171</b></td></tr><tr><td><b>118 </b></td><td>BRACKENFELL</td><td>418</td><td>319</td><td>333</td><td>372</td><td>146</td><td>322</td><td>273</td><td>183</td><td>257</td><td><b>2587</b></td></tr></table>"}`,
+
+"yellow":
+`{"description": "<p1><b>Crimes greater than or equals to 3000 and less Than 6000.</b></p1><table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 001</b></td><td>GRAAFWATER</td><td>530</td><td>689</td><td>582</td><td>762</td><td>571</td><td>141</td><td>850</td><td>0</td><td>382</td><td><b>4467</b></tr><tr><td><b> 005</b></td><td>GARDENS</td><td>451</td><td>532</td><td>681</td><td>833</td><td>442</td><td>343</td><td>720</td><td>23</td><td>556</td><td><b>4238</b></tr><tr><td><b> 009</b></td><td>LWANDLE</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b> 013</b></td><td>MOORREESBIRG</td><td>262</td><td>397</td><td>802</td><td>549</td><td>726</td><td>533</td><td>724</td><td>2</td><td>662</td><td><b>4657</b></tr><tr><td><b> 017</b></td><td>VREDENBERG</td><td>247</td><td>312</td><td>534</td><td>681</td><td>739</td><td>481</td><td>724</td><td>0</td><td>346</td><td><b>4064</b></tr>tr><td><b> 018</b></td><td>CITRUSDAL</td><td>190</td><td>274</td><td>451</td><td>433</td><td>946</td><td>532</td><td>246</td><td>0</td><td>407</td><td><b>3257</b></tr><tr><td><b> 031</b></td><td>NAPIER</td><td>311</td><td>305</td><td>597</td><td>367</td><td>720</td><td>491</td><td>760</td><td>0</td><td>345</td><td><b>3896</b></tr><tr><td><b> 032</b></td><td>STRAND</td><td>468</td><td>789</td><td>843</td><td>527</td><td>941</td><td>805</td><td>1006</td><td>0</td><td>236</td><td><b>5615</b></tr><tr><td><b> 057</b></td><td>CAMPS BAY</td><td>653</td><td>787</td><td>862</td><td>780</td><td>1032</td><td>459</td><td>1047</td><td>1</td><td>455</td><td><b>5986</b></tr><tr><td><b> 058</b></td><td>MAITLAND</td><td>483</td><td>398</td><td>895</td><td>679</td><td>904</td><td>739</td><td>745</td><td>0</td><td>621</td><td><b>5464</b></tr><tr><td><b> 059</b></td><td>MILNERTON</td><td>497</td><td>350</td><td>673</td><td>748</td><td>934</td><td>893</td><td>1023</td><td>0</td><td>1260</td><td><b>5449</b></tr><tr><td><b> 063</b></td><td>SIMON\'S TOWN</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b> 064</b></td><td>KUILSRIVIER</td><td>237</td><td>304</td><td>902</td><td>781</td><td>539</td><td>191</td><td>1234</td><td>0</td><td>826</td><td><b>5014</b></tr><tr><td><b> 066</b></td><td>SUURBRAAK</td><td>346</td><td>401</td><td>509</td><td>633</td><td>547</td><td>621</td><td>815</td><td>0</td><td>674</td><td><b>4546</b></tr><tr><td><b> 095</b></td><td>KRAAIFONTEIN</td><td>459</td><td>392</td><td>471</td><td>598</td><td>999</td><td>647</td><td>892</td><td>2</td><td>680</td><td><b>5140</b></tr><tr><td><b> 096</b></td><td>GUGULETHU</td><td>581</td><td>622</td><td>689</td><td>502</td><td>813</td><td>1201</td><td>995</td><td>0</td><td>684</td><td><b>5997</b></tr><tr><td><b> 097</b></td><td>MANENBERG</td><td>357</td><td>312</td><td>347</td><td>320</td><td>653</td><td>522</td><td>694</td><td>0</td><td>281</td><td><b>3486</b></tr><tr><td><b> 098</b></td><td>MITCHELLS PLAIN</td><td>367</td><td>289</td><td>343</td><td>433</td><td>791</td><td>649</td><td>1002</td><td>0</td><td>465</td><td><b>4339</b></tr><tr><td><b> 099</b></td><td>CALITZDORP</td><td>218</td><td>321</td><td>534</td><td>369</td><td>513</td><td>624</td><td>783</td><td>0</td><td>487</td><td><b>3849</b></tr><tr><td><b> 100</b></td><td>ATHLONE</td><td>187</td><td>277</td><td>432</td><td>341</td><td>657</td><td>588</td><td>702</td><td>0</td><td>491</td><td><b>3087</b></tr><tr><td><b> 101</b></td><td>BISHOP LAVIS</td><td>273</td><td>180</td><td>432</td><td>591</td><td>753</td><td>414</td><td>754</td><td>1</td><td>499</td><td><b>3897</b></tr></table>"}`,
+
+"orange":
+`{"description": "<p1><b>Crimes greater than or equals to 6000 and less Than 9000.</b></p1><table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>004 </b></td><td>CALEDON</td><td>674</td><td>702</td><td>545</td><td>798</td><td>806</td><td>864</td><td>921</td><td>0</td><td>1565</td><td><b>6245</b></td></tr><tr><td><b>008 </b></td><td>ROBERTSON</td><td>779</td><td>893</td><td>784</td><td>990</td><td>1324</td><td>1118</td><td>913</td><td>1</td><td>1789</td><td><b>8591</b></td></tr><tr><td><b>012 </b></td><td>LANGEBAAN</td><td>687</td><td>590</td><td>479</td><td>972</td><td>1201</td><td>974</td><td>723</td><td>0</td><td>1879</td><td><b>7505</b></td></tr><tr><td><b>016 </b></td><td>ST HELANA BAY</td><td>754</td><td>898</td><td>1097</td><td>875</td><td>923</td><td>913</td><td>1083</td><td>0</td><td>1476</td><td><b>8019</b></td></tr><tr><td><b>023 </b></td><td>RIEBEEK WEST</td><td>788</td><td>927</td><td>631</td><td>1098</td><td>984</td><td>1362</td><td>1167</td><td>0</td><td>1772</td><td><b>7941</b></td></tr><tr><td><b>027 </b></td><td>KLEIVLEI</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr><tr><td><b>035 </b></td><td>MOWBRAY</td><td>594</td><td>439</td><td>1764</td><td>924</td><td>785</td><td>957</td><td>1754</td><td>1</td><td>1376</td><td><b>8994</b></td></tr><tr><td><b>039 </b></td><td>CLAREMONT</td><td>504</td><td>343</td><td>624</td><td>619</td><td>804</td><td>467</td><td>1002</td><td>0</td><td>1689</td><td><b>6052</b></td></tr><tr><td><b>041 </b></td><td>MALMESBURY</td><td>391</td><td>416</td><td>723</td><td>974</td><td>872</td><td>799</td><td>1031</td><td>0</td><td>1367</td><td><b>6573</b></td></tr><tr><td><b>042 </b></td><td>PORTEVILLE</td><td>712</td><td>789</td><td>781</td><td>911</td><td>1120</td><td>873</td><td>781</td><td>0</td><td>1731</td><td><b>7698</b></td></tr><tr><td><b>043 </b></td><td>SALDANHA</td><td>742</td><td>612</td><td>749</td><td>881</td><td>1080</td><td>1254</td><td>717</td><td>0</td><td>1678</td><td><b>7713</b></td></tr><tr><td><b>044 </b></td><td>KHAYELITSHA</td><td>955</td><td>673</td><td>667</td><td>1397</td><td>1222</td><td>798</td><td>882</td><td>0</td><td>1373</td><td><b>7931</b></td></tr><tr><td><b>045 </b></td><td>WOODSTOCK</td><td>1322</td><td>618</td><td>691</td><td>999</td><td>910</td><td>1001</td><td>1131</td><td>0</td><td>1771</td><td><b>8443</b></td></tr><tr><td><b>046 </b></td><td>RIVIERSONDEREND</td><td>1234</td><td>678</td><td>731</td><td>1132</td><td>1568</td><td>992</td><td>1142</td><td>0</td><td>990</td><td><b>8467</b></td></tr><tr><td><b>069 </b></td><td>LEEU GAMKA</td><td>591</td><td>432</td><td>643</td><td>756</td><td>931</td><td>1797</td><td>833</td><td>0</td><td>1297</td><td><b>7280</b></td></tr><tr><td><b>070 </b></td><td>THEMBALETHU</td><td>654</td><td>578</td><td>791</td><td>875</td><td>1736</td><td>1902</td><td>1003</td><td>0</td><td>1397</td><td><b>8936</b></td></tr><tr><td><b>071 </b></td><td>KWANONQABA</td><td>728</td><td>491</td><td>822</td><td>901</td><td>1462</td><td>1523</td><td>975</td><td>1</td><td>1442</td><td><b>8345</b></td></tr><tr><td><b>072 </b></td><td>KWANOKUTHULA</td><td>335</td><td>291</td><td>732</td><td>752</td><td>669</td><td>767</td><td>625</td><td>0</td><td>880</td><td><b>6051</b></td></tr><tr><td><b>073 </b></td><td>CONVILLE</td><td>487</td><td>345</td><td>768</td><td>891</td><td>1046</td><td>1119</td><td>749</td><td>0</td><td>973</td><td><b>6378</b></td></tr><tr><td><b>074 </b></td><td>KLAWER</td><td>648</td><td>579</td><td>909</td><td>974</td><td>932</td><td>899</td><td>821</td><td>0</td><td>988</td><td><b>6029</b></td></tr><tr><td><b>075 </b></td><td>LAMBERBAAI</td><td>874</td><td>683</td><td>914</td><td>819</td><td>1092</td><td>2007</td><td>923</td><td>0</td><td>1594</td><td><b>8906</b></td><tr><td><b>076 </b></td><td>SEA POINT</td><td>792</td><td>555</td><td>794</td><td>860</td><td>773</td><td>1286</td><td>457</td><td>0</td><td>1111</td><td><b>6628</b></td></tr><tr><td><b>103 </b></td><td>GEORGE</td><td>677</td><td>576</td><td>740</td><td>844</td><td>975</td><td>1753</td><td>925</td><td>0</td><td>812</td><td><b>7302</b></td></tr><tr><td><b>104 </b></td><td>KNYSNA</td><td>873</td><td>636</td><td>974</td><td>1073</td><td>1107</td><td>1894</td><td>1007</td><td>0</td><td>1379</td><td><b>8943</b></td></tr><tr><td><b>105 </b></td><td>MOSSEL BAY</td><td>431</td><td>328</td><td>519</td><td>672</td><td>801</td><td>1205</td><td>799</td><td>2</td><td>1356</td><td><b>6113</b></td></tr><tr><td><b>106 </b></td><td>ALBERTINA</td><td>410</td><td>367</td><td>971</td><td>824</td><td>729</td><td>942</td><td>890</td><td>0</td><td>967</td><td><b>6100</b></td></tr><tr><td><b>107 </b></td><td>GROOT BRAKRIVIER</td><td>369</td><td>453</td><td>748</td><td>927</td><td>832</td><td>953</td><td>895</td><td>1</td><td>873</td><td><b>6051</b></td></tr><tr><td><b>108 </b></td><td>RIVERSDALE</td><td>261</td><td>394</td><td>723</td><td>1321</td><td>766</td><td>985</td><td>796</td><td>0</td><td>784</td><td><b>6030</b></td></tr><tr><td><b>109 </b></td><td>BEAUFORT WEST</td><td>478</td><td>352</td><td>807</td><td>966</td><td>1578</td><td>2092</td><td>1347</td><td>0</td><td>1182</td><td><b>8982</b></td></tr><tr><td><b>110 </b></td><td>LAAIPLEK</td><td>643</td><td>443</td><td>741</td><td>862</td><td>721</td><td>1698</td><td>669</td><td>0</td><td>1541</td><td><b>7318</b></td></tr></table>"}`,
+
+"red":
+`{"description": "<div class=topic><p1><b>Crimes greater Than or equals to 9000.</b></p1><table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 002</b></td><td>VILLIERSDORP</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>1</td><td>305</td><td><b>11202</b></td></tr><tr><td><b> 006</b></td><td>RONDEBOSCH</td><td>551</td><td>432</td><td>904</td><td>2783</td><td>1697</td><td>2003</td><td>3152</td><td>0</td><td>1324</td><td><b>12846</b></td></tr><tr><td><b> 010</b></td><td>PAARL EAST</td><td>752</td><td>499</td><td>904</td><td>4092</td><td>1286</td><td>1391</td><td>1761</td><td>0</td><td>1056</td><td><b>11741</b></td></tr><tr><td><b> 014</b></td><td>PITEKBERG</td><td>762</td><td>329</td><td>1576</td><td>1978</td><td>2041</td><td>2096</td><td>3298</td><td>0</td><td>987</td><td><b>13067</b></td></tr><tr><td><b> 019</b></td><td>CLANWILLIAM</td><td>325</td><td>243</td><td>987</td><td>1478</td><td>2901</td><td>2043</td><td>1568</td><td>1</td><td>702</td><td><b>10275</b></td></tr><tr><td><b> 021</b></td><td>SWELLENDAM</td><td>487</td><td>307</td><td>796</td><td>2897</td><td>1457</td><td>1791</td><td>2157</td><td>0</td><td>876</td><td><b>10768</b></td></tr><tr><td><b> 024</b></td><td>WELLINGTON</td><td>567</td><td>387</td><td>621</td><td>1117</td><td>2019</td><td>1641</td><td>3092</td><td>0</td><td>724</td><td><b>10168</b></td></tr><tr><td><b> 025</b></td><td>TULBAGH</td><td>329</td><td>451</td><td>771</td><td>2072</td><td>2567</td><td>2093</td><td>990</td><td>0</td><td>1672</td><td><b>10945</b></td></tr><tr><td><b> 026</b></td><td>HARARE</td><td>478</td><td>502</td><td>1134</td><td>2776</td><td>1509</td><td>2431</td><td>998</td><td>0</td><td>767</td><td><b>10595</b></td></tr><tr><td><b>027 </b></td><td>KLEIVLEI</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr><tr><td><b> 028</b></td><td>GRABOUW</td><td>376</td><td>472</td><td>889</td><td>2097</td><td>1983</td><td>2064</td><td>3016</td><td>0</td><td>677</td><td><b>11574</b></td></tr><tr><td><b> 029</b></td><td>HERMANUS</td><td>612</td><td>403</td><td>871</td><td>2891</td><td>1567</td><td>2044</td><td>3095</td><td>1</td><td>985</td><td><b>12469</b></td></tr><tr><td><b> 030</b></td><td>KLEINMOND</td><td>432</td><td>379</td><td>1267</td><td>2095</td><td>2901</td><td>2678</td><td>1263</td><td>0</td><td>982</td><td><b>11997</b></td></tr><tr><td><b> 033</b></td><td>LINGELETHU-WEST</td><td>498</td><td>327</td><td>1907</td><td>2093</td><td>1769</td><td>1763</td><td>1003</td><td>0</td><td>926</td><td><b>9996</b></td></tr><tr><td><b> 034</b></td><td>GROOT-DRANKENSTEIN</td><td>442</td><td>103</td><td>2097</td><td>1555</td><td>987</td><td>874</td><td>1993</td><td>0</td><td>1794</td><td><b>9845</b></td></tr><tr><td><b> 036</b></td><td>HOUT BAY</td><td>294</td><td>187</td><td>1356</td><td>1209</td><td>3009</td><td>2076</td><td>2127</td><td>0</td><td>557</td><td><b>10815</b></td></tr><tr><td><b> 053</b></td><td>STILL BAY</td><td>498</td><td>509</td><td>653</td><td>2988</td><td>1762</td><td>1567</td><td>1975</td><td>0</td><td>867</td><td><b>10321</b></td></tr><tr><td><b> 054</b></td><td>LAINGSBURG</td><td>678</td><td>598</td><td>1142</td><td>2156</td><td>1801</td><td>2167</td><td>2071</td><td>1</td><td>673</td><td><b>11287</b></td></tr><tr><td><b> 055</b></td><td>MURRAYSBERG</td><td>672</td><td>479</td><td>863</td><td>1892</td><td>1983</td><td>1674</td><td>1753</td><td>1</td><td>677</td><td><b>9994</b></td></tr><tr><td><b> 060</b></td><td>PINELANDS</td><td>742</td><td>567</td><td>1243</td><td>2098</td><td>1984</td><td>1790</td><td>967</td><td>0</td><td>734</td><td><b>10125</b></td></tr><tr><td><b> 061</b></td><td>KENSINGTON</td><td>367</td><td>437</td><td>811</td><td>2852</td><td>1875</td><td>2001</td><td>1903</td><td>0</td><td>772</td><td><b>11018</b></td></tr><tr><td><b> 062</b></td><td>DELFT</td><td>893</td><td>622</td><td>987</td><td>2045</td><td>1097</td><td>1300</td><td>3009</td><td>0</td><td>652</td><td><b>10605</b></td></tr><tr><td><b> 067</b></td><td>RAWSONVILLE</td><td>657</td><td>480</td><td>1874</td><td>2008</td><td>1973</td><td>2221</td><td>1653</td><td>0</td><td>867</td><td><b>9733</b></td></tr><tr><td><b> 068</b></td><td>DA GAMASKOP</td><td>650</td><td>678</td><td>1951</td><td>2997</td><td>894</td><td>3178</td><td>3364</td><td>0</td><td>1287</td><td><b>14999</b></td></tr><tr><td><b> 086</b></td><td>STEENBERG</td><td>432</td><td>355</td><td>798</td><td>1888</td><td>671</td><td>2985</td><td>3002</td><td>1</td><td>1009</td><td><b>11141</b></td></tr><tr><td><b> 087</b></td><td>PHILLIPI-EAST</td><td>771</td><td>482</td><td>987</td><td>2094</td><td>888</td><td>790</td><td>2341</td><td>0</td><td>652</td><td><b>9005</b></td></tr><tr><td><b> 088</b></td><td>FISH HOEK</td><td>623</td><td>417</td><td>985</td><td>2719</td><td>999</td><td>1327</td><td>1953</td><td>0</td><td>834</td><td><b>9857</b></td></tr><tr><td><b> 089</b></td><td>VREDENDAL</td><td>602</td><td>875</td><td>766</td><td>1098</td><td>2371</td><td>2672</td><td>1093</td><td>0</td><td>995</td><td><b>9932</b></td></tr><tr><td><b> 090</b></td><td>ELSIES RIVER</td><td>891</td><td>411</td><td>890</td><td>972</td><td>782</td><td>3209</td><td>3005</td><td>1</td><td>983</td><td><b>11144</b></td></tr><tr><td><b> 091</b></td><td>LUITZVILLE</td><td>802</td><td>662</td><td>939</td><td>2197</td><td>1852</td><td>1193</td><td>2892</td><td>0</td><td>783</td><td><b>11320</b></td></tr><tr><td><b> 092</b></td><td>CERES</td><td>893</td><td>461</td><td>1492</td><td>2721</td><td>900</td><td>1456</td><td>1732</td><td>0</td><td>769</td><td><b>10424</b></td></tr><tr><td><b> 093</b></td><td>BONNIEVALLE</td><td>731</td><td>511</td><td>903</td><td>3001</td><td>4243</td><td>2753</td><td>3142</td><td>0</td><td>2174</td><td><b>17458</b></td></tr><tr><td><b> 094</b></td><td>GOODWOOD</td><td>623</td><td>467</td><td>809</td><td>1439</td><td>1930</td><td>2094</td><td>1732</td><td>0</td><td>936</td><td><b>10030</b></td></tr><tr><td><b> 119</b></td><td>STELLENBOSCH</td><td>674</td><td>543</td><td>1903</td><td>2892</td><td>973</td><td>1479</td><td>2194</td><td>0</td><td>619</td><td><b>11276</b></td></tr><tr><td><b> 120</b></td><td>MCGREGOR</td><td>318</td><td>207</td><td>2180</td><td>1974</td><td>682</td><td>2981</td><td>1777</td><td>2</td><td>856</td><td><b>10977</b></td></tr></table>"}`,
+
+"ps1":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 001</b></td><td>GRAAFWATER</td><td>530</td><td>689</td><td>582</td><td>762</td><td>571</td><td>141</td><td>850</td><td>0</td><td>382</td><td><b>4467</b></tr></table>"}`,
+
+"ps2":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 002</b></td><td>VILLIERSDORP</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>1</td><td>305</td><td><b>11202</b></td></tr></table>"}`,
+
+"ps3":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>003 </b></td><td>BREDASDORP</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>0</td><td>21</td><td><b>2180</b></td></tr></table>"}`,
+ 
+"ps4":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>004 </b></td><td>CALEDON</td><td>674</td><td>702</td><td>545</td><td>798</td><td>806</td><td>864</td><td>921</td><td>0</td><td>1565</td><td><b>6245</b></td></tr></table>"}`,
+   
+"ps5":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 005</b></td><td>GARDENS</td><td>451</td><td>532</td><td>681</td><td>833</td><td>442</td><td>343</td><td>720</td><td>23</td><td>556</td><td><b>4238</b></tr></table>"}`,
+  
+"ps6":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 006</b></td><td>RONDEBOSCH</td><td>551</td><td>432</td><td>904</td><td>2783</td><td>1697</td><td>2003</td><td>3152</td><td>0</td><td>1324</td><td><b>12846</b></td></tr></table>"}`,
+
+"ps7":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>007 </b></td><td>MUIZENBURG</td><td>72</td><td>92</td><td>351</td><td>441</td><td>901</td><td>761</td><td>212</td><td>55</td><td>62</td><td><b>2947</b></td></tr></table>"}`,
+   
+"ps8":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>008 </b></td><td>ROBERTSON</td><td>779</td><td>893</td><td>784</td><td>990</td><td>1324</td><td>1118</td><td>913</td><td>1</td><td>1789</td><td><b>8591</b></td></tr></table>"}`,
+   
+"ps9":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 009</b></td><td>LWANDLE</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr></table>"}`,
+   
+"ps10":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 010</b></td><td>PAARL EAST</td><td>752</td><td>499</td><td>904</td><td>4092</td><td>1286</td><td>1391</td><td>1761</td><td>0</td><td>1056</td><td><b>11741</b></td></tr></table>"}`,
+   
+"ps11":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>011 </b></td><td>PHILIPPI</td><td>152</td><td>169</td><td>270</td><td>612</td><td>586</td><td>931</td><td>241</td><td>30</td><td>52</td><td><b>2993</b></td></tr></table>"}`,
+
+"ps12":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>012 </b></td><td>LANGEBAAN</td><td>687</td><td>590</td><td>479</td><td>972</td><td>1201</td><td>974</td><td>723</td><td>0</td><td>1879</td><td><b>7505</b></td></tr></table>"}`,
+
+"ps13":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 013</b></td><td>MOORREESBIRG</td><td>262</td><td>397</td><td>802</td><td>549</td><td>726</td><td>533</td><td>724</td><td>2</td><td>662</td><td><b>4657</b></tr></table>"}`,
+
+"ps14":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 014</b></td><td>PITEKBERG</td><td>762</td><td>329</td><td>1576</td><td>1978</td><td>2041</td><td>2096</td><td>3298</td><td>0</td><td>987</td><td><b>13067</b></td></tr></table>"}`,
+
+"ps15":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>015 </b></td><td>REDELINGHUS</td><td>51</td><td>187</td><td>199</td><td>145</td><td>431</td><td>512</td><td>98</td><td>243</td><td>85</td><td><b>1951</b></td></tr></table>"}`,
+      
+"ps16":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>016 </b></td><td>ST HELANA BAY</td><td>754</td><td>898</td><td>1097</td><td>875</td><td>923</td><td>913</td><td>1083</td><td>0</td><td>1476</td><td><b>8019</b></td></tr></table>"}`,
+      
+"ps17":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 017</b></td><td>VREDENBERG</td><td>247</td><td>312</td><td>534</td><td>681</td><td>739</td><td>481</td><td>724</td><td>0</td><td>346</td><td><b>4064</b></tr></table>"}`,
+
+"ps18":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 018</b></td><td>CITRUSDAL</td><td>190</td><td>274</td><td>451</td><td>433</td><td>946</td><td>532</td><td>246</td><td>0</td><td>407</td><td><b>3257</b></tr></table>"}`,
+
+"ps19":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 019</b></td><td>CLANWILLIAM</td><td>325</td><td>243</td><td>987</td><td>1478</td><td>2901</td><td>2043</td><td>1568</td><td>1</td><td>702</td><td><b>10275</b></td></tr></table>"}`,
+
+"ps20":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>020 </b></td><td>DORING BAY</td><td>143</td><td>184</td><td>248</td><td>491</td><td>512</td><td>340</td><td>537</td><td>123</td><td>216</td><td><b>2794</b></td></tr></table>"}`,
+      
+"ps21":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 021</b></td><td>SWELLENDAM</td><td>487</td><td>307</td><td>796</td><td>2897</td><td>1457</td><td>1791</td><td>2157</td><td>0</td><td>876</td><td><b>10768</b></td></tr></table>"}`,
+      
+"ps22":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>022 </b></td><td>MFULENI</td><td>18</td><td>42</td><td>191</td><td>272</td><td>107</td><td>321</td><td>71</td><td>127</td><td>35</td><td><b>1184</b></td></tr></table>"}`,
+      
+"ps23":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>023 </b></td><td>RIEBEEK WEST</td><td>788</td><td>927</td><td>631</td><td>1098</td><td>984</td><td>1362</td><td>1167</td><td>0</td><td>1772</td><td><b>7941</b></td></tr></table>"}`,
+      
+"ps24":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 024</b></td><td>WELLINGTON</td><td>567</td><td>387</td><td>621</td><td>1117</td><td>2019</td><td>1641</td><td>3092</td><td>0</td><td>724</td><td><b>10168</b></td></tr></table>"}`,
+      
+"ps25":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 025</b></td><td>TULBAGH</td><td>329</td><td>451</td><td>771</td><td>2072</td><td>2567</td><td>2093</td><td>990</td><td>0</td><td>1672</td><td><b>10945</b></td></tr></table>"}`,
+      
+"ps26":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 026</b></td><td>HARARE</td><td>478</td><td>502</td><td>1134</td><td>2776</td><td>1509</td><td>2431</td><td>998</td><td>0</td><td>767</td><td><b>10595</b></td></tr></table>"}`,
+      
+"ps27":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>027 </b></td><td>KLEIVLEI</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr></table>"}`,
+      
+"ps28":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 028</b></td><td>GRABOUW</td><td>376</td><td>472</td><td>889</td><td>2097</td><td>1983</td><td>2064</td><td>3016</td><td>0</td><td>677</td><td><b>11574</b></td></tr></table>"}`,
+      
+"ps29":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 029</b></td><td>HERMANUS</td><td>612</td><td>403</td><td>871</td><td>2891</td><td>1567</td><td>2044</td><td>3095</td><td>1</td><td>985</td><td><b>12469</b></td></tr></table>"}`,
+      
+"ps30":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 030</b></td><td>KLEINMOND</td><td>432</td><td>379</td><td>1267</td><td>2095</td><td>2901</td><td>2678</td><td>1263</td><td>0</td><td>982</td><td><b>11997</b></td></tr></table>"}`,
+      
+"ps31":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 031</b></td><td>NAPIER</td><td>311</td><td>305</td><td>597</td><td>367</td><td>720</td><td>491</td><td>760</td><td>0</td><td>345</td><td><b>3896</b></tr></table>"}`,
+
+"ps32":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 032</b></td><td>STRAND</td><td>468</td><td>789</td><td>843</td><td>527</td><td>941</td><td>805</td><td>1006</td><td>0</td><td>236</td><td><b>5615</b></tr></table>"}`,
+
+"ps33":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 033</b></td><td>LINGELETHU-WEST</td><td>498</td><td>327</td><td>1907</td><td>2093</td><td>1769</td><td>1763</td><td>1003</td><td>0</td><td>926</td><td><b>9996</b></td></tr></table>"}`,
+      
+"ps34":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 034</b></td><td>GROOT-DRANKENSTEIN</td><td>442</td><td>103</td><td>2097</td><td>1555</td><td>987</td><td>874</td><td>1993</td><td>0</td><td>1794</td><td><b>9845</b></td></tr></table>"}`,
+      
+"ps35":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>035 </b></td><td>MOWBRAY</td><td>594</td><td>439</td><td>1764</td><td>924</td><td>785</td><td>957</td><td>1754</td><td>1</td><td>1376</td><td><b>8994</b></td></tr></table>"}`,
+      
+"ps36":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 036</b></td><td>HOUT BAY</td><td>294</td><td>187</td><td>1356</td><td>1209</td><td>3009</td><td>2076</td><td>2127</td><td>0</td><td>557</td><td><b>10815</b></td></tr></table>"}`,
+      
+"ps37":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>037 </b></td><td>MONTAGU</td><td>10</td><td>27</td><td>82</td><td>89</td><td>31</td><td>90</td><td>34</td><td>18</td><td>47</td><td><b>428</b></td></tr></table>"}`,
+      
+"ps38":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>038 </b></td><td>DIEPRIVIER</td><td>30</td><td>51</td><td>93</td><td>42</td><td>75</td><td>167</td><td>171</td><td>111</td><td>70</td><td><b>810</b></td></tr></table>"}`,
+      
+"ps39":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>039 </b></td><td>CLAREMONT</td><td>504</td><td>343</td><td>624</td><td>619</td><td>804</td><td>467</td><td>1002</td><td>0</td><td>1689</td><td><b>6052</b></td></tr></table>"}`,
+      
+"ps40":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>040 </b></td><td>SARON</td><td>523</td><td>345</td><td>636</td><td>982</td><td>1007</td><td>911</td><td>812</td><td>0</td><td>1671</td><td><b>7187</b></td></tr></table>"}`,
+      
+"ps41":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>041 </b></td><td>MALMESBURY</td><td>391</td><td>416</td><td>723</td><td>974</td><td>872</td><td>799</td><td>1031</td><td>0</td><td>1367</td><td><b>6573</b></td></tr></table>"}`,
+ 
+"ps42":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>042 </b></td><td>PORTEVILLE</td><td>712</td><td>789</td><td>781</td><td>911</td><td>1120</td><td>873</td><td>781</td><td>0</td><td>1731</td><td><b>7698</b></td></tr></table>"}`,
+      
+"ps43":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>043 </b></td><td>SALDANHA</td><td>742</td><td>612</td><td>749</td><td>881</td><td>1080</td><td>1254</td><td>717</td><td>0</td><td>1678</td><td><b>7713</b></td></tr></table>"}`,
+      
+"ps44":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>044 </b></td><td>KHAYELITSHA</td><td>955</td><td>673</td><td>667</td><td>1397</td><td>1222</td><td>798</td><td>882</td><td>0</td><td>1373</td><td><b>7931</b></td></tr></table>"}`,
+      
+"ps45":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>045 </b></td><td>WOODSTOCK</td><td>1322</td><td>618</td><td>691</td><td>999</td><td>910</td><td>1001</td><td>1131</td><td>0</td><td>1771</td><td><b>8443</b></td></tr></table>"}`,
+
+"ps46":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>046 </b></td><td>RIVIERSONDEREND</td><td>1234</td><td>678</td><td>731</td><td>1132</td><td>1568</td><td>992</td><td>1142</td><td>0</td><td>990</td><td><b>8467</b></td></tr></table>"}`,
+      
+"ps47":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>047 </b></td><td>SOMERSET WEST</td><td>175</td><td>109</td><td>232</td><td>151</td><td>164</td><td>222</td><td>185</td><td>132</td><td>39</td><td><b>1409</b></td></tr></table>"}`,
+
+"ps48":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>048 </b></td><td>SRUISBAAI</td><td>119</td><td>452</td><td>391</td><td>171</td><td>146</td><td>320</td><td>97</td><td>136</td><td>135</td><td><b>1967</b></td></tr></table>"}`,
+      
+"ps49":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>049 </b></td><td>CLOETSVILLE</td><td>342</td><td>321</td><td>323</td><td>160</td><td>177</td><td>182</td><td>321</td><td>68</td><td>135</td><td><b>2029</b></td></tr></table>"}`,
+      
+"ps50":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>050 </b></td><td>OUDSHOORN</td><td>345</td><td>156</td><td>123</td><td>187</td><td>57</td><td>88</td><td>94</td><td>155</td><td>288</td><td><b>1493</b></td></tr></table>"}`,
+      
+"ps51":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>051 </b></td><td>UNIONDALE</td><td>287</td><td>454</td><td>501</td><td>471</td><td>179</td><td>522</td><td>212</td><td>190</td><td>101</td><td><b>2917</b></td></tr></table>"}`,
+      
+"ps52":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>052 </b></td><td>LADISMITH</td><td>456</td><td>178</td><td>491</td><td>289</td><td>177</td><td>424</td><td>118</td><td>227</td><td>305</td><td><b>2360</b></td></tr></table>"}`,
+      
+"ps53":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 053</b></td><td>STILL BAY</td><td>498</td><td>509</td><td>653</td><td>2988</td><td>1762</td><td>1567</td><td>1975</td><td>0</td><td>867</td><td><b>10321</b></td></tr></table>"}`,
+      
+"ps54":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 054</b></td><td>LAINGSBURG</td><td>678</td><td>598</td><td>1142</td><td>2156</td><td>1801</td><td>2167</td><td>2071</td><td>1</td><td>673</td><td><b>11287</b></td></tr></table>"}`,
+      
+"ps55":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 055</b></td><td>MURRAYSBERG</td><td>672</td><td>479</td><td>863</td><td>1892</td><td>1983</td><td>1674</td><td>1753</td><td>1</td><td>677</td><td><b>9994</b></td></tr></table>"}`,
+      
+"ps56":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>056 </b></td><td>CAPE TOWN CENTRAL</td><td>534</td><td>423</td><td>360</td><td>314</td><td>186</td><td>320</td><td>378</td><td>321</td><td>254</td><td><b>2990</b></td></tr></table>"}`,
+
+"ps57":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 057</b></td><td>CAMPS BAY</td><td>653</td><td>787</td><td>862</td><td>780</td><td>1032</td><td>459</td><td>1047</td><td>1</td><td>455</td><td><b>5986</b></tr></table>"}`,
+
+"ps58":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 058</b></td><td>MAITLAND</td><td>483</td><td>398</td><td>895</td><td>679</td><td>904</td><td>739</td><td>745</td><td>0</td><td>621</td><td><b>5464</b></tr></table>"}`,
+
+"ps59":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 059</b></td><td>MILNERTON</td><td>497</td><td>350</td><td>673</td><td>748</td><td>934</td><td>893</td><td>1023</td><td>0</td><td>1260</td><td><b>5449</b></tr></table>"}`,
+
+"ps60":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 060</b></td><td>PINELANDS</td><td>742</td><td>567</td><td>1243</td><td>2098</td><td>1984</td><td>1790</td><td>967</td><td>0</td><td>734</td><td><b>10125</b></td></tr></table>"}`,
+      
+"ps61":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 061</b></td><td>KENSINGTON</td><td>367</td><td>437</td><td>811</td><td>2852</td><td>1875</td><td>2001</td><td>1903</td><td>0</td><td>772</td><td><b>11018</b></td></tr></table>"}`,
+      
+"ps62":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 062</b></td><td>DELFT</td><td>893</td><td>622</td><td>987</td><td>2045</td><td>1097</td><td>1300</td><td>3009</td><td>0</td><td>652</td><td><b>10605</b></td></tr></table>"}`,
+      
+"ps63":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 063</b></td><td>SIMON\'S BAY</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr></table>"}`,
+
+"ps64":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 064</b></td><td>KUILSRIVIER</td><td>237</td><td>304</td><td>902</td><td>781</td><td>539</td><td>191</td><td>1234</td><td>0</td><td>826</td><td><b>5014</b></tr></table>"}`,
+      
+"ps65":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>065 </b></td><td>TOUWS RIVER</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td></tr></table>"}`,
+      
+"ps66":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 066</b></td><td>SUURBRAAK</td><td>346</td><td>401</td><td>509</td><td>633</td><td>547</td><td>621</td><td>815</td><td>0</td><td>674</td><td><b>4546</b></tr></table>"}`,
+      
+"ps67":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 067</b></td><td>RAWSONVILLE</td><td>657</td><td>480</td><td>1874</td><td>2008</td><td>1973</td><td>2221</td><td>1653</td><td>0</td><td>867</td><td><b>9733</b></td></tr></table>"}`,
+      
+"ps68":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 068</b></td><td>DA GAMASKOP</td><td>650</td><td>678</td><td>1951</td><td>2997</td><td>894</td><td>3178</td><td>3364</td><td>0</td><td>1287</td><td><b>14999</b></td></tr></table>"}`,
+      
+"ps69":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>069 </b></td><td>LEEU GAMKA</td><td>591</td><td>432</td><td>643</td><td>756</td><td>931</td><td>1797</td><td>833</td><td>0</td><td>1297</td><td><b>7280</b></td></tr></table>"}`,
+      
+"ps70":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>070 </b></td><td>THEMBALETHU</td><td>654</td><td>578</td><td>791</td><td>875</td><td>1736</td><td>1902</td><td>1003</td><td>0</td><td>1397</td><td><b>8936</b></td></tr></table>"}`,
+      
+"ps71":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>071 </b></td><td>KWANONQABA</td><td>728</td><td>491</td><td>822</td><td>901</td><td>1462</td><td>1523</td><td>975</td><td>1</td><td>1442</td><td><b>8345</b></td></tr></table>"}`,
+      
+"ps72":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>072 </b></td><td>KWANOKUTHULA</td><td>335</td><td>291</td><td>732</td><td>752</td><td>669</td><td>767</td><td>625</td><td>0</td><td>880</td><td><b>6051</b></td></tr></table>"}`,
+      
+"ps73":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>073 </b></td><td>CONVILLE</td><td>487</td><td>345</td><td>768</td><td>891</td><td>1046</td><td>1119</td><td>749</td><td>0</td><td>973</td><td><b>6378</b></td></tr></table>"}`,
+      
+"ps74":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>074 </b></td><td>KLAWER</td><td>648</td><td>579</td><td>909</td><td>974</td><td>932</td><td>899</td><td>821</td><td>0</td><td>988</td><td><b>6029</b></td></tr></table>"}`,
+      
+"ps75":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>075 </b></td><td>LAMBERBAAI</td><td>874</td><td>683</td><td>914</td><td>819</td><td>1092</td><td>2007</td><td>923</td><td>0</td><td>1594</td><td><b>8906</b></td></tr></table>"}`,
+      
+"ps76":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>076 </b></td><td>SEA POINT</td><td>792</td><td>555</td><td>794</td><td>860</td><td>773</td><td>1286</td><td>457</td><td>0</td><td>1111</td><td><b>6628</b></td></tr></table>"}`,
+      
+"ps77":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>077 </b></td><td>NUWERUS</td><td>237</td><td>328</td><td>241</td><td>288</td><td>457</td><td>131</td><td>478</td><td>231</td><td>162</td><td><b>2554</b></td></tr></table>"}`,
+
+"ps78":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>078 </b></td><td>VANRHYNSDORP</td><td>134</td><td>263</td><td>168</td><td>479</td><td>277</td><td>230</td><td>112</td><td>302</td><td>143</td><td><b>2108</b></td></tr></table>"}`,
+      
+ "ps79":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>079 </b></td><td>BELHAR</td><td>54</td><td>77</td><td>192</td><td>491</td><td>150</td><td>399</td><td>124</td><td>411</td><td>386</td><td><b>2266</b></td></tr></table>"}`,
+         
+"ps80":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>080 </b></td><td>PRINCE ALFRED HELMET</td><td>67</td><td>29</td><td>129</td><td>154</td><td>174</td><td>211</td><td>18</td><td>44</td><td>102</td><td><b>928</b></td></tr></table>"}`,
+      
+"ps81":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>081 </b></td><td>DE DOORNS</td><td>112</td><td>204</td><td>191</td><td>542</td><td>99</td><td>107</td><td>266</td><td>186</td><td>369</td><td><b>2076</b></td></tr></table>"}`,
+      
+"ps82":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>082 </b></td><td>KLAPMUTS</td><td>251</td><td>123</td><td>358</td><td>187</td><td>79</td><td>247</td><td>193</td><td>178</td><td>152</td><td><b>1517</b></td></tr></table>"}`,
+      
+"ps83":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>083 </b></td><td>PAROW</td><td>311</td><td>294</td><td>115</td><td>239</td><td>94</td><td>27</td><td>81</td><td>246</td><td>118</td><td><b>1525</b></td></tr></table>"}`,
+      
+"ps84":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>084 </b></td><td>BARRYDALE</td><td>64</td><td>93</td><td>126</td><td>412</td><td>236</td><td>274</td><td>193</td><td>97</td><td>384</td><td><b>1533</b></td></tr></table>"}`,
+      
+"ps85":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>085 </b></td><td>ASHTON</td><td>471</td><td>387</td><td>452</td><td>279</td><td>372</td><td>331</td><td>165</td><td>254</td><td>173</td><td><b>2884</b></td></tr></table>"}`,
+      
+"ps86":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 086</b></td><td>STEENBERG</td><td>432</td><td>355</td><td>798</td><td>1888</td><td>671</td><td>2985</td><td>3002</td><td>1</td><td>1009</td><td><b>11141</b></td></tr></table>"}`,
+      
+"ps87":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 087</b></td><td>PHILLIPI-EAST</td><td>771</td><td>482</td><td>987</td><td>2094</td><td>888</td><td>790</td><td>2341</td><td>0</td><td>652</td><td><b>9005</b></td></tr></table>"}`,
+      
+"ps88":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 088</b></td><td>FISH HOEK</td><td>623</td><td>417</td><td>985</td><td>2719</td><td>999</td><td>1327</td><td>1953</td><td>0</td><td>834</td><td><b>9857</b></td></tr></table>"}`,
+      
+"ps89":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 089</b></td><td>VREDENDAL</td><td>602</td><td>875</td><td>766</td><td>1098</td><td>2371</td><td>2672</td><td>1093</td><td>0</td><td>995</td><td><b>9932</b></td></tr></table>"}`,
+      
+"ps90":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 090</b></td><td>ELSIES RIVER</td><td>891</td><td>411</td><td>890</td><td>972</td><td>782</td><td>3209</td><td>3005</td><td>1</td><td>983</td><td><b>11144</b></td></tr></table>"}`,
+      
+"ps91":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 091</b></td><td>LUITZVILLE</td><td>802</td><td>662</td><td>939</td><td>2197</td><td>1852</td><td>1193</td><td>2892</td><td>0</td><td>783</td><td><b>11320</b></td></tr></table>"}`,
+      
+"ps92":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 092</b></td><td>CERES</td><td>893</td><td>461</td><td>1492</td><td>2721</td><td>900</td><td>1456</td><td>1732</td><td>0</td><td>769</td><td><b>10424</b></td></tr></table>"}`,
+      
+"ps93":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 093</b></td><td>BONNIEVALLE</td><td>731</td><td>511</td><td>903</td><td>3001</td><td>4243</td><td>2753</td><td>3142</td><td>0</td><td>2174</td><td><b>17458</b></td></tr></table>"}`,
+      
+"ps94":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 094</b></td><td>GOODWOOD</td><td>623</td><td>467</td><td>809</td><td>1439</td><td>1930</td><td>2094</td><td>1732</td><td>0</td><td>936</td><td><b>10030</b></td></tr></table>"}`,
+      
+"ps95":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 095</b></td><td>KRAAIFONTEIN</td><td>459</td><td>392</td><td>471</td><td>598</td><td>999</td><td>647</td><td>892</td><td>2</td><td>680</td><td><b>5140</b></tr></table>"}`,
+      
+"ps96":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 096</b></td><td>GUGULETHU</td><td>581</td><td>622</td><td>689</td><td>502</td><td>813</td><td>1201</td><td>995</td><td>0</td><td>684</td><td><b>5997</b></tr></table>"}`,
+      
+"ps97":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 097</b></td><td>MANENBERG</td><td>357</td><td>312</td><td>347</td><td>320</td><td>653</td><td>522</td><td>694</td><td>0</td><td>281</td><td><b>3486</b></tr></table>"}`,
+      
+"ps98":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 098</b></td><td>MITCHELLS PLAIN</td><td>367</td><td>289</td><td>343</td><td>433</td><td>791</td><td>649</td><td>1002</td><td>0</td><td>465</td><td><b>4339</b></tr></table>"}`,
+      
+"ps99":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 099</b></td><td>CALITZDORP</td><td>218</td><td>321</td><td>534</td><td>369</td><td>513</td><td>624</td><td>783</td><td>0</td><td>487</td><td><b>3849</b></tr></table>"}`,
+      
+"ps100":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 100</b></td><td>ATHLONE</td><td>187</td><td>277</td><td>432</td><td>341</td><td>657</td><td>588</td><td>702</td><td>0</td><td>491</td><td><b>3087</b></tr></table>"}`,
+      
+"ps101":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 101</b></td><td>BISHOP LAVIS</td><td>273</td><td>180</td><td>432</td><td>591</td><td>753</td><td>414</td><td>754</td><td>1</td><td>499</td><td><b>3897</b></tr></table>"}`,
+      
+"ps102":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>102 </b></td><td>DE RUST</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td></tr></table>"}`,
+      
+"ps103":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>103 </b></td><td>GEORGE</td><td>677</td><td>576</td><td>740</td><td>844</td><td>975</td><td>1753</td><td>925</td><td>0</td><td>812</td><td><b>7302</b></td></tr></table>"}`,
+      
+"ps104":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>104 </b></td><td>KNYSNA</td><td>873</td><td>636</td><td>974</td><td>1073</td><td>1107</td><td>1894</td><td>1007</td><td>0</td><td>1379</td><td><b>8943</b></td></tr></table>"}`,
+      
+"ps105":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>105 </b></td><td>MOSSEL BAY</td><td>431</td><td>328</td><td>519</td><td>672</td><td>801</td><td>1205</td><td>799</td><td>2</td><td>1356</td><td><b>6113</b></td></tr></table>"}`,
+      
+"ps106":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>106 </b></td><td>ALBERTINA</td><td>410</td><td>367</td><td>971</td><td>824</td><td>729</td><td>942</td><td>890</td><td>0</td><td>967</td><td><b>6100</b></td></tr></table>"}`,
+      
+"ps107":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>107 </b></td><td>GROOT BRAKRIVIER</td><td>369</td><td>453</td><td>748</td><td>927</td><td>832</td><td>953</td><td>895</td><td>1</td><td>873</td><td><b>6051</b></td></tr></table>"}`,
+      
+"ps108":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>108 </b></td><td>RIVERSDALE</td><td>261</td><td>394</td><td>723</td><td>1321</td><td>766</td><td>985</td><td>796</td><td>0</td><td>784</td><td><b>6030</b></td></tr></table>"}`,
+      
+"ps109":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>109 </b></td><td>BEAUFORT WEST</td><td>478</td><td>352</td><td>807</td><td>966</td><td>1578</td><td>2092</td><td>1347</td><td>0</td><td>1182</td><td><b>8982</b></td></tr></table>"}`,
+      
+"ps110":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>110 </b></td><td>LAAIPLEK</td><td>643</td><td>443</td><td>741</td><td>862</td><td>721</td><td>1698</td><td>669</td><td>0</td><td>1541</td><td><b>7318</b></td></tr></table>"}`,
+      
+"ps111":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>111 </b></td><td>BOTHASIG</td><td>257</td><td>329</td><td>355</td><td>179</td><td>237</td><td>194</td><td>252</td><td>173</td><td>141</td><td><b>2117</b></td></tr></table>"}`,
+      
+"ps112":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>112 </b></td><td>PRINCE ALBERT</td><td>136</td><td>214</td><td>168</td><td>257</td><td>325</td><td>109</td><td>159</td><td>264</td><td>147</td><td><b>1779</b></td></tr></table>"}`,
+      
+"ps113":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>113 </b></td><td>WOLSELEY</td><td>72</td><td>104</td><td>231</td><td>157</td><td>246</td><td>91</td><td>167</td><td>209</td><td>113</td><td><b>1390</b></td></tr></table>"}`,
+      
+"ps114":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>114 </b></td><td>RAVENSMEAD</td><td>368</td><td>237</td><td>256</td><td>197</td><td>204</td><td>264</td><td>173</td><td>194</td><td>234</td><td><b>2127</b></td></tr></table>"}`,
+      
+"ps115":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>115 </b></td><td>LENTENGEUR</td><td>88</td><td>103</td><td>217</td><td>129</td><td>172</td><td>184</td><td>219</td><td>231</td><td>111</td><td><b>1454</b></td></tr></table>"}`,
+      
+"ps116":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>116 </b></td><td>FRANCHHOEK</td><td>244</td><td>125</td><td>218</td><td>322</td><td>231</td><td>147</td><td>298</td><td>213</td><td>222</td><td><b>2020</b></td></tr></table>"}`,
+      
+"ps117":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>117 </b></td><td>HOPEFIELD</td><td>134</td><td>362</td><td>245</td><td>178</td><td>248</td><td>329</td><td>249</td><td>199</td><td>227</td><td><b>2171</b></td></tr></table>"}`,
+
+"ps118":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>118 </b></td><td>BRACKENFELL</td><td>418</td><td>319</td><td>333</td><td>372</td><td>146</td><td>322</td><td>273</td><td>183</td><td>257</td><td><b>2587</b></td></tr></table>"}`,
+      
+ "ps119":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 119</b></td><td>STELLENBOSCH</td><td>674</td><td>543</td><td>1903</td><td>2892</td><td>973</td><td>1479</td><td>2194</td><td>0</td><td>619</td><td><b>11276</b></td></tr></table>"}`,
+         
+"ps120":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 120</b></td><td>MCGREGOR</td><td>318</td><td>207</td><td>2180</td><td>1974</td><td>682</td><td>2981</td><td>1777</td><td>2</td><td>856</td><td><b>10977</b></td></tr></table>"}`,
+
+"err":
+`{"description": "<p style='background-color:rgb(200, 0, 0);'>Invalid input try Again!</p>"}`,
+}
+      var err = JSON.parse(data.err);
+      var table = JSON.parse(data.table);
+      var green = JSON.parse(data.green);
+      var yellow = JSON.parse(data.yellow);
+      var orange = JSON.parse(data.orange);
+      var red = JSON.parse(data.red);
+      var obj1 = JSON.parse(data.ps1);
+      var obj2 = JSON.parse(data.ps2);
+      var obj3 = JSON.parse(data.ps3);
+      var obj4 = JSON.parse(data.ps4);
+      var obj5 = JSON.parse(data.ps5);
+      var obj6 = JSON.parse(data.ps6);
+      var obj7 = JSON.parse(data.ps7);
+      var obj8 = JSON.parse(data.ps8);
+      var obj9 = JSON.parse(data.ps9);
+      var obj10 = JSON.parse(data.ps10);
+      var obj11 = JSON.parse(data.ps11);
+      var obj12 = JSON.parse(data.ps12);
+      var obj13 = JSON.parse(data.ps13);
+      var obj14 = JSON.parse(data.ps14);
+      var obj15 = JSON.parse(data.ps15);
+      var obj16 = JSON.parse(data.ps16);
+      var obj17 = JSON.parse(data.ps17);
+      var obj18 = JSON.parse(data.ps18);
+      var obj19 = JSON.parse(data.ps19);
+      var obj20 = JSON.parse(data.ps20);
+      var obj21 = JSON.parse(data.ps21);
+      var obj22 = JSON.parse(data.ps22);
+      var obj23 = JSON.parse(data.ps23);
+      var obj24 = JSON.parse(data.ps24);
+      var obj25 = JSON.parse(data.ps25);
+      var obj26 = JSON.parse(data.ps26);
+      var obj27 = JSON.parse(data.ps27);
+      var obj28 = JSON.parse(data.ps28);
+      var obj29 = JSON.parse(data.ps29);
+      var obj30 = JSON.parse(data.ps30);
+      var obj31 = JSON.parse(data.ps31);
+      var obj32 = JSON.parse(data.ps32);
+      var obj33 = JSON.parse(data.ps33);
+      var obj34 = JSON.parse(data.ps34);
+      var obj35 = JSON.parse(data.ps35);
+      var obj36 = JSON.parse(data.ps36);
+      var obj37 = JSON.parse(data.ps37);
+      var obj38 = JSON.parse(data.ps38);
+      var obj39 = JSON.parse(data.ps39);
+      var obj40 = JSON.parse(data.ps40);
+      var obj41 = JSON.parse(data.ps41);
+      var obj42 = JSON.parse(data.ps42);
+      var obj43 = JSON.parse(data.ps43);
+      var obj44 = JSON.parse(data.ps44);
+      var obj45 = JSON.parse(data.ps45);
+      var obj46 = JSON.parse(data.ps46);
+      var obj47 = JSON.parse(data.ps47);
+      var obj48 = JSON.parse(data.ps48);
+      var obj49 = JSON.parse(data.ps49);
+      var obj50 = JSON.parse(data.ps50);
+      var obj51 = JSON.parse(data.ps51);
+      var obj52 = JSON.parse(data.ps52);
+      var obj53 = JSON.parse(data.ps53);
+      var obj54 = JSON.parse(data.ps54);
+      var obj55 = JSON.parse(data.ps55);
+      var obj56 = JSON.parse(data.ps56);
+      var obj57 = JSON.parse(data.ps57);
+      var obj58 = JSON.parse(data.ps58);
+      var obj59 = JSON.parse(data.ps59);
+      var obj60 = JSON.parse(data.ps60);
+      var obj61 = JSON.parse(data.ps61);
+      var obj62 = JSON.parse(data.ps62);
+      var obj63 = JSON.parse(data.ps63);
+      var obj64 = JSON.parse(data.ps64);
+      var obj65 = JSON.parse(data.ps65);
+      var obj66 = JSON.parse(data.ps66);
+      var obj67 = JSON.parse(data.ps67);
+      var obj68 = JSON.parse(data.ps68);
+      var obj69 = JSON.parse(data.ps69);
+      var obj70 = JSON.parse(data.ps70);
+      var obj71 = JSON.parse(data.ps71);
+      var obj72 = JSON.parse(data.ps72);
+      var obj73 = JSON.parse(data.ps73);
+      var obj74 = JSON.parse(data.ps74);
+      var obj75 = JSON.parse(data.ps75);
+      var obj76 = JSON.parse(data.ps76);
+      var obj77 = JSON.parse(data.ps77);
+      var obj78 = JSON.parse(data.ps78);
+      var obj79 = JSON.parse(data.ps79);
+      var obj80 = JSON.parse(data.ps80);
+      var obj81 = JSON.parse(data.ps81);
+      var obj82 = JSON.parse(data.ps82);
+      var obj83 = JSON.parse(data.ps83);
+      var obj84 = JSON.parse(data.ps84);
+      var obj85 = JSON.parse(data.ps85);
+      var obj86 = JSON.parse(data.ps86);
+      var obj87 = JSON.parse(data.ps87);
+      var obj88 = JSON.parse(data.ps88);
+      var obj89 = JSON.parse(data.ps89);
+      var obj90 = JSON.parse(data.ps90);
+      var obj91 = JSON.parse(data.ps91);
+      var obj92 = JSON.parse(data.ps92);
+      var obj93 = JSON.parse(data.ps93);
+      var obj94 = JSON.parse(data.ps94);
+      var obj95 = JSON.parse(data.ps95);
+      var obj96 = JSON.parse(data.ps96);
+      var obj97 = JSON.parse(data.ps97);
+      var obj98 = JSON.parse(data.ps98);
+      var obj99 = JSON.parse(data.ps99);
+      var obj100 = JSON.parse(data.ps100);
+      var obj101 = JSON.parse(data.ps101);
+      var obj102 = JSON.parse(data.ps102);
+      var obj103 = JSON.parse(data.ps103);
+      var obj104 = JSON.parse(data.ps104);
+      var obj105 = JSON.parse(data.ps105);
+      var obj106 = JSON.parse(data.ps106);
+      var obj107 = JSON.parse(data.ps107);
+      var obj108 = JSON.parse(data.ps108);
+      var obj109 = JSON.parse(data.ps109);
+      var obj110 = JSON.parse(data.ps110);
+      var obj111 = JSON.parse(data.ps111);
+      var obj112 = JSON.parse(data.ps112);
+      var obj113 = JSON.parse(data.ps113);
+      var obj114 = JSON.parse(data.ps114);
+      var obj115 = JSON.parse(data.ps115);
+      var obj116 = JSON.parse(data.ps116);
+      var obj117 = JSON.parse(data.ps117);
+      var obj118 = JSON.parse(data.ps118);
+      var obj119 = JSON.parse(data.ps119);
+      var obj120 = JSON.parse(data.ps120);
+     
+function getValue() {
+
+var val = document.getElementById("inputa").value;
+if (val == "table") {
+document.getElementById("demo").innerHTML = table.description;}
+else if (val == "green") {
+document.getElementById("demo").innerHTML = green.description;}
+else if (val == "yellow") {
+document.getElementById("demo").innerHTML = yellow.description;}
+else if (val == "orange") {
+document.getElementById("demo").innerHTML = orange.description;}
+else if (val == "red") {
+document.getElementById("demo").innerHTML = red.description;}
+else if (val == 1)  {
+document.getElementById("demo").innerHTML = obj1.description;}
+else if (val == 2)  {
+document.getElementById("demo").innerHTML = obj2.description;}
+else if (val == 3)  {
+document.getElementById("demo").innerHTML = obj3.description;}
+else if (val == 4)  {
+document.getElementById("demo").innerHTML = obj4.description;}
+else if (val == 5)  {
+document.getElementById("demo").innerHTML = obj5.description;}
+else if (val == 6)  {
+document.getElementById("demo").innerHTML = obj6.description;}
+else if (val == 7)  {
+document.getElementById("demo").innerHTML = obj7.description;}
+else if (val == 8)  {
+document.getElementById("demo").innerHTML = obj8.description;}
+else if (val == 9)  {
+document.getElementById("demo").innerHTML = obj9.description;}
+else if (val == 10)  {
+document.getElementById("demo").innerHTML = obj10.description;}
+else if (val == 11)  {
+document.getElementById("demo").innerHTML = obj11.description;}
+else if (val == 12)  {
+document.getElementById("demo").innerHTML = obj12.description;}
+else if (val == 13)  {
+document.getElementById("demo").innerHTML = obj13.description;}
+else if (val == 14)  {
+document.getElementById("demo").innerHTML = obj14.description;}
+else if (val == 15)  {
+document.getElementById("demo").innerHTML = obj15.description;}
+else if (val == 16)  {
+document.getElementById("demo").innerHTML = obj16.description;}
+else if (val == 17)  {
+document.getElementById("demo").innerHTML = obj17.description;}
+else if (val == 18)  {
+document.getElementById("demo").innerHTML = obj18.description;}
+else if (val == 19)  {
+document.getElementById("demo").innerHTML = obj19.description;}
+else if (val == 20)  {
+document.getElementById("demo").innerHTML = obj20.description;}
+else if (val == 21)  {
+document.getElementById("demo").innerHTML = obj21.description;}
+else if (val == 22)  {
+document.getElementById("demo").innerHTML = obj22.description;}
+else if (val == 23)  {
+document.getElementById("demo").innerHTML = obj23.description;}
+else if (val == 24)  {
+document.getElementById("demo").innerHTML = obj24.description;}
+else if (val == 25)  {
+document.getElementById("demo").innerHTML = obj25.description;}
+else if (val == 26)  {
+document.getElementById("demo").innerHTML = obj26.description;}
+else if (val == 27)  {
+document.getElementById("demo").innerHTML = obj27.description;}
+else if (val == 28)  {
+document.getElementById("demo").innerHTML = obj28.description;}
+else if (val == 29)  {
+document.getElementById("demo").innerHTML = obj29.description;}
+else if (val == 30)  {
+document.getElementById("demo").innerHTML = obj30.description;}
+else if (val == 31)  {
+document.getElementById("demo").innerHTML = obj31.description;}
+else if (val == 32)  {
+document.getElementById("demo").innerHTML = obj32.description;}
+else if (val == 33)  {
+document.getElementById("demo").innerHTML = obj33.description;}
+else if (val == 34)  {
+document.getElementById("demo").innerHTML = obj34.description;}
+else if (val == 35)  {
+document.getElementById("demo").innerHTML = obj35.description;}
+else if (val == 36)  {
+document.getElementById("demo").innerHTML = obj36.description;}
+else if (val == 37)  {
+document.getElementById("demo").innerHTML = obj37.description;}
+else if (val == 38)  {
+document.getElementById("demo").innerHTML = obj38.description;}
+else if (val == 39)  {
+document.getElementById("demo").innerHTML = obj39.description;}
+else if (val == 40)  {
+document.getElementById("demo").innerHTML = obj40.description;}
+else if (val == 41)  {
+document.getElementById("demo").innerHTML = obj41.description;}
+else if (val == 42)  {
+document.getElementById("demo").innerHTML = obj42.description;}
+else if (val == 43)  {
+document.getElementById("demo").innerHTML = obj43.description;}
+else if (val == 44)  {
+document.getElementById("demo").innerHTML = obj44.description;}
+else if (val == 45)  {
+document.getElementById("demo").innerHTML = obj45.description;}
+else if (val == 46)  {
+document.getElementById("demo").innerHTML = obj46.description;}
+else if (val == 47)  {
+document.getElementById("demo").innerHTML = obj47.description;}
+else if (val == 48)  {
+document.getElementById("demo").innerHTML = obj48.description;}
+else if (val == 49)  {
+document.getElementById("demo").innerHTML = obj49.description;}
+else if (val == 50)  {
+document.getElementById("demo").innerHTML = obj50.description;}
+else if (val == 51)  {
+document.getElementById("demo").innerHTML = obj51.description;}
+else if (val == 52)  {
+document.getElementById("demo").innerHTML = obj52.description;}
+else if (val == 53)  {
+document.getElementById("demo").innerHTML = obj53.description;}
+else if (val == 54)  {
+document.getElementById("demo").innerHTML = obj54.description;}
+else if (val == 55)  {
+document.getElementById("demo").innerHTML = obj55.description;}
+else if (val == 56)  {
+document.getElementById("demo").innerHTML = obj56.description;}
+else if (val == 57) {
+document.getElementById("demo").innerHTML = obj57.description;}
+else if (val == 58) {
+document.getElementById("demo").innerHTML = obj58.description;}
+else if (val == 59) {
+document.getElementById("demo").innerHTML = obj59.description;}
+else if (val == 60)  {
+document.getElementById("demo").innerHTML = obj60.description;}
+else if (val == 61)  {
+document.getElementById("demo").innerHTML = obj61.description;}
+else if (val == 62)  {
+document.getElementById("demo").innerHTML = obj62.description;}
+else if (val == 63)  {
+document.getElementById("demo").innerHTML = obj63.description;}
+else if (val == 64)  {
+document.getElementById("demo").innerHTML = obj64.description;}
+else if (val == 65)  {
+document.getElementById("demo").innerHTML = obj65.description;}
+else if (val == 66)  {
+document.getElementById("demo").innerHTML = obj66.description;}
+else if (val == 67)  {
+document.getElementById("demo").innerHTML = obj67.description;}
+else if (val == 68)  {
+document.getElementById("demo").innerHTML = obj68.description;}
+else if (val == 69)  {
+document.getElementById("demo").innerHTML = obj69.description;}
+else if (val == 70)  {
+document.getElementById("demo").innerHTML = obj70.description;}
+else if (val == 71)  {
+document.getElementById("demo").innerHTML = obj71.description;}
+else if (val == 72)  {
+document.getElementById("demo").innerHTML = obj72.description;}
+else if (val == 73)  {
+document.getElementById("demo").innerHTML = obj73.description;}
+else if (val == 74)  {
+document.getElementById("demo").innerHTML = obj74.description;}
+else if (val == 75)  {
+document.getElementById("demo").innerHTML = obj75.description;}
+else if (val == 76)  {
+document.getElementById("demo").innerHTML = obj76.description;}
+else if (val == 77)  {
+document.getElementById("demo").innerHTML = obj77.description;}
+else if (val == 78)  {
+document.getElementById("demo").innerHTML = obj78.description;}
+else if (val == 79)  {
+document.getElementById("demo").innerHTML = obj79.description;}
+else if (val == 80)  {
+document.getElementById("demo").innerHTML = obj80.description;}
+else if (val == 81)  {
+document.getElementById("demo").innerHTML = obj81.description;}
+else if (val == 82)  {
+document.getElementById("demo").innerHTML = obj82.description;}
+else if (val == 83)  {
+document.getElementById("demo").innerHTML = obj83.description;}
+else if (val == 84)  {
+document.getElementById("demo").innerHTML = obj84.description;}
+else if (val == 85)  {
+document.getElementById("demo").innerHTML = obj85.description;}
+else if (val == 86)  {
+document.getElementById("demo").innerHTML = obj86.description;}
+else if (val == 87)  {
+document.getElementById("demo").innerHTML = obj87.description;}
+else if (val == 88)  {
+document.getElementById("demo").innerHTML = obj88.description;}
+else if (val == 89)  {
+document.getElementById("demo").innerHTML = obj89.description;}
+else if (val == 90)  {
+document.getElementById("demo").innerHTML = obj90.description;}
+else if (val == 91)  {
+document.getElementById("demo").innerHTML = obj91.description;}
+else if (val == 92)  {
+document.getElementById("demo").innerHTML = obj92.description;}
+else if (val == 93)  {
+document.getElementById("demo").innerHTML = obj93.description;}
+else if (val == 94)  {
+document.getElementById("demo").innerHTML = obj94.description;}
+else if (val == 95)  {
+document.getElementById("demo").innerHTML = obj95.description;}
+else if (val == 96)  {
+document.getElementById("demo").innerHTML = obj96.description;}
+else if (val == 97)  {
+document.getElementById("demo").innerHTML = obj97.description;}
+else if (val == 98)  {
+document.getElementById("demo").innerHTML = obj98.description;}
+else if (val == 99)  {
+document.getElementById("demo").innerHTML = obj99.description;}
+else if (val == 100)  {
+document.getElementById("demo").innerHTML = obj100.description;}
+else if (val == 101)  {
+document.getElementById("demo").innerHTML = obj101.description;}
+else if (val == 102)  {
+document.getElementById("demo").innerHTML = obj102.description;}
+else if (val == 103)  {
+document.getElementById("demo").innerHTML = obj103.description;}
+else if (val == 104)  {
+document.getElementById("demo").innerHTML = obj104.description;}
+else if (val == 105)  {
+document.getElementById("demo").innerHTML = obj105.description;}
+else if (val == 106)  {
+document.getElementById("demo").innerHTML = obj106.description;}
+else if (val == 107)  {
+document.getElementById("demo").innerHTML = obj107.description;}
+else if (val == 108)  {
+document.getElementById("demo").innerHTML = obj108.description;}
+else if (val == 109)  {
+document.getElementById("demo").innerHTML = obj109.description;}
+else if (val == 110)  {
+document.getElementById("demo").innerHTML = obj110.description;}
+else if (val == 111)  {
+document.getElementById("demo").innerHTML = obj111.description;}
+else if (val == 112)  {
+document.getElementById("demo").innerHTML = obj112.description;}
+else if (val == 113)  {
+document.getElementById("demo").innerHTML = obj113.description;}
+else if (val == 114)  {
+document.getElementById("demo").innerHTML = obj114.description;}
+else if (val == 115)  {
+document.getElementById("demo").innerHTML = obj115.description;}
+else if (val == 116)  {
+document.getElementById("demo").innerHTML = obj116.description;}
+else if (val == 117)  {
+document.getElementById("demo").innerHTML = obj117.description;}
+else if (val == 118)  {
+document.getElementById("demo").innerHTML = obj118.description;}
+else if (val == 119)  {
+document.getElementById("demo").innerHTML = obj119.description;}
+else if (val == 120)  {
+document.getElementById("demo").innerHTML = obj120.description;}
+else {
+document.getElementById("demo").innerHTML = err.description;}     
+}
+
+   </script>
+</body>
+</html>

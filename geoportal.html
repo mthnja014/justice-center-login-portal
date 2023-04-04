@@ -652,6 +652,14 @@ var overlays= {
 L.Control.geocoder().addTo(map);
 var layerControl = L.control.layers(overlays).addTo(map);
 
+const searchcontrol = new L.control.search({
+layer: searchlayer,
+zoom: "80",
+propertyName: "name"}).addTo(map);
+
+map.addControl(searchcontrol);
+
+
 </script>
 <script>
 

@@ -653,7 +653,7 @@ L.Control.geocoder().addTo(map);
 var layerControl = L.control.layers(overlays).addTo(map);
 
 const searchcontrol = new L.control.search({
-layer: searchlayer,
+layer: "crime",
 zoom: "80",
 propertyName: "name"}).addTo(map);
 

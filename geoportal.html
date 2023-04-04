@@ -11,8 +11,7 @@
     <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.17/leaflet-maplibre-gl.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="data.js"></script>
-<script rel="stylesheet" href="https://unpkg.com/leaflet-search@3.0.2/dist/leaflet-search.src.js"></script>
+
 </head>
     <style type="text/css">
 #map {
@@ -651,14 +650,6 @@ var overlays= {
 };
 var layerControl = L.control.layers(overlays).addTo(map);
 L.Control.geocoder().addTo(map);
-
-const searchcontrol = new L.control.search({
-layer: "crime",
-zoom: "80",
-propertyName: "name"}).addTo(map);
-
-map.addControl(searchcontrol);
-
 
 </script>
 <script>

@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.17/leaflet-maplibre-gl.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
+<script src="leaflet-search.css"></script>
 </head>
     <style type="text/css">
 #map {
@@ -143,6 +143,11 @@ right: 10px;
     padding: 0;
     margin: 0;
 }
+#demo
+{position: absolute; top: 80%;}
+#inputa {
+position: absolute; top: 80px; left: 380px;
+}
     </style>
 <body>
 <div id="banner1">
@@ -176,25 +181,755 @@ right: 10px;
 
    </div>
 
-<div id="map">
+<div class="mp" id="map">
       <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"></a>
     </div>
     
  
     <script>
       const key = 'i39Qg6QqR6C1s4K7BGko';
-      var map = L.map('map').setView([-33, 19.5], 9);
-map.setMaxBounds([[-35, 17], [-28, 25]]);
-map.distance([-31.14, 18.72987], [-33.07946, 19.434]);
 
-map.setMinZoom(9);
-
+      var map = L.map('map').setView([0, 0], 6);
+map.setMinZoom(6);
+map.setMaxBounds([[-37, 15.8], [-28, 24.5]]);
 const gl = L.maplibreGL({
         attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
         style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
             }).addTo(map);
 
 L.control.scale({maxWidth: 100, metric: true, imperial: true}).setPosition('bottomright').addTo(map);
+
+var latlngs = [
+    [-35, 17],
+    [-31, 17],
+    [-31, 24],
+    [-35, 24],
+    [-35, 17]
+];
+
+var polylin = L.polyline(latlngs, {color: 'brown'}).addTo(map);
+
+var lg1 = [[-31, 18], [-35, 18]];
+var lg01 = L.polyline(lg1, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg031 = L.polygon([[-30, 18], [-30.2, 18], [-30.2, 17], [-30, 17]], {color: 'blue', weight: 0.4}).addTo(map);
+var lg032 = L.polygon([[-30, 19], [-30.2, 19], [-30.2, 18], [-30, 18]], {color: 'magenta', weight: 0.4}).addTo(map);
+var lg033 = L.polygon([[-30, 20], [-30.2, 20], [-30.2, 19], [-30, 19]], {color: 'blue', weight: 0.4}).addTo(map);
+var lg034 = L.polygon([[-30, 21], [-30.2, 21], [-30.2, 20], [-30, 20]], {color: 'magenta', weight: 0.4}).addTo(map);
+var lg035 = L.polygon([[-30, 22], [-30.2, 22], [-30.2, 21], [-30, 21]], {color: 'blue', weight: 0.4}).addTo(map);
+var lg036 = L.polygon([[-30, 23], [-30.2, 23], [-30.2, 22], [-30, 22]], {color: 'magenta', weight: 0.4}).addTo(map);
+var lg037 = L.polygon([[-30, 24], [-30.2, 24], [-30.2, 23], [-30, 23]], {color: 'blue', weight: 0.4}).addTo(map);
+
+var lg038 = L.polygon([[-31, 16], [-31, 16.2], [-32, 16.2], [-32, 16]], {color: 'blue', weight: 0.4}).addTo(map);
+var lg039 = L.polygon([[-32, 16], [-32, 16.2], [-33, 16.2], [-33, 16]], {color: 'magenta', weight: 0.4}).addTo(map);
+var lg040 = L.polygon([[-33, 16], [-33, 16.2], [-34, 16.2], [-34, 16]], {color: 'blue', weight: 0.4}).addTo(map);
+var lg041 = L.polygon([[-34, 16], [-34, 16.2], [-35, 16.2], [-35, 16]], {color: 'magenta', weight: 0.4}).addTo(map);
+
+var lg2 = [[-31, 18], [-35, 18]];
+var lg02 = L.polyline(lg2, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg3 = [[-31, 19], [-35, 19]];
+var lg03 = L.polyline(lg3, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg4 = [[-31, 20], [-35, 20]];
+var lg04 = L.polyline(lg4, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg5 = [[-31, 21], [-35, 21]];
+var lg05 = L.polyline(lg5, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg6 = [[-31, 22], [-35, 22]];
+var lg06 = L.polyline(lg6, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg7 = [[-31, 23], [-35, 23]];
+var lg07 = L.polyline(lg7, {color: 'blue', weight: 0.2}).addTo(map);
+var lg8 = [[-31, 24], [-35, 24]];
+var lg08 = L.polyline(lg8, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg9 = [[-32, 17], [-32, 24]];
+var lg09 = L.polyline(lg9, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg10 = [[-33, 17], [-33, 24]];
+var lg010 = L.polyline(lg10, {color: 'blue', weight: 0.2}).addTo(map);
+
+var lg11 = [[-34, 17], [-34, 24]];
+var lg011 = L.polyline(lg11, {color: 'blue', weight: 0.2}).addTo(map);
+
+var parent_g = L.featureGroup([lg031, lg032, lg033, lg034, lg035, lg036, lg037, lg038, lg039, lg040, lg041,
+lg02, lg03, lg04, lg05, lg06, lg07, lg08, lg09, lg010, lg011]);
+
+var lg211 = [[-31.5, 17], [-31.5, 24]];
+var lg2011 = L.polyline(lg211, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg212 = [[-31, 18.5], [-35, 18.5]];
+var lg2012 = L.polyline(lg212, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg213 = [[-31, 19.5], [-35, 19.5]];
+var lg2013 = L.polyline(lg213, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg214 = [[-31, 20.5], [-35, 20.5]];
+var lg2014 = L.polyline(lg214, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg215 = [[-31, 21.5], [-35, 21.5]];
+var lg2015 = L.polyline(lg215, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg216 = [[-31, 22.5], [-35, 22.5]];
+var lg2016 = L.polyline(lg216, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg217 = [[-31, 23.5], [-35, 23.5]];
+var lg2017 = L.polyline(lg217, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg218 = [[-31, 17.5], [-35, 17.5]];
+var lg2018 = L.polyline(lg218, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg219 = [[-33.5, 17], [-33.5, 24]];
+var lg2019 = L.polyline(lg219, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg220 = [[-34.5, 17], [-34.5, 24]];
+var lg2020 = L.polyline(lg220, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg221 = [[-31.5, 17], [-31.5, 24]];
+var lg2021 = L.polyline(lg221, {color: 'purple', weight: 0.2}).addTo(map);
+
+var lg222 = [[-32.5, 17], [-32.5, 24]];
+var lg2022 = L.polyline(lg222, {color: 'purple', weight: 0.2}).addTo(map);
+
+purp = L.featureGroup([lg2011, lg2012, lg2013, lg2014, lg2015, lg2016, lg2017, lg2018, lg2019, lg2020, lg2021, lg2022]);
+
+var lg2023 = L.polyline([[-31.25, 17], [-31.25, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2024 = L.polyline([[-31, 17.25], [-31.5, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var one_A =L.featureGroup([lg2023, lg2024]);
+
+var lg2025 = L.polyline([[-31.25, 17.5], [-31.25, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2026 = L.polyline([[-31, 17.75], [-31.5, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var one_B =L.featureGroup([lg2025, lg2026]);
+
+var lg2027 = L.polyline([[-31.75, 17], [-31.75, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2028 = L.polyline([[-31.5, 17.25], [-32, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var one_C =L.featureGroup([lg2027, lg2028]);
+
+var lg2029 = L.polyline([[-31.75, 17.5], [-31.75, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2030 = L.polyline([[-31.5, 17.75], [-32, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var one_D =L.featureGroup([lg2029, lg2030]);
+
+var lg2031 = L.polyline([[-31.25, 18], [-31.25, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2032 = L.polyline([[-31, 18.25], [-31.5, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var two_A =L.featureGroup([lg2031, lg2032]);
+
+var lg2033 = L.polyline([[-31.25, 18.5], [-31.25, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2034 = L.polyline([[-31, 18.75], [-31.5, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var two_B =L.featureGroup([lg2033, lg2034]);
+
+var lg2035 = L.polyline([[-31.75, 18], [-31.75, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2036 = L.polyline([[-31.5, 18.25], [-32, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var two_C =L.featureGroup([lg2035, lg2036]);
+
+var lg2037 = L.polyline([[-31.75, 18.5], [-31.75, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2038 = L.polyline([[-31.5, 18.75], [-32, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var two_D =L.featureGroup([lg2037, lg2038]);
+
+var lg2039 = L.polyline([[-31.25, 19], [-31.25, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2040 = L.polyline([[-31, 19.25], [-31.5, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var three_A =L.featureGroup([lg2039, lg2040]);
+
+var lg2041 = L.polyline([[-31.25, 19.5], [-31.25, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2042 = L.polyline([[-31, 19.75], [-31.5, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var three_B =L.featureGroup([lg2041, lg2042]);
+
+var lg2043 = L.polyline([[-31.75, 19], [-31.75, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2044 = L.polyline([[-31.5, 19.25], [-32, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var three_C =L.featureGroup([lg2043, lg2044]);
+
+var lg2045 = L.polyline([[-31.75, 19.5], [-31.75, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2046 = L.polyline([[-31.5, 19.75], [-32, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var three_D =L.featureGroup([lg2045, lg2046]);
+
+var lg2047 = L.polyline([[-31.25, 20], [-31.25, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2048 = L.polyline([[-31, 20.25], [-31.5, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var four_A =L.featureGroup([lg2047, lg2048]);
+
+var lg2049 = L.polyline([[-31.25, 20.5], [-31.25, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2050 = L.polyline([[-31, 20.75], [-31.5, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var four_B =L.featureGroup([lg2049, lg2050]);
+
+var lg2049 = L.polyline([[-31.75, 20], [-31.75, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2050 = L.polyline([[-31.5, 20.25], [-32, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var four_C =L.featureGroup([lg2049, lg2050]);
+
+var lg2051 = L.polyline([[-31.75, 20.5], [-31.75, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2052 = L.polyline([[-31.5, 20.75], [-32, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var four_D =L.featureGroup([lg2051, lg2052]);
+
+var lg2053 = L.polyline([[-31.25, 21], [-31.25, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2054 = L.polyline([[-31, 21.25], [-31.5, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var five_A =L.featureGroup([lg2053, lg2054]);
+
+var lg2055 = L.polyline([[-31.25, 21.5], [-31.25, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2056 = L.polyline([[-31, 21.75], [-31.5, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var five_B =L.featureGroup([lg2055, lg2056]);
+
+var lg2057 = L.polyline([[-31.75, 21], [-31.75, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2058 = L.polyline([[-31.5, 21.25], [-32, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var five_C =L.featureGroup([lg2057, lg2058]);
+
+var lg2059 = L.polyline([[-31.75, 21.5], [-31.75, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2060 = L.polyline([[-31.5, 21.75], [-32, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var five_D =L.featureGroup([lg2059, lg2060]);
+
+var lg2061 = L.polyline([[-31.25, 22], [-31.25, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2062 = L.polyline([[-31, 22.25], [-31.5, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var six_A =L.featureGroup([lg2061, lg2062]);
+
+var lg2063 = L.polyline([[-31.25, 22.5], [-31.25, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2064 = L.polyline([[-31, 22.75], [-31.5, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var six_B =L.featureGroup([lg2063, lg2064]);
+
+var lg2065 = L.polyline([[-31.75, 22], [-31.75, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2066 = L.polyline([[-31.5, 22.25], [-32, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var six_C =L.featureGroup([lg2065, lg2066]);
+
+var lg2067 = L.polyline([[-31.75, 22.5], [-31.75, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2068 = L.polyline([[-31.5, 22.75], [-32, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var six_D =L.featureGroup([lg2067, lg2068]);
+
+var lg2069 = L.polyline([[-31.25, 23], [-31.25, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2070 = L.polyline([[-31, 23.25], [-31.5, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var seven_A =L.featureGroup([lg2069, lg2070]);
+
+var lg2071 = L.polyline([[-31.25, 23.5], [-31.25, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2072 = L.polyline([[-31, 23.75], [-31.5, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var seven_B =L.featureGroup([lg2071, lg2072]);
+
+var lg2073 = L.polyline([[-31.75, 23], [-31.75, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2074 = L.polyline([[-31.5, 23.25], [-32, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var seven_C =L.featureGroup([lg2073, lg2074]);
+
+var lg2075 = L.polyline([[-31.75, 23.5], [-31.75, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2076 = L.polyline([[-31.5, 23.75], [-32, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var seven_D =L.featureGroup([lg2075, lg2076]);
+
+var lg2077 = L.polyline([[-32.25, 17], [-32.25, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2078 = L.polyline([[-32, 17.25], [-32.5, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eight_A =L.featureGroup([lg2077, lg2078]);
+
+var lg2079 = L.polyline([[-32.25, 17.5], [-32.25, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2080 = L.polyline([[-32, 17.75], [-32.5, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eight_B =L.featureGroup([lg2079, lg2080]);
+
+var lg2081 = L.polyline([[-32.75, 17], [-32.75, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2082 = L.polyline([[-32.5, 17.25], [-33, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eight_C =L.featureGroup([lg2081, lg2082]);
+
+var lg2083 = L.polyline([[-32.75, 17.5], [-32.75, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2084 = L.polyline([[-32.5, 17.75], [-33, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eight_D =L.featureGroup([lg2083, lg2084]);
+
+var lg2085 = L.polyline([[-32.25, 18], [-32.25, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2086 = L.polyline([[-32, 18.25], [-32.5, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var nine_A =L.featureGroup([lg2085, lg2086]);
+
+var lg2087 = L.polyline([[-32.25, 18.5], [-32.25, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2088 = L.polyline([[-32, 18.75], [-32.5, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var nine_B =L.featureGroup([lg2087, lg2088]);
+
+var lg2089 = L.polyline([[-32.75, 18], [-32.75, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2090 = L.polyline([[-32.5, 18.25], [-33, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var nine_C =L.featureGroup([lg2089, lg2090]);
+
+var lg2091 = L.polyline([[-32.75, 18.5], [-32.75, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2092 = L.polyline([[-32.5, 18.75], [-33, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var nine_D =L.featureGroup([lg2091, lg2092]);
+
+var lg2093 = L.polyline([[-32.25, 19], [-32.25, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2094 = L.polyline([[-32, 19.25], [-32.5, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var ten_A =L.featureGroup([lg2093, lg2094]);
+
+var lg2095 = L.polyline([[-32.25, 19.5], [-32.25, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2096 = L.polyline([[-32, 19.75], [-32.5, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var ten_B =L.featureGroup([lg2095, lg2096]);
+
+var lg2097 = L.polyline([[-32.75, 19], [-32.75, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2098 = L.polyline([[-32.5, 19.25], [-33, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var ten_C =L.featureGroup([lg2097, lg2098]);
+
+var lg2099 = L.polyline([[-32.75, 19.5], [-32.75, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2100 = L.polyline([[-32.5, 19.75], [-33, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var ten_D =L.featureGroup([lg2099, lg2100]);
+
+var lg2101 = L.polyline([[-32.25, 20], [-32.25, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2102 = L.polyline([[-32, 20.25], [-32.5, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eleven_A =L.featureGroup([lg2101, lg2102]);
+
+var lg2103 = L.polyline([[-32.25, 20.5], [-32.25, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2104 = L.polyline([[-32, 20.75], [-32.5, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eleven_B =L.featureGroup([lg2103, lg2104]);
+
+var lg2105 = L.polyline([[-32.75, 20], [-32.75, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2106 = L.polyline([[-32.5, 20.25], [-33, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eleven_C =L.featureGroup([lg2105, lg2106]);
+
+var lg2107 = L.polyline([[-32.75, 20.5], [-32.75, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2108 = L.polyline([[-32.5, 20.75], [-33, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eleven_D =L.featureGroup([lg2107, lg2108]);
+
+var lg2109 = L.polyline([[-32.25, 21], [-32.25, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2110 = L.polyline([[-32, 21.25], [-32.5, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twelve_A =L.featureGroup([lg2109, lg2110]);
+
+var lg2111 = L.polyline([[-32.25, 21.5], [-32.25, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2112 = L.polyline([[-32, 21.75], [-32.5, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twelve_B =L.featureGroup([lg2111, lg2112]);
+
+var lg2113 = L.polyline([[-32.75, 21], [-32.75, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2114 = L.polyline([[-32.5, 21.25], [-33, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twelve_C =L.featureGroup([lg2113, lg2114]);
+
+var lg2115 = L.polyline([[-32.75, 21.5], [-32.75, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2116 = L.polyline([[-32.5, 21.75], [-33, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twelve_D =L.featureGroup([lg2115, lg2116]);
+
+var lg2117 = L.polyline([[-32.25, 22], [-32.25, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2118 = L.polyline([[-32, 22.25], [-32.5, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var thirteen_A =L.featureGroup([lg2117, lg2118]);
+
+var lg2119 = L.polyline([[-32.25, 22.5], [-32.25, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2120 = L.polyline([[-32, 22.75], [-32.5, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var thirteen_B =L.featureGroup([lg2119, lg2120]);
+
+var lg2121 = L.polyline([[-32.75, 22], [-32.75, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2122 = L.polyline([[-32.5, 22.25], [-33, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var thirteen_C =L.featureGroup([lg2121, lg2122]);
+
+var lg2123 = L.polyline([[-32.75, 22.5], [-32.75, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2124 = L.polyline([[-32.5, 22.75], [-33, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var thirteen_D =L.featureGroup([lg2123, lg2124]);
+
+var lg2125 = L.polyline([[-32.25, 23], [-32.25, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2126 = L.polyline([[-32, 23.25], [-32.5, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var fourteen_A =L.featureGroup([lg2125, lg2126]);
+
+var lg2127 = L.polyline([[-32.25, 23.5], [-32.25, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2128 = L.polyline([[-32, 23.75], [-32.5, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var fourteen_B =L.featureGroup([lg2127, lg2128]);
+
+var lg2129 = L.polyline([[-32.75, 23], [-32.75, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2130 = L.polyline([[-32.5, 23.25], [-33, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var fourteen_C =L.featureGroup([lg2129, lg2130]);
+
+var lg2131 = L.polyline([[-32.75, 23.5], [-32.75, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2132 = L.polyline([[-32.5, 23.75], [-33, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var fourteen_D =L.featureGroup([lg2131, lg2132]);
+
+var lg2133 = L.polyline([[-33.25, 17], [-33.25, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2134 = L.polyline([[-33, 17.25], [-33.5, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var fifteen_A =L.featureGroup([lg2133, lg2134]);
+
+var lg2135 = L.polyline([[-33.25, 17.5], [-33.25, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2136 = L.polyline([[-33, 17.75], [-33.5, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var fifteen_B =L.featureGroup([lg2135, lg2136]);
+
+var lg2137 = L.polyline([[-33.75, 17], [-33.75, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2138 = L.polyline([[-33.5, 17.25], [-34, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var fifteen_C =L.featureGroup([lg2137, lg2138]);
+
+var lg2139 = L.polyline([[-33.75, 17.5], [-33.75, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2140 = L.polyline([[-33.5, 17.75], [-34, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var fifteen_D =L.featureGroup([lg2139, lg2140]);
+
+var lg2141 = L.polyline([[-33.25, 18], [-33.25, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2142 = L.polyline([[-33, 18.25], [-33.5, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var sixteen_A =L.featureGroup([lg2141, lg2142]);
+
+var lg2143 = L.polyline([[-33.25, 18.5], [-33.25, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2144 = L.polyline([[-33, 18.75], [-33.5, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var sixteen_B =L.featureGroup([lg2143, lg2144]);
+
+var lg2145 = L.polyline([[-33.75, 18], [-33.75, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2146 = L.polyline([[-33.5, 18.25], [-34, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var sixteen_C =L.featureGroup([lg2145, lg2146]);
+
+var lg3145 = L.polyline([[-33.875, 18.25], [-33.875, 18.5]], {color: 'red', weight: 0.2}).addTo(map);
+var lg3146 = L.polyline([[-33.75, 18.375], [-34, 18.375]], {color: 'red', weight: 0.2}).addTo(map);
+var sixteen__C =L.featureGroup([lg3145, lg3146]);
+
+var lg3147 = L.polyline([[-33.9375, 18.375], [-33.9375, 18.5]], {color: 'blue', weight: 0.7}).addTo(map);
+var lg3148 = L.polyline([[-33.875, 18.4375], [-34, 18.4375]], {color: 'blue', weight: 0.7}).addTo(map);
+var sixteen___C =L.featureGroup([lg3147, lg3148]);
+
+var lg2147 = L.polyline([[-33.75, 18.5], [-33.75, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2148 = L.polyline([[-33.5, 18.75], [-34, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var sixteen_D =L.featureGroup([lg2147, lg2148]);
+
+var lg3147 = L.polyline([[-33.875, 18.5], [-33.875, 18.75]], {color: 'red', weight: 0.2}).addTo(map);
+var lg3148 = L.polyline([[-33.75, 18.625], [-34, 18.625]], {color: 'red', weight: 0.7}).addTo(map);
+var sixteen__D =L.featureGroup([lg3147, lg3148]);
+
+var lg3148 = L.polyline([[-33.9375, 18.5], [-33.9375, 18.625]], {color: 'blue', weight: 0.7}).addTo(map);
+var lg3149 = L.polyline([[-33.875, 18.5625], [-34, 18.5625]], {color: 'blue', weight: 0.7}).addTo(map);
+var sixteen___D =L.featureGroup([lg3148, lg3149]);
+
+var lg2149 = L.polyline([[-33.25, 19], [-33.25, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2150 = L.polyline([[-33, 19.25], [-33.5, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var seventeen_A =L.featureGroup([lg2149, lg2150]);
+
+var lg2151 = L.polyline([[-33.25, 19.5], [-33.25, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2152 = L.polyline([[-33, 19.75], [-33.5, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var seventeen_B =L.featureGroup([lg2151, lg2152]);
+
+var lg2153 = L.polyline([[-33.75, 19], [-33.75, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2154 = L.polyline([[-33.5, 19.25], [-34, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var seventeen_C =L.featureGroup([lg2153, lg2154]);
+
+var lg2155 = L.polyline([[-33.75, 19.5], [-33.75, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2156 = L.polyline([[-33.5, 19.75], [-34, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var seventeen_D =L.featureGroup([lg2155, lg2156]);
+
+var lg2157 = L.polyline([[-33.25, 20], [-33.25, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2158 = L.polyline([[-33, 20.25], [-33.5, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eighteen_A =L.featureGroup([lg2157, lg2158]);
+
+var lg2151 = L.polyline([[-33.25, 20.5], [-33.25, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2152 = L.polyline([[-33, 20.75], [-33.5, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eighteen_B =L.featureGroup([lg2151, lg2152]);
+
+var lg2159 = L.polyline([[-33.75, 20], [-33.75, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2160 = L.polyline([[-33.5, 20.25], [-34, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var eighteen_C =L.featureGroup([lg2159, lg2160]);
+
+var lg2161 = L.polyline([[-33.75, 20.5], [-33.75, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2162 = L.polyline([[-33.5, 20.75], [-34, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var eighteen_D =L.featureGroup([lg2161, lg2162]);
+
+var lg2163 = L.polyline([[-33.25, 21], [-33.25, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2164 = L.polyline([[-33, 21.25], [-33.5, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var nineteen_A =L.featureGroup([lg2163, lg2164]);
+
+var lg2165 = L.polyline([[-33.25, 21.5], [-33.25, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2166 = L.polyline([[-33, 21.75], [-33.5, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var nineteen_B =L.featureGroup([lg2165, lg2166]);
+
+var lg2167 = L.polyline([[-33.75, 21], [-33.75, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2168 = L.polyline([[-33.5, 21.25], [-34, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var nineteen_C =L.featureGroup([lg2167, lg2168]);
+
+var lg2169 = L.polyline([[-33.75, 21.5], [-33.75, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2170 = L.polyline([[-33.5, 21.75], [-34, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var nineteen_D =L.featureGroup([lg2169, lg2170]);
+
+var lg2171 = L.polyline([[-33.25, 22], [-33.25, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2172 = L.polyline([[-33, 22.25], [-33.5, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twenty_A =L.featureGroup([lg2171, lg2172]);
+
+var lg2173 = L.polyline([[-33.25, 22.5], [-33.25, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2174 = L.polyline([[-33, 22.75], [-33.5, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twenty_B =L.featureGroup([lg2173, lg2174]);
+
+var lg2175 = L.polyline([[-33.75, 22], [-33.75, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2176 = L.polyline([[-33.5, 22.25], [-34, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twenty_C =L.featureGroup([lg2175, lg2176]);
+
+var lg2177 = L.polyline([[-33.75, 22.5], [-33.75, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2178 = L.polyline([[-33.5, 22.75], [-34, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twenty_D =L.featureGroup([lg2177, lg2178]);
+
+var lg2179 = L.polyline([[-33.25, 23], [-33.25, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2180 = L.polyline([[-33, 23.25], [-33.5, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyone_A =L.featureGroup([lg2179, lg2180]);
+
+var lg2181 = L.polyline([[-33.25, 23.5], [-33.25, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2182 = L.polyline([[-33, 23.75], [-33.5, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyone_B =L.featureGroup([lg2181, lg2182]);
+
+var lg2183 = L.polyline([[-33.75, 23], [-33.75, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2184 = L.polyline([[-33.5, 23.25], [-34, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyone_C =L.featureGroup([lg2183, lg2184]);
+
+var lg2185 = L.polyline([[-33.75, 23.5], [-33.75, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2186 = L.polyline([[-33.5, 23.75], [-34, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyone_D =L.featureGroup([lg2185, lg2186]);
+
+var lg2187 = L.polyline([[-34.25, 17], [-34.25, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2188 = L.polyline([[-34, 17.25], [-34.5, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentytwo_A =L.featureGroup([lg2187, lg2188]);
+
+var lg2189 = L.polyline([[-34.25, 17.5], [-34.25, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2190 = L.polyline([[-34, 17.75], [-34.5, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentytwo_B =L.featureGroup([lg2189, lg2190]);
+
+var lg2191 = L.polyline([[-34.75, 17], [-34.75, 17.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2192 = L.polyline([[-34.5, 17.25], [-35, 17.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentytwo_C =L.featureGroup([lg2191, lg2192]);
+
+var lg2193 = L.polyline([[-34.75, 17.5], [-34.75, 18]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2194 = L.polyline([[-34.5, 17.75], [-35, 17.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentytwo_D =L.featureGroup([lg2193, lg2194]);
+
+var lg2195 = L.polyline([[-34.25, 18], [-34.25, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2196 = L.polyline([[-34, 18.25], [-34.5, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentythree_A =L.featureGroup([lg2195, lg2196]);
+
+var lg2197 = L.polyline([[-34.25, 18.5], [-34.25, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2198 = L.polyline([[-34, 18.75], [-34.5, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentythree_B =L.featureGroup([lg2197, lg2198]);
+
+var lg3197 = L.polyline([[-34.125, 18.5], [-34.125, 18.75]], {color: 'red', weight: 0.2}).addTo(map);
+var lg3198 = L.polyline([[-34, 18.625], [-34.25, 18.625]], {color: 'red', weight: 0.2}).addTo(map);
+var twentythree__B =L.featureGroup([lg3197, lg3198]);
+
+var lg2199 = L.polyline([[-34.75, 18], [-34.75, 18.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2200 = L.polyline([[-34.5, 18.25], [-35, 18.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentythree_C =L.featureGroup([lg2199, lg2200]);
+
+var lg2201 = L.polyline([[-34.75, 18.5], [-34.75, 19]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2202 = L.polyline([[-34.5, 18.75], [-35, 18.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentythree_D =L.featureGroup([lg2201, lg2202]);
+
+var lg2203 = L.polyline([[-34.25, 19], [-34.25, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2204 = L.polyline([[-34, 19.25], [-34.5, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfour_A =L.featureGroup([lg2203, lg2204]);
+
+var lg2205 = L.polyline([[-34.25, 19.5], [-34.25, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2206 = L.polyline([[-34, 19.75], [-34.5, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfour_B =L.featureGroup([lg2205, lg2206]);
+
+var lg2207 = L.polyline([[-34.75, 19], [-34.75, 19.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2208 = L.polyline([[-34.5, 19.25], [-35, 19.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfour_C =L.featureGroup([lg2207, lg2208]);
+
+var lg2209 = L.polyline([[-34.75, 19.5], [-34.75, 20]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2210 = L.polyline([[-34.5, 19.75], [-35, 19.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfour_D =L.featureGroup([lg2209, lg2210]);
+
+var lg2211 = L.polyline([[-34.25, 20], [-34.25, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2212 = L.polyline([[-34, 20.25], [-34.5, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfive_A =L.featureGroup([lg2211, lg2212]);
+
+var lg2213 = L.polyline([[-34.25, 20.5], [-34.25, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2214 = L.polyline([[-34, 20.75], [-34.5, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfive_B =L.featureGroup([lg2213, lg2214]);
+
+var lg2215 = L.polyline([[-34.75, 20], [-34.75, 20.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2216 = L.polyline([[-34.5, 20.25], [-35, 20.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfive_C =L.featureGroup([lg2215, lg2216]);
+
+var lg2217 = L.polyline([[-34.75, 20.5], [-34.75, 21]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2218 = L.polyline([[-34.5, 20.75], [-35, 20.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyfive_D =L.featureGroup([lg2217, lg2218]);
+
+var lg2219 = L.polyline([[-34.25, 21], [-34.25, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2220 = L.polyline([[-34, 21.25], [-34.5, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentysix_A =L.featureGroup([lg2219, lg2220]);
+
+var lg2221 = L.polyline([[-34.25, 21.5], [-34.25, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2222 = L.polyline([[-34, 21.75], [-34.5, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentysix_B =L.featureGroup([lg2221, lg2222]);
+
+var lg2223 = L.polyline([[-34.75, 21], [-34.75, 21.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2224 = L.polyline([[-34.5, 21.25], [-35, 21.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentysix_C =L.featureGroup([lg2223, lg2224]);
+
+var lg2225 = L.polyline([[-34.75, 21.5], [-34.75, 22]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2226 = L.polyline([[-34.5, 21.75], [-35, 21.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentysix_D =L.featureGroup([lg2225, lg2226]);
+
+var lg2227 = L.polyline([[-34.25, 22], [-34.25, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2228 = L.polyline([[-34, 22.25], [-34.5, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyseven_A =L.featureGroup([lg2227, lg2228]);
+
+var lg2229 = L.polyline([[-34.25, 22.5], [-34.25, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2230 = L.polyline([[-34, 22.75], [-34.5, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyseven_B =L.featureGroup([lg2229, lg2230]);
+
+var lg2231 = L.polyline([[-34.75, 22], [-34.75, 22.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2232 = L.polyline([[-34.5, 22.25], [-35, 22.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyseven_C =L.featureGroup([lg2231, lg2232]);
+
+var lg2233 = L.polyline([[-34.75, 22.5], [-34.75, 23]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2234 = L.polyline([[-34.5, 22.75], [-35, 22.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyseven_D =L.featureGroup([lg2233, lg2234]);
+
+var lg2235 = L.polyline([[-34.25, 23], [-34.25, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2236 = L.polyline([[-34, 23.25], [-34.5, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyeight_A =L.featureGroup([lg2235, lg2236]);
+
+var lg2237 = L.polyline([[-34.25, 23.5], [-34.25, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2238 = L.polyline([[-34, 23.75], [-34.5, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyeight_B =L.featureGroup([lg2237, lg2238]);
+
+var lg2239 = L.polyline([[-34.75, 23], [-34.75, 23.5]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2240 = L.polyline([[-34.5, 23.25], [-35, 23.25]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyeight_C =L.featureGroup([lg2239, lg2240]);
+
+var lg2241 = L.polyline([[-34.75, 23.5], [-34.75, 24]], {color: 'green', weight: 0.2}).addTo(map);
+var lg2242 = L.polyline([[-34.5, 23.75], [-35, 23.75]], {color: 'green', weight: 0.2}).addTo(map);
+var twentyeight_D =L.featureGroup([lg2241, lg2242]);
+
+var one_ = L.polyline([[-31.5, 17], [-31.5, 18]], {color: 'purple', weight: 0.4});
+var one__ =L.polyline([[-31, 17.5], [-32, 17.5]], {color: 'purple', weight: 0.4});
+var one___ =L.featureGroup([one_, one__]);
+var one = L.polygon([[-31, 17], [-32, 17], [-32, 18], [-31, 18]], {color: 'blue', weight: 0.1}).addTo(map);
+var onee = L.layerGroup([one, one___]);
+
+var two_ = L.polyline([[-31.5, 18], [-31.5, 19]], {color: 'purple', weight: 0.4});
+var two__ =L.polyline([[-31, 18.5], [-32, 18.5]], {color: 'purple', weight: 0.4});
+var two___ =L.featureGroup([two_, two__]);
+var two =L.polygon([[-31, 18], [-32, 18], [-32, 19], [-31, 19]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twoo = L.layerGroup([two, two___]);
+
+var three_ = L.polyline([[-31.5, 19], [-31.5, 20]], {color: 'purple', weight: 0.4});
+var three__ =L.polyline([[-31, 19.5], [-32, 19.5]], {color: 'purple', weight: 0.4});
+var three___ =L.featureGroup([three_, three__]);
+var three = L.polygon([[-31, 19], [-32, 19], [-32, 20], [-31, 20]], {color: 'blue', weight: 0.1}).addTo(map);
+var threee = L.layerGroup([three, three___]);
+
+var four_ = L.polyline([[-31.5, 20], [-31.5, 21]], {color: 'purple', weight: 0.4});
+var four__ =L.polyline([[-31, 20.5], [-32, 20.5]], {color: 'purple', weight: 0.4});
+var four___ =L.featureGroup([four_, four__]);
+var four =L.polygon([[-31, 20], [-32, 20], [-32, 21], [-31, 21]], {color: 'magenta', weight: 0.1}).addTo(map);
+var fourr = L.layerGroup([four, four___]);
+
+var five_ = L.polyline([[-31.5, 21], [-31.5, 22]], {color: 'purple', weight: 0.4});
+var five__ =L.polyline([[-31, 21.5], [-32, 21.5]], {color: 'purple', weight: 0.4});
+var five___ =L.featureGroup([five_, five__]);
+var five = L.polygon([[-31, 21], [-32, 21], [-32, 22], [-31, 22]], {color: 'blue', weight: 0.1}).addTo(map);
+var fivee = L.layerGroup([five, five___]);
+
+var six_ = L.polyline([[-31.5, 22], [-31.5, 23]], {color: 'purple', weight: 0.4});
+var six__ =L.polyline([[-31, 22.5], [-32, 22.5]], {color: 'purple', weight: 0.4});
+var six___ =L.featureGroup([six_, six__]);
+var six =L.polygon([[-31, 22], [-32, 22], [-32, 23], [-31, 23]], {color: 'magenta', weight: 0.1}).addTo(map);
+var sixx = L.layerGroup([six, six___]);
+
+var seven_ = L.polyline([[-31.5, 23], [-31.5, 24]], {color: 'purple', weight: 0.4});
+var seven__ =L.polyline([[-31, 23.5], [-32, 23.5]], {color: 'purple', weight: 0.4});
+var seven___ =L.featureGroup([six_, six__]);
+var seven = L.polygon([[-31, 23], [-32, 23], [-32, 24], [-31, 24]], {color: 'blue', weight: 0.1}).addTo(map);
+var sevenn = L.layerGroup([seven, seven___]);
+
+var eight_ = L.polyline([[-32.5, 17], [-32.5, 18]], {color: 'purple', weight: 0.4});
+var eight__ =L.polyline([[-32, 17.5], [-33, 17.5]], {color: 'purple', weight: 0.4});
+var eight___ =L.featureGroup([eight_, eight__]);
+var eight = L.polygon([[-32, 17], [-33, 17], [-33, 18], [-32, 18]], {color: 'magenta', weight: 0.1}).addTo(map);
+var eightt = L.layerGroup([eight, eight___]);
+
+var nine_ = L.polyline([[-32.5, 18], [-32.5, 19]], {color: 'purple', weight: 0.4});
+var nine__ =L.polyline([[-32, 18.5], [-33, 18.5]], {color: 'purple', weight: 0.4});
+var nine___ =L.featureGroup([nine_, nine__]);
+var nine =L.polygon([[-32, 18], [-33, 18], [-33, 19], [-32, 19]], {color: 'blue', weight: 0.1}).addTo(map);
+var ninee = L.layerGroup([nine, nine___]);
+
+var ten_ = L.polyline([[-32.5, 19], [-32.5, 20]], {color: 'purple', weight: 0.4});
+var ten__ =L.polyline([[-32, 19.5], [-33, 19.5]], {color: 'purple', weight: 0.4});
+var ten___ =L.featureGroup([ten_, ten__]);
+var ten = L.polygon([[-32, 19], [-33, 19], [-33, 20], [-32, 20]], {color: 'magenta', weight: 0.1}).addTo(map);
+var tenn = L.layerGroup([ten, ten___]);
+
+var eleven_ = L.polyline([[-32.5, 20], [-32.5, 21]], {color: 'purple', weight: 0.4});
+var eleven__ =L.polyline([[-32, 20.5], [-33, 20.5]], {color: 'purple', weight: 0.4});
+var eleven___ =L.featureGroup([eleven_, eleven__]);
+var eleven =L.polygon([[-32, 20], [-33, 20], [-33, 21], [-32, 21]], {color: 'blue', weight: 0.1}).addTo(map);
+var elevenn = L.layerGroup([eleven, eleven___]);
+
+var twelve_ = L.polyline([[-32.5, 21], [-32.5, 22]], {color: 'purple', weight: 0.4});
+var twelve__ =L.polyline([[-32, 21.5], [-33, 21.5]], {color: 'purple', weight: 0.4});
+var twelve___ =L.featureGroup([twelve_, twelve__]);
+var twelve = L.polygon([[-32, 21], [-33, 21], [-33, 22], [-32, 22]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twelvee = L.layerGroup([twelve, twelve___]);
+
+var thirteen_ = L.polyline([[-32.5, 22], [-32.5, 23]], {color: 'purple', weight: 0.4});
+var thirteen__ =L.polyline([[-32, 22.5], [-33, 22.5]], {color: 'purple', weight: 0.4});
+var thirteen___ =L.featureGroup([thirteen_, thirteen__]);
+var thirteen =L.polygon([[-32, 22], [-33, 22], [-33, 23], [-32, 23]], {color: 'blue', weight: 0.1}).addTo(map);
+var thirteenn = L.layerGroup([thirteen, thirteen___]);
+
+var fourteen_ = L.polyline([[-32.5, 23], [-32.5, 24]], {color: 'purple', weight: 0.4});
+var fourteen__ =L.polyline([[-32, 23.5], [-33, 23.5]], {color: 'purple', weight: 0.4});
+var fourteen___ =L.featureGroup([fourteen_, fourteen__]);
+var fourteen = L.polygon([[-32, 23], [-33, 23], [-33, 24], [-32, 24]], {color: 'magenta', weight: 0.1}).addTo(map);
+var fourteenn = L.layerGroup([fourteen, fourteen___]);
+
+var fifteen_ = L.polyline([[-33.5, 17], [-33.5, 18]], {color: 'purple', weight: 0.4});
+var fifteen__ =L.polyline([[-33, 17.5], [-34, 17.5]], {color: 'purple', weight: 0.4});
+var fifteen___ =L.featureGroup([fifteen_, fifteen__]);
+var fifteen = L.polygon([[-33, 17], [-34, 17], [-34, 18], [-33, 18]], {color: 'blue', weight: 0.1}).addTo(map);
+var fifteenn = L.layerGroup([fifteen, fifteen___]);
+
+var sixteen_ = L.polyline([[-33.5, 18], [-33.5, 19]], {color: 'purple', weight: 0.4});
+var sixteen__ =L.polyline([[-33, 18.5], [-34, 18.5]], {color: 'purple', weight: 0.4});
+var sixteen___ =L.featureGroup([sixteen_, sixteen__]);
+var sixteen =L.polygon([[-33, 18], [-34, 18], [-34, 19], [-33, 19]], {color: 'magenta', weight: 0.1}).addTo(map);
+var sixteenn = L.layerGroup([sixteen, sixteen___]);
+
+var seventeen_ = L.polyline([[-33.5, 19], [-33.5, 20]], {color: 'purple', weight: 0.4});
+var seventeen__ =L.polyline([[-33, 19.5], [-34, 19.5]], {color: 'purple', weight: 0.4});
+var seventeen___ =L.featureGroup([seventeen_, seventeen__]);
+var seventeen = L.polygon([[-33, 19], [-34, 19], [-34, 20], [-33, 20]], {color: 'blue', weight: 0.1}).addTo(map);
+var seventeenn = L.layerGroup([seventeen, seventeen___]);
+
+var eighteen_ = L.polyline([[-33.5, 20], [-33.5, 21]], {color: 'purple', weight: 0.4});
+var eighteen__ =L.polyline([[-33, 20.5], [-34, 20.5]], {color: 'purple', weight: 0.4});
+var eighteen___ =L.featureGroup([eighteen_, eighteen__]);
+var eighteen =L.polygon([[-33, 20], [-34, 20], [-34, 21], [-33, 21]], {color: 'magenta', weight: 0.1}).addTo(map);
+var eighteenn = L.layerGroup([eighteen, eighteen___]);
+
+var nineteen_ = L.polyline([[-33.5, 21], [-32.5, 22]], {color: 'purple', weight: 0.4});
+var nineteen__ =L.polyline([[-33, 21.5], [-33, 21.5]], {color: 'purple', weight: 0.4});
+var nineteen___ =L.featureGroup([nineteen_, nineteen__]);
+var nineteen = L.polygon([[-33, 21], [-34, 21], [-34, 22], [-33, 22]], {color: 'blue', weight: 0.1}).addTo(map);
+var nineteenn = L.layerGroup([nineteen, nineteen___]);
+
+var twenty_ = L.polyline([[-33.5, 22], [-33.5, 23]], {color: 'purple', weight: 0.4});
+var twenty__ =L.polyline([[-33, 22.5], [-34, 22.5]], {color: 'purple', weight: 0.4});
+var twenty___ =L.featureGroup([twenty_, twenty__]);
+var twenty =L.polygon([[-33, 22], [-34, 22], [-34, 23], [-33, 23]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twentyy = L.layerGroup([twenty, twenty___]);
+
+var twentyone_ = L.polyline([[-33.5, 23], [-33.5, 24]], {color: 'purple', weight: 0.4});
+var twentyone__ =L.polyline([[-33, 23.5], [-34, 23.5]], {color: 'purple', weight: 0.4});
+var twentyone___ =L.featureGroup([twentyone_, twentyone__]);
+var twentyone = L.polygon([[-33, 23], [-34, 23], [-34, 24], [-33, 24]], {color: 'blue', weight: 0.1}).addTo(map);
+var twentyonee = L.layerGroup([twentyone, twentyone___]);
+
+var twentytwo_ = L.polyline([[-34.5, 17], [-34.5, 18]], {color: 'purple', weight: 0.4});
+var twentytwo__ =L.polyline([[-34, 17.5], [-35, 17.5]], {color: 'purple', weight: 0.4});
+var twentytwo___ =L.featureGroup([twentytwo_, twentytwo__]);
+var twentytwo = L.polygon([[-34, 17], [-35, 17], [-35, 18], [-34, 18]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twentytwoo = L.layerGroup([twentytwo, twentytwo___]);
+
+var twentythree_ = L.polyline([[-34.5, 18], [-34.5, 19]], {color: 'purple', weight: 0.4});
+var twentythree__ =L.polyline([[-34, 18.5], [-35, 18.5]], {color: 'purple', weight: 0.4});
+var twentythree___ =L.featureGroup([twentythree_, twentythree__]);
+var twentythree =L.polygon([[-34, 18], [-35, 18], [-35, 19], [-34, 19]], {color: 'blue', weight: 0.1}).addTo(map);
+var twentythreee = L.layerGroup([twentythree, twentythree___]);
+
+var twentyfour_ = L.polyline([[-34.5, 19], [-34.5, 20]], {color: 'purple', weight: 0.4});
+var twentyfour__ =L.polyline([[-34, 19.5], [-35, 19.5]], {color: 'purple', weight: 0.4});
+var twentyfour___ =L.featureGroup([twentyfour_, twentyfour__]);
+var twentyfour = L.polygon([[-34, 19], [-35, 19], [-35, 20], [-34, 20]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twentyfourr = L.layerGroup([twentyfour, twentyfour___]);
+
+var twentyfive_ = L.polyline([[-34.5, 20], [-34.5, 21]], {color: 'purple', weight: 0.4});
+var twentyfive__ =L.polyline([[-34, 20.5], [-35, 20.5]], {color: 'purple', weight: 0.4});
+var twentyfive___ =L.featureGroup([twentyfive_, twentyfive__]);
+var twentyfive =L.polygon([[-34, 20], [-35, 20], [-35, 21], [-34, 21]], {color: 'blue', weight: 0.1}).addTo(map);
+var twentyfivee = L.layerGroup([twentyfive, twentyfive___]);
+
+var twentysix_ = L.polyline([[-34.5, 21], [-34.5, 22]], {color: 'purple', weight: 0.4});
+var twentysix__ =L.polyline([[-34, 21.5], [-35, 21.5]], {color: 'purple', weight: 0.4});
+var twentysix___ =L.featureGroup([twentysix_, twentysix__]);
+var twentysix = L.polygon([[-34, 21], [-35, 21], [-35, 22], [-34, 22]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twentysixx = L.layerGroup([twentysix, twentysix___]);
+
+var twentyseven_ = L.polyline([[-34.5, 22], [-34.5, 23]], {color: 'purple', weight: 0.4});
+var twentyseven__ =L.polyline([[-34, 22.5], [-35, 22.5]], {color: 'purple', weight: 0.4});
+var twentyseven___ =L.featureGroup([twentyseven_, twentyseven__]);
+var twentyseven =L.polygon([[-34, 22], [-35, 22], [-35, 23], [-34, 23]], {color: 'blue', weight: 0.1}).addTo(map);
+var twentysevenn = L.layerGroup([twentyseven, twentyseven___]);
+
+var twentyeight_ = L.polyline([[-34.5, 23], [-34.5, 24]], {color: 'purple', weight: 0.4});
+var twentyeight__ =L.polyline([[-34, 23.5], [-35, 23.5]], {color: 'purple', weight: 0.4});
+var twentyeight___ =L.featureGroup([twentyeight_, twentyeight__]);
+var twentyeight = L.polygon([[-34, 23], [-35, 23], [-35, 24], [-34, 24]], {color: 'magenta', weight: 0.1}).addTo(map);
+var twentyeightt = L.layerGroup([twentyeight, twentyeight___]);
 
 var marker1=L.circle([-32.15174, 18.60647], 50);
 marker1.bindPopup("id: 001 </br> name: GRAAFWATER</br> lat: -32.15174 </br> lng: 18.60647"); 
@@ -571,6 +1306,24 @@ marker124.bindPopup("id: 124 </br> name: HEIDELBERG(C) </br> lat: -34.08899 </br
 var marker125=L.circle([-34.05783, 23.37196], 50);
 marker125.bindPopup("id: 125 </br> name: PLETTENBERG BAY </br> lat: -34.05783 </br> lng: 23.37196");
 
+var gr = L.featureGroup([lg01, lg02, lg03, lg04, lg05, lg06, lg07, lg08, lg09, lg010, lg011,
+lg031, lg032, lg033, lg034, lg035, lg036, lg037, lg038, lg039, lg040, lg041
+]).addTo(map);
+
+var grid1 = L.layerGroup([gr]);
+
+var grn = L.featureGroup([gr, lg2011, lg2012, lg2013, lg2014, lg2015, lg2016, lg2017, lg2018, lg2019, lg2020, lg2021, lg2022, one_A, one_B, one_C, one_D, two_A, two_B, two_C, two_D, three_A, three_B, three_C, three_D, four_A, four_B, four_C, four_D, five_A, five_B, five_C, five_D, six_A, six_B, six_C, six_D, seven_A, seven_B, seven_C, seven_D, eight_A, eight_B, eight_C, eight_D, nine_A, nine_B, nine_C, nine_D, ten_A, ten_B, ten_C, ten_D, eleven_A, eleven_B, eleven_C, eleven_D, twelve_A, twelve_B, twelve_C, twelve_D, thirteen_A, thirteen_B, thirteen_C, thirteen_D, fourteen_A, fourteen_B, fourteen_C, fourteen_D, fifteen_A, fifteen_B, fifteen_C, fifteen_D, sixteen_A, sixteen_B, sixteen_C, sixteen__C, sixteen___C, sixteen_D, sixteen__D, sixteen___D, seventeen_A, seventeen_B, seventeen_C, seventeen_D, eighteen_A, eighteen_B, eighteen_C, eighteen_D, nineteen_A, nineteen_B, nineteen_C, nineteen_D, twenty_A, twenty_B, twenty_C, twenty_D, twentyone_A, twentyone_B, twentyone_C, twentyone_D, twentytwo_A, twentytwo_B, twentytwo_C, twentythree__B, twentytwo_D, twentythree_A, twentythree_B, twentythree_C, twentythree_D, twentyfour_A, twentyfour_B, twentyfour_C, twentyfour_D, twentyfive_A, twentyfive_B, twentyfive_C, twentyfive_D, twentysix_A, twentysix_B, twentysix_C, twentysix_D, twentyseven_A, twentyseven_B, twentyseven_C, twentyseven_D, twentyeight_A, twentyeight_B, twentyeight_C, twentyeight_D
+]);
+
+var grr = L.featureGroup([lg2011, lg2012, lg2013, lg2014, lg2015, lg2016, lg2017, lg2018, lg2019, lg2020, lg2021, lg2022]);
+
+
+var grrr = L.featureGroup([one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty, twentyone, twentytwo, twentythree, twentyfour, twentyfive, twentysix, twentyseven, twentyeight]);
+
+
+var grng =L.layerGroup([grn, grrr]);
+
+
 var fg2 = L.featureGroup([
 marker3, marker7, marker11, marker15, marker20, marker22, marker37, marker38, marker47,
 marker48, marker49, marker50, marker51, marker52, marker56, marker65, marker77, marker78,
@@ -586,10 +1339,406 @@ marker113, marker114, marker115, marker116, marker117, marker118
  fillOpacity: 0.3
 }).addTo(map);
 
+var bredasdor = L.featureGroup([marker3]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var bredasdorp = L.layerGroup([bredasdor]);
+
+var muizenber = L.featureGroup([marker7]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var muizenberg = L.layerGroup([muizenber]);
+
+var philipp = L.featureGroup([marker11]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var philippi = L.layerGroup([philipp]);
+
+var redelinghuy = L.featureGroup([marker15]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var redelinghuys = L.layerGroup([redelinghuy]);
+
+var doring_ba = L.featureGroup([marker20]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var doring_bay = L.layerGroup([doring_ba]);
+
+var mfulen = L.featureGroup([marker22]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mfuleni = L.layerGroup([mfulen]);
+
+var montag = L.featureGroup([marker37]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var montagu = L.layerGroup([montag]);
+
+var dieprivie = L.featureGroup([marker38]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var dieprivier = L.layerGroup([dieprivie]);
+
+var somerset_wes = L.featureGroup([marker47]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var somerset_west = L.layerGroup([somerset_wes]);
+
+var struisbaa = L.featureGroup([marker48]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var struisbaai = L.layerGroup([struisbaa]);
+
+var cloetesvill = L.featureGroup([marker49]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var cloetesville = L.layerGroup([cloetesvill]);
+
+var oudtshoor = L.featureGroup([marker50]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var oudtshoorn = L.layerGroup([oudtshoor]);
+
+var uniondal = L.featureGroup([marker51]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var uniondale = L.layerGroup([uniondal]);
+
+var ladismit = L.featureGroup([marker52]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var ladismith = L.layerGroup([ladismit]);
+
+var cape_town_centra = L.featureGroup([marker56]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var cape_town_central = L.layerGroup([cape_town_centra]);
+
+var touws_rive = L.featureGroup([marker65]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var touws_river = L.layerGroup([touws_rive]);
+
+var nuweru = L.featureGroup([marker77]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var nuwerus = L.layerGroup([nuweru]);
+
+var vanrhynsdor = L.featureGroup([marker78]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var vanrhynsdorp = L.layerGroup([vanrhynsdor]);
+
+var belha = L.featureGroup([marker79]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var belhar = L.layerGroup([belha]);
+
+var prince_alfred_hamle = L.featureGroup([marker80]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var prince_alfred_hamlet = L.layerGroup([prince_alfred_hamle]);
+
+var de_doorn = L.featureGroup([marker81]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var de_doorns = L.layerGroup([de_doorn]);
+
+var klapmut = L.featureGroup([marker82]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var klapmuts = L.layerGroup([klapmut]);
+
+var paro = L.featureGroup([marker83]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var parow = L.layerGroup([paro]);
+
+var barrydal = L.featureGroup([marker84]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var barrydale = L.layerGroup([barrydal]);
+
+var ashto = L.featureGroup([marker85]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var ashton = L.layerGroup([ashto]);
+
+var bothasi = L.featureGroup([marker111]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var bothasig = L.layerGroup([bothasi]);
+
+var prince_alber = L.featureGroup([marker112]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var prince_albert = L.layerGroup([prince_alber]);
+
+var wolsele = L.featureGroup([marker113]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var wolseley = L.layerGroup([wolsele]);
+
+var ravensmea = L.featureGroup([marker114]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var ravensmead = L.layerGroup([ravensmea]);
+
+var lentegeu = L.featureGroup([marker115]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var lentegeur = L.layerGroup([lentegeu]);
+
+var franschhoe = L.featureGroup([marker116]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var franschhoek = L.layerGroup([franschhoe]);
+
+var hopefiel = L.featureGroup([marker117]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var hopefield = L.layerGroup([hopefiel]);
+
+var brackenfel = L.featureGroup([marker118]).setStyle({
+ stroke: true,
+ color: "green",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "green",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var brackenfell = L.layerGroup([brackenfel]);
+
 var fg3 = L.featureGroup([
 marker1, marker5, marker9, marker13, marker17, marker18, marker31, marker32, marker57, 
-marker58, marker59, marker63, marker64, marker66, marker95, marker96, marker97, marker98,
-marker98, marker99, marker100, marker101, marker100
+marker58, marker59, marker63, marker64, marker66, marker95, marker96, marker97,
+marker98, marker99, marker100, marker101
 ]).setStyle({
  stroke: true,
  color: "yellow",
@@ -599,6 +1748,260 @@ marker98, marker99, marker100, marker101, marker100
  fillColor: "yellow",
  fillOpacity: 0.3
 }).addTo(map);
+
+var graafwate = L.featureGroup([marker1]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var graafwater = L.layerGroup([graafwate]);
+
+var garden = L.featureGroup([marker5]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var gardens = L.layerGroup([garden]);
+
+var lwandl = L.featureGroup([marker9]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var lwandle = L.layerGroup([lwandl]);
+
+var moorreesbur = L.featureGroup([marker13]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var moorreesburg = L.layerGroup([moorreesbur]);
+
+var vredenbur = L.featureGroup([marker17]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var vredenburg = L.layerGroup([vredenbur]);
+
+var citrusda = L.featureGroup([marker18]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var citrusdal = L.layerGroup([citrusda]);
+
+var napie = L.featureGroup([marker31]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var napier = L.layerGroup([napie]);
+
+var stran = L.featureGroup([marker32]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var strand = L.layerGroup([stran]);
+
+var camps_ba = L.featureGroup([marker57]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var camps_bay = L.layerGroup([camps_ba]);
+
+var maitlan = L.featureGroup([marker58]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var maitland = L.layerGroup([maitlan]);
+
+var milnerto = L.featureGroup([marker59]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var milnerton = L.layerGroup([milnerto]);
+
+var simon = L.featureGroup([marker63]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var simons = L.layerGroup([simon]);
+
+var kuilsrivie = L.featureGroup([marker64]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kuilsrivier = L.layerGroup([kuilsrivie]);
+
+var suurbraa = L.featureGroup([marker66]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var suurbraak = L.layerGroup([suurbraa]);
+
+var kraaifontei = L.featureGroup([marker95]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kraaifontein = L.layerGroup([kraaifontei]);
+
+var guguleth = L.featureGroup([marker96]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var gugulethu = L.layerGroup([guguleth]);
+
+var manenber = L.featureGroup([marker97]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var manenberg = L.layerGroup([manenber]);
+
+var mitchells_plai = L.featureGroup([marker98]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mitchells_plain = L.layerGroup([mitchells_plai]);
+
+var calitzdor = L.featureGroup([marker99]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var calitzdorp = L.layerGroup([calitzdor]);
+
+var athlon = L.featureGroup([marker100]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var athlone = L.layerGroup([athlon]);
+
+var bishop_lavi = L.featureGroup([marker101]).setStyle({
+ stroke: true,
+ color: "yellow",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "yellow",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var bishop_lavis = L.layerGroup([bishop_lavi]);
+
+
 
 var fg4 = L.featureGroup([
 marker4, marker8, marker12, marker16, marker23, marker27, marker35, marker39, marker41,
@@ -615,9 +2018,369 @@ marker107, marker108, marker109, marker110
  fillOpacity: 0.3
 }).addTo(map);
 
+var caledo = L.featureGroup([marker4]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var caledon = L.layerGroup([caledo]);
+
+var robertso = L.featureGroup([marker8]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var robertson = L.layerGroup([robertso]);
+
+var langebaa = L.featureGroup([marker12]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var langebaan = L.layerGroup([langebaa]);
+
+var st_helena_ba = L.featureGroup([marker16]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var st_helena_bay = L.layerGroup([st_helena_ba]);
+
+var riebeek_wes = L.featureGroup([marker23]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var riebeek_west = L.layerGroup([riebeek_wes]);
+
+var kleinvle = L.featureGroup([marker27]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kleinvlei = L.layerGroup([kleinvle]);
+
+var mowbra = L.featureGroup([marker35]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mowbray = L.layerGroup([mowbra]);
+
+var claremon = L.featureGroup([marker39]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var claremont = L.layerGroup([claremon]);
+
+var malmesbur = L.featureGroup([marker41]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var malmesbury = L.layerGroup([malmesbur]);
+
+var portervill = L.featureGroup([marker42]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var porterville = L.layerGroup([portervill]);
+
+var saldanh = L.featureGroup([marker43]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var saldanha = L.layerGroup([saldanh]);
+
+var khayelitsh = L.featureGroup([marker44]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var khayelitsha = L.layerGroup([khayelitsh]);
+
+var woodstoc = L.featureGroup([marker45]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var woodstock = L.layerGroup([woodstoc]);
+
+var riviersonderen = L.featureGroup([marker46]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var riviersonderend = L.layerGroup([riviersonderen]);
+
+var leeu_gamk = L.featureGroup([marker69]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var leeu_gamka = L.layerGroup([leeu_gamk]);
+
+var thembaleth = L.featureGroup([marker70]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var thembalethu = L.layerGroup([thembaleth]);
+
+var kwanonqab = L.featureGroup([marker71]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kwanonqaba = L.layerGroup([kwanonqab]);
+
+var kwanokuthul = L.featureGroup([marker72]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kwanokuthula = L.layerGroup([kwanokuthul]);
+
+var convill = L.featureGroup([marker73]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var conville = L.layerGroup([convill]);
+
+var klawe = L.featureGroup([marker74]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var klawer = L.layerGroup([klawe]);
+
+var lambertsbaa = L.featureGroup([marker75]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var lambertsbaai = L.layerGroup([lambertsbaa]);
+
+var sea_poin = L.featureGroup([marker76]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var sea_point = L.layerGroup([sea_poin]);
+
+var georg = L.featureGroup([marker103]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var george = L.layerGroup([georg]);
+
+var knysn = L.featureGroup([marker104]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var knysna = L.layerGroup([knysn]);
+
+var mossel_ba = L.featureGroup([marker105]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mossel_bay = L.layerGroup([mossel_ba]);
+
+var albertini = L.featureGroup([marker106]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var albertinia = L.layerGroup([albertini]);
+
+var groot_brakrivie = L.featureGroup([marker107]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var groot_brakrivier = L.layerGroup([groot_brakrivie]);
+
+var riversdal = L.featureGroup([marker108]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var riversdale = L.layerGroup([riversdal]);
+
+var beaufort_wes = L.featureGroup([marker109]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var beaufort_west = L.layerGroup([beaufort_wes]);
+
+var laaiple = L.featureGroup([marker110]).setStyle({
+ stroke: true,
+ color: "orange",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "orange",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var laaiplek = L.layerGroup([laaiple]);
+
 var fg5 = L.featureGroup([
 marker2, marker6, marker10, marker14, marker19, marker21, marker24, marker25, marker26,
-marker28, marker29, marker30, marker33, marker34, marker36, marker53, marker54, marker55,
+marker28, marker29, marker30, marker33, marker34, marker36, marker40, marker53, marker54, marker55,
 marker60, marker61, marker62, marker67, marker68, marker86, marker87, marker88, marker89,
 marker90, marker91, marker92, marker93, marker94, marker119, marker120, marker121, marker122,
 marker123, marker124, marker125
@@ -631,28 +2394,626 @@ marker123, marker124, marker125
  fillOpacity: 0.3
 }).addTo(map);
 
-var crime = L.layerGroup([fg2, fg3, fg4, fg5]).addTo(map);
+var vi = L.featureGroup([marker2]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
 
+var vil = L.layerGroup([vi]);
+
+var saro = L.featureGroup([marker40]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var saron = L.layerGroup([saro]);
+
+var ro = L.featureGroup([marker6]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var ron = L.layerGroup([ro]);
+
+var p = L.featureGroup([marker10]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var pe = L.layerGroup([p]);
+
+var pik = L.featureGroup([marker14]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var pike = L.layerGroup([pik]);
+
+var cla = L.featureGroup([marker19]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var clan = L.layerGroup([cla]);
+
+var swe = L.featureGroup([marker21]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var swel = L.layerGroup([swe]);
+
+var wel = L.featureGroup([marker24]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var weli = L.layerGroup([wel]);
+
+var tulbag = L.featureGroup([marker25]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var tulbagh = L.layerGroup([tulbag]);
+
+var harar = L.featureGroup([marker26]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var harare = L.layerGroup([harar]);
+
+var grabou = L.featureGroup([marker28]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var grabouw = L.layerGroup([grabou]);
+
+var hermanu = L.featureGroup([marker29]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var hermanus = L.layerGroup([hermanu]);
+
+var kleinmon = L.featureGroup([marker30]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kleinmond = L.layerGroup([kleinmon]);
+
+var lingeleth = L.featureGroup([marker33]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var lingelethu = L.layerGroup([lingeleth]);
+
+var groo = L.featureGroup([marker34]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var groot = L.layerGroup([groo]);
+
+var hout_ba = L.featureGroup([marker36]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var hout_bay = L.layerGroup([hout_ba]);
+
+var still_ba = L.featureGroup([marker53]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var still_bay = L.layerGroup([still_ba]);
+
+var laingsbur = L.featureGroup([marker54]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var laingsburg = L.layerGroup([laingsbur]);
+
+var murraysbur = L.featureGroup([marker55]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var murraysburg = L.layerGroup([murraysbur]);
+
+var pineland = L.featureGroup([marker60]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var pinelands = L.layerGroup([pineland]);
+
+var kensingto = L.featureGroup([marker61]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var kensington = L.layerGroup([kensingto]);
+
+var delf = L.featureGroup([marker62]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var delft = L.layerGroup([delf]);
+
+var rawsonvill = L.featureGroup([marker67]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var rawsonville = L.layerGroup([rawsonvill]);
+
+var da_gamasko = L.featureGroup([marker68]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var da_gamaskop = L.layerGroup([da_gamasko]);
+
+var steenber = L.featureGroup([marker86]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var steenberg = L.layerGroup([steenber]);
+
+var philippi_eas = L.featureGroup([marker87]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var philippi_east = L.layerGroup([philippi_eas]);
+
+var fish_hoe = L.featureGroup([marker88]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var fish_hoek = L.layerGroup([fish_hoe]);
+
+var vredenda = L.featureGroup([marker89]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var vredendal = L.layerGroup([vredenda]);
+
+var elsies_rive = L.featureGroup([marker90]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var elsies_river = L.layerGroup([elsies_rive]);
+
+var lutzvill = L.featureGroup([marker91]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var lutzville = L.layerGroup([lutzvill]);
+
+var cere = L.featureGroup([marker92]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var ceres = L.layerGroup([cere]);
+
+var bonnieval = L.featureGroup([marker93]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var bonnievale = L.layerGroup([bonnieval]);
+
+var goodwoo = L.featureGroup([marker94]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var goodwood = L.layerGroup([goodwoo]);
+
+var stellenbosc = L.featureGroup([marker119]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var stellenbosch = L.layerGroup([stellenbosc]);
+
+var mcgrego = L.featureGroup([marker120]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mcgregor = L.layerGroup([mcgrego]);
+
+var stanfor = L.featureGroup([marker121]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var stanford = L.layerGroup([stanfor]);
+
+var table_vie = L.featureGroup([marker122]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var table_view = L.layerGroup([table_vie]);
+
+var mbekwen = L.featureGroup([marker123]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var mbekweni = L.layerGroup([mbekwen]);
+
+var heidelber = L.featureGroup([marker124]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var heidelberg = L.layerGroup([heidelber]);
+
+var plettenberg_ba = L.featureGroup([marker125]).setStyle({
+ stroke: true,
+ color: "red",
+ opacity: 1,
+ weight: 4,
+ fill: true,
+ fillColor: "red",
+ fillOpacity: 0.3
+}).addTo(map);
+
+var plettenberg_bay = L.layerGroup([plettenberg_ba]);
+
+
+var crime = L.layerGroup([fg2, fg3, fg4, fg5]);
 var less3000 = L.layerGroup([fg2]);
-
 var c3000_6000 = L.layerGroup([fg3]);
-
 var c6000_9000 = L.layerGroup([fg4]);
-
 var gr9000 = L.layerGroup([fg5]);
+var one_A_ = L.layerGroup([one_A]);
+var one_B_ = L.layerGroup([one_B]);
+var one_C_ = L.layerGroup([one_C]);
+var one_D_ = L.layerGroup([one_D]);
+var two_A_ = L.layerGroup([two_A]);
+var two_B_ = L.layerGroup([two_B]);
+var two_C_ = L.layerGroup([two_C]);
+var two_D_ = L.layerGroup([two_D]);
+var three_A_ = L.layerGroup([three_A]);
+var three_B_ = L.layerGroup([three_B]);
+var three_C_ = L.layerGroup([three_C]);
+var three_D_ = L.layerGroup([three_D]);
+var four_A_ = L.layerGroup([four_A]);
+var four_B_ = L.layerGroup([four_B]);
+var four_C_ = L.layerGroup([four_C]);
+var four_D_ = L.layerGroup([four_D]);
+var five_A_ = L.layerGroup([five_A]);
+var five_B_ = L.layerGroup([five_B]);
+var five_C_ = L.layerGroup([five_C]);
+var five_D_ = L.layerGroup([five_D]);
+var six_A_ = L.layerGroup([six_A]);
+var six_B_ = L.layerGroup([six_B]);
+var six_C_ = L.layerGroup([six_C]);
+var six_D_ = L.layerGroup([six_D]);
+var seven_A_ = L.layerGroup([seven_A]);
+var seven_B_ = L.layerGroup([seven_B]);
+var seven_C_ = L.layerGroup([seven_C]);
+var seven_D_ = L.layerGroup([seven_D]);
+var eight_A_ = L.layerGroup([eight_A]);
+var eight_B_ = L.layerGroup([eight_B]);
+var eight_C_ = L.layerGroup([eight_C]);
+var eight_D_ = L.layerGroup([eight_D]);
+var nine_A_ = L.layerGroup([nine_A]);
+var nine_B_ = L.layerGroup([nine_B]);
+var nine_C_ = L.layerGroup([nine_C]);
+var nine_D_ = L.layerGroup([nine_D]);
+var ten_A_ = L.layerGroup([ten_A]);
+var ten_B_ = L.layerGroup([ten_B]);
+var ten_C_ = L.layerGroup([ten_C]);
+var ten_D_ = L.layerGroup([ten_D]);
+var eleven_A_ = L.layerGroup([eleven_A]);
+var eleven_B_ = L.layerGroup([eleven_B]);
+var eleven_C_ = L.layerGroup([eleven_C]);
+var eleven_D_ = L.layerGroup([eleven_D]);
+var twelve_A_ = L.layerGroup([twelve_A]);
+var twelve_B_ = L.layerGroup([twelve_B]);
+var twelve_C_ = L.layerGroup([twelve_C]);
+var twelve_D_ = L.layerGroup([twelve_D]);
+var thirteen_A_ = L.layerGroup([thirteen_A]);
+var thirteen_B_ = L.layerGroup([thirteen_B]);
+var thirteen_C_ = L.layerGroup([thirteen_C]);
+var thirteen_D_ = L.layerGroup([thirteen_D]);
+var fourteen_A_ = L.layerGroup([fourteen_A]);
+var fourteen_B_ = L.layerGroup([fourteen_B]);
+var fourteen_C_ = L.layerGroup([fourteen_C]);
+var fourteen_D_ = L.layerGroup([fourteen_D]);
+var fifteen_A_ = L.layerGroup([fifteen_A]);
+var fifteen_B_ = L.layerGroup([fifteen_B]);
+var fifteen_C_ = L.layerGroup([fifteen_C]);
+var fifteen_D_ = L.layerGroup([fifteen_D]);
+var sixteen_A_ = L.layerGroup([sixteen_A]);
+var sixteen_B_ = L.layerGroup([sixteen_B]);
+var sixteen_C_ = L.layerGroup([sixteen_C]);
+var sixteen__C_ = L.layerGroup([sixteen__C]);
+var sixteen___C_ = L.layerGroup([sixteen___C]);
+var sixteen_D_ = L.layerGroup([sixteen_D]);
+var sixteen__D_ = L.layerGroup([sixteen__D]);
+var sixteen___D_ = L.layerGroup([sixteen___D]);
+var seventeen_A_ = L.layerGroup([seventeen_A]);
+var seventeen_B_ = L.layerGroup([seventeen_B]);
+var seventeen_C_ = L.layerGroup([seventeen_C]);
+var seventeen_D_ = L.layerGroup([seventeen_D]);
+var eighteen_A_ = L.layerGroup([eighteen_A]);
+var eighteen_B_ = L.layerGroup([eighteen_B]);
+var eighteen_C_ = L.layerGroup([eighteen_C]);
+var eighteen_D_ = L.layerGroup([eighteen_D]);
+var nineteen_A_ = L.layerGroup([nineteen_A]);
+var nineteen_B_ = L.layerGroup([nineteen_B]);
+var nineteen_C_ = L.layerGroup([nineteen_C]);
+var nineteen_D_ = L.layerGroup([nineteen_D]);
+var twenty_A_ = L.layerGroup([twenty_A]);
+var twenty_B_ = L.layerGroup([twenty_B]);
+var twenty_C_ = L.layerGroup([twenty_C]);
+var twenty_D_ = L.layerGroup([twenty_D]);
+var twentyone_A_ = L.layerGroup([twentyone_A]);
+var twentyone_B_ = L.layerGroup([twentyone_B]);
+var twentyone_C_ = L.layerGroup([twentyone_C]);
+var twentyone_D_ = L.layerGroup([twentyone_D]);
+var twentytwo_A_ = L.layerGroup([twentytwo_A]);
+var twentytwo_B_ = L.layerGroup([twentytwo_B]);
+var twentytwo_C_ = L.layerGroup([twentytwo_C]);
+var twentytwo_D_ = L.layerGroup([twentytwo_D]);
+var twentythree_A_ = L.layerGroup([twentythree_A]);
+var twentythree_B_ = L.layerGroup([twentythree_B]);
+var twentythree__B_ = L.layerGroup([twentythree__B]);
+var twentythree_C_ = L.layerGroup([twentythree_C]);
+var twentythree_D_ = L.layerGroup([twentythree_D]);
+var twentyfour_A_ = L.layerGroup([twentyfour_A]);
+var twentyfour_B_ = L.layerGroup([twentyfour_B]);
+var twentyfour_C_ = L.layerGroup([twentyfour_C]);
+var twentyfour_D_ = L.layerGroup([twentyfour_D]);
+var twentyfive_A_ = L.layerGroup([twentyfive_A]);
+var twentyfive_B_ = L.layerGroup([twentyfive_B]);
+var twentyfive_C_ = L.layerGroup([twentyfive_C]);
+var twentyfive_D_ = L.layerGroup([twentyfive_D]);
+var twentysix_A_ = L.layerGroup([twentysix_A]);
+var twentysix_B_ = L.layerGroup([twentysix_B]);
+var twentysix_C_ = L.layerGroup([twentysix_C]);
+var twentysix_D_ = L.layerGroup([twentysix_D]);
+var twentyseven_A_ = L.layerGroup([twentyseven_A]);
+var twentyseven_B_ = L.layerGroup([twentyseven_B]);
+var twentyseven_C_ = L.layerGroup([twentyseven_C]);
+var twentyseven_D_ = L.layerGroup([twentyseven_D]);
+var twentyeight_A_ = L.layerGroup([twentyeight_A]);
+var twentyeight_B_ = L.layerGroup([twentyeight_B]);
+var twentyeight_C_ = L.layerGroup([twentyeight_C]);
+var twentyeight_D_ = L.layerGroup([twentyeight_D]);
 
 var overlays= {
-"All cases": crime, 
-"cases <= 3000": less3000, 
-"3000 < cases <= 6000": c3000_6000,
-"6000 < cases <= 9000": c6000_9000,
-"cases > 9000": gr9000
+"grid layer": grid1, "reference grid": grng
 };
-var layerControl = L.control.layers(overlays).addTo(map);
-L.Control.geocoder().addTo(map);
 
+var ds= {"All cases": crime, "Low": less3000, "Medium": c3000_6000, "Intermediate": c6000_9000, "High": gr9000, "3117 ": onee, "3117A": one_A_, "3117B": one_B_, "3117C": one_C_, "3117D": one_D_, "3118 ": twoo, "3118A": two_A_, "3118B": two_B_, "3118C": two_C_, "3118D": two_D_, "3119 ": threee, "3119A": three_A_, "3119B": three_B_, "3119C": three_C_, "3119D": three_D_, "3120 ": fourr, "3120A": four_A_, "3120B": four_B_, "3120C": four_C_, "3120D": four_D_, "3121 ": fivee, "3121A": five_A_, "3121B": five_B_, "3121C": five_C_, "3121D": five_D_, "3122 ": sixx, "3122A": six_A_, "3122B": six_B_, "3122C": six_C_, "3122D": six_D_, "3123 ": sevenn, "3123A": seven_A_, "3123B": seven_B_,  "3123C": seven_C_, "3123D": seven_D_, "3217 ": eightt, "3217A": eight_A_, "3217B": eight_B_, "3217C": eight_C_, "3217D": eight_D_, "3218 ": ninee, "3218A": nine_A_, "3218B": nine_B_, "3218C": nine_C_, "3218D": nine_D_, "3219 ": tenn, "3219A": ten_A_, "3219B": ten_B_, "3219C": ten_C_, "3219D": ten_D_, "3220 ": elevenn, "3220A": eleven_A_, "3220B": eleven_B_, "3220C": eleven_C_, "3220D": eleven_D_, "3221 ": twelvee, "3221A": twelve_A_, "3221B": twelve_B_,"3221C": twelve_C_, "3221D": twelve_D_, "3222 ": thirteenn, "3222A": thirteen_A_, "3222B": thirteen_B_,  "3222C": thirteen_C_, "3222D": thirteen_D_, "3223 ": fourteenn, "3223A": fourteen_A_, "3223B": fourteen_B_, "3223C": fourteen_C_, "3223D": fourteen_D_, "3317 ": fifteenn, "3317A": fifteen_A_, "3317B": fifteen_B_,  "3317C": fifteen_C_, "3317D": fifteen_D_, "3318 ": sixteenn, "3318A": sixteen_A_, "3318B": sixteen_B_, "3318C": sixteen_C_, "3318CD": sixteen__C_, "3318CDD": sixteen___C_, "3318D": sixteen_D_, "3318DC": sixteen__D, "3318DCC": sixteen___D_, "3319 ": seventeenn, "3319A": seventeen_A_, "3319B": seventeen_B_, "3319C": seventeen_C_, "3319D": seventeen_D_, "3320 ": eighteenn, "3320A": eighteen_A_, "3320B": eighteen_B_, "3320C": eighteen_C_,  "3320D": eighteen_D_, "3321 ": nineteenn, "3321A": nineteen_A_, "3321B": nineteen_B_, "3321C": nineteen_C_, "3321D": nineteen_D_, "3322 ": twentyy, "3322A": twenty_A_, "3322B": twenty_B_, "3322C": twenty_C_, "3322D": twenty_D_, "3323 ": twentyonee, "3323A": twentyone_A_, "3323B": twentyone_B_, "3323C": twentyone_C_, "3323D": twentyone_D_, "3417 ": twentytwoo,"3417A": twentytwo_A_, "3417B": twentytwo_B_, "3417C": twentytwo_C_, "3417D": twentytwo_D_, "3418 ": twentythreee, "3418A": twentythree_A_, "3418B": twentythree_B_, "3418BA": twentythree__B_, "3418C": twentythree_C_, "3418D": twentythree_D_, "3419 ": twentyfourr, "3419A": twentyfour_A_, "3419B": twentyfour_B_, "3419C": twentyfour_C_, "3419D": twentyfour_D_, "3420 ": twentyfivee, "3420A": twentyfive_A_, "3420B": twentyfive_B_, "3420C": twentyfive_C_, "3420D": twentyfive_D_, "3421 ": twentysixx, "3421A": twentysix_A_, "3421B": twentysix_B_, "3421C": twentysix_C_, "3421D": twentysix_D_, "3422 ": twentysevenn, "3422A": twentyseven_A_, "3422B": twentyseven_B_, "3422C": twentyseven_C_, "3422D": twentyseven_D_, "3423 ": twentyeightt, "3423A": twentyeight_A_, "3423B": twentyeight_B_, "3423C": twentyeight_C_, "3423D": twentyeight_D_, "ALBERTINIA": albertinia, "ASHTON": ashton, "ATHLONE": athlone, "BARRYDALE": barrydale, "BEAUFORT WEST": beaufort_west, "BELHAR": belhar, "BISHOP LAVIS": bishop_lavis, "BONNIEVALE": bonnievale, "BOTHASIG": bothasig, "BRACKENFELL": brackenfell, "BREDASDORP": bredasdorp, "CALEDON": caledon, "CALITZDORP": calitzdorp, "CAMPS BAY": camps_bay, "CAPE TOWN CENTRAL": cape_town_central, "CERES": ceres, "CITRUSDAL": citrusdal, "CLANWILLIAM": clan, "CLAREMONT": claremont, "CLOETESVILLE": cloetesville, "CONVILLE": conville, "DA GAMASKOP": da_gamaskop, "DE DOORNS": de_doorns, "DELFT": delft, "DIEPRIVIER": dieprivier, "DORING BAY": doring_bay, "ELSIES RIVER": elsies_river, "FISH HOEK": fish_hoek, "FRANSCHHOEK": franschhoek, "GARDENS": gardens, "GEORGE": george, "GOODWOOD": goodwood, "GRAAFWATER": graafwater, "GRABOUW": grabouw, "GROOT BRAKRIVIER": groot_brakrivier, "GROOT-DRAKENSTEIN": groot, "GUGULETHU": gugulethu, "HARARE": harare, "HEIDELBERG(C)": heidelberg, "HERMANUS": hermanus, "HOPEFIELD": hopefield, "HOUT BAY": hout_bay, "KENSINGTON": kensington, "KHAYELITSHA": khayelitsha, "KLAPMUTS": klapmuts, "KLAWER": klawer, "KLEINMOND": kleinmond, "KLEINVLEI": kleinvlei, "KNYSNA": knysna, "KRAAIFONTEIN": kraaifontein, "KUILSRIVIER": kuilsrivier, "KWANOKUTHULA": kwanokuthula, "KWANONQABA": kwanonqaba, "LAAIPLEK": laaiplek, "LADISMITH": ladismith, "LAINGSBURG": laingsburg, "LAMBERTSBAAI": lambertsbaai, "LANGEBAAN": langebaan, "LEEU GAMKA": leeu_gamka, "LENTEGEUR": lentegeur, "LINGELETHU-WEST": lingelethu, "LUTZVILLE": lutzville, "LWANDLE": lwandle, "MAITLAND": maitland, "MALMESBURY": malmesbury, "MANENBERG": manenberg, "MBEKWENI": mbekweni, "MCGREGOR": mcgregor, "MFULENI": mfuleni, "MILNERTON": milnerton, "MITCHELLS PLAIN": mitchells_plain, "MONTAGU": montagu, "MOORREESBURG": moorreesburg, "MOSSEL BAY": mossel_bay, "MOWBRAY": mowbray, "MUIZENBERG": muizenberg, "MURRAYSBURG": murraysburg, "NAPIER": napier, "NUWERUS": nuwerus, "OUDTSHOORN": oudtshoorn, "PAARL EAST": pe, "PAROW": parow, "PHILIPPI": philippi, "PHILIPPI EAST": philippi_east, "PIKETBERG": pike, "PINELANDS": pinelands, "PLETTENBERG BAY": plettenberg_bay, "PORTERVILLE": porterville, "PRINCE ALBERT": prince_albert, "PRINCE ALFRED HAMLET": prince_alfred_hamlet, "RAVENSMEAD": ravensmead, "RAWSONVILLE": rawsonville, "REDELINGHUYS": redelinghuys, "RIEBEEK WEST": riebeek_west, "RIVERSDALE": riversdale, "RIVIERSONDEREND": riviersonderend, "ROBERTSON": robertson, "RONDEBOSCH": ron, "SALDANHA": saldanha, "SARON": saron, "SEA POINT": sea_point, "SIMON\'\S TOWN": simons, "SOMERSET WEST": somerset_west, "ST HELENA BAY": st_helena_bay, "STANFORD": stanford, "STEENBERG": steenberg, "STELLENBOSCH": stellenbosch, "STILL BAY": still_bay, "STRAND": strand, "STRUISBAAI": struisbaai, "SUURBRAAK": suurbraak, "SWELLENDAM": swel, "TABLE VIEW": table_view, "THEMBALETHU": thembalethu, "TOUWS RIVER": touws_river, "TULBAGH": tulbagh, "UNIONDALE": uniondale, "VANRHYNSDORP": vanrhynsdorp, "VILLIERSDORP": vil, "VREDENBURG": vredenburg, "VREDENDAL": vredendal, "WELLINGTON": weli, "WOLSELEY": wolseley, "WOODSTOCK": woodstock
+};
+
+var layerControl = L.control.layers(overlays, ds).addTo(map);
 </script>
 <script>
+
+L.Control.geocoder().addTo(map);
+</script>
+<script>
+
+
 
 window.onload = function () {
 var canvas = document.getElementById ("myCanvas") ;
@@ -723,11 +3084,793 @@ cn.fillText("cases < 3000", 40, 100);
 cn.fillText("3000 < cases < 6000", 40, 115);
 cn.fillText("6000 < cases < 9000", 40, 130);
 cn.fillText("cases > 9000", 40, 145);
-cn.fillText("Western Cape Boundary", 45, 165);
+cn.fillText("Map Extent", 45, 165);
 }
 
 </script>
 
+   <p1 id="demo"></p1>
+
+   <form>
+      <input type="text" name="inputa" id="inputa" placeholder="type to search data">
+      <div class="dictionary"><button id="dictionary" type="button" onclick="getValue()"> Search Data </button></div>
+   </form>
+
+   <script>
+
+
+var data = {
+     
+"ps124":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>HEIDELBERG(C)</td><td>3420BB</td></tr></table>"}`,
+
+"ps123":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MBEKWENI</td><td>3318DB</td></tr></table>"}`,
+
+"ps125":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>PLETTENBERG BAY</td><td>3423AB</td></tr></table>"}`,
+
+"ps121":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>STANFORD</td><td>3419AD</td></td></table>"}`,
+
+"ps122":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>TABLE VIEW</td><td>3318CD</td></td></table>"}`,
+
+"ps1":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>GRAAFWATER</td><td>3218BA</td></tr></table>"}`,
+
+"ps2":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>VILLIERSDORP</td><td>3319CD</td></tr></table>"}`,
+
+"ps3":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>BREDASDORP</td><td>3420CA</td></tr></table>"}`,
+ 
+"ps4":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>CALEDON</td><td>3419AB</td></tr></table>"}`,
+   
+"ps5":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>GARDENS</td><td>3419CB</td></tr></table>"}`,
+ 
+"ps6":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>RONDEBOSCH</td><td>3318CD</td></tr></table>"}`,
+
+"ps7":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MUIZENBERG</td><td>3218AB</td</tr></table>"}`,
+   
+"ps8":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>ROBERTSON</td><td>3319DD</td></tr></table>"}`,
+   
+"ps9":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>LWANDLE</td><td>3418BB</td></tr></table>"}`,
+   
+"ps10":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>PAARL EAST</td><td>3318DB</td></tr></table>"}`,
+   
+"ps11":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>PHILIPPI</td><td>3418BA</td></tr></table>"}`,
+
+"ps12":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>LANGEBAAN</td><td>3318AA</td></tr></table>"}`,
+
+"ps13":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color: rgb(20, 255, 20);'><td>MOORREESBURG</td><td>3318BA</td></tr></table>"}`,
+
+"ps14":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>PIKETBERG</td><td>3218DD</td></tr></table>"}`,
+
+"ps15":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>REDELINGHUYS</td><td>3218BC</td></tr></table>"}`,
+      
+"ps16":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>ST HELENA BAY</td><td>3218CC</td></tr></table>"}`,
+      
+"ps17":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>VREDENBURG</td><td>3218CC</td></tr></table>"}`,
+
+"ps18":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>CITRUSDAL</td><td>3219CA</td></tr></table>"}`,
+
+"ps19":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>CLANWILLIAM</td><td>3218BB</td></tr></table>"}`,
+
+"ps20":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>DORING BAY</td><td>3118CC</td></tr></table>"}`,
+      
+"ps21":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>SWELLENDAM</td><td>3420AB</td></td></table>"}`,
+      
+"ps22":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MFULENI</td><td>3318DC</td></tr></table>"}`,
+      
+"ps23":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>RIEBEEK WEST</td><td>3318BD</td></tr></table>"}`,
+      
+"ps24":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>WELLINGTON</td><td>3319CA</td></tr></table>"}`,
+      
+"ps25":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>TULBAGH</td><td>3319AC</td></tr></table>"}`,
+      
+"ps26":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color:rgb(255, 255, 100)'><td>HARARE</td><td>3418BA</td></tr></table>"}`,
+      
+"ps27":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>KLEINVLEI</td><td>3318DC</td></tr></table>"}`,
+      
+"ps28":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>GRABOUW</td><td>3419AA</td></tr></table>"}`,
+      
+"ps29":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>HERMANUS</td><td>3419AC</td></tr></table>"}`,
+      
+"ps30":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KLEINMOND</td><td>3419AC</td></tr></table>"}`,
+      
+"ps31":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>NAPIER</td><td>3419BD</td></tr></table>"}`,
+
+"ps32":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>STRAND</td><td>3418BB</td></tr></table>"}`,
+
+"ps33":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>LINGELETHU-WEST</td><td>3418BA</td></tr></table>"}`,
+      
+"ps34":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>GROOT-DRAKENSTEIN</td><td>3318DD</td></tr></table>"}`,
+      
+"ps35":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MOWBRAY</td><td>3318CD</td></tr></table>"}`,
+      
+"ps36":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>HOUT BAY</td><td>3418AB</td></tr></table>"}`,
+      
+"ps37":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MONTAGU</td><td>3320CC</td></tr></table>"}`,
+      
+"ps38":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>DIEPRIVIER</td><td>3418AB</td></tr></table>"}`,
+      
+"ps39":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>CLAREMONT</td><td>3318CD</td></tr></table>"}`,
+      
+"ps40":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>SARON</td><td>3318BB</td></tr></table>"}`,
+      
+"ps41":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MALMESBURY</td><td>3318BC</td></td></table>"}`,
+ 
+"ps42":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>PORTERVILLE</td><td>3318BB</td></tr></table>"}`,
+      
+"ps43":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>SALDANHA</td><td>3317BB</td></td></table>"}`,
+      
+"ps44":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>KHAYELITSHA</td><td>3418BA</td></tr></table>"}`,
+      
+"ps45":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>WOODSTOCK</td><td>3318CD</td></tr></table>"}`,
+
+"ps46":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>RIVIERSONDEREND</td><td>3419BB</td><tr></table>"}`,
+      
+"ps47":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color: rgb(20, 255, 20);'><td>SOMERSET WEST</td><td>3418BB</td></tr></table>"}`,
+
+"ps48":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>STRUISBAAI</td><td>3420CC</td></tr></table>"}`,
+      
+"ps49":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>CLOETESVILLE</td><td>3318DD</td></tr></table>"}`,
+      
+"ps50":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>OUDTSHOORN</td><td>3322CA</td></tr></table>"}`,
+      
+"ps51":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>UNIONDALE</td><td>3323CA</td></tr></table>"}`,
+      
+"ps52":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color: rgb(20, 255, 20);'><td>LADISMITH</td><td>3321AD</td></tr></table>"}`,
+      
+"ps53":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>STILL BAY</td><td>3421AD</td></tr></table>"}`,
+      
+"ps54":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>LAINGSBURG</td><td>3320BB</td></td></table>"}`,
+      
+"ps55":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MURRAYSBURG</td><td>3123DD</td></tr></table>"}`,
+      
+"ps56":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>CAPE TOWN CENTRAL</td><td>3318CD</td></tr></table>"}`,
+
+"ps57":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>CAMPS BAY</td><td>3318CD</td></tr></table>"}`,
+
+"ps58":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MAITLAND</td><td>3318CD</td></tr></table>"}`,
+
+"ps59":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MILNERTON</td><td>3318DC</td></tr></table>"}`,
+
+"ps60":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>PINELANDS</td><td>3318DC</td></td></table>"}`,
+      
+"ps61":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KENSINGTON</td><td>3318DC</td></tr></table>"}`,
+      
+"ps62":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>DELFT</td><td>3318DC</td></tr></table>"}`,
+      
+"ps63":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>SIMON\'\S TOWN</td><td>3418AB</td></tr></table>"}`,
+
+"ps64":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KUILSRIVIER</td><td>3318DC</td></tr></table>"}`,
+      
+"ps65":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>TOUWS RIVER</td><td>3320AC</td></tr></table>"}`,
+      
+"ps66":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>SUURBRAAK</td><td>3420BA</td></tr></table>"}`,
+      
+"ps67":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color:rgb(255, 255, 100)'><td>RAWSONVILLE</td><td>3319CB</td></tr></table>"}`,
+      
+"ps68":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>DA GAMASKOP</td><td>3422AA</td></tr></table>"}`,
+      
+"ps69":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>LEEU GAMKA</td><td>3221DD</td></tr></table>"}`,
+      
+"ps70":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>THEMBALETHU</td><td>3422</td></tr></table>"}`,
+      
+"ps71":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KWANONQABA</td><td>3422AA</td></tr></table>"}`,
+      
+"ps72":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>KWANOKUTHULA</td><td>3423AB</td></tr></table>"}`,
+      
+"ps73":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>CONVILLE</td><td>3322AD</td></tr></table>"}`,
+      
+"ps74":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>KLAWER</td><td>3118DC</td></tr></table>"}`,
+      
+"ps75":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>LAMBERTSBAAI</td><td>3218AB</td></tr></table>"}`,
+      
+"ps76":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>SEA POINT</td><td>3318CD</td></tr></table>"}`,
+      
+"ps77":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>NUWERUS</td><td>3118AB</td></tr></table>"}`,
+
+"ps78":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>VANRHYNSDORP</td><td>3118DA</td></tr></table>"}`,
+      
+ "ps79":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>BELHAR</td><td>3318DC</td></tr></table>"}`,
+         
+"ps80":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>PRINCE ALFRED HAMLET</td><td>3319AD</td></tr></table>"}`,
+      
+"ps81":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>DE DOORNS</td><td>3319BC</td></tr></table>"}`,
+      
+"ps82":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KLAPMUTS</td><td>3318DD</td></tr></table>"}`,
+      
+"ps83":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>PAROW</td><td>3318DC</td></tr></table>"}`,
+      
+"ps84":
+`{"description": "<table><table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>BARRYDALE</td><td>3320DC</td></tr></table>"}`,
+      
+"ps85":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>ASHTON</td><td>3320CC</td></tr></table>"}`,
+      
+"ps86":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>STEENBERG</td><td>3418AB</td></tr></table>"}`,
+      
+"ps87":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>PHILIPPI EAST</td><td>3418BA</td></tr></table>"}`,
+      
+"ps88":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>FISH HOEK</td><td>3418AB</td></tr></table>"}`,
+      
+"ps89":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>VREDENDAL</td><td>3118DA</td></tr></table>"}`,
+      
+"ps90":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>ELSIES RIVER</td><td>3318DC</td></tr</table>"}`,
+      
+"ps91":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>LUTZVILLE</td><td>3118CB</tr></table>"}`,
+      
+"ps92":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>CERES</td><td>3319AD</td></tr></table>"}`,
+      
+"ps93":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr></table>"}`,
+      
+"ps94":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>GOODWOOD</td><td>3318DC</td></tr></table>"}`,
+      
+"ps95":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>KRAAIFONTEIN</td><td>3318DC</td></tr></table>"}`,
+      
+"ps96":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>GUGULETHU</td><td>3318DC</td></tr></table>"}`,
+      
+"ps97":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MANENBERG</td><td>3318DC<td><tr></table>"}`,
+      
+"ps98":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>MITCHELLS PLAIN</td><td>3418BA</td></tr></table>"}`,
+      
+"ps99":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>CALITZDORP</td><td>3321DA</td></tr></table>"}`,
+      
+"ps100":
+`{"description": "<table><table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)';><td>ATHLONE</td><td>3318DC</td></tr></table>"}`,
+      
+"ps101":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>BISHOP LAVIS</td><td>3318DC</td></tr></table>"}`,
+      
+"ps102":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr></table>"}`,
+      
+"ps103":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>GEORGE</td><td>3322AD</td></tr></table>"}`,
+      
+"ps104":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KNYSNA</td><td>3423AA</td></tr></table>"}`,
+      
+"ps105":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>MOSSEL BAY</td><td>3422AA</td></tr></table>"}`,
+      
+"ps106":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>ALBERTINIA</td><td>3421BA</td></tr></table>"}`,
+      
+"ps107":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>GROOT-BRAKRIVIER</td><td>3422AA</td></tr></table>"}`,
+      
+"ps108":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>RIVERSDALE</td><td>3421AB</td></tr></table>"}`,
+      
+"ps109":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>BEAUFORT WEST</td><td>3222BC</td></tr></table>"}`,
+      
+"ps110":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>LAAIPLEK</td><td>3218CC</td></tr></table>"}`,
+      
+"ps111":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>BOTHASIG</td><td>3318DC</td></tr></table>"}`,
+      
+"ps112":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>PRINCE ALBERT</td><td>3322AA</td></tr></table>"}`,
+      
+"ps113":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>WOLSELEY</td><td>3319AC</td><tr></table>"}`,
+      
+"ps114":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>RAVENSMEAD</td><td>3318DC</td></tr></table>"}`,
+      
+"ps115":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>LENTEGEUR</td><td>3418BA</td></tr></table>"}`,
+      
+"ps116":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>FRANSCHHOEK</td><td>3319CC</td></tr></table>"}`,
+      
+"ps117":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>HOPEFIELD</td><td>3318AB</td></tr></table>"}`,
+
+"ps118":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>BRACKENFELL</td><td>3318DC</td></tr></table>"}`,
+      
+ "ps119":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>STELLENBOSCH</td><td>3318DD</td><tr></table>"}`,
+         
+"ps120":
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr> <tr style='background-color:rgb(255, 255, 100)'><td>MCGREGOR</td><td>3319DD</td></tr></table>"}`,
+
+"err":
+`{"description": "<p style='background-color:rgb(200, 0, 0);'>Invalid input try Again!</p>"}`,
+
+"blank":
+`{"description": "<p style='background-color:rgb(200, 0, 0);'>Please input Police Station ID!</p>"}`,
+}
+
+      var blank = JSON.parse(data.blank);
+      var err = JSON.parse(data.err);
+      var obj124 = JSON.parse(data.ps124);
+      var obj123 = JSON.parse(data.ps123);
+      var obj125 = JSON.parse(data.ps125);
+      var obj121 = JSON.parse(data.ps121);
+      var obj122 = JSON.parse(data.ps122);
+      var obj1 = JSON.parse(data.ps1);
+      var obj2 = JSON.parse(data.ps2);
+      var obj3 = JSON.parse(data.ps3);
+      var obj4 = JSON.parse(data.ps4);
+      var obj5 = JSON.parse(data.ps5);
+      var obj6 = JSON.parse(data.ps6);
+      var obj7 = JSON.parse(data.ps7);
+      var obj8 = JSON.parse(data.ps8);
+      var obj9 = JSON.parse(data.ps9);
+      var obj10 = JSON.parse(data.ps10);
+      var obj11 = JSON.parse(data.ps11);
+      var obj12 = JSON.parse(data.ps12);
+      var obj13 = JSON.parse(data.ps13);
+      var obj14 = JSON.parse(data.ps14);
+      var obj15 = JSON.parse(data.ps15);
+      var obj16 = JSON.parse(data.ps16);
+      var obj17 = JSON.parse(data.ps17);
+      var obj18 = JSON.parse(data.ps18);
+      var obj19 = JSON.parse(data.ps19);
+      var obj20 = JSON.parse(data.ps20);
+      var obj21 = JSON.parse(data.ps21);
+      var obj22 = JSON.parse(data.ps22);
+      var obj23 = JSON.parse(data.ps23);
+      var obj24 = JSON.parse(data.ps24);
+      var obj25 = JSON.parse(data.ps25);
+      var obj26 = JSON.parse(data.ps26);
+      var obj27 = JSON.parse(data.ps27);
+      var obj28 = JSON.parse(data.ps28);
+      var obj29 = JSON.parse(data.ps29);
+      var obj30 = JSON.parse(data.ps30);
+      var obj31 = JSON.parse(data.ps31);
+      var obj32 = JSON.parse(data.ps32);
+      var obj33 = JSON.parse(data.ps33);
+      var obj34 = JSON.parse(data.ps34);
+      var obj35 = JSON.parse(data.ps35);
+      var obj36 = JSON.parse(data.ps36);
+      var obj37 = JSON.parse(data.ps37);
+      var obj38 = JSON.parse(data.ps38);
+      var obj39 = JSON.parse(data.ps39);
+      var obj40 = JSON.parse(data.ps40);
+      var obj41 = JSON.parse(data.ps41);
+      var obj42 = JSON.parse(data.ps42);
+      var obj43 = JSON.parse(data.ps43);
+      var obj44 = JSON.parse(data.ps44);
+      var obj45 = JSON.parse(data.ps45);
+      var obj46 = JSON.parse(data.ps46);
+      var obj47 = JSON.parse(data.ps47);
+      var obj48 = JSON.parse(data.ps48);
+      var obj49 = JSON.parse(data.ps49);
+      var obj50 = JSON.parse(data.ps50);
+      var obj51 = JSON.parse(data.ps51);
+      var obj52 = JSON.parse(data.ps52);
+      var obj53 = JSON.parse(data.ps53);
+      var obj54 = JSON.parse(data.ps54);
+      var obj55 = JSON.parse(data.ps55);
+      var obj56 = JSON.parse(data.ps56);
+      var obj57 = JSON.parse(data.ps57);
+      var obj58 = JSON.parse(data.ps58);
+      var obj59 = JSON.parse(data.ps59);
+      var obj60 = JSON.parse(data.ps60);
+      var obj61 = JSON.parse(data.ps61);
+      var obj62 = JSON.parse(data.ps62);
+      var obj63 = JSON.parse(data.ps63);
+      var obj64 = JSON.parse(data.ps64);
+      var obj65 = JSON.parse(data.ps65);
+      var obj66 = JSON.parse(data.ps66);
+      var obj67 = JSON.parse(data.ps67);
+      var obj68 = JSON.parse(data.ps68);
+      var obj69 = JSON.parse(data.ps69);
+      var obj70 = JSON.parse(data.ps70);
+      var obj71 = JSON.parse(data.ps71);
+      var obj72 = JSON.parse(data.ps72);
+      var obj73 = JSON.parse(data.ps73);
+      var obj74 = JSON.parse(data.ps74);
+      var obj75 = JSON.parse(data.ps75);
+      var obj76 = JSON.parse(data.ps76);
+      var obj77 = JSON.parse(data.ps77);
+      var obj78 = JSON.parse(data.ps78);
+      var obj79 = JSON.parse(data.ps79);
+      var obj80 = JSON.parse(data.ps80);
+      var obj81 = JSON.parse(data.ps81);
+      var obj82 = JSON.parse(data.ps82);
+      var obj83 = JSON.parse(data.ps83);
+      var obj84 = JSON.parse(data.ps84);
+      var obj85 = JSON.parse(data.ps85);
+      var obj86 = JSON.parse(data.ps86);
+      var obj87 = JSON.parse(data.ps87);
+      var obj88 = JSON.parse(data.ps88);
+      var obj89 = JSON.parse(data.ps89);
+      var obj90 = JSON.parse(data.ps90);
+      var obj91 = JSON.parse(data.ps91);
+      var obj92 = JSON.parse(data.ps92);
+      var obj93 = JSON.parse(data.ps93);
+      var obj94 = JSON.parse(data.ps94);
+      var obj95 = JSON.parse(data.ps95);
+      var obj96 = JSON.parse(data.ps96);
+      var obj97 = JSON.parse(data.ps97);
+      var obj98 = JSON.parse(data.ps98);
+      var obj99 = JSON.parse(data.ps99);
+      var obj100 = JSON.parse(data.ps100);
+      var obj101 = JSON.parse(data.ps101);
+      var obj102 = JSON.parse(data.ps102);
+      var obj103 = JSON.parse(data.ps103);
+      var obj104 = JSON.parse(data.ps104);
+      var obj105 = JSON.parse(data.ps105);
+      var obj106 = JSON.parse(data.ps106);
+      var obj107 = JSON.parse(data.ps107);
+      var obj108 = JSON.parse(data.ps108);
+      var obj109 = JSON.parse(data.ps109);
+      var obj110 = JSON.parse(data.ps110);
+      var obj111 = JSON.parse(data.ps111);
+      var obj112 = JSON.parse(data.ps112);
+      var obj113 = JSON.parse(data.ps113);
+      var obj114 = JSON.parse(data.ps114);
+      var obj115 = JSON.parse(data.ps115);
+      var obj116 = JSON.parse(data.ps116);
+      var obj117 = JSON.parse(data.ps117);
+      var obj118 = JSON.parse(data.ps118);
+      var obj119 = JSON.parse(data.ps119);
+      var obj120 = JSON.parse(data.ps120);
+
+function getValue() {
+
+var val = document.getElementById("inputa").value;
+if (val == "124") {
+document.getElementById("demo").innerHTML = obj124.description;}
+else if (val == "123") {
+document.getElementById("demo").innerHTML = obj123.description;}
+else if (val == "125") {
+document.getElementById("demo").innerHTML = obj125.description;}
+else if (val == "121") {
+document.getElementById("demo").innerHTML = obj121.description;}
+else if (val == "122") {
+document.getElementById("demo").innerHTML = obj122.description;}
+else if (val == 1)  {
+document.getElementById("demo").innerHTML = obj1.description;}
+else if (val == 2)  {
+document.getElementById("demo").innerHTML = obj2.description;}
+else if (val == 3)  {
+document.getElementById("demo").innerHTML = obj3.description;}
+else if (val == 4)  {
+document.getElementById("demo").innerHTML = obj4.description;}
+else if (val == 5)  {
+document.getElementById("demo").innerHTML = obj5.description;}
+else if (val == 6)  {
+document.getElementById("demo").innerHTML = obj6.description;}
+else if (val == 7)  {
+document.getElementById("demo").innerHTML = obj7.description;}
+else if (val == 8)  {
+document.getElementById("demo").innerHTML = obj8.description;}
+else if (val == 9)  {
+document.getElementById("demo").innerHTML = obj9.description;}
+else if (val == 10)  {
+document.getElementById("demo").innerHTML = obj10.description;}
+else if (val == 11)  {
+document.getElementById("demo").innerHTML = obj11.description;}
+else if (val == 12)  {
+document.getElementById("demo").innerHTML = obj12.description;}
+else if (val == 13)  {
+document.getElementById("demo").innerHTML = obj13.description;}
+else if (val == 14)  {
+document.getElementById("demo").innerHTML = obj14.description;}
+else if (val == 15)  {
+document.getElementById("demo").innerHTML = obj15.description;}
+else if (val == 16)  {
+document.getElementById("demo").innerHTML = obj16.description;}
+else if (val == 17)  {
+document.getElementById("demo").innerHTML = obj17.description;}
+else if (val == 18)  {
+document.getElementById("demo").innerHTML = obj18.description;}
+else if (val == 19)  {
+document.getElementById("demo").innerHTML = obj19.description;}
+else if (val == 20)  {
+document.getElementById("demo").innerHTML = obj20.description;}
+else if (val == 21)  {
+document.getElementById("demo").innerHTML = obj21.description;}
+else if (val == 22)  {
+document.getElementById("demo").innerHTML = obj22.description;}
+else if (val == 23)  {
+document.getElementById("demo").innerHTML = obj23.description;}
+else if (val == 24)  {
+document.getElementById("demo").innerHTML = obj24.description;}
+else if (val == 25)  {
+document.getElementById("demo").innerHTML = obj25.description;}
+else if (val == 26)  {
+document.getElementById("demo").innerHTML = obj26.description;}
+else if (val == 27)  {
+document.getElementById("demo").innerHTML = obj27.description;}
+else if (val == 28)  {
+document.getElementById("demo").innerHTML = obj28.description;}
+else if (val == 29)  {
+document.getElementById("demo").innerHTML = obj29.description;}
+else if (val == 30)  {
+document.getElementById("demo").innerHTML = obj30.description;}
+else if (val == 31)  {
+document.getElementById("demo").innerHTML = obj31.description;}
+else if (val == 32)  {
+document.getElementById("demo").innerHTML = obj32.description;}
+else if (val == 33)  {
+document.getElementById("demo").innerHTML = obj33.description;}
+else if (val == 34)  {
+document.getElementById("demo").innerHTML = obj34.description;}
+else if (val == 35)  {
+document.getElementById("demo").innerHTML = obj35.description;}
+else if (val == 36)  {
+document.getElementById("demo").innerHTML = obj36.description;}
+else if (val == 37)  {
+document.getElementById("demo").innerHTML = obj37.description;}
+else if (val == 38)  {
+document.getElementById("demo").innerHTML = obj38.description;}
+else if (val == 39)  {
+document.getElementById("demo").innerHTML = obj39.description;}
+else if (val == 40)  {
+document.getElementById("demo").innerHTML = obj40.description;}
+else if (val == 41)  {
+document.getElementById("demo").innerHTML = obj41.description;}
+else if (val == 42)  {
+document.getElementById("demo").innerHTML = obj42.description;}
+else if (val == 43)  {
+document.getElementById("demo").innerHTML = obj43.description;}
+else if (val == 44)  {
+document.getElementById("demo").innerHTML = obj44.description;}
+else if (val == 45)  {
+document.getElementById("demo").innerHTML = obj45.description;}
+else if (val == 46)  {
+document.getElementById("demo").innerHTML = obj46.description;}
+else if (val == 47)  {
+document.getElementById("demo").innerHTML = obj47.description;}
+else if (val == 48)  {
+document.getElementById("demo").innerHTML = obj48.description;}
+else if (val == 49)  {
+document.getElementById("demo").innerHTML = obj49.description;}
+else if (val == 50)  {
+document.getElementById("demo").innerHTML = obj50.description;}
+else if (val == 51)  {
+document.getElementById("demo").innerHTML = obj51.description;}
+else if (val == 52)  {
+document.getElementById("demo").innerHTML = obj52.description;}
+else if (val == 53)  {
+document.getElementById("demo").innerHTML = obj53.description;}
+else if (val == 54)  {
+document.getElementById("demo").innerHTML = obj54.description;}
+else if (val == 55)  {
+document.getElementById("demo").innerHTML = obj55.description;}
+else if (val == 56)  {
+document.getElementById("demo").innerHTML = obj56.description;}
+else if (val == 57) {
+document.getElementById("demo").innerHTML = obj57.description;}
+else if (val == 58) {
+document.getElementById("demo").innerHTML = obj58.description;}
+else if (val == 59) {
+document.getElementById("demo").innerHTML = obj59.description;}
+else if (val == 60)  {
+document.getElementById("demo").innerHTML = obj60.description;}
+else if (val == 61)  {
+document.getElementById("demo").innerHTML = obj61.description;}
+else if (val == 62)  {
+document.getElementById("demo").innerHTML = obj62.description;}
+else if (val == 63)  {
+document.getElementById("demo").innerHTML = obj63.description;}
+else if (val == 64)  {
+document.getElementById("demo").innerHTML = obj64.description;}
+else if (val == 65)  {
+document.getElementById("demo").innerHTML = obj65.description;}
+else if (val == 66)  {
+document.getElementById("demo").innerHTML = obj66.description;}
+else if (val == 67)  {
+document.getElementById("demo").innerHTML = obj67.description;}
+else if (val == 68)  {
+document.getElementById("demo").innerHTML = obj68.description;}
+else if (val == 69)  {
+document.getElementById("demo").innerHTML = obj69.description;}
+else if (val == 70)  {
+document.getElementById("demo").innerHTML = obj70.description;}
+else if (val == 71)  {
+document.getElementById("demo").innerHTML = obj71.description;}
+else if (val == 72)  {
+document.getElementById("demo").innerHTML = obj72.description;}
+else if (val == 73)  {
+document.getElementById("demo").innerHTML = obj73.description;}
+else if (val == 74)  {
+document.getElementById("demo").innerHTML = obj74.description;}
+else if (val == 75)  {
+document.getElementById("demo").innerHTML = obj75.description;}
+else if (val == 76)  {
+document.getElementById("demo").innerHTML = obj76.description;}
+else if (val == 77)  {
+document.getElementById("demo").innerHTML = obj77.description;}
+else if (val == 78)  {
+document.getElementById("demo").innerHTML = obj78.description;}
+else if (val == 79)  {
+document.getElementById("demo").innerHTML = obj79.description;}
+else if (val == 80)  {
+document.getElementById("demo").innerHTML = obj80.description;}
+else if (val == 81)  {
+document.getElementById("demo").innerHTML = obj81.description;}
+else if (val == 82)  {
+document.getElementById("demo").innerHTML = obj82.description;}
+else if (val == 83)  {
+document.getElementById("demo").innerHTML = obj83.description;}
+else if (val == 84)  {
+document.getElementById("demo").innerHTML = obj84.description;}
+else if (val == 85)  {
+document.getElementById("demo").innerHTML = obj85.description;}
+else if (val == 86)  {
+document.getElementById("demo").innerHTML = obj86.description;}
+else if (val == 87)  {
+document.getElementById("demo").innerHTML = obj87.description;}
+else if (val == 88)  {
+document.getElementById("demo").innerHTML = obj88.description;}
+else if (val == 89)  {
+document.getElementById("demo").innerHTML = obj89.description;}
+else if (val == 90)  {
+document.getElementById("demo").innerHTML = obj90.description;}
+else if (val == 91)  {
+document.getElementById("demo").innerHTML = obj91.description;}
+else if (val == 92)  {
+document.getElementById("demo").innerHTML = obj92.description;}
+else if (val == 93)  {
+document.getElementById("demo").innerHTML = obj93.description;}
+else if (val == 94)  {
+document.getElementById("demo").innerHTML = obj94.description;}
+else if (val == 95)  {
+document.getElementById("demo").innerHTML = obj95.description;}
+else if (val == 96)  {
+document.getElementById("demo").innerHTML = obj96.description;}
+else if (val == 97)  {
+document.getElementById("demo").innerHTML = obj97.description;}
+else if (val == 98)  {
+document.getElementById("demo").innerHTML = obj98.description;}
+else if (val == 99)  {
+document.getElementById("demo").innerHTML = obj99.description;}
+else if (val == 100)  {
+document.getElementById("demo").innerHTML = obj100.description;}
+else if (val == 101)  {
+document.getElementById("demo").innerHTML = obj101.description;}
+else if (val == 102)  {
+document.getElementById("demo").innerHTML = obj102.description;}
+else if (val == 103)  {
+document.getElementById("demo").innerHTML = obj103.description;}
+else if (val == 104)  {
+document.getElementById("demo").innerHTML = obj104.description;}
+else if (val == 105)  {
+document.getElementById("demo").innerHTML = obj105.description;}
+else if (val == 106)  {
+document.getElementById("demo").innerHTML = obj106.description;}
+else if (val == 107)  {
+document.getElementById("demo").innerHTML = obj107.description;}
+else if (val == 108)  {
+document.getElementById("demo").innerHTML = obj108.description;}
+else if (val == 109)  {
+document.getElementById("demo").innerHTML = obj109.description;}
+else if (val == 110)  {
+document.getElementById("demo").innerHTML = obj110.description;}
+else if (val == 111)  {
+document.getElementById("demo").innerHTML = obj111.description;}
+else if (val == 112)  {
+document.getElementById("demo").innerHTML = obj112.description;}
+else if (val == 113)  {
+document.getElementById("demo").innerHTML = obj113.description;}
+else if (val == 114)  {
+document.getElementById("demo").innerHTML = obj114.description;}
+else if (val == 115)  {
+document.getElementById("demo").innerHTML = obj115.description;}
+else if (val == 116)  {
+document.getElementById("demo").innerHTML = obj116.description;}
+else if (val == 117)  {
+document.getElementById("demo").innerHTML = obj117.description;}
+else if (val == 118)  {
+document.getElementById("demo").innerHTML = obj118.description;}
+else if (val == 119)  {
+document.getElementById("demo").innerHTML = obj119.description;}
+else if (val == 120)  {
+document.getElementById("demo").innerHTML = obj120.description;}
+else if (val == "") {
+document.getElementById("demo").innerHTML = blank.description;}     
+else {
+document.getElementById("demo").innerHTML = err.description;}     
+}
+
+</script>
 <div>
 <center><canvas id="myCanvas" width="150" height="200" style="border: 0.5px dotted black ;">
 </div>

@@ -138,1425 +138,567 @@ right: 10px;
 <body>
 </br></br></br></br>
 <p style="border: 2px solid black; position: relative; left: 20px; bottom: 20px;">
-____<<PHP>PHP></br>
-________<<MySQL>MySQL> </br> 
-<p1 style="color:red;">____________<<schema>schema></br> 
-________________<<police_station>police_station> </br>
-____________________<<Tables>Tables></br>
-________________________<<detective>detective></br>
-____________________________<<attributes>attributes></br>
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Detective identifier. </br>
-________________________________<<det_id>/det_id></br> 
-________________________________<<det_title>det_title></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: title of the detective.</br>
-________________________________<<det_title>/det_title></br> 
-________________________________<<det_fname>det_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the detective.</br>
-________________________________<<det_fname>/det_fname></br> 
-________________________________<<det_sname>det_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the detective. </br>
-________________________________<<det_sname>/det_sname></br> 
-________________________________<<ps_id>ps_id></br> 
-________________________<<complainant>complainant> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<com_id>com_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: complainant identifier</br> 
-________________________________<<com_id>/com_id> </br> 
-________________________________<<com_fname>com_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: First name of the complainant. </br> 
-________________________________<<com_fname>/com_fname> </br>
-________________________________<<com_sname>com_sname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the complainant. </br> 
-________________________________<<com_sname>/com_sname> </br>
-________________________________<<com_title>com_title> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the complainant. </br> 
-________________________________<<com_title>/com_title></br>
-________________________________<<com_age>com_age></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Birth age of the complainant. </br> 
-________________________________<<com_age>/com_age></br>
-________________________________<<com_gender>com_gender> </br>
-____________________________________type: boolean</br>
-____________________________________length: 1 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: gender of the complainant (M or F). </br> 
-________________________________<<com_gender>/com_gender></br>
-________________________________<<com_address>com_address> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Residential address. </br> 
-________________________________<<com_address>/com_address</br>
-________________________________<<com_nationality>com_nationality> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Nationality of the complainant. </br> 
-________________________________<<com_nationality>/com_nationality></br>
-________________________________<<com_cell>com_cell> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10 </br>
-____________________________________null: yes </br>
-____________________________________constraints: none </br>
-____________________________________description: contact cellphone number of the complainant. </br> 
-________________________________<<com_cell>/com_cell> </br> 
-____________________________<<attributes>/attributes> </br> 
-________________________<<complainant>/complainant></br>
-________________________<<suspect>suspect> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<sus_id>sus_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: suspect identifier. </br> 
-________________________________<<sus_id>/sus_id> </br>
-________________________________<<sus_fname>sus_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Firstname of the suspect. </br> 
-________________________________<<sus_fname>/sus_fname></br> 
-________________________________<<sus_sname>sus_sname></br> 
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the suspect. </br> 
-________________________________<<sus_sname>/sus_sname> </br>
-________________________________<<sus_title>sus_title> </br>
-____________________________________type: varchar</br>
-____________________________________length: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the suspect. </br>  
-________________________________<<sus_title>/sus_title></br> 
-________________________________<<sus_age>sus_age> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: birth age of the suspect. </br> 
-________________________________<<sus_age>/sus_age></br>
-________________________________ <<sus_gender>sus_gender></br>
-____________________________________type: boolean </br>
-____________________________________Length: 1</br>
-____________________________________null: no </br>
-____________________________________constraints: none</br>
-____________________________________description: Gender of the suspect (M or F).</br> 
-________________________________<<sus_gender>/sus_gender> </br>
-________________________________ <<sus_address>sus_address> </br>
-____________________________________type:varchar </br>
-___________________________________maxLength: 100 </br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the suspect.</br> 
-________________________________<<sus_address>/sus_address></br>
-________________________________<<sus_nationality>sus_nationality></br>
-____________________________________type: varchar </br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Suspect country of residence.</br> 
-________________________________<<sus_nationality>/sus_nationality></br>
-________________________________<<sus_cell>sus_cell> </br>
-____________________________________type: integer</br>
-____________________________________Length: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: Contact cellphone number of a suspect.</br>
-____________________________<<attributes>/attributes> </br>
-________________________<<suspect>suspect> </br>
-________________________<<witness>witness></br> 
-____________________________<<attributes>attributes> </br>
-________________________________<<wit_id>wit_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no </br>
-____________________________________constraints: Primary key</br>
-____________________________________description: witness identifier.</br>  
-________________________________<<wit_id>/wit_id></br> 
-________________________________<<wit_fname>wit_fname></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: firstname of the witness.</br>  
-________________________________<<wit_fname>/wit_fname></br>
-________________________________<<wit_sname>wit_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength; 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the complainant.</br>  
-________________________________<<wit_sname>/wit_sname></br>
-________________________________<<wit_title>wit_title></br>
-____________________________________varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the witness.</br>  
-________________________________<<wit_title>/wit_title></br>
-________________________________<<wit_age>wit_age></br>
-____________________________________type: integer</br>
-__________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: birth age of the witness.</br>  
-________________________________<<wit_age>/wit_age></br>
-________________________________<<wit_gender>wit_gender></br>
-____________________________________type: boolean</br>
-____________________________________Length: 1</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: gender of the witness (M or F)</br>  
-________________________________<<wit_gender>/wit_gender></br>
-________________________________<<wit_address>wit_address></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the witness.</br>  
-________________________________<<wit_address>/wit_address></br>
-________________________________<<wit_nationality>wit_nationality></br>
-____________________________________type: varchar</br>
-____________________________________Length: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Country of residence of the witness.</br>  
-________________________________<<wit_nationality>/wit_nationality></br>
-________________________________<<wit_cell>wit_cell></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: contact cellphone number of a witness.<br>
-____________________________<<attributes>/attributes></br>
-________________________<<witness>/witness></br>
-________________________<<ccase>ccase></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Case identifier. </br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<crime_ctgry>crime_ctgry></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Category of reported crime. </br>
-________________________________<<crime_ctgry>/crime_ctgry></br> 
-________________________________<<crime_type>crime_type></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 50</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Type of reported crime.</br> 
-________________________________<<crime_typ>/crime_typ></br>
-________________________________<<dor>dor></br>
-____________________________________type: date</br>
-____________________________________Length: 10</br>
-____________________________________constraints: none</br>
-____________________________________description: Date at which the crime was reported. </br>
-________________________________<<dor>/dor></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: police_station)</br>
-____________________________________description: police station identifier.</br>
-________________________________<<ps_id>/ps_id></br> 
-________________________________<<com_id>com_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign Key (reference table: complainant)</br>
-____________________________________description: complainant identifier.</br> 
-________________________________<<pros_id>pros_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: yes</br>
-____________________________________constraints: Foreign key (Reference table: prosecutor)</br>
-____________________________________description: prosecutor identifier. </br> 
-________________________________<<pros_id>/pros_id></br>
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: yes</br>
-____________________________________constraints: Foreign key (Reference table: detective)</br>
-____________________________________description: detective identifier.</br>
-________________________________<<det_id>/det_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase>/ccase></br>
-____________________<<Tables>/Tables></br>
-____________<<schema>/schema></br>
-</p1><p1 style="color:green;">____________<<schema>schema></br> 
-________________<<Western Cape Crime Statistics>Western Cape Crime Statistics> </br> 
-____________________<<Tables>Tables></br> 
-________________________<<complainant>complainant> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<com_id>com_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: complainant identifier</br> 
-________________________________<<com_id>/com_id> </br> 
-________________________________<<com_fname>com_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: First name of the complainant. </br> 
-________________________________<<com_fname>/com_fname> </br>
-________________________________<<com_sname>com_sname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the complainant. </br> 
-________________________________<<com_sname>/com_sname> </br>
-________________________________<<com_title>com_title> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the complainant. </br> 
-________________________________<<com_title>/com_title></br>
-________________________________<<com_age>com_age></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Birth age of the complainant. </br> 
-________________________________<<com_age>/com_age></br>
-________________________________<<com_gender>com_gender> </br>
-____________________________________type: boolean</br>
-____________________________________length: 1 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: gender of the complainant (M or F). </br> 
-________________________________<<com_gender>/com_gender></br>
-________________________________<<com_address>com_address> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Residential address. </br> 
-________________________________<<com_address>/com_address</br>
-________________________________<<com_nationality>com_nationality> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Nationality of the complainant. </br> 
-________________________________<<com_nationality>/com_nationality></br>
-________________________________<<com_cell>com_cell> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10 </br>
-____________________________________null: yes </br>
-____________________________________constraints: none </br>
-____________________________________description: contact cellphone number of the complainant. </br> 
-________________________________<<com_cell>/com_cell> </br> 
-____________________________<<attributes>/attributes> </br> 
-________________________<<complainant>/complainant></br>
-________________________<<suspect>suspect> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<sus_id>sus_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: suspect identifier. </br> 
-________________________________<<sus_id>/sus_id> </br>
-________________________________<<sus_fname>sus_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Firstname of the suspect. </br> 
-________________________________<<sus_fname>/sus_fname></br> 
-________________________________<<sus_sname>sus_sname></br> 
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the suspect. </br> 
-________________________________<<sus_sname>/sus_sname> </br>
-________________________________<<sus_title>sus_title> </br>
-____________________________________type: varchar</br>
-____________________________________length: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the suspect. </br>  
-________________________________<<sus_title>/sus_title></br> 
-________________________________<<sus_age>sus_age> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: birth age of the suspect. </br> 
-________________________________<<sus_age>/sus_age></br>
-________________________________ <<sus_gender>sus_gender></br>
-____________________________________type: boolean </br>
-____________________________________Length: 1</br>
-____________________________________null: no </br>
-____________________________________constraints: none</br>
-____________________________________description: Gender of the suspect (M or F).</br> 
-________________________________<<sus_gender>/sus_gender> </br>
-________________________________ <<sus_address>sus_address> </br>
-____________________________________type:varchar </br>
-___________________________________maxLength: 100 </br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the suspect.</br> 
-________________________________<<sus_address>/sus_address></br>
-________________________________<<sus_nationality>sus_nationality></br>
-____________________________________type: varchar </br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Suspect country of residence.</br> 
-________________________________<<sus_nationality>/sus_nationality></br>
-________________________________<<sus_cell>sus_cell> </br>
-____________________________________type: integer</br>
-____________________________________Length: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: Contact cellphone number of a suspect.</br>
-____________________________<<attributes>/attributes> </br>
-________________________<<suspect>suspect> </br>
-________________________<<witness>witness></br> 
-____________________________<<attributes>attributes> </br>
-________________________________<<wit_id>wit_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no </br>
-____________________________________constraints: Primary key</br>
-____________________________________description: witness identifier.</br>  
-________________________________<<wit_id>/wit_id></br> 
-________________________________<<wit_fname>wit_fname></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: firstname of the witness.</br>  
-________________________________<<wit_fname>/wit_fname></br>
-________________________________<<wit_sname>wit_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength; 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the complainant.</br>  
-________________________________<<wit_sname>/wit_sname></br>
-________________________________<<wit_title>wit_title></br>
-____________________________________varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the witness.</br>  
-________________________________<<wit_title>/wit_title></br>
-________________________________<<wit_age>wit_age></br>
-____________________________________type: integer</br>
-__________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: birth age of the witness.</br>  
-________________________________<<wit_age>/wit_age></br>
-________________________________<<wit_gender>wit_gender></br>
-____________________________________type: boolean</br>
-____________________________________Length: 1</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: gender of the witness (M or F)</br>  
-________________________________<<wit_gender>/wit_gender></br>
-________________________________<<wit_address>wit_address></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the witness.</br>  
-________________________________<<wit_address>/wit_address></br>
-________________________________<<wit_nationality>wit_nationality></br>
-____________________________________type: varchar</br>
-____________________________________Length: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Country of residence of the witness.</br>  
-________________________________<<wit_nationality>/wit_nationality></br>
-________________________________<<wit_cell>wit_cell></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: contact cellphone number of a witness.<br>
-____________________________<<attributes>/attributes></br>
-________________________<<witness>/witness></br>
-________________________<<police_station>police_station></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 3 </br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: police station identifier.</br>
-________________________________<<ps_id>/ps_id></br> 
-________________________________<<ps_name>ps_name></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________constraints: unique key</br>
-____________________________________description: Name of the police station.</br>
-________________________________<<ps_name>/ps_name></br>
-____________________________<<attributes>/attributes></br>
-________________________<<police_station>/police_station></br>
-________________________<<court>court></br> 
-____________________________<<attributes>attributes></br>
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key </br>
-____________________________________description: court identifier</br>
-________________________________<<court_id>court_id></br> 
-________________________________<<court_name>court_name></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: unique key</br>
-____________________________________description: Name of the court</br> 
-________________________________<<court_class>court_class></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________court classification.</br>
-________________________________<<court_class>/court_class></br>
-____________________________<<attributes>/attributes></br>
-________________________<<court>/court></br>
-________________________<<detective>detective></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Detective identifier. </br>
-________________________________<<det_id>/det_id></br> 
-________________________________<<det_title>det_title></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: title of the detective.</br>
-________________________________<<det_title>/det_title></br> 
-________________________________<<det_fname>det_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the detective.</br>
-________________________________<<det_fname>/det_fname></br> 
-________________________________<<det_sname>det_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the detective. </br>
-________________________________<<det_sname>/det_sname></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no.</br>
-____________________________________constraints: Foreign key</br>
-____________________________________description: Police station identifier.</br>
-________________________________<<ps_id>/ps_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<detective>/detective></br>
-________________________<<prosecutor>prosecutor></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<pros_id>pros_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Prosecutor identifier. </br> 
-________________________________<<pros_id>/pros_id></br>
-________________________________<<pros_title>pros_title></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of a prosecutor.</br> 
-________________________________<<pros_title>/pros_title></br>
-________________________________<<pros_fname>pros_fname></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the prosecutor.</br>
-________________________________<<pros_fname>/pros_fname></br> 
-________________________________<<pros_sname>pros_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of a prosecutor. </br>
-________________________________<<pros_sname>/pros_sname></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key</br>
-____________________________________description: Court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<prosecutor>/prosecutor></br>
-________________________<<lawyer>lawyer></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<lwyr_id>lwyr_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Lawyer identifier. </br>
-________________________________<<lwyr_id>/lwyr_id></br> 
-________________________________<<lwyr_title>lwyr_title></br>
-____________________________________type: char</br>
-____________________________________Length: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the Lawyer.</br>
-________________________________<<lwyr_title>/lwyr_title></br> 
-________________________________<<lwyr_fname>lwyr_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the lawyer.</br> 
-________________________________<<lwyr_fname>/lwyr_fname></br>
-________________________________<<lwyr_sname>lwyr_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the lawyer. </br>
-________________________________<<lwyr_sname>/lawyer_sname></br> 
-________________________________<<lwyr_tel>lwyr_tel></br>
-____________________________________type: integer</br>
-____________________________________Length: 10</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________desceiption: Office telephone number of the lawyer.</br>
-________________________________<<lwyr_tel>/lwyr_tel></br>
-____________________________<<attributes>/attributes></br>
-________________________<<lawyer>/lawyer></br>
-________________________<<ccase>ccase></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Case identifier. </br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<crime_ctgry>crime_ctgry></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Category of reported crime. </br>
-________________________________<<crime_ctgry>/crime_ctgry></br> 
-________________________________<<crime_type>crime_type></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 50</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Type of reported crime.</br> 
-________________________________<<crime_typ>/crime_typ></br>
-________________________________<<dor>dor></br>
-____________________________________type: date</br>
-____________________________________Length: 10</br>
-____________________________________constraints: none</br>
-____________________________________description: Date at which the crime was reported. </br>
-________________________________<<dor>/dor></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: police_station)</br>
-____________________________________description: police station identifier.</br>
-________________________________<<ps_id>/ps_id></br> 
-________________________________<<com_id>com_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign Key (reference table: complainant)</br>
-____________________________________description: complainant identifier.</br> 
-________________________________<<pros_id>pros_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: prosecutor)</br>
-____________________________________description: prosecutor identifier. </br> 
-________________________________<<pros_id>/pros_id></br>
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________constraints: Foreign key (Reference table: detective)</br>
-____________________________________description: detective identifier.</br>
-________________________________<<det_id>/det_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase>/ccase></br>
-________________________<<judge>judge></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jud_id>jud_id> </br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: judge identifier.</br>
-________________________________<<jud_id>/jud_id></br> 
-________________________________<<jud_title>jud_title></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the judge.</br> 
-________________________________<<jud_title>/jud_title></br>
-________________________________<<jud_fname>jud_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the judge.</br>
-________________________________<<jud_fname>/jud_fname></br> 
-________________________________<<jud_sname>jud_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the judge. </br>
-________________________________<<jud_sname>/jud_sname></br> 
-________________________________<<c_division>c_division></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________description: Court division where the judge make judgements.</br>
-________________________________<<c_division>/c_division></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: court)</br>
-____________________________________description: court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judge>/judge></br>
-________________________<<judgement>judgement></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jdmnt_id>jdmnt_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: judgement identifier.</br>
-________________________________<<jdmnt_id>/jdmnt_id> </br> 
-________________________________<<jdmnt_date>jdmnt_date></br>
-____________________________________type: date</br>
-____________________________________Length: 10</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: judgement date.</br>
-________________________________<<jdmnt_date>/jdmnt_date></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-___________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: court)</br>
-____________________________________description: Court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judgement>/judgement></br>
-________________________<<judge_ccase>judge_ccase></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jud_id>jud_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: judge)</br>
-____________________________________description: judge identifier. </br> 
-________________________________<<ccase_id>ccase_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judge_ccase>judge_ccase></br>
-________________________<<ccase_judgement>ccase_judgement></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase) </br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<jdmnt_id>jdmnt_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: judgement)</br>
-____________________________________description: judgement identifier.</br>
-________________________________<<jdmnt_id>/jdmnt_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase_judgement>/ccase_judgement></br>
-________________________<<ccase_suspect>ccase_suspect></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<sus_id>sus_id></br>
-____________________________________type: char</br>
-___________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________comstraints: Primary key, Foreign key (Reference table: suspect)</br>
-____________________________________description: suspect identifier </br>
-________________________________<<sus_id>/sus_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase_suspect>/ccase_suspect></br>
-________________________<<lawyer_suspect>lawyer_suspect></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<lwyr_id>lwyr_id> </br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: lawyer)</br>
-____________________________________description: lawyer identifier.</br>
-________________________________<<lwyr_id>/lwyr_id></br> 
-________________________________<<sus_id>sus_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: suspect)</br>
-____________________________________description: suspect identifier.</br>
-________________________________<<sus_id>/sus_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<lawyer_suspect>lawyer_suspect></br>
-____________________<<Tables>/Tables></br>
-________________<<WC crime data management>/WC crime data management> </br> 
-____________<<schema>/schema></br>
-</p1><p1 style="color:purple;">____________<<schema>schema></br> 
-________________<<court>court> </br> 
-____________________<<Tables>Tables></br> 
-________________________<<complainant>complainant> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<com_id>com_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: complainant identifier</br> 
-________________________________<<com_id>/com_id> </br> 
-________________________________<<com_fname>com_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: First name of the complainant. </br> 
-________________________________<<com_fname>/com_fname> </br>
-________________________________<<com_sname>com_sname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the complainant. </br> 
-________________________________<<com_sname>/com_sname> </br>
-________________________________<<com_title>com_title> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the complainant. </br> 
-________________________________<<com_title>/com_title></br>
-________________________________<<com_age>com_age></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Birth age of the complainant. </br> 
-________________________________<<com_age>/com_age></br>
-________________________________<<com_gender>com_gender> </br>
-____________________________________type: boolean</br>
-____________________________________length: 1 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: gender of the complainant (M or F). </br> 
-________________________________<<com_gender>/com_gender></br>
-________________________________<<com_address>com_address> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Residential address. </br> 
-________________________________<<com_address>/com_address</br>
-________________________________<<com_nationality>com_nationality> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Nationality of the complainant. </br> 
-________________________________<<com_nationality>/com_nationality></br>
-________________________________<<com_cell>com_cell> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10 </br>
-____________________________________null: yes </br>
-____________________________________constraints: none </br>
-____________________________________description: contact cellphone number of the complainant. </br> 
-________________________________<<com_cell>/com_cell> </br> 
-____________________________<<attributes>/attributes> </br> 
-________________________<<complainant>/complainant></br>
-________________________<<suspect>suspect> </br>
-____________________________<<attributes>attributes></br> 
-________________________________<<sus_id>sus_id> </br>
-____________________________________type: char</br>
-____________________________________length: 14 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: suspect identifier. </br> 
-________________________________<<sus_id>/sus_id> </br>
-________________________________<<sus_fname>sus_fname> </br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Firstname of the suspect. </br> 
-________________________________<<sus_fname>/sus_fname></br> 
-________________________________<<sus_sname>sus_sname></br> 
-____________________________________type: varchar</br>
-____________________________________maxLength: 20 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Surname of the suspect. </br> 
-________________________________<<sus_sname>/sus_sname> </br>
-________________________________<<sus_title>sus_title> </br>
-____________________________________type: varchar</br>
-____________________________________length: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: Title of the suspect. </br>  
-________________________________<<sus_title>/sus_title></br> 
-________________________________<<sus_age>sus_age> </br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3 </br>
-____________________________________null: no </br>
-____________________________________constraints: none </br>
-____________________________________description: birth age of the suspect. </br> 
-________________________________<<sus_age>/sus_age></br>
-________________________________ <<sus_gender>sus_gender></br>
-____________________________________type: boolean </br>
-____________________________________Length: 1</br>
-____________________________________null: no </br>
-____________________________________constraints: none</br>
-____________________________________description: Gender of the suspect (M or F).</br> 
-________________________________<<sus_gender>/sus_gender> </br>
-________________________________ <<sus_address>sus_address> </br>
-____________________________________type:varchar </br>
-___________________________________maxLength: 100 </br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the suspect.</br> 
-________________________________<<sus_address>/sus_address></br>
-________________________________<<sus_nationality>sus_nationality></br>
-____________________________________type: varchar </br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Suspect country of residence.</br> 
-________________________________<<sus_nationality>/sus_nationality></br>
-________________________________<<sus_cell>sus_cell> </br>
-____________________________________type: integer</br>
-____________________________________Length: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: Contact cellphone number of a suspect.</br>
-____________________________<<attributes>/attributes> </br>
-________________________<<suspect>suspect> </br>
-________________________<<witness>witness></br> 
-____________________________<<attributes>attributes> </br>
-________________________________<<wit_id>wit_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no </br>
-____________________________________constraints: Primary key</br>
-____________________________________description: witness identifier.</br>  
-________________________________<<wit_id>/wit_id></br> 
-________________________________<<wit_fname>wit_fname></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: firstname of the witness.</br>  
-________________________________<<wit_fname>/wit_fname></br>
-________________________________<<wit_sname>wit_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength; 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the complainant.</br>  
-________________________________<<wit_sname>/wit_sname></br>
-________________________________<<wit_title>wit_title></br>
-____________________________________varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the witness.</br>  
-________________________________<<wit_title>/wit_title></br>
-________________________________<<wit_age>wit_age></br>
-____________________________________type: integer</br>
-__________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: birth age of the witness.</br>  
-________________________________<<wit_age>/wit_age></br>
-________________________________<<wit_gender>wit_gender></br>
-____________________________________type: boolean</br>
-____________________________________Length: 1</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: gender of the witness (M or F)</br>  
-________________________________<<wit_gender>/wit_gender></br>
-________________________________<<wit_address>wit_address></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 100</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Residential address of the witness.</br>  
-________________________________<<wit_address>/wit_address></br>
-________________________________<<wit_nationality>wit_nationality></br>
-____________________________________type: varchar</br>
-____________________________________Length: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Country of residence of the witness.</br>  
-________________________________<<wit_nationality>/wit_nationality></br>
-________________________________<<wit_cell>wit_cell></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 10</br>
-____________________________________null: yes</br>
-____________________________________constraints: none</br>
-____________________________________description: contact cellphone number of a witness.<br>
-____________________________<<attributes>/attributes></br>
-________________________<<witness>/witness></br>
-________________________<<police_station>police_station></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 3 </br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: police station identifier.</br>
-________________________________<<ps_id>/ps_id></br> 
-________________________________<<ps_name>ps_name></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________constraints: unique key</br>
-____________________________________description: Name of the police station.</br>
-________________________________<<ps_name>/ps_name></br>
-____________________________<<attributes>/attributes></br>
-________________________<<police_station>/police_station></br>
-________________________<<court>court></br> 
-____________________________<<attributes>attributes></br>
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key </br>
-____________________________________description: court identifier</br>
-________________________________<<court_id>court_id></br> 
-________________________________<<court_name>court_name></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: unique key</br>
-____________________________________description: Name of the court</br> 
-________________________________<<court_class>court_class></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________court classification.</br>
-________________________________<<court_class>/court_class></br>
-____________________________<<attributes>/attributes></br>
-________________________<<court>/court></br>
-________________________<<detective>detective></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Detective identifier. </br>
-________________________________<<det_id>/det_id></br> 
-________________________________<<det_title>det_title></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: title of the detective.</br>
-________________________________<<det_title>/det_title></br> 
-________________________________<<det_fname>det_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the detective.</br>
-________________________________<<det_fname>/det_fname></br> 
-________________________________<<det_sname>det_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the detective. </br>
-________________________________<<det_sname>/det_sname></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no.</br>
-____________________________________constraints: Foreign key</br>
-____________________________________description: Police station identifier.</br>
-________________________________<<ps_id>/ps_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<detective>/detective></br>
-________________________<<prosecutor>prosecutor></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<pros_id>pros_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Prosecutor identifier. </br> 
-________________________________<<pros_id>/pros_id></br>
-________________________________<<pros_title>pros_title></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of a prosecutor.</br> 
-________________________________<<pros_title>/pros_title></br>
-________________________________<<pros_fname>pros_fname></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the prosecutor.</br>
-________________________________<<pros_fname>/pros_fname></br> 
-________________________________<<pros_sname>pros_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of a prosecutor. </br>
-________________________________<<pros_sname>/pros_sname></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key</br>
-____________________________________description: Court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<prosecutor>/prosecutor></br>
-________________________<<lawyer>lawyer></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<lwyr_id>lwyr_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Lawyer identifier. </br>
-________________________________<<lwyr_id>/lwyr_id></br> 
-________________________________<<lwyr_title>lwyr_title></br>
-____________________________________type: char</br>
-____________________________________Length: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the Lawyer.</br>
-________________________________<<lwyr_title>/lwyr_title></br> 
-________________________________<<lwyr_fname>lwyr_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the lawyer.</br> 
-________________________________<<lwyr_fname>/lwyr_fname></br>
-________________________________<<lwyr_sname>lwyr_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the lawyer. </br>
-________________________________<<lwyr_sname>/lawyer_sname></br> 
-________________________________<<lwyr_tel>lwyr_tel></br>
-____________________________________type: integer</br>
-____________________________________Length: 10</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________desceiption: Office telephone number of the lawyer.</br>
-________________________________<<lwyr_tel>/lwyr_tel></br>
-____________________________<<attributes>/attributes></br>
-________________________<<lawyer>/lawyer></br>
-________________________<<ccase>ccase></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: Case identifier. </br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<crime_ctgry>crime_ctgry></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Category of reported crime. </br>
-________________________________<<crime_ctgry>/crime_ctgry></br> 
-________________________________<<crime_type>crime_type></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 50</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Type of reported crime.</br> 
-________________________________<<crime_typ>/crime_typ></br>
-________________________________<<dor>dor></br>
-____________________________________type: date</br>
-____________________________________Length: 10</br>
-____________________________________constraints: none</br>
-____________________________________description: Date at which the crime was reported. </br>
-________________________________<<dor>/dor></br> 
-________________________________<<ps_id>ps_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: police_station)</br>
-____________________________________description: police station identifier.</br>
-________________________________<<ps_id>/ps_id></br> 
-________________________________<<com_id>com_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign Key (reference table: complainant)</br>
-____________________________________description: complainant identifier.</br> 
-________________________________<<pros_id>pros_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: prosecutor)</br>
-____________________________________description: prosecutor identifier. </br> 
-________________________________<<pros_id>/pros_id></br>
-________________________________<<det_id>det_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________constraints: Foreign key (Reference table: detective)</br>
-____________________________________description: detective identifier.</br>
-________________________________<<det_id>/det_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase>/ccase></br>
-________________________<<judge>judge></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jud_id>jud_id> </br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: judge identifier.</br>
-________________________________<<jud_id>/jud_id></br> 
-________________________________<<jud_title>jud_title></br>
-____________________________________type: varchar</br>
-___________________________________maxLength: 3</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Title of the judge.</br> 
-________________________________<<jud_title>/jud_title></br>
-________________________________<<jud_fname>jud_fname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Firstname of the judge.</br>
-________________________________<<jud_fname>/jud_fname></br> 
-________________________________<<jud_sname>jud_sname></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 20</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: Surname of the judge. </br>
-________________________________<<jud_sname>/jud_sname></br> 
-________________________________<<c_division>c_division></br>
-____________________________________type: varchar</br>
-____________________________________maxLength: 30</br>
-____________________________________null: no</br>
-____________________________________description: Court division where the judge make judgements.</br>
-________________________________<<c_division>/c_division></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-____________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: court)</br>
-____________________________________description: court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judge>/judge></br>
-________________________<<judgement>judgement></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jdmnt_id>jdmnt_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key</br>
-____________________________________description: judgement identifier.</br>
-________________________________<<jdmnt_id>/jdmnt_id> </br> 
-________________________________<<jdmnt_date>jdmnt_date></br>
-____________________________________type: date</br>
-____________________________________Length: 10</br>
-____________________________________null: no</br>
-____________________________________constraints: none</br>
-____________________________________description: judgement date.</br>
-________________________________<<jdmnt_date>/jdmnt_date></br> 
-________________________________<<court_id>court_id></br>
-____________________________________type: integer</br>
-___________________________________maxLength: 2</br>
-____________________________________null: no</br>
-____________________________________constraints: Foreign key (Reference table: court)</br>
-____________________________________description: Court identifier.</br>
-________________________________<<court_id>/court_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judgement>/judgement></br>
-________________________<<judge_ccase>judge_ccase></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<jud_id>jud_id></br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: judge)</br>
-____________________________________description: judge identifier. </br> 
-________________________________<<ccase_id>ccase_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<judge_ccase>judge_ccase></br>
-________________________<<ccase_judgement>ccase_judgement></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase) </br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<jdmnt_id>jdmnt_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: judgement)</br>
-____________________________________description: judgement identifier.</br>
-________________________________<<jdmnt_id>/jdmnt_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase_judgement>/ccase_judgement></br>
-________________________<<ccase_suspect>ccase_suspect></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<ccase_id>ccase_id> </br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
-____________________________________description: ccase identifier.</br>
-________________________________<<ccase_id>/ccase_id></br> 
-________________________________<<sus_id>sus_id></br>
-____________________________________type: char</br>
-___________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________comstraints: Primary key, Foreign key (Reference table: suspect)</br>
-____________________________________description: suspect identifier </br>
-________________________________<<sus_id>/sus_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<ccase_suspect>/ccase_suspect></br>
-________________________<<lawyer_suspect>lawyer_suspect></br>
-____________________________<<attributes>attributes></br> 
-________________________________<<lwyr_id>lwyr_id> </br>
-____________________________________type: integer</br>
-____________________________________Length: 8</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: lawyer)</br>
-____________________________________description: lawyer identifier.</br>
-________________________________<<lwyr_id>/lwyr_id></br> 
-________________________________<<sus_id>sus_id></br>
-____________________________________type: char</br>
-____________________________________Length: 14</br>
-____________________________________null: no</br>
-____________________________________constraints: Primary key, Foreign key (Reference table: suspect)</br>
-____________________________________description: suspect identifier.</br>
-________________________________<<sus_id>/sus_id></br>
-____________________________<<attributes>/attributes></br>
-________________________<<lawyer_suspect>lawyer_suspect></br>
-____________________<<Tables>/Tables></br>
-________________<<WC crime data management>/WC crime data management> </br> 
-____________<<schema>/schema></br>
 
-________<<MySQL>/MySQL></br>
-____<<PHP>/PHP></br>
+________<<MySQL>PostgreSQL SQL> </br> 
+<p1 style="color:red;">____________<<schema>schema></br> 
+________________<<police_station>Western Cape SAPS Crime Management> </br>
+____________________<<Tables>Tables></br>
+
+________________________<<complainant>complainant> </br>
+____________________________<<attributes>attributes></br> 
+________________________________<<com_id>com_id> </br>
+____________________________________type: char</br>
+____________________________________length: 14 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: complainant identifier</br> 
+________________________________<<com_id>/com_id> </br> 
+________________________________<<com_fname>com_fname> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: First name of the complainant. </br> 
+________________________________<<com_fname>/com_fname> </br>
+________________________________<<com_sname>com_sname> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Surname of the complainant. </br> 
+________________________________<<com_sname>/com_sname> </br>
+________________________________<<com_title>com_title> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 3 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Title of the complainant. </br> 
+________________________________<<com_title>/com_title></br>
+________________________________<<com_age>com_age></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 3 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Birth age of the complainant. </br> 
+________________________________<<com_age>/com_age></br>
+________________________________<<com_gender>com_gender> </br>
+____________________________________type: boolean</br>
+____________________________________length: 1 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: gender of the complainant (M or F). </br> 
+________________________________<<com_gender>/com_gender></br>
+________________________________<<com_address>com_address> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 100 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Residential address. </br> 
+________________________________<<com_address>/com_address</br>
+________________________________<<com_nationality>com_nationality> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 30 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Nationality of the complainant. </br> 
+________________________________<<com_nationality>/com_nationality></br>
+________________________________<<com_cell>com_cell> </br>
+____________________________________type: integer</br>
+____________________________________maxLength: 10 </br>
+____________________________________null: yes </br>
+____________________________________constraints: none </br>
+____________________________________description: contact cellphone number of the complainant. </br> 
+________________________________<<com_cell>/com_cell> </br> 
+____________________________<<attributes>/attributes> </br> 
+________________________<<complainant>/complainant></br>
+________________________<<suspect>suspect> </br>
+____________________________<<attributes>attributes></br> 
+________________________________<<sus_id>sus_id> </br>
+____________________________________type: char</br>
+____________________________________length: 14 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: suspect identifier. </br> 
+________________________________<<sus_id>/sus_id> </br>
+________________________________<<sus_fname>sus_fname> </br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Firstname of the suspect. </br> 
+________________________________<<sus_fname>/sus_fname></br> 
+________________________________<<sus_sname>sus_sname></br> 
+____________________________________type: varchar</br>
+____________________________________maxLength: 20 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Surname of the suspect. </br> 
+________________________________<<sus_sname>/sus_sname> </br>
+________________________________<<sus_title>sus_title> </br>
+____________________________________type: varchar</br>
+____________________________________length: 3 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: Title of the suspect. </br>  
+________________________________<<sus_title>/sus_title></br> 
+________________________________<<sus_age>sus_age> </br>
+____________________________________type: integer</br>
+____________________________________maxLength: 3 </br>
+____________________________________null: no </br>
+____________________________________constraints: none </br>
+____________________________________description: birth age of the suspect. </br> 
+________________________________<<sus_age>/sus_age></br>
+________________________________ <<sus_gender>sus_gender></br>
+____________________________________type: boolean </br>
+____________________________________Length: 1</br>
+____________________________________null: no </br>
+____________________________________constraints: none</br>
+____________________________________description: Gender of the suspect (M or F).</br> 
+________________________________<<sus_gender>/sus_gender> </br>
+________________________________ <<sus_address>sus_address> </br>
+____________________________________type:varchar </br>
+___________________________________maxLength: 100 </br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Residential address of the suspect.</br> 
+________________________________<<sus_address>/sus_address></br>
+________________________________<<sus_nationality>sus_nationality></br>
+____________________________________type: varchar </br>
+____________________________________maxLength: 30</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Suspect country of residence.</br> 
+________________________________<<sus_nationality>/sus_nationality></br>
+________________________________<<sus_cell>sus_cell> </br>
+____________________________________type: integer</br>
+____________________________________Length: 10</br>
+____________________________________null: yes</br>
+____________________________________constraints: none</br>
+____________________________________description: Contact cellphone number of a suspect.</br>
+____________________________<<attributes>/attributes> </br>
+________________________<<suspect>suspect> </br>
+________________________<<witness>witness></br> 
+____________________________<<attributes>attributes> </br>
+________________________________<<wit_id>wit_id> </br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no </br>
+____________________________________constraints: Primary key</br>
+____________________________________description: witness identifier.</br>  
+________________________________<<wit_id>/wit_id></br> 
+________________________________<<wit_fname>wit_fname></br>
+____________________________________type: varchar</br>
+___________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: firstname of the witness.</br>  
+________________________________<<wit_fname>/wit_fname></br>
+________________________________<<wit_sname>wit_sname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength; 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Surname of the complainant.</br>  
+________________________________<<wit_sname>/wit_sname></br>
+________________________________<<wit_title>wit_title></br>
+____________________________________varchar</br>
+____________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Title of the witness.</br>  
+________________________________<<wit_title>/wit_title></br>
+________________________________<<wit_age>wit_age></br>
+____________________________________type: integer</br>
+__________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: birth age of the witness.</br>  
+________________________________<<wit_age>/wit_age></br>
+________________________________<<wit_gender>wit_gender></br>
+____________________________________type: boolean</br>
+____________________________________Length: 1</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: gender of the witness (M or F)</br>  
+________________________________<<wit_gender>/wit_gender></br>
+________________________________<<wit_address>wit_address></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 100</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Residential address of the witness.</br>  
+________________________________<<wit_address>/wit_address></br>
+________________________________<<wit_nationality>wit_nationality></br>
+____________________________________type: varchar</br>
+____________________________________Length: 30</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Country of residence of the witness.</br>  
+________________________________<<wit_nationality>/wit_nationality></br>
+________________________________<<wit_cell>wit_cell></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 10</br>
+____________________________________null: yes</br>
+____________________________________constraints: none</br>
+____________________________________description: contact cellphone number of a witness.<br>
+____________________________<<attributes>/attributes></br>
+________________________<<witness>/witness></br>
+________________________<<police_station>police_station></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<ps_id>ps_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 3 </br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: police station identifier.</br>
+________________________________<<ps_id>/ps_id></br> 
+________________________________<<ps_name>ps_name></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 30</br>
+____________________________________constraints: unique key</br>
+____________________________________description: Name of the police station.</br>
+________________________________<<ps_name>/ps_name></br>
+____________________________<<attributes>/attributes></br>
+________________________<<police_station>/police_station></br>
+________________________<<court>court></br> 
+____________________________<<attributes>attributes></br>
+________________________________<<court_id>court_id></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 2</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key </br>
+____________________________________description: court identifier</br>
+________________________________<<court_id>court_id></br> 
+________________________________<<court_name>court_name></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 30</br>
+____________________________________null: no</br>
+____________________________________constraints: unique key</br>
+____________________________________description: Name of the court</br> 
+________________________________<<court_class>court_class></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 30</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________court classification.</br>
+________________________________<<court_class>/court_class></br>
+____________________________<<attributes>/attributes></br>
+________________________<<court>/court></br>
+________________________<<detective>detective></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<det_id>det_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: Detective identifier. </br>
+________________________________<<det_id>/det_id></br> 
+________________________________<<det_title>det_title></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: title of the detective.</br>
+________________________________<<det_title>/det_title></br> 
+________________________________<<det_fname>det_fname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Firstname of the detective.</br>
+________________________________<<det_fname>/det_fname></br> 
+________________________________<<det_sname>det_sname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Surname of the detective. </br>
+________________________________<<det_sname>/det_sname></br> 
+________________________________<<ps_id>ps_id></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 3</br>
+____________________________________null: no.</br>
+____________________________________constraints: Foreign key</br>
+____________________________________description: Police station identifier.</br>
+________________________________<<ps_id>/ps_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<detective>/detective></br>
+________________________<<prosecutor>prosecutor></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<pros_id>pros_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: Prosecutor identifier. </br> 
+________________________________<<pros_id>/pros_id></br>
+________________________________<<pros_title>pros_title></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Title of a prosecutor.</br> 
+________________________________<<pros_title>/pros_title></br>
+________________________________<<pros_fname>pros_fname></br>
+____________________________________type: varchar</br>
+___________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Firstname of the prosecutor.</br>
+________________________________<<pros_fname>/pros_fname></br> 
+________________________________<<pros_sname>pros_sname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Surname of a prosecutor. </br>
+________________________________<<pros_sname>/pros_sname></br> 
+________________________________<<court_id>court_id></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 2</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign key</br>
+____________________________________description: Court identifier.</br>
+________________________________<<court_id>/court_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<prosecutor>/prosecutor></br>
+________________________<<lawyer>lawyer></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<lwyr_id>lwyr_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: Lawyer identifier. </br>
+________________________________<<lwyr_id>/lwyr_id></br> 
+________________________________<<lwyr_title>lwyr_title></br>
+____________________________________type: char</br>
+____________________________________Length: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Title of the Lawyer.</br>
+________________________________<<lwyr_title>/lwyr_title></br> 
+________________________________<<lwyr_fname>lwyr_fname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Firstname of the lawyer.</br> 
+________________________________<<lwyr_fname>/lwyr_fname></br>
+________________________________<<lwyr_sname>lwyr_sname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Surname of the lawyer. </br>
+________________________________<<lwyr_sname>/lawyer_sname></br> 
+________________________________<<lwyr_tel>lwyr_tel></br>
+____________________________________type: integer</br>
+____________________________________Length: 10</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________desceiption: Office telephone number of the lawyer.</br>
+________________________________<<lwyr_tel>/lwyr_tel></br>
+____________________________<<attributes>/attributes></br>
+________________________<<lawyer>/lawyer></br>
+________________________<<ccase>ccase></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<ccase_id>ccase_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: Case identifier. </br>
+________________________________<<ccase_id>/ccase_id></br> 
+________________________________<<crime_ctgry>crime_ctgry></br>
+____________________________________type: varchar</br>
+___________________________________maxLength: 30</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Category of reported crime. </br>
+________________________________<<crime_ctgry>/crime_ctgry></br> 
+________________________________<<crime_type>crime_type></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 50</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Type of reported crime.</br> 
+________________________________<<crime_typ>/crime_typ></br>
+________________________________<<dor>dor></br>
+____________________________________type: date</br>
+____________________________________Length: 10</br>
+____________________________________constraints: none</br>
+____________________________________description: Date at which the crime was reported. </br>
+________________________________<<dor>/dor></br> 
+________________________________<<ps_id>ps_id></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign key (Reference table: police_station)</br>
+____________________________________description: police station identifier.</br>
+________________________________<<ps_id>/ps_id></br> 
+________________________________<<com_id>com_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign Key (reference table: complainant)</br>
+____________________________________description: complainant identifier.</br> 
+________________________________<<pros_id>pros_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign key (Reference table: prosecutor)</br>
+____________________________________description: prosecutor identifier. </br> 
+________________________________<<pros_id>/pros_id></br>
+________________________________<<det_id>det_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________constraints: Foreign key (Reference table: detective)</br>
+____________________________________description: detective identifier.</br>
+________________________________<<det_id>/det_id></br>
+
+________________________________<<jdmnt_id>jdmnt_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________constraints: Foreign key (Reference table: judgement)</br>
+____________________________________description: judgement identifier.</br>
+________________________________<<jdmnt_id>/jdmnt_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<ccase>/ccase></br>
+________________________<<judge>judge></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<jud_id>jud_id> </br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: judge identifier.</br>
+________________________________<<jud_id>/jud_id></br> 
+________________________________<<jud_title>jud_title></br>
+____________________________________type: varchar</br>
+___________________________________maxLength: 3</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Title of the judge.</br> 
+________________________________<<jud_title>/jud_title></br>
+________________________________<<jud_fname>jud_fname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Firstname of the judge.</br>
+________________________________<<jud_fname>/jud_fname></br> 
+________________________________<<jud_sname>jud_sname></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 20</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: Surname of the judge. </br>
+________________________________<<jud_sname>/jud_sname></br> 
+________________________________<<c_division>c_division></br>
+____________________________________type: varchar</br>
+____________________________________maxLength: 30</br>
+____________________________________null: no</br>
+____________________________________description: Court division where the judge make judgements.</br>
+________________________________<<c_division>/c_division></br> 
+________________________________<<court_id>court_id></br>
+____________________________________type: integer</br>
+____________________________________maxLength: 2</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign key (Reference table: court)</br>
+____________________________________description: court identifier.</br>
+________________________________<<court_id>/court_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<judge>/judge></br>
+________________________<<judgement>judgement></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<jdmnt_id>jdmnt_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key</br>
+____________________________________description: judgement identifier.</br>
+________________________________<<jdmnt_id>/jdmnt_id> </br> 
+________________________________<<jdmnt_date>jdmnt_ocm></br>
+____________________________________type: date</br>
+____________________________________Length: 2</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: judgement outcome.</br>
+________________________________<<jdmnt_date>/jdmnt_date></br> 
+________________________________<<jdmnt_date>jdmnt_date></br>
+____________________________________type: date</br>
+____________________________________Length: 10</br>
+____________________________________null: no</br>
+____________________________________constraints: none</br>
+____________________________________description: judgement date.</br>
+________________________________<<jdmnt_date>/jdmnt_date></br> 
+________________________________<<court_id>court_id></br>
+____________________________________type: integer</br>
+___________________________________maxLength: 2</br>
+____________________________________null: no</br>
+____________________________________constraints: Foreign key (Reference table: court)</br>
+____________________________________description: Court identifier.</br>
+________________________________<<court_id>/court_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<judgement>/judgement></br>
+________________________<<judge_ccase>judge_ccase></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<jud_id>jud_id></br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key, Foreign key (Reference table: judge)</br>
+____________________________________description: judge identifier. </br> 
+________________________________<<ccase_id>ccase_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
+____________________________________description: ccase identifier.</br>
+________________________________<<ccase_id>/ccase_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<judge_ccase>judge_ccase></br>
+________________________<<ccase_suspect>ccase_suspect></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<ccase_id>ccase_id> </br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key, Foreign key (Reference table: ccase)</br>
+____________________________________description: ccase identifier.</br>
+________________________________<<ccase_id>/ccase_id></br> 
+________________________________<<sus_id>sus_id></br>
+____________________________________type: char</br>
+___________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________comstraints: Primary key, Foreign key (Reference table: suspect)</br>
+____________________________________description: suspect identifier </br>
+________________________________<<sus_id>/sus_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<ccase_suspect>/ccase_suspect></br>
+________________________<<lawyer_suspect>lawyer_suspect></br>
+____________________________<<attributes>attributes></br> 
+________________________________<<lwyr_id>lwyr_id> </br>
+____________________________________type: integer</br>
+____________________________________Length: 8</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key, Foreign key (Reference table: lawyer)</br>
+____________________________________description: lawyer identifier.</br>
+________________________________<<lwyr_id>/lwyr_id></br> 
+________________________________<<sus_id>sus_id></br>
+____________________________________type: char</br>
+____________________________________Length: 14</br>
+____________________________________null: no</br>
+____________________________________constraints: Primary key, Foreign key (Reference table: suspect)</br>
+____________________________________description: suspect identifier.</br>
+________________________________<<sus_id>/sus_id></br>
+____________________________<<attributes>/attributes></br>
+________________________<<lawyer_suspect>lawyer_suspect></br>
+____________________<<Tables>/Tables></br>
+________________<<police_station>/Western Cape SAPS Crime Management> </br>
+____________<<schema>/schema></br>
+________<<posgreSQL>/PosgreSQL></br>
 </body>
 </html>
+

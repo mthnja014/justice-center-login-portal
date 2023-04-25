@@ -199,6 +199,7 @@ const gl = L.maplibreGL({
             }).addTo(map);
 
 L.Projection.Mercator;
+
 L.control.scale({maxWidth: 100, metric: true, imperial: true}).setPosition('bottomright').addTo(map);
 
 var latlngs = [
@@ -3094,8 +3095,8 @@ cn.fillText("Map Extent", 45, 165);
    <p1 id="demo"></p1>
 
    <form>
-      <input type="text" name="inputa" id="inputa" placeholder="type to search for degree squares">
-      <div class="dictionary"><button id="dictionary" type="button" onclick="getValue()"> Search Degree Square </button></div>
+      <input type="text" name="inputa" id="inputa" placeholder="type to search data">
+      <div class="dictionary"><button id="dictionary" type="button" onclick="getValue()"> Search Data </button></div>
    </form>
 
    <script>
@@ -3483,7 +3484,7 @@ var data = {
 
 "blank":
 `{"description": "<p style='background-color:rgb(200, 0, 0);'>Please input Police Station ID!</p>"}`,
-
+}
 
       var blank = JSON.parse(data.blank);
       var err = JSON.parse(data.err);

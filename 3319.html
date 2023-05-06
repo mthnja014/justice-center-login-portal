@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3319 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Rawsonville, Tulbagh, Wellington, Robertson, Villiesdorp, McGregor, Wolseley, Franschhoek, De Doorns, Prince Alfred Helmaet">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+   <title>idw-gds3319</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+<body><fieldset><legend>3319 IDW</legend>
+<table style="width:flex">
+
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Villiesdorp</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" name="input1" id="input1"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Robertson</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input2" id="input2"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Wellington</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" name="input3" id="input3"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Tulbagh</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input4" id="input4"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Rawsonville</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" name="input5" id="input5"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Prince Alfred Halmat</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input6" id="input6"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>De Doorns</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" name="input7" id="input7"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Wolseley</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input8" id="input8"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Franschhoek</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" name="input9" id="input9"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>McGregor</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input10" id="input10"></br></td></tr>
+</table>
+
+<br><button type="button" onclick="myFunction()">Compute IWD</button><br>
+<p id="ds"></p>
+<button type="button" onclick="getValue()"> Get Crime Statistics</button>
+<p id="ds1"></p>
+</fielset>
+
+<script>
+function myFunction() {
+var vill = document.getElementById("input1").value;
+var robe = document.getElementById("input2").value;
+var well = document.getElementById("input3").value;
+var tulb = document.getElementById("input4").value;
+var raws = document.getElementById("input5").value;
+var prin = document.getElementById("input6").value;
+var dedo = document.getElementById("input7").value;
+var wols = document.getElementById("input8").value;
+var fran = document.getElementById("input9").value;
+var mcgr = document.getElementById("input10").value;
+
+var xcentr = 6371000*Math.cos(-33.5*Math.PI/180)*Math.cos(19.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-33.5*Math.PI/180)*Math.sin(19.5*Math.PI/180);
+
+var xvill = 6371000*Math.cos(-33.99243*Math.PI/180)*Math.cos(19.28734*Math.PI/180);
+var yvill = 6371000*Math.cos(-33.99243*Math.PI/180)*Math.sin(19.28734*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(yvill - ycentr), 2) + Math.pow(Math.abs(xvill - xcentr), 2));
+var num1 = vill*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xrobe = 6371000*Math.cos(-33.80517*Math.PI/180)*Math.cos(19.87543*Math.PI/180);
+var yrobe = 6371000*Math.cos(-33.80517*Math.PI/180)*Math.sin(19.87543*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(yrobe - ycentr), 2) + Math.pow(Math.abs(xrobe - xcentr), 2));
+var num2 = robe*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xwell = 6371000*Math.cos(-33.64022*Math.PI/180)*Math.cos(19.00515*Math.PI/180);
+var ywell = 6371000*Math.cos(-33.64022*Math.PI/180)*Math.sin(19.00515*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(ywell - ycentr), 2) + Math.pow(Math.abs(xwell - xcentr), 2));
+var num3 = well*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xtulb = 6371000*Math.cos(-33.28503*Math.PI/180)*Math.cos(19.14052*Math.PI/180);
+var ytulb = 6371000*Math.cos(-33.28503*Math.PI/180)*Math.sin(19.14052*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(ytulb - ycentr), 2) + Math.pow(Math.abs(xtulb - xcentr), 2));
+var num4 = tulb*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var xraws = 6371000*Math.cos(-33.68464*Math.PI/180)*Math.cos(19.30908*Math.PI/180);
+var yraws = 6371000*Math.cos(-33.68464*Math.PI/180)*Math.sin(19.30908*Math.PI/180);
+var d5 = Math.sqrt(Math.pow(Math.abs(yraws - ycentr), 2) + Math.pow(Math.abs(xraws - xcentr), 2));
+var num5 = raws*Math.pow(1/d5, 2);
+var den5 = Math.pow(1/d5, 2);
+
+var xprin = 6371000*Math.cos(-33.29353*Math.PI/180)*Math.cos(19.32863*Math.PI/180);
+var yprin = 6371000*Math.cos(-33.29353*Math.PI/180)*Math.sin(19.32863*Math.PI/180);
+var d6 = Math.sqrt(Math.pow(Math.abs(yprin - ycentr), 2) + Math.pow(Math.abs(xprin - xcentr), 2));
+var num6 = prin*Math.pow(1/d6, 2);
+var den6 = Math.pow(1/d6, 2);
+
+var xdedo = 6371000*Math.cos(-33.47424*Math.PI/180)*Math.cos(19.66581*Math.PI/180);
+var ydedo = 6371000*Math.cos(-33.47424*Math.PI/180)*Math.sin(19.66581*Math.PI/180);
+var d7 = Math.sqrt(Math.pow(Math.abs(ydedo - ycentr), 2) + Math.pow(Math.abs(xdedo - xcentr), 2));
+var num7 = dedo*Math.pow(1/d7, 2);
+var den7 = Math.pow(1/d7, 2);
+ 
+var xwols = 6371000*Math.cos(-33.4144*Math.PI/180)*Math.cos(19.20104*Math.PI/180);
+var ywols = 6371000*Math.cos(-33.4144*Math.PI/180)*Math.sin(19.20104*Math.PI/180);
+var d8 = Math.sqrt(Math.pow(Math.abs(ywols - ycentr), 2) + Math.pow(Math.abs(xwols - xcentr), 2));
+var num8 = wols*Math.pow(1/d8, 2);
+var den8 = Math.pow(1/d8, 2);
+
+var xfran = 6371000*Math.cos(-33.9122*Math.PI/180)*Math.cos(19.12143*Math.PI/180);
+var yfran = 6371000*Math.cos(-33.9122*Math.PI/180)*Math.sin(19.12143*Math.PI/180);
+var d9 = Math.sqrt(Math.pow(Math.abs(yfran - ycentr), 2) + Math.pow(Math.abs(xfran - xcentr), 2));
+var num9 = fran*Math.pow(1/d9, 2);
+var den9 = Math.pow(1/d9, 2);
+
+var xmcgr = 6371000*Math.cos(-33.9463*Math.PI/180)*Math.cos(19.82949*Math.PI/180);
+var ymcgr = 6371000*Math.cos(-33.9463*Math.PI/180)*Math.sin(19.82949*Math.PI/180);
+var d10 = Math.sqrt(Math.pow(Math.abs(ymcgr - ycentr), 2) + Math.pow(Math.abs(mcgr - xcentr), 2));
+var num10 = mcgr*Math.pow(1/d10, 2);
+var den10 = Math.pow(1/d10, 2);
+
+var num = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10;
+var den = den1 + den2 + den3 + den4 + den5 + den6 + den7 + den8 + den9 + den10;
+var m = num/den;
+
+if (vill != "" && robe != "" && well != "" && prin!= "" && raws != "" && dedo != "" && wols != "" && fran != "" && mcgr != "") {
+document.getElementById("ds").innerHTML = m;
+}else {
+document.getElementById("ds").innerHTML = "Please Enter Values in All input fields";}
+}
+</script>
+<script>
+var data = {
+"ps2":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 002</b></td><td>VILLIERSDORP</td><td>551</td><td>1109</td><td>621</td><td>3962</td><td>580</td><td>1222</td><td>2851</td><td>1</td><td>305</td><td><b>11202</b></td></tr><tr><td><b>008 </b></td><td>ROBERTSON</td><td>779</td><td>893</td><td>784</td><td>990</td><td>1324</td><td>1118</td><td>913</td><td>1</td><td>1789</td><td><b>8591</b></td></tr><tr><td><b> 024</b></td><td>WELLINGTON</td><td>567</td><td>387</td><td>621</td><td>1117</td><td>2019</td><td>1641</td><td>3092</td><td>0</td><td>724</td><td><b>10168</b></td></tr><tr><td><b> 025</b></td><td>TULBAGH</td><td>329</td><td>451</td><td>771</td><td>2072</td><td>2567</td><td>2093</td><td>990</td><td>0</td><td>1672</td><td><b>10945</b></td></tr><tr><td><b> 067</b></td><td>RAWSONVILLE</td><td>657</td><td>480</td><td>1874</td><td>2008</td><td>1973</td><td>2221</td><td>1653</td><td>0</td><td>867</td><td><b>9733</b></td></tr><tr><td><b>080 </b></td><td>PRINCE ALFRED HELMET</td><td>67</td><td>29</td><td>129</td><td>154</td><td>174</td><td>211</td><td>18</td><td>44</td><td>102</td><td><b>928</b></td></tr><tr><td><b>081 </b></td><td>DE DOORNS</td><td>112</td><td>204</td><td>191</td><td>542</td><td>99</td><td>107</td><td>266</td><td>186</td><td>369</td><td><b>2076</b></td></tr><tr><td><b>113 </b></td><td>WOLSELEY</td><td>72</td><td>104</td><td>231</td><td>157</td><td>246</td><td>91</td><td>167</td><td>209</td><td>113</td><td><b>1390</b></td></tr><tr><td><b>116 </b></td><td>FRANCHHOEK</td><td>244</td><td>125</td><td>218</td><td>322</td><td>231</td><td>147</td><td>298</td><td>213</td><td>222</td><td><b>2020</b></td></tr><tr><td><b> 120</b></td><td>MCGREGOR</td><td>318</td><td>207</td><td>2180</td><td>1974</td><td>682</td><td>2981</td><td>1777</td><td>2</td><td>856</td><td><b>10977</b></td></tr></table>"}`,
+}
+
+var dgs3319 = JSON.parse(data.ps2);
+
+function getValue() {
+document.getElementById("ds1").innerHTML = dgs3319.description;
+}
+</script>
+</body>
+</html>

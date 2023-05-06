@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3418 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Strand, Harare, Lwandle, Philippi, Muizenberg, Somerset West, Khayelitsha, Hout Bay, Lingelethu West, Dieprivier, Lentengeur, Simon's Town, Mitchells Plain, Steenberg, Philippi East, Fish Hoek">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+
+   <title>idw-gds3418</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+<body><fieldset><legend>3418 IDW</legend>
+<table style="width:flex">
+
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Muizenberg</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input1"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Lwandle</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input2"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Philippi</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input3"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Harare</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input4"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Strand</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input5"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Lingelethu West</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input6"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Hout Bay</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input7"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Dieprivier</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input8"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Khayelitsha</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input9"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Somerset West</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input10"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Simon's Town</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input11"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Steenberg</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input12"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Philippi East</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input13"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Fish Hoek</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input14"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Mitchells Plain</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input15"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Lentengeur</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input16"></td></tr>
+</table>
+
+<br><button type="button" onclick="myF()">Compute IWD</button><br>
+<p id="ds"></p>
+<button type="button" onclick="getValue()"> Get Crime Statistics</button>
+<p id="ds1"></p>
+</fielset>
+
+<script>
+function myF() {
+var muiz = document.getElementById("input1").value;
+var lwan = document.getElementById("input2").value;
+var phil = document.getElementById("input3").value;
+var hara = document.getElementById("input4").value;
+var stra = document.getElementById("input5").value;
+var ling = document.getElementById("input6").value;
+var hout = document.getElementById("input7").value;
+var diep = document.getElementById("input8").value;
+var khay = document.getElementById("input9").value;
+var some = document.getElementById("input10").value;
+var simo = document.getElementById("input11").value;
+var stee = document.getElementById("input12").value;
+var phie = document.getElementById("input1").value;
+var fish = document.getElementById("input2").value;
+var mitc = document.getElementById("input3").value;
+var lent = document.getElementById("input4").value;
+
+var xcentr = 6371000*Math.cos(-34.5*Math.PI/180)*Math.cos(18.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-34.5*Math.PI/180)*Math.sin(18.5*Math.PI/180);
+
+var xmuiz = 6371000*Math.cos(-34.1087*Math.PI/180)*Math.cos(18.46663*Math.PI/180);
+var ymuiz = 6371000*Math.cos(-34.1087*Math.PI/180)*Math.sin(18.46663*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ymuiz - ycentr), 2) + Math.pow(Math.abs(xmuiz - xcentr), 2));
+var num1 = muiz*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xlwan = 6371000*Math.cos(-34.11567*Math.PI/180)*Math.cos(18.86718*Math.PI/180);
+var ylwan = 6371000*Math.cos(-34.11567*Math.PI/180)*Math.sin(18.86718*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(ylwan - ycentr), 2) + Math.pow(Math.abs(xlwan - xcentr), 2));
+var num2 = lwan*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xphil = 6371000*Math.cos(-34.00107*Math.PI/180)*Math.cos(18.54054*Math.PI/180);
+var yphil = 6371000*Math.cos(-34.00107*Math.PI/180)*Math.sin(18.54054*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(yphil - ycentr), 2) + Math.pow(Math.abs(xphil - xcentr), 2));
+var num3 = phil*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xhara = 6371000*Math.cos(-34.05193*Math.PI/180)*Math.cos(18.6693*Math.PI/180);
+var yhara = 6371000*Math.cos(-34.05193*Math.PI/180)*Math.sin(18.6693*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(yhara - ycentr), 2) + Math.pow(Math.abs(xhara - xcentr), 2));
+var num4 = hara*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var xstra = 6371000*Math.cos(-34.11592*Math.PI/180)*Math.cos(18.83286*Math.PI/180);
+var ystra = 6371000*Math.cos(-34.11592*Math.PI/180)*Math.sin(18.83286*Math.PI/180);
+var d5 = Math.sqrt(Math.pow(Math.abs(ystra - ycentr), 2) + Math.pow(Math.abs(xstra - xcentr), 2));
+var num5 = stra*Math.pow(1/d5, 2);
+var den5 = Math.pow(1/d5, 2);
+
+var xling = 6371000*Math.cos(-34.04298*Math.PI/180)*Math.cos(18.66004*Math.PI/180);
+var yling = 6371000*Math.cos(-34.04298*Math.PI/180)*Math.sin(18.66004*Math.PI/180);
+var d6 = Math.sqrt(Math.pow(Math.abs(yling - ycentr), 2) + Math.pow(Math.abs(xling - xcentr), 2));
+var num6 = ling*Math.pow(1/d6, 2);
+var den6 = Math.pow(1/d6, 2);
+
+var xhout = 6371000*Math.cos(-34.03052*Math.PI/180)*Math.cos(18.35674*Math.PI/180);
+var yhout = 6371000*Math.cos(-34.03052*Math.PI/180)*Math.sin(18.35674*Math.PI/180);
+var d7 = Math.sqrt(Math.pow(Math.abs(yhout - ycentr), 2) + Math.pow(Math.abs(xhout - xcentr), 2));
+var num7 = hout*Math.pow(1/d7, 2);
+var den7 = Math.pow(1/d7, 2);
+
+var xdiep = 6371000*Math.cos(-34.03161*Math.PI/180)*Math.cos(18.46485*Math.PI/180);
+var ydiep = 6371000*Math.cos(-34.03161*Math.PI/180)*Math.sin(18.46485*Math.PI/180);
+var d8 = Math.sqrt(Math.pow(Math.abs(ydiep - ycentr), 2) + Math.pow(Math.abs(xdiep - xcentr), 2));
+var num8 = diep*Math.pow(1/d8, 2);
+var den8 = Math.pow(1/d8, 2);
+
+var xkhay = 6371000*Math.cos(-34.02464*Math.PI/180)*Math.cos(18.66599*Math.PI/180);
+var ykhay = 6371000*Math.cos(-34.02464*Math.PI/180)*Math.sin(18.66599*Math.PI/180);
+var d9 = Math.sqrt(Math.pow(Math.abs(ykhay - ycentr), 2) + Math.pow(Math.abs(xkhay - xcentr), 2));
+var num9 = khay*Math.pow(1/d9, 2);
+var den9 = Math.pow(1/d9, 2);
+
+var xsome = 6371000*Math.cos(-34.07682*Math.PI/180)*Math.cos(18.84466*Math.PI/180);
+var ysome = 6371000*Math.cos(-34.07682*Math.PI/180)*Math.sin(18.84466*Math.PI/180);
+var d10 = Math.sqrt(Math.pow(Math.abs(ysome - ycentr), 2) + Math.pow(Math.abs(xsome - xcentr), 2));
+var num10 = some*Math.pow(1/d10, 2);
+var den10 = Math.pow(1/d10, 2);
+
+var xsimo = 6371000*Math.cos(-34.19313*Math.PI/180)*Math.cos(18.43659*Math.PI/180);
+var ysimo = 6371000*Math.cos(-34.19313*Math.PI/180)*Math.sin(18.43659*Math.PI/180);
+var d11 = Math.sqrt(Math.pow(Math.abs(ysimo - ycentr), 2) + Math.pow(Math.abs(xsimo - xcentr), 2));
+var num11 = simo*Math.pow(1/d11, 2);
+var den11 = Math.pow(1/d11, 2);
+
+var xstee = 6371000*Math.cos(-34.06542*Math.PI/180)*Math.cos(18.47621*Math.PI/180);
+var ystee = 6371000*Math.cos(-34.06542*Math.PI/180)*Math.sin(18.47621*Math.PI/180);
+var d12 = Math.sqrt(Math.pow(Math.abs(ystee - ycentr), 2) + Math.pow(Math.abs(xstee - xcentr), 2));
+var num12 = stee*Math.pow(1/d12, 2);
+var den12 = Math.pow(1/d12, 2);
+
+var xphie = 6371000*Math.cos(-34.01031*Math.PI/180)*Math.cos(18.60685*Math.PI/180);
+var yphie = 6371000*Math.cos(-34.01031*Math.PI/180)*Math.sin(18.60685*Math.PI/180);
+var d13 = Math.sqrt(Math.pow(Math.abs(yphie - ycentr), 2) + Math.pow(Math.abs(xphie - xcentr), 2));
+var num13 = phie*Math.pow(1/d13, 2);
+var den13 = Math.pow(1/d13, 2);
+
+var xfish = 6371000*Math.cos(-34.13289*Math.PI/180)*Math.cos(18.43492*Math.PI/180);
+var yfish = 6371000*Math.cos(-34.13289*Math.PI/180)*Math.sin(18.43492*Math.PI/180);
+var d14 = Math.sqrt(Math.pow(Math.abs(yfish - ycentr), 2) + Math.pow(Math.abs(xfish - xcentr), 2));
+var num14 = fish*Math.pow(1/d14, 2);
+var den14 = Math.pow(1/d14, 2);
+
+var xmitc = 6371000*Math.cos(-34.04761*Math.PI/180)*Math.cos(18.62321*Math.PI/180);
+var ymitc = 6371000*Math.cos(-34.04761*Math.PI/180)*Math.sin(18.62321*Math.PI/180);
+var d15 = Math.sqrt(Math.pow(Math.abs(ymitc - ycentr), 2) + Math.pow(Math.abs(xmitc - xcentr), 2));
+var num15 = mitc*Math.pow(1/d15, 2);
+var den15 = Math.pow(1/d15, 2);
+
+var xlent = 6371000*Math.cos(-34.03613*Math.PI/180)*Math.cos(18.6107*Math.PI/180);
+var ylent = 6371000*Math.cos(-34.03613*Math.PI/180)*Math.sin(18.6107*Math.PI/180);
+var d16 = Math.sqrt(Math.pow(Math.abs(ylent - ycentr), 2) + Math.pow(Math.abs(xlent - xcentr), 2));
+var num16 = lent*Math.pow(1/d16, 2);
+var den16 = Math.pow(1/d16, 2);
+
+var num = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10 + num11 + num12 + num13 + num14 + num15 + num16;
+var den = den1 + den2 + den3 + den4 + den5 + den6 + den7 + den8 + den9 + den10 + den11 + den12 + den13 + den14 + den15 + den16;
+
+var m = num/den;
+
+if (muiz != "" && lwan != "" && phil != "" && hara != "" && stra != "" && ling != "" && hout != "" && diep != "" && khay != "" && simo != "" && some != "" && stee != "" && phie != "" && fish != "" && mitc != "" && lent != "") {
+document.getElementById("ds").innerHTML = m;
+}else {
+document.getElementById("ds").innerHTML = "Please Enter Values in All input fields!";}
+}
+</script>
+<script>
+var data = {
+"ps7":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>007 </b></td><td>MUIZENBURG</td><td>72</td><td>92</td><td>351</td><td>441</td><td>901</td><td>761</td><td>212</td><td>55</td><td>62</td><td><b>2947</b></td></tr><tr><td><b> 009</b></td><td>LWANDLE</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b>011 </b></td><td>PHILIPPI</td><td>152</td><td>169</td><td>270</td><td>612</td><td>586</td><td>931</td><td>241</td><td>30</td><td>52</td><td><b>2993</b></td></tr><tr><td><b> 026</b></td><td>HARARE</td><td>478</td><td>502</td><td>1134</td><td>2776</td><td>1509</td><td>2431</td><td>998</td><td>0</td><td>767</td><td><b>10595</b></td></tr><tr><td><b> 032</b></td><td>STRAND</td><td>468</td><td>789</td><td>843</td><td>527</td><td>941</td><td>805</td><td>1006</td><td>0</td><td>236</td><td><b>5615</b></tr><tr><td><b> 033</b></td><td>LINGELETHU-WEST</td><td>498</td><td>327</td><td>1907</td><td>2093</td><td>1769</td><td>1763</td><td>1003</td><td>0</td><td>926</td><td><b>9996</b></td></tr><tr><td><b> 036</b></td><td>HOUT BAY</td><td>294</td><td>187</td><td>1356</td><td>1209</td><td>3009</td><td>2076</td><td>2127</td><td>0</td><td>557</td><td><b>10815</b></td></tr><tr><td><b>038 </b></td><td>DIEPRIVIER</td><td>30</td><td>51</td><td>93</td><td>42</td><td>75</td><td>167</td><td>171</td><td>111</td><td>70</td><td><b>810</b></td></tr><tr><td><b>044 </b></td><td>KHAYELITSHA</td><td>955</td><td>673</td><td>667</td><td>1397</td><td>1222</td><td>798</td><td>882</td><td>0</td><td>1373</td><td><b>7931</b></td></tr><tr><td><b>047 </b></td><td>SOMERSET WEST</td><td>175</td><td>109</td><td>232</td><td>151</td><td>164</td><td>222</td><td>185</td><td>132</td><td>39</td><td><b>1409</b></td></tr><tr><td><b> 063</b></td><td>SIMON\'S TOWN</td><td>567</td><td>772</td><td>683</td><td>451</td><td>882</td><td>766</td><td>997</td><td>0</td><td>564</td><td><b>4508</b></tr><tr><td><b> 086</b></td><td>STEENBERG</td><td>432</td><td>355</td><td>798</td><td>1888</td><td>671</td><td>2985</td><td>3002</td><td>1</td><td>1009</td><td><b>11141</b></td></tr><tr><td><b> 087</b></td><td>PHILLIPI-EAST</td><td>771</td><td>482</td><td>987</td><td>2094</td><td>888</td><td>790</td><td>2341</td><td>0</td><td>652</td><td><b>9005</b></td></tr><tr><td><b> 088</b></td><td>FISH HOEK</td><td>623</td><td>417</td><td>985</td><td>2719</td><td>999</td><td>1327</td><td>1953</td><td>0</td><td>834</td><td><b>9857</b></td></tr><tr><td><b> 098</b></td><td>MITCHELLS PLAIN</td><td>367</td><td>289</td><td>343</td><td>433</td><td>791</td><td>649</td><td>1002</td><td>0</td><td>465</td><td><b>4339</b></tr><tr><td><b>115 </b></td><td>LENTENGEUR</td><td>88</td><td>103</td><td>217</td><td>129</td><td>172</td><td>184</td><td>219</td><td>231</td><td>111</td><td><b>1454</b></td></tr></table>"}`
+}
+var dgs3418 = JSON.parse(data.ps7);
+
+function getValue() {
+document.getElementById("ds1").innerHTML = dgs3418.description;
+}
+
+</script>
+</body>
+</html>

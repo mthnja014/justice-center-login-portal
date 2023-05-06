@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3118 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Doring Bay, Klawer, Nuwerus, Luitzville, Vredendal, Vanrhynsdorp">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+
+   <title>idw-gds3118</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(155, 155, 255);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+<body><fieldset><legend>3118 IDW</legend>
+<table style="width:flex">
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Doring Bay</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input1"></td><tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Klawer</label><br></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input2"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Nuwerus</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" id="input3"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Vanrhynsdorp</label><br></td><td style="background-color: rgb(230, 230, 130); "><input type="number" id="input4"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Vredendal</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" id="input5"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Lutzville</label><br></td><td style="background-color: rgb(230, 230, 130); "><input type="number" id="input6"><br></td></tr>
+</table>
+
+<br><button type="button" onclick="myFun()">Compute IWD</button><br>
+<p id="ds"></p>
+<button type="button" onclick="getValue()"> Get Crime Statistics</button>
+<p id="ds1"></p>
+</fielset>
+
+<script>
+function myFun() {
+var dori = document.getElementById("input1").value;
+var klaw = document.getElementById("input2").value;
+var nuwe = document.getElementById("input3").value;
+var vanr = document.getElementById("input4").value;
+var vred = document.getElementById("input5").value;
+var lutz = document.getElementById("input6").value;
+
+var xcentr = 6371000*Math.cos(-31.5*Math.PI/180)*Math.cos(18.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-31.5*Math.PI/180)*Math.sin(18.5*Math.PI/180);
+
+var xdori = 6371000*Math.cos(-31.81174*Math.PI/180)*Math.cos(18.23678*Math.PI/180);
+var ydori = 6371000*Math.cos(-31.81174*Math.PI/180)*Math.sin(18.23678*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ydori - ycentr), 2) + Math.pow(Math.abs(xdori - xcentr), 2));
+var num1 = dori*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xklaw = 6371000*Math.cos(-31.77222*Math.PI/180)*Math.cos(18.62512*Math.PI/180);
+var yklaw = 6371000*Math.cos(-31.77222*Math.PI/180)*Math.sin(18.62512*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(yklaw - ycentr), 2) + Math.pow(Math.abs(xklaw - xcentr), 2));
+var num2 = klaw*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xnuwe = 6371000*Math.cos(-31.14968*Math.PI/180)*Math.cos(18.35712*Math.PI/180);
+var ynuwe = 6371000*Math.cos(-31.14968*Math.PI/180)*Math.sin(18.35712*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(ynuwe - ycentr), 2) + Math.pow(Math.abs(xnuwe - xcentr), 2));
+var num3 = nuwe*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xvanr = 6371000*Math.cos(-31.6083*Math.PI/180)*Math.cos(18.74001*Math.PI/180);
+var yvanr = 6371000*Math.cos(-31.6083*Math.PI/180)*Math.sin(18.74001*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(yvanr - ycentr), 2) + Math.pow(Math.abs(xvanr - xcentr), 2));
+var num4 = vanr*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var xvred = 6371000*Math.cos(-31.66088*Math.PI/180)*Math.cos(18.51031*Math.PI/180);
+var yvred = 6371000*Math.cos(-31.66088*Math.PI/180)*Math.sin(18.51031*Math.PI/180);
+var d5 = Math.sqrt(Math.pow(Math.abs(yvred - ycentr), 2) + Math.pow(Math.abs(xvred - xcentr), 2));
+var num5 = vred*Math.pow(1/d5, 2);
+var den5 = Math.pow(1/d5, 2);
+
+var xlutz = 6371000*Math.cos(-31.55902*Math.PI/180)*Math.cos(18.34501*Math.PI/180);
+var ylutz = 6371000*Math.cos(-31.55902*Math.PI/180)*Math.sin(18.34501*Math.PI/180);
+var d6 = Math.sqrt(Math.pow(Math.abs(ylutz - ycentr), 2) + Math.pow(Math.abs(xlutz - xcentr), 2));
+var num6 = lutz*Math.pow(1/d6, 2);
+var den6 = Math.pow(1/d6, 2);
+
+var num = num1 + num2 + num3 + num4 + num5 + num6;
+var den = den1 + den2 + den3 + den4 + den5 + den6;
+
+var m = num/den;
+if (dori != "" && klaw != "" && nuwe != "" && vanr != ""&& vred != "" && lutz != "") {
+document.getElementById("ds").innerHTML = m;
+} else {
+document.getElementById("ds").innerHTML = "Please Enter Values in All input fields!";}
+}
+</script>
+<script>
+var data = {
+"ps77":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b>020 </b></td><td>DORING BAY</td><td>143</td><td>184</td><td>248</td><td>491</td><td>512</td><td>340</td><td>537</td><td>123</td><td>216</td><td><b>2794</b></td></tr><tr><td><b>074 </b></td><td>KLAWER</td><td>648</td><td>579</td><td>909</td><td>974</td><td>932</td><td>899</td><td>821</td><td>0</td><td>988</td><td><b>6029</b></td></tr><tr><td><b>077 </b></td><td>NUWERUS</td><td>237</td><td>328</td><td>241</td><td>288</td><td>457</td><td>131</td><td>478</td><td>231</td><td>162</td><td><b>2554</b></td></tr><tr><td><b>078 </b></td><td>VANRHYNSDORP</td><td>134</td><td>263</td><td>168</td><td>479</td><td>277</td><td>230</td><td>112</td><td>302</td><td>143</td><td><b>2108</b></td></tr><tr><td><b> 089</b></td><td>VREDENDAL</td><td>602</td><td>875</td><td>766</td><td>1098</td><td>2371</td><td>2672</td><td>1093</td><td>0</td><td>995</td><td><b>9932</b></td></tr><tr><td><b> 091</b></td><td>LUITZVILLE</td><td>802</td><td>662</td><td>939</td><td>2197</td><td>1852</td><td>1193</td><td>2892</td><td>0</td><td>783</td><td><b>11320</b></td></tr></table>"}`,
+}
+
+var dgs3118 = JSON.parse(data.ps77);
+
+function getValue() {
+document.getElementById("ds1").innerHTML = dgs3118.description;
+}
+</script>
+</body>
+</html>

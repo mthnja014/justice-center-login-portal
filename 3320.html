@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3320 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Bonnievale, Ashton, Touws River, Barrydale">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+   <title>idw-gds3320</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+<body><fieldset><legend>3320 IDW</legend>
+
+<table style="width:flex">
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Touws River</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input1"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Barrydale</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input2"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Ashton</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input3"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Bonnievale</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input4"><br></td></tr>
+</table>
+
+<br><button type="button" onclick="myFun()">Compute IWD</button><br>
+<p id="ds"></p>
+<button type="button" onclick="getValue()"> Get Crime Statistics</button>
+<p id="ds1"></p>
+</fielset>
+
+<script>
+function myFun() {
+var touw = document.getElementById("input1").value;
+var barr = document.getElementById("input2").value;
+var asht = document.getElementById("input3").value;
+var bonn = document.getElementById("input4").value;
+
+var xcentr = 6371000*Math.cos(-33.5*Math.PI/180)*Math.cos(20.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-33.5*Math.PI/180)*Math.sin(20.5*Math.PI/180);
+
+var xtouw = 6371000*Math.cos(-33.33927*Math.PI/180)*Math.cos(20.03179*Math.PI/180);
+var ytouw = 6371000*Math.cos(-33.33927*Math.PI/180)*Math.sin(20.03179*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ytouw - ycentr), 2) + Math.pow(Math.abs(xtouw - xcentr), 2));
+var num1 = touw*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xbarr = 6371000*Math.cos(-33.90276*Math.PI/180)*Math.cos(20.72117*Math.PI/180);
+var ybarr = 6371000*Math.cos(-33.90276*Math.PI/180)*Math.sin(20.72117*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(ybarr - ycentr), 2) + Math.pow(Math.abs(xbarr - xcentr), 2));
+var num2 = barr*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xasht = 6371000*Math.cos(-33.83361*Math.PI/180)*Math.cos(20.06699*Math.PI/180);
+var yasht = 6371000*Math.cos(-33.83361*Math.PI/180)*Math.sin(20.06699*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(yasht - ycentr), 2) + Math.pow(Math.abs(xasht - xcentr), 2));
+var num3 = bonn*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xbonn = 6371000*Math.cos(-33.93905*Math.PI/180)*Math.cos(20.09825*Math.PI/180);
+var ybonn = 6371000*Math.cos(-33.93905*Math.PI/180)*Math.sin(20.09825*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(ybonn - ycentr), 2) + Math.pow(Math.abs(xbonn - xcentr), 2));
+var num4 = bonn*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var num = num1 + num2 + num3 + num4;
+var den = den1 + den2 + den3 + den4;
+
+var m = num/den;
+
+if (touw != "" && barr != "" && bonn != "" && asht != "") {
+document.getElementById("ds").innerHTML = m;
+}else {
+document.getElementById("ds").innerHTML = "Please Enter Values in All input fields!";}
+}
+</script>
+<script>
+var data = {
+"ps65":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>065 </b></td><td>TOUWS RIVER</td><td>334</td><td>367</td><td>269</td><td>289</td><td>239</td><td>531</td><td>417</td><td>263</td><td>219</td><td><b>2928</b></td></tr><tr><td><b>084 </b></td><td>BARRYDALE</td><td>64</td><td>93</td><td>126</td><td>412</td><td>236</td><td>274</td><td>193</td><td>97</td><td>384</td><td><b>1533</b></td></tr><tr><td><b>085 </b></td><td>ASHTON</td><td>471</td><td>387</td><td>452</td><td>279</td><td>372</td><td>331</td><td>165</td><td>254</td><td>173</td><td><b>2884</b></td></tr><tr><td><b> 093</b></td><td>BONNIEVALLE</td><td>731</td><td>511</td><td>903</td><td>3001</td><td>4243</td><td>2753</td><td>3142</td><td>0</td><td>2174</td><td><b>17458</b></td></tr></table>"}`,
+}
+var dgs3320 = JSON.parse(data.ps65);
+
+function getValue() {
+document.getElementById("ds1").innerHTML = dgs3320.description;
+}
+</script>
+</body>
+</html>

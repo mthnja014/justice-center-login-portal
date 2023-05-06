@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3420 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Suurbraak, Struisbaai, Bredasdorp,.Swellendam">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+   <title>idw-gds3420</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+<body><fieldset><legend>3420 IDW</legend>
+
+<table style="width:flex">
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Bredasdorp</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input1"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Swellendam</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input2"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Struisbaai</label></td><td style="background-color: rgb(230, 230, 230); "><input type="number" id="input3"></br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Suurbraak</label></td><td style="background-color: rgb(230, 230, 130);"><input type="number" id="input4"></br></td></tr>
+</table>
+
+<br><button type="button" onclick="myFunction()">Compute IWD</button><br>
+<p id="ds"></p>
+<button type="button" onclick="getValue()"> Get Crime Statistics</button><br>
+<p id="ds1"></p>
+</fielset>
+
+<script>
+function myFunction() {
+var bred = document.getElementById("input1").value;
+var swel = document.getElementById("input2").value;
+var stru = document.getElementById("input3").value;
+var suur = document.getElementById("input4").value;
+
+var xcentr = 6371000*Math.cos(-34.5*Math.PI/180)*Math.cos(20.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-34.5*Math.PI/180)*Math.sin(20.5*Math.PI/180);
+
+var xbred = 6371000*Math.cos(-34.53644*Math.PI/180)*Math.cos(20.04727*Math.PI/180);
+var ybred = 6371000*Math.cos(-34.53644*Math.PI/180)*Math.sin(20.04727*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ybred - ycentr), 2) + Math.pow(Math.abs(xbred - xcentr), 2));
+var num1 = bred*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xswel = 6371000*Math.cos(-34.02047*Math.PI/180)*Math.cos(20.44455*Math.PI/180);
+var yswel = 6371000*Math.cos(-34.02047*Math.PI/180)*Math.sin(20.44455*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(yswel - ycentr), 2) + Math.pow(Math.abs(xswel - xcentr), 2));
+var num2 = swel*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xstru = 6371000*Math.cos(-34.80059*Math.PI/180)*Math.cos(20.05088*Math.PI/180);
+var ystru = 6371000*Math.cos(-34.80059*Math.PI/180)*Math.sin(20.05088*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(ystru - ycentr), 2) + Math.pow(Math.abs(xstru - xcentr), 2));
+var num3 = stru*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xstru = 6371000*Math.cos(-34.80059*Math.PI/180)*Math.cos(20.05088*Math.PI/180);
+var ystru = 6371000*Math.cos(-34.80059*Math.PI/180)*Math.sin(20.05088*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(ystru - ycentr), 2) + Math.pow(Math.abs(xstru - xcentr), 2));
+var num3 = stru*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xsuur = 6371000*Math.cos(-34.0046*Math.PI/180)*Math.cos(20.654*Math.PI/180);
+var ysuur = 6371000*Math.cos(-34.0046*Math.PI/180)*Math.sin(20.654*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(ysuur - ycentr), 2) + Math.pow(Math.abs(xsuur - xcentr), 2));
+var num4 = suur*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var num = num1 + num2 + num3 + num4;
+var den = den1 + den2 + den3 + den4;
+
+m = num/den;
+
+if (bred != 0) {
+document.getElementById("ds").innerHTML = m;}
+}
+</script>
+<script>
+var data = {
+"ps3":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b>003 </b></td><td>BREDASDORP</td><td>51</td><td>87</td><td>361</td><td>541</td><td>806</td><td>701</td><td>112</td><td>0</td><td>21</td><td><b>2180</b></td></tr><tr><td><b> 021</b></td><td>SWELLENDAM</td><td>487</td><td>307</td><td>796</td><td>2897</td><td>1457</td><td>1791</td><td>2157</td><td>0</td><td>876</td><td><b>10768</b></td></tr><tr><td><b>048 </b></td><td>SRUISBAAI</td><td>119</td><td>452</td><td>391</td><td>171</td><td>146</td><td>320</td><td>97</td><td>136</td><td>135</td><td><b>1967</b></td></tr><tr><td><b> 066</b></td><td>SUURBRAAK</td><td>346</td><td>401</td><td>509</td><td>633</td><td>547</td><td>621</td><td>815</td><td>0</td><td>674</td><td><b>4546</b></tr></table>"}`,
+}
+var dgs3420 = JSON.parse(data.ps3);
+
+function getValue() {
+document.getElementById("ds1").innerHTML = dgs3420.description;
+}
+</script>
+</body>
+</html>

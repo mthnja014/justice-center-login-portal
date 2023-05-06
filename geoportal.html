@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">  
+<meta name="description" content="A map of Western Cape SAPS crime statistics">  
+<meta name="keywords" content="Western Cape, SAPS, Crime, Statistics, Degree Squares">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="mapExtent" content="Bottom Left Corner [-35, 17]</br>Top Right Corner [-28, 25]">
+<meta name="initialView" content="[-33, 19.5]">
+<meta name="initialZooom" content="9">
+<meta name="Type" content="Map">
+<meta name="scaleControl" content="position: bottom-right, maxWidth: 100, metric: true, imperial: true">
+<meta name="Number of Police points" content="125">
+<meta name="layersPosition" content="topRight">
+<meta name="initialZooom" content="9">
+<meta name="Physical Format" content="Digital Map">
+<meta name="Country" content="Republic of South Africa">
+<meta name="Province" content="Western Cape">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+<meta name="Hardware" content="LG-014 desktop, C20 Smartphone">
+<meta name="Software" content="GitHub">
+<meta name="File System" content="Windows, Android">
     <title>Police Stations WCPS</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
@@ -79,6 +100,15 @@ align-items: center;
 display: flex;
 margin-top: 16px;
 }
+.cl{
+justify-content: center;
+align-items: center;
+display: flex;
+margin-top: 16px;
+}
+#cl {
+position: absolute; left: 305px; top: 30px;
+}
 #dictionary {
 position: absolute; left: 305px; top: 80px;
 width: 70px;
@@ -144,15 +174,18 @@ right: 10px;
     padding: 0;
     margin: 0;
 }
-#demo
-{position: absolute; top: 80%;}
+#demo {
+position: absolute;
+top: 80%;
+left: 5%;
+}
 #inputa {
 position: absolute; top: 80px; left: 380px;
 }
     </style>
 <body>
 <div id="banner1">
-<p>Western Cape 2020 Crime Statistics</p></div><br><div>
+<p>Western Cape Crime Statistics</p></div><br><div>
 
 
 <script>
@@ -166,15 +199,15 @@ position: absolute; top: 80px; left: 380px;
       function validateForm()     
 </script>
 
-<form action="table.html" onsubmit="return validateForm()">
-<div class="diagrams"><button id="diagrams">Statistics Tables</button></div>
+<form action="stats_analysis.html" onsubmit="return validateForm()">
+<div class="diagrams"><button id="diagrams">Statistical Analysis</button></div>
 </form>
 <script>
       function validateForm()     
 </script>
 
-<form action="metadata.html" onsubmit="return validateForm()">
-<div class="metadata"><button id="metadata">Metadata</button></div>
+<form action="degree_squares.html" onsubmit="return validateForm()">
+<div class="metadata"><button id="metadata">Degree Squares</button></div>
 </form>
 <script>
       function validateForm()     
@@ -3092,10 +3125,11 @@ cn.fillText("Map Extent", 45, 165);
 
 </script>
 
-   <p1 id="demo"></p1>
+   
 
    <form>
       <input type="text" name="inputa" id="inputa" placeholder="type to search data">
+       <input type="reset" class="cl" id="cl" value="clear text">
       <div class="dictionary"><button id="dictionary" type="button" onclick="getValue()"> Search Data </button></div>
    </form>
 
@@ -3327,7 +3361,7 @@ var data = {
 `{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>LEEU GAMKA</td><td>3221DD</td></tr></table>"}`,
       
 "ps70":
-`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>THEMBALETHU</td><td>3422</td></tr></table>"}`,
+`{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color:rgb(255, 255, 100)'><td>THEMBALETHU</td><td>3422AB</td></tr></table>"}`,
       
 "ps71":
 `{"description": "<table style='width:flex; border: 2px solid black'><tr style='background-color: rgb(255, 25, 20);'><td ><b>PS Name</td><td><b>degree square</b></td></tr><tr style='background-color: rgb(20, 255, 20);'><td>KWANONQABA</td><td>3422AA</td></tr></table>"}`,
@@ -3874,6 +3908,7 @@ document.getElementById("demo").innerHTML = err.description;}
 }
 
 </script>
+<p1 id="demo"></p1>
 <div>
 <center><canvas id="myCanvas" width="150" height="200" style="border: 0.5px dotted black ;">
 </div>

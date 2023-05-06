@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3218 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Gaafwater, Vredenburg, Piketberg, Redelinghuys, St Helana Bay, Vanrhynsdorp, Laaiplek, Lambertsbaai, Clanwilliam">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+
+   <title>idw-gds3218</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+
+</style>
+</head>
+
+<body><fieldset><legend>3218 IDW</legend>
+<table>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Gaafwater</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" name="input1" id="input1"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Piketberg</label><br></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input2" id="input2"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Redelinghuys</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" name="input3" id="input3"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>St Helana Bay</label><br></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input8" id="input8"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Vredenburg</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" name="input4" id="input4"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Clanwilliam</label><br></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input5" id="input5"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Lambertsbaai</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" name="input7" id="input7"><br></td></tr>
+<tr><td style="background-color: rgb(25, 255, 200);"><label>Laaiplek</label><br></td><td style="background-color: rgb(230, 230, 130);"><input type="number" name="input6" id="input6"><br></td></tr>
+</table>
+
+<br><button type="button" onclick="myFunction()">Compute IWD</button>  <input type="reset" value="Clear All";><br>
+<p id="ds"></p>
+
+      <button type="button" onclick="getValue()"> Get Crime Statistics </button>
+
+<p id="ds1"></p>
+</fielset>
+
+<script> 
+function myFunction() {
+var graf = document.getElementById("input1").value;
+var pike = document.getElementById("input2").value;
+var rede = document.getElementById("input3").value;
+var vred = document.getElementById("input4").value;
+var clan = document.getElementById("input5").value;
+var laai = document.getElementById("input6").value;
+var lamb = document.getElementById("input7").value;
+var sthe = document.getElementById("input8").value;
+
+var xcentr = 6371000*Math.cos(-32.5*Math.PI/180)*Math.cos(18.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-32.5*Math.PI/180)*Math.sin(18.5*Math.PI/180);
+
+var xgraf = 6371000*Math.cos(-32.15174*Math.PI/180)*Math.cos(18.60647*Math.PI/180);
+var ygraf = 6371000*Math.cos(-32.15174*Math.PI/180)*Math.sin(18.60647*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ygraf - ycentr), 2) + Math.pow(Math.abs(xgraf - xcentr), 2));
+var num1 = graf*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+
+var xpike = 6371000*Math.cos(-32.90627*Math.PI/180)*Math.cos(18.75449*Math.PI/180);
+var ypike = 6371000*Math.cos(-32.90627*Math.PI/180)*Math.sin(18.75449*Math.PI/180);
+var d2 = Math.sqrt(Math.pow(Math.abs(ypike - ycentr), 2) + Math.pow(Math.abs(xpike - xcentr), 2));
+var num2 = pike*Math.pow(1/d2, 2);
+var den2 = Math.pow(1/d2, 2);
+
+var xrede = 6371000*Math.cos(-32.47741*Math.PI/180)*Math.cos(18.53737*Math.PI/180);
+var yrede = 6371000*Math.cos(-32.47741*Math.PI/180)*Math.sin(18.53737*Math.PI/180);
+var d3 = Math.sqrt(Math.pow(Math.abs(yrede - ycentr), 2) + Math.pow(Math.abs(xrede - xcentr), 2));
+var num3 = rede*Math.pow(1/d3, 2);
+var den3 = Math.pow(1/d3, 2);
+
+var xvred = 6371000*Math.cos(-32.90673*Math.PI/180)*Math.cos(18.00228*Math.PI/180);
+var yvred = 6371000*Math.cos(-32.90673*Math.PI/180)*Math.sin(18.00228*Math.PI/180);
+var d4 = Math.sqrt(Math.pow(Math.abs(yvred - ycentr), 2) + Math.pow(Math.abs(xvred - xcentr), 2));
+var num4 = vred*Math.pow(1/d4, 2);
+var den4 = Math.pow(1/d4, 2);
+
+var xclan = 6371000*Math.cos(-32.17615*Math.PI/180)*Math.cos(18.89226*Math.PI/180);
+var yclan = 6371000*Math.cos(-32.17615*Math.PI/180)*Math.sin(18.89226*Math.PI/180);
+var d5 = Math.sqrt(Math.pow(Math.abs(yclan - ycentr), 2) + Math.pow(Math.abs(xclan - xcentr), 2));
+var num5 = clan*Math.pow(1/d5, 2);
+var den5 = Math.pow(1/d5, 2);
+
+var xlaai = 6371000*Math.cos(-32.77115*Math.PI/180)*Math.cos(18.15646*Math.PI/180);
+var ylaai = 6371000*Math.cos(-32.77115*Math.PI/180)*Math.sin(18.15646*Math.PI/180);
+var d6 = Math.sqrt(Math.pow(Math.abs(ylaai - ycentr), 2) + Math.pow(Math.abs(xlaai - xcentr), 2));
+var num6 = laai*Math.pow(1/d6, 2);
+var den6 = Math.pow(1/d6, 2);
+
+var xlamb = 6371000*Math.cos(-32.09251*Math.PI/180)*Math.cos(18.30541*Math.PI/180);
+var ylamb = 6371000*Math.cos(-32.09251*Math.PI/180)*Math.sin(18.30541*Math.PI/180);
+var d7 = Math.sqrt(Math.pow(Math.abs(ylamb - ycentr), 2) + Math.pow(Math.abs(xlamb - xcentr), 2));
+var num7 = lamb*Math.pow(1/d7, 2);
+var den7 = Math.pow(1/d7, 2);
+
+var xsthe = 6371000*Math.cos(-32.75816*Math.PI/180)*Math.cos(18.02407*Math.PI/180);
+var ysthe = 6371000*Math.cos(-32.75816*Math.PI/180)*Math.sin(18.02407*Math.PI/180);
+var d8 = Math.sqrt(Math.pow(Math.abs(ysthe - ycentr), 2) + Math.pow(Math.abs(xsthe - xcentr), 2));
+var num8 = sthe*Math.pow(1/d8, 2);
+var den8 = Math.pow(1/d8, 2);
+
+var num = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8;
+var den = den1 + den2 + den3 + den4 + den5 + den6 + den7 + den8;
+
+var m = num/den;
+
+if (graf != "" && pike != "" && rede != "" && vred != "" && clan != "" && laai != "") {
+document.getElementById("ds").innerHTML = m;
+}else{
+document.getElementById("ds").innerHTML = "Please Insert Values In All Fields!";}
+}
+</script>
+<script>
+
+var data = {
+"ps1":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td></tr><tr><td><b> 001</b></td><td>GRAAFWATER</td><td>530</td><td>689</td><td>582</td><td>762</td><td>571</td><td>141</td><td>850</td><td>0</td><td>382</td><td><b>4467</b></tr><tr><td><b> 014</b></td><td>PITEKBERG</td><td>762</td><td>329</td><td>1576</td><td>1978</td><td>2041</td><td>2096</td><td>3298</td><td>0</td><td>987</td><td><b>13067</b></td></tr><tr><td><b>015 </b></td><td>REDELINGHUS</td><td>51</td><td>187</td><td>199</td><td>145</td><td>431</td><td>512</td><td>98</td><td>243</td><td>85</td><td><b>1951</b></td></tr><tr><td><b>016 </b></td><td>ST HELANA BAY</td><td>754</td><td>898</td><td>1097</td><td>875</td><td>923</td><td>913</td><td>1083</td><td>0</td><td>1476</td><td><b>8019</b></td></tr><tr><td><b> 017</b></td><td>VREDENBERG</td><td>247</td><td>312</td><td>534</td><td>681</td><td>739</td><td>481</td><td>724</td><td>0</td><td>346</td><td><b>4064</b></tr><tr><td><b> 019</b></td><td>CLANWILLIAM</td><td>325</td><td>243</td><td>987</td><td>1478</td><td>2901</td><td>2043</td><td>1568</td><td>1</td><td>702</td><td><b>10275</b></td></tr><tr><td><b>075 </b></td><td>LAMBERBAAI</td><td>874</td><td>683</td><td>914</td><td>819</td><td>1092</td><td>2007</td><td>923</td><td>0</td><td>1594</td><td><b>8906</b></td></tr><tr><td><b>110 </b></td><td>LAAIPLEK</td><td>643</td><td>443</td><td>741</td><td>862</td><td>721</td><td>1698</td><td>669</td><td>0</td><td>1541</td><td><b>7318</b></td></tr></table>"}`,
+}
+
+function getValue() {
+var dgs3218 = JSON.parse(data.ps1);
+document.getElementById("ds1").innerHTML = dgs3218.description;
+}
+</script>
+</body>
+</html>

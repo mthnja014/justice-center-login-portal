@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="description" content="degree square 3222 IDW calculator">  
+<meta name="keywords" content="Western Cape, SAPS, police stations, IDW, Beaufort West">  
+<meta name="author" content="Mthiyane, N M">
+<meta name="Publishing Agency" content="InterGeomatics Pty Ltd">  
+<meta name="Date of Creation" content="2023">
+<meta name="Contact Information" content="Physical Address: 1876 Umzunjani drive, Inanda, 4309. Email address:mthnja014@myuct.ac.za">
+
+   <title>idw-gds3222</title>
+<style>
+td {
+   border : 1px solid black;
+background-color: rgb(255, 255, 200);
+  }    
+th {
+width: 50px;
+}
+table {
+width: flex; border: 2px solid black;
+}
+</style>
+</head>
+<body><fieldset><legend>3222 IDW</legend>
+
+<table style="width: flex"><tr><td style="background-color: rgb(25, 255, 200);"><label>Beaufort West</label><br></td><td style="background-color: rgb(230, 230, 230);"><input type="number" id="input1"></td></tr></table>
+<br><button type="button" onclick="myFunct()">Compute IWD</button><br>
+
+<p id="ds"></p>
+<form>
+
+      <button type="button" onclick="getValue()"> Get Crime Statistics </button>
+   </form>
+<p id="ds1"></p>
+</fielset>
+
+
+<script>
+function myFunct() {
+var beaf = document.getElementById("input1").value;
+
+var xcentr = 6371000*Math.cos(-32.5*Math.PI/180)*Math.cos(22.5*Math.PI/180);
+var ycentr = 6371000*Math.cos(-32.5*Math.PI/180)*Math.sin(22.5*Math.PI/180);
+
+var xbeaf = 6371000*Math.cos(-32.34946*Math.PI/180)*Math.cos(22.58486*Math.PI/180);
+var ybeaf = 6371000*Math.cos(-32.34946*Math.PI/180)*Math.sin(22.58486*Math.PI/180);
+var d1 = Math.sqrt(Math.pow(Math.abs(ybeaf - ycentr), 2) + Math.pow(Math.abs(xbeaf - xcentr), 2));
+var num1 = beaf*Math.pow(1/d1, 2);
+var den1 = Math.pow(1/d1, 2);
+var m = num1/den1;
+
+if (beaf != "") {
+document.getElementById("ds").innerHTML = m;
+}else{
+document.getElementById("ds").innerHTML = "Please Insert Values in All Input Fields!";}
+}
+</script>
+<script>
+var data={
+"ps109":
+`{"description": "<table><tr><td><b>ps_id</b></td><td><b>police station name</b></td><td><b>Attempted Murder</b></td><td><b>Murder</b></td><td><b>sexual offenses</b></td><td><b>Assault</b></td><td><b>Robbery</b></td><td><b>Carjacking</b></td><td><b>Burglary</b></td><td><b>Bank Robbery</b></td><td><b>Illegal pos. of firearm</b><td><b>Total cases</b></td><tr><td><b>109 </b></td><td>BEAUFORT WEST</td><td>478</td><td>352</td><td>807</td><td>966</td><td>1578</td><td>2092</td><td>1347</td><td>0</td><td>1182</td><td><b>8982</b></td></tr></table>"}`,
+}
+var obj109 = JSON.parse(data.ps109);
+function getValue() {
+document.getElementById("ds1").innerHTML = obj109.description;
+}
+</script>
